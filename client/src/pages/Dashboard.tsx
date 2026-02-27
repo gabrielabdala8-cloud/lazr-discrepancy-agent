@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,13 +8,25 @@ import { Streamdown } from "streamdown";
 import {
   AlertTriangle, TrendingUp, TrendingDown, Users, RefreshCw,
   Send, Bot, ChevronUp, ChevronDown, ChevronsUpDown, Activity,
-  DollarSign, BarChart2, CheckCircle
+  DollarSign, BarChart2, CheckCircle, Calendar, Bell, ExternalLink
 } from "lucide-react";
 
 type SortKey = "customer" | "orders" | "totalDiscrepancy" | "discrepancyRate" | "severity";
 type SortDir = "asc" | "desc";
 
+// Quick date-range presets
+const PRESETS = [
+  { label: "Last 7d", days: 7 },
+  { label: "Last 30d", days: 30 },
+  { label: "Last 90d", days: 90 },
+  { label: "6 months", days: 180 },
+];
+
+function toISO(d: Date) { return d.toISOString().substring(0, 10); }
+function daysAgo(n: number) { const d = new Date(); d.setDate(d.getDate() - n); return toISO(d); }
+
 export default function Dashboard() {
+  const [, navigate] = useLocation();
   const [sortKey, setSortKey] = useState<SortKey>("totalDiscrepancy");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [search, setSearch] = useState("");
@@ -21,19 +34,27 @@ export default function Dashboard() {
   const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; text: string }[]>([]);
   const [chatLoading, setChatLoading] = useState(false);
   const [severityFilter, setSeverityFilter] = useState<"all" | "red" | "yellow" | "green">("all");
+  const [dateFrom, setDateFrom] = useState<string>(daysAgo(180));
+  const [dateTo, setDateTo] = useState<string>(toISO(new Date()));
+  const [activePreset, setActivePreset] = useState<number>(180);
 
-  const statsQ = trpc.discrepancy.getStats.useQuery(undefined, { refetchInterval: 5 * 60 * 1000 });
-  const customersQ = trpc.discrepancy.getCustomers.useQuery(undefined, { refetchInterval: 5 * 60 * 1000 });
+  const dateInput = useMemo(() => ({ from: dateFrom, to: dateTo }), [dateFrom, dateTo]);
+
+  const statsQ = trpc.discrepancy.getStats.useQuery(dateInput, { refetchInterval: 5 * 60 * 1000 });
+  const customersQ = trpc.discrepancy.getCustomers.useQuery(dateInput, { refetchInterval: 5 * 60 * 1000 });
   const refreshMut = trpc.discrepancy.refresh.useMutation({
-    onSuccess: () => {
-      statsQ.refetch();
-      customersQ.refetch();
-    },
+    onSuccess: () => { statsQ.refetch(); customersQ.refetch(); },
   });
   const chatMut = trpc.discrepancy.chat.useMutation();
 
   const stats = statsQ.data;
   const customers = customersQ.data ?? [];
+
+  function applyPreset(days: number) {
+    setActivePreset(days);
+    setDateFrom(daysAgo(days));
+    setDateTo(toISO(new Date()));
+  }
 
   const filtered = useMemo(() => {
     let rows = customers;
@@ -41,9 +62,7 @@ export default function Dashboard() {
       const q = search.toLowerCase();
       rows = rows.filter(c => c.customer.toLowerCase().includes(q));
     }
-    if (severityFilter !== "all") {
-      rows = rows.filter(c => c.severity === severityFilter);
-    }
+    if (severityFilter !== "all") rows = rows.filter(c => c.severity === severityFilter);
     return [...rows].sort((a, b) => {
       let va: number | string = 0, vb: number | string = 0;
       if (sortKey === "customer") { va = a.customer; vb = b.customer; }
@@ -76,7 +95,7 @@ export default function Dashboard() {
     setChatHistory(h => [...h, { role: "user", text: msg }]);
     setChatLoading(true);
     try {
-      const res = await chatMut.mutateAsync({ message: msg });
+      const res = await chatMut.mutateAsync({ message: msg, from: dateFrom, to: dateTo });
       const answer = typeof res.answer === "string" ? res.answer : "Unable to generate a response.";
       setChatHistory(h => [...h, { role: "ai", text: answer }]);
     } catch {
@@ -88,6 +107,7 @@ export default function Dashboard() {
 
   const isLoading = statsQ.isLoading || customersQ.isLoading;
   const hasError = statsQ.isError || customersQ.isError;
+  const criticalCount = stats?.criticalCount ?? 0;
 
   return (
     <div className="min-h-screen bg-background text-foreground font-mono">
@@ -97,21 +117,23 @@ export default function Dashboard() {
           <div className="flex items-center gap-3">
             <Activity className="w-5 h-5 text-cyan-400" />
             <span className="font-bold text-foreground tracking-tight">LAZR Discrepancy Agent</span>
-            <Badge variant="outline" className="text-xs text-cyan-400 border-cyan-400/40">All Customers · Last 6 Months</Badge>
+            <Badge variant="outline" className="text-xs text-cyan-400 border-cyan-400/40 hidden sm:flex">All Customers</Badge>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* Critical alert badge */}
+            {criticalCount > 0 && (
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-semibold">
+                <Bell className="w-3 h-3" />
+                {criticalCount} Critical
+              </div>
+            )}
             {stats?.lastFetched && (
-              <span className="text-xs text-muted-foreground hidden sm:block">
-                Updated: {new Date(stats.lastFetched).toLocaleString()}
+              <span className="text-xs text-muted-foreground hidden lg:block">
+                {new Date(stats.lastFetched).toLocaleString()}
               </span>
             )}
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => refreshMut.mutate()}
-              disabled={refreshMut.isPending}
-              className="border-cyan-400/40 text-cyan-400 hover:bg-cyan-400/10"
-            >
+            <Button size="sm" variant="outline" onClick={() => refreshMut.mutate()} disabled={refreshMut.isPending}
+              className="border-cyan-400/40 text-cyan-400 hover:bg-cyan-400/10">
               <RefreshCw className={`w-3.5 h-3.5 mr-1.5 ${refreshMut.isPending ? "animate-spin" : ""}`} />
               Refresh
             </Button>
@@ -119,39 +141,67 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="container py-6 space-y-6">
+      <main className="container py-5 space-y-5">
 
-        {/* ── Error / Loading ── */}
+        {/* ── Error ── */}
         {hasError && (
           <div className="rounded-lg border border-red-500/40 bg-red-500/10 p-4 text-red-400 text-sm flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 flex-shrink-0" />
-            Unable to connect to the database. Please verify your DB credentials in the environment variables.
+            Unable to connect to the database. Verify your DB credentials in environment variables.
           </div>
         )}
+
+        {/* ── Date Range Filter ── */}
+        <div className="rounded-lg border border-border bg-card p-3 flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="font-semibold text-foreground">Date Range</span>
+          </div>
+          {/* Presets */}
+          <div className="flex items-center gap-1.5">
+            {PRESETS.map(p => (
+              <button key={p.days} onClick={() => applyPreset(p.days)}
+                className={`text-xs px-2.5 py-1 rounded border transition-colors ${
+                  activePreset === p.days
+                    ? "bg-cyan-400/20 border-cyan-400/60 text-cyan-400"
+                    : "border-border text-muted-foreground hover:border-cyan-400/40 hover:text-foreground"
+                }`}>
+                {p.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-2 ml-auto">
+            <span className="text-xs text-muted-foreground">From</span>
+            <input type="date" value={dateFrom} onChange={e => { setDateFrom(e.target.value); setActivePreset(0); }}
+              className="text-xs bg-input border border-border rounded px-2 py-1 text-foreground focus:outline-none focus:border-cyan-400/60" />
+            <span className="text-xs text-muted-foreground">To</span>
+            <input type="date" value={dateTo} onChange={e => { setDateTo(e.target.value); setActivePreset(0); }}
+              className="text-xs bg-input border border-border rounded px-2 py-1 text-foreground focus:outline-none focus:border-cyan-400/60" />
+          </div>
+        </div>
 
         {/* ── KPI Cards ── */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <KpiCard icon={<Users className="w-4 h-4" />} label="Customers" value={isLoading ? "—" : String(stats?.totalCustomers ?? 0)} color="cyan" />
           <KpiCard icon={<BarChart2 className="w-4 h-4" />} label="Total Orders" value={isLoading ? "—" : String(stats?.totalOrders ?? 0)} color="cyan" />
-          <KpiCard icon={<DollarSign className="w-4 h-4" />} label="Net Discrepancy" value={isLoading ? "—" : `$${(stats?.totalDiscrepancy ?? 0).toLocaleString("en-CA", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} CAD`} color={stats && stats.totalDiscrepancy > 0 ? "red" : "green"} />
+          <KpiCard icon={<DollarSign className="w-4 h-4" />} label="Net Discrepancy"
+            value={isLoading ? "—" : `$${(stats?.totalDiscrepancy ?? 0).toLocaleString("en-CA", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} CAD`}
+            color={stats && stats.totalDiscrepancy > 0 ? "red" : "green"} />
           <KpiCard icon={<TrendingUp className="w-4 h-4" />} label="Overcharges" value={isLoading ? "—" : String(stats?.totalOvercharges ?? 0)} color="red" />
           <KpiCard icon={<TrendingDown className="w-4 h-4" />} label="Undercharges" value={isLoading ? "—" : String(stats?.totalUndercharges ?? 0)} color="yellow" />
           <KpiCard icon={<CheckCircle className="w-4 h-4" />} label="Avg Disc. Rate" value={isLoading ? "—" : `${(stats?.avgDiscrepancyRate ?? 0).toFixed(1)}%`} color="cyan" />
         </div>
 
-        {/* ── Main Content: Table + Chat ── */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        {/* ── Main Content ── */}
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
 
           {/* ── Customer Table ── */}
           <div className="xl:col-span-2 rounded-lg border border-border bg-card overflow-hidden">
             <div className="p-4 border-b border-border flex flex-col sm:flex-row sm:items-center gap-3">
               <h2 className="font-semibold text-foreground flex-1">Customer Discrepancy Breakdown</h2>
-              <div className="flex items-center gap-2">
-                {/* Severity filter */}
+              <div className="flex items-center gap-2 flex-wrap">
                 {(["all", "red", "yellow", "green"] as const).map(s => (
-                  <button
-                    key={s}
-                    onClick={() => setSeverityFilter(s)}
+                  <button key={s} onClick={() => setSeverityFilter(s)}
                     className={`text-xs px-2 py-1 rounded border transition-colors ${
                       severityFilter === s
                         ? s === "red" ? "bg-red-500/20 border-red-500/60 text-red-400"
@@ -159,17 +209,12 @@ export default function Dashboard() {
                           : s === "green" ? "bg-green-500/20 border-green-500/60 text-green-400"
                           : "bg-cyan-400/20 border-cyan-400/60 text-cyan-400"
                         : "border-border text-muted-foreground hover:border-border/80"
-                    }`}
-                  >
+                    }`}>
                     {s === "all" ? "All" : s.charAt(0).toUpperCase() + s.slice(1)}
                   </button>
                 ))}
-                <Input
-                  placeholder="Search customer…"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                  className="w-40 h-7 text-xs bg-input border-border"
-                />
+                <Input placeholder="Search…" value={search} onChange={e => setSearch(e.target.value)}
+                  className="w-36 h-7 text-xs bg-input border-border" />
               </div>
             </div>
 
@@ -177,28 +222,26 @@ export default function Dashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border bg-muted/30">
-                    {[
+                    {([
                       { key: "customer" as SortKey, label: "Customer" },
                       { key: "orders" as SortKey, label: "Orders" },
                       { key: "totalDiscrepancy" as SortKey, label: "Discrepancy (CAD)" },
                       { key: "discrepancyRate" as SortKey, label: "Rate %" },
                       { key: "severity" as SortKey, label: "Severity" },
-                    ].map(col => (
-                      <th
-                        key={col.key}
-                        className="px-4 py-2.5 text-left text-xs font-semibold text-muted-foreground cursor-pointer hover:text-foreground select-none whitespace-nowrap"
-                        onClick={() => toggleSort(col.key)}
-                      >
+                    ]).map(col => (
+                      <th key={col.key} onClick={() => toggleSort(col.key)}
+                        className="px-4 py-2.5 text-left text-xs font-semibold text-muted-foreground cursor-pointer hover:text-foreground select-none whitespace-nowrap">
                         <span className="flex items-center gap-1">{col.label} <SortIcon k={col.key} /></span>
                       </th>
                     ))}
+                    <th className="px-4 py-2.5 text-left text-xs font-semibold text-muted-foreground">Detail</th>
                   </tr>
                 </thead>
                 <tbody>
                   {isLoading ? (
                     Array.from({ length: 8 }).map((_, i) => (
                       <tr key={i} className="border-b border-border/50">
-                        {Array.from({ length: 5 }).map((_, j) => (
+                        {Array.from({ length: 6 }).map((_, j) => (
                           <td key={j} className="px-4 py-3">
                             <div className="h-4 bg-muted/40 rounded animate-pulse" style={{ width: j === 0 ? "80%" : "60%" }} />
                           </td>
@@ -206,11 +249,12 @@ export default function Dashboard() {
                       </tr>
                     ))
                   ) : filtered.length === 0 ? (
-                    <tr><td colSpan={5} className="px-4 py-8 text-center text-muted-foreground text-sm">No customers found</td></tr>
+                    <tr><td colSpan={6} className="px-4 py-8 text-center text-muted-foreground text-sm">No customers found</td></tr>
                   ) : (
                     filtered.map((c, i) => (
-                      <tr key={c.customer} className={`border-b border-border/50 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "" : "bg-muted/5"}`}>
-                        <td className="px-4 py-2.5 font-medium text-foreground max-w-[220px] truncate" title={c.customer}>{c.customer}</td>
+                      <tr key={c.customer}
+                        className={`border-b border-border/50 hover:bg-muted/20 transition-colors ${i % 2 === 0 ? "" : "bg-muted/5"}`}>
+                        <td className="px-4 py-2.5 font-medium text-foreground max-w-[200px] truncate" title={c.customer}>{c.customer}</td>
                         <td className="px-4 py-2.5 text-muted-foreground">{c.orders.toLocaleString()}</td>
                         <td className={`px-4 py-2.5 font-semibold tabular-nums ${c.totalDiscrepancy > 0 ? "text-red-400" : c.totalDiscrepancy < 0 ? "text-yellow-400" : "text-green-400"}`}>
                           {c.totalDiscrepancy >= 0 ? "+" : ""}${c.totalDiscrepancy.toLocaleString("en-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
@@ -221,6 +265,13 @@ export default function Dashboard() {
                             {c.severity === "red" ? "⚠ Critical" : c.severity === "yellow" ? "◆ Moderate" : "✓ Minor"}
                           </span>
                         </td>
+                        <td className="px-4 py-2.5">
+                          <button
+                            onClick={() => navigate(`/customer/${encodeURIComponent(c.customer)}?from=${dateFrom}&to=${dateTo}`)}
+                            className="flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <ExternalLink className="w-3 h-3" /> View
+                          </button>
+                        </td>
                       </tr>
                     ))
                   )}
@@ -228,7 +279,7 @@ export default function Dashboard() {
               </table>
             </div>
             <div className="px-4 py-2 border-t border-border text-xs text-muted-foreground">
-              Showing {filtered.length} of {customers.length} customers · Severity: Red &gt;$500 | Yellow $50–500 | Green &lt;$50
+              Showing {filtered.length} of {customers.length} customers · Red &gt;$500 | Yellow $50–500 | Green &lt;$50
             </div>
           </div>
 
@@ -239,11 +290,9 @@ export default function Dashboard() {
               <h2 className="font-semibold text-foreground">AI Discrepancy Agent</h2>
               <Badge variant="outline" className="text-xs text-cyan-400 border-cyan-400/40 ml-auto">GPT-4.1</Badge>
             </div>
-
-            {/* Chat messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ maxHeight: "420px" }}>
               {chatHistory.length === 0 && (
-                <div className="text-center text-muted-foreground text-sm py-6 space-y-3">
+                <div className="text-center text-muted-foreground text-sm py-4 space-y-3">
                   <Bot className="w-8 h-8 mx-auto text-cyan-400/40" />
                   <p>Ask me anything about billing discrepancies.</p>
                   <div className="space-y-2 text-left">
@@ -252,11 +301,8 @@ export default function Dashboard() {
                       "How many critical discrepancies are there?",
                       "What is the total net discrepancy in CAD?",
                     ].map(q => (
-                      <button
-                        key={q}
-                        onClick={() => { setChatInput(q); }}
-                        className="block w-full text-left text-xs px-3 py-2 rounded border border-border hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-colors text-muted-foreground hover:text-foreground"
-                      >
+                      <button key={q} onClick={() => setChatInput(q)}
+                        className="block w-full text-left text-xs px-3 py-2 rounded border border-border hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-colors text-muted-foreground hover:text-foreground">
                         {q}
                       </button>
                     ))}
@@ -284,23 +330,13 @@ export default function Dashboard() {
                 </div>
               )}
             </div>
-
-            {/* Input */}
             <div className="p-3 border-t border-border flex gap-2">
-              <Input
-                placeholder="Ask about discrepancies…"
-                value={chatInput}
+              <Input placeholder="Ask about discrepancies…" value={chatInput}
                 onChange={e => setChatInput(e.target.value)}
                 onKeyDown={e => e.key === "Enter" && sendChat()}
-                className="flex-1 text-sm bg-input border-border"
-                disabled={chatLoading}
-              />
-              <Button
-                size="sm"
-                onClick={sendChat}
-                disabled={chatLoading || !chatInput.trim()}
-                className="bg-cyan-400/20 text-cyan-400 border border-cyan-400/40 hover:bg-cyan-400/30"
-              >
+                className="flex-1 text-sm bg-input border-border" disabled={chatLoading} />
+              <Button size="sm" onClick={sendChat} disabled={chatLoading || !chatInput.trim()}
+                className="bg-cyan-400/20 text-cyan-400 border border-cyan-400/40 hover:bg-cyan-400/30">
                 <Send className="w-3.5 h-3.5" />
               </Button>
             </div>
@@ -312,16 +348,14 @@ export default function Dashboard() {
 }
 
 function KpiCard({ icon, label, value, color }: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
+  icon: React.ReactNode; label: string; value: string;
   color: "cyan" | "red" | "yellow" | "green";
 }) {
   const colors = {
-    cyan:   "border-cyan-400/30 text-cyan-400",
-    red:    "border-red-400/30 text-red-400",
+    cyan: "border-cyan-400/30 text-cyan-400",
+    red: "border-red-400/30 text-red-400",
     yellow: "border-yellow-400/30 text-yellow-400",
-    green:  "border-green-400/30 text-green-400",
+    green: "border-green-400/30 text-green-400",
   };
   return (
     <div className={`rounded-lg border bg-card p-3 ${colors[color]}`}>
