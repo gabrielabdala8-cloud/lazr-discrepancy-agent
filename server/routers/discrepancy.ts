@@ -1,7 +1,5 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
-import { pgQuery } from "../pgDb";
-import { DISCREPANCY_SQL } from "../discrepancyQuery";
 import { invokeLLM } from "../_core/llm";
 import { notifyOwner } from "../_core/notification";
 
@@ -26,35 +24,69 @@ export type OrderRow = {
 let cachedRows: OrderRow[] = [];
 let lastFetched: Date | null = null;
 let lastCriticalCount = 0;
+let csvFilename: string | null = null;
 
-export async function refreshData(): Promise<void> {
-  try {
-    const rows = await pgQuery<OrderRow>(DISCREPANCY_SQL);
-    cachedRows = rows;
-    lastFetched = new Date();
-    console.log(`[Discrepancy] Refreshed: ${cachedRows.length} rows at ${lastFetched.toISOString()}`);
+/** Parse CSV text into OrderRow array */
+export function parseCSV(text: string): OrderRow[] {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (lines.length < 2) return [];
 
-    // ── Critical alert: notify owner when new red discrepancies appear ────────
-    const stats = computeCustomerStats(rows);
-    const criticalCustomers = stats.filter(c => c.severity === "red");
-    const currentCriticalCount = criticalCustomers.length;
-
-    if (currentCriticalCount > lastCriticalCount && lastCriticalCount >= 0) {
-      const newCritical = criticalCustomers.slice(0, 5);
-      const alertLines = newCritical
-        .map(c => `• ${c.customer}: $${c.totalDiscrepancy.toFixed(2)} CAD (${c.orders} orders)`)
-        .join("\n");
-
-      await notifyOwner({
-        title: `⚠ ${currentCriticalCount} Critical Billing Discrepanc${currentCriticalCount === 1 ? "y" : "ies"} Detected`,
-        content: `The daily refresh found ${currentCriticalCount} customer(s) with critical billing discrepancies (>$500 CAD).\n\nTop offenders:\n${alertLines}\n\nRefreshed at: ${lastFetched.toISOString()}`,
-      });
-      console.log(`[Discrepancy] Alert sent: ${currentCriticalCount} critical customers`);
+  // Parse a CSV line respecting quoted fields
+  function parseLine(line: string): string[] {
+    const result: string[] = [];
+    let current = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') {
+        if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+        else inQuotes = !inQuotes;
+      } else if (ch === ',' && !inQuotes) {
+        result.push(current);
+        current = "";
+      } else {
+        current += ch;
+      }
     }
-    lastCriticalCount = currentCriticalCount;
-  } catch (err) {
-    console.error("[Discrepancy] Failed to refresh data:", err);
+    result.push(current);
+    return result;
   }
+
+  const headers = parseLine(lines[0]);
+  return lines.slice(1).map(line => {
+    const values = parseLine(line);
+    const row: Record<string, string> = {};
+    headers.forEach((h, i) => { row[h] = values[i] ?? ""; });
+    return row as OrderRow;
+  }).filter(r => Object.values(r).some(v => v !== ""));
+}
+
+/** Load CSV data into memory cache */
+export async function loadCSVData(csvText: string, filename?: string): Promise<void> {
+  const rows = parseCSV(csvText);
+  cachedRows = rows;
+  lastFetched = new Date();
+  csvFilename = filename ?? "uploaded.csv";
+  console.log(`[Discrepancy] Loaded CSV: ${rows.length} rows from ${csvFilename}`);
+
+  // ── Critical alert: notify owner when new red discrepancies appear ────────
+  const stats = computeCustomerStats(rows);
+  const criticalCustomers = stats.filter(c => c.severity === "red");
+  const currentCriticalCount = criticalCustomers.length;
+
+  if (currentCriticalCount > lastCriticalCount && lastCriticalCount >= 0) {
+    const newCritical = criticalCustomers.slice(0, 5);
+    const alertLines = newCritical
+      .map(c => `• ${c.customer}: $${c.totalDiscrepancy.toFixed(2)} CAD (${c.orders} orders)`)
+      .join("\n");
+
+    await notifyOwner({
+      title: `⚠ ${currentCriticalCount} Critical Billing Discrepanc${currentCriticalCount === 1 ? "y" : "ies"} Detected`,
+      content: `CSV upload found ${currentCriticalCount} customer(s) with critical billing discrepancies (>$500 CAD).\n\nTop offenders:\n${alertLines}\n\nLoaded at: ${lastFetched.toISOString()}`,
+    });
+    console.log(`[Discrepancy] Alert sent: ${currentCriticalCount} critical customers`);
+  }
+  lastCriticalCount = currentCriticalCount;
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -124,7 +156,6 @@ export const discrepancyRouter = router({
   getStats: publicProcedure
     .input(dateRangeInput)
     .query(async ({ input }) => {
-      if (cachedRows.length === 0) await refreshData();
       const rows = filterByDateRange(cachedRows, input?.from, input?.to);
       const stats = computeCustomerStats(rows);
       const totalDiscrepancy = stats.reduce((s, c) => s + c.totalDiscrepancy, 0);
@@ -139,6 +170,8 @@ export const discrepancyRouter = router({
         avgDiscrepancyRate: totalSelling > 0 ? Math.round((totalDiscrepancy / totalSelling) * 10000) / 100 : 0,
         criticalCount: stats.filter(c => c.severity === "red").length,
         lastFetched: lastFetched?.toISOString() ?? null,
+        csvFilename,
+        hasData: cachedRows.length > 0,
       };
     }),
 
@@ -146,7 +179,6 @@ export const discrepancyRouter = router({
   getCustomers: publicProcedure
     .input(dateRangeInput)
     .query(async ({ input }) => {
-      if (cachedRows.length === 0) await refreshData();
       const rows = filterByDateRange(cachedRows, input?.from, input?.to);
       return computeCustomerStats(rows);
     }),
@@ -159,7 +191,6 @@ export const discrepancyRouter = router({
       to: z.string().optional(),
     }))
     .query(async ({ input }) => {
-      if (cachedRows.length === 0) await refreshData();
       const rows = filterByDateRange(cachedRows, input.from, input.to)
         .filter(r => r["Organization Name"] === input.customer);
 
@@ -186,10 +217,29 @@ export const discrepancyRouter = router({
       }).sort((a, b) => Math.abs(b.discrepancy) - Math.abs(a.discrepancy));
     }),
 
-  /** Manual refresh trigger */
-  refresh: publicProcedure.mutation(async () => {
-    await refreshData();
-    return { success: true, rows: cachedRows.length, lastFetched: lastFetched?.toISOString() };
+  /** Upload CSV data — receives base64-encoded CSV text */
+  uploadCSV: publicProcedure
+    .input(z.object({
+      csvText: z.string().min(1),
+      filename: z.string().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      await loadCSVData(input.csvText, input.filename);
+      return {
+        success: true,
+        rows: cachedRows.length,
+        lastFetched: lastFetched?.toISOString(),
+        filename: csvFilename,
+      };
+    }),
+
+  /** Clear loaded data */
+  clearData: publicProcedure.mutation(() => {
+    cachedRows = [];
+    lastFetched = null;
+    csvFilename = null;
+    lastCriticalCount = 0;
+    return { success: true };
   }),
 
   /** AI chat agent */
@@ -200,7 +250,6 @@ export const discrepancyRouter = router({
       to: z.string().optional(),
     }))
     .mutation(async ({ input }) => {
-      if (cachedRows.length === 0) await refreshData();
       const rows = filterByDateRange(cachedRows, input.from, input.to);
       const stats = computeCustomerStats(rows);
       const totalDisc = stats.reduce((s, c) => s + c.totalDiscrepancy, 0);
@@ -208,7 +257,7 @@ export const discrepancyRouter = router({
       const topUndercharged = stats.filter(c => c.totalDiscrepancy < 0).slice(0, 5);
       const dateContext = input.from || input.to
         ? `Date range: ${input.from ?? "start"} to ${input.to ?? "today"}`
-        : "Date range: last 6 months (all data)";
+        : "Date range: all data";
 
       const context = `
 You are a logistics billing analyst AI. You have access to the following discrepancy data.

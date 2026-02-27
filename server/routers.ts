@@ -2,14 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
-import { discrepancyRouter, refreshData } from "./routers/discrepancy";
-import cron from "node-cron";
-
-// Schedule daily refresh at 6:00 AM UTC
-cron.schedule("0 6 * * *", async () => {
-  console.log("[Cron] Running daily discrepancy data refresh...");
-  await refreshData();
-});
+import { discrepancyRouter } from "./routers/discrepancy";
 
 export const appRouter = router({
   system: systemRouter,
