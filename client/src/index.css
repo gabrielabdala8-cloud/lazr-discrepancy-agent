@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -52,30 +53,40 @@
   --chart-3: var(--color-blue-600);
   --chart-4: var(--color-blue-700);
   --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --radius: 0.5rem;
+  /* Dark navy theme matching AMD MEDICOM presentation */
+  --background: oklch(0.12 0.03 240);
+  --foreground: oklch(0.95 0.01 240);
+  --card: oklch(0.16 0.03 240);
+  --card-foreground: oklch(0.95 0.01 240);
+  --popover: oklch(0.16 0.03 240);
+  --popover-foreground: oklch(0.95 0.01 240);
+  --primary: oklch(0.72 0.18 200);
+  --primary-foreground: oklch(0.12 0.03 240);
+  --secondary: oklch(0.22 0.04 240);
+  --secondary-foreground: oklch(0.85 0.02 240);
+  --muted: oklch(0.20 0.03 240);
+  --muted-foreground: oklch(0.60 0.04 240);
+  --accent: oklch(0.72 0.18 200);
+  --accent-foreground: oklch(0.12 0.03 240);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.95 0.01 240);
+  --border: oklch(0.25 0.04 240);
+  --input: oklch(0.20 0.03 240);
+  --ring: oklch(0.72 0.18 200);
+  --chart-1: oklch(0.72 0.18 200);
+  --chart-2: oklch(0.65 0.20 145);
+  --chart-3: oklch(0.75 0.18 80);
+  --chart-4: oklch(0.60 0.22 25);
+  --chart-5: oklch(0.65 0.20 300);
+  --sidebar: oklch(0.14 0.03 240);
+  --sidebar-foreground: oklch(0.95 0.01 240);
+  --sidebar-primary: oklch(0.72 0.18 200);
+  --sidebar-primary-foreground: oklch(0.12 0.03 240);
+  --sidebar-accent: oklch(0.20 0.04 240);
+  --sidebar-accent-foreground: oklch(0.85 0.02 240);
+  --sidebar-border: oklch(0.22 0.04 240);
+  --sidebar-ring: oklch(0.72 0.18 200);
 }
 
 .dark {
@@ -119,6 +130,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', monospace;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -132,6 +144,17 @@
     @apply cursor-pointer;
   }
 }
+
+/* Severity badges */
+.severity-red    { @apply bg-red-500/20 text-red-400 border border-red-500/40 rounded px-2 py-0.5 text-xs font-semibold; }
+.severity-yellow { @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 rounded px-2 py-0.5 text-xs font-semibold; }
+.severity-green  { @apply bg-green-500/20 text-green-400 border border-green-500/40 rounded px-2 py-0.5 text-xs font-semibold; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: oklch(0.14 0.03 240); }
+::-webkit-scrollbar-thumb { background: oklch(0.30 0.05 240); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.72 0.18 200); }
 
 @layer components {
   /**
