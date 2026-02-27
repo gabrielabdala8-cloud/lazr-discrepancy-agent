@@ -6,7 +6,9 @@
   "framework": null,
   "functions": {
     "api/index.ts": {
-      "includeFiles": "server/**,shared/**,drizzle/**,dist/**"
+      "includeFiles": "server/**,shared/**,drizzle/**,dist/**",
+      "maxDuration": 30,
+      "tsconfig": "tsconfig.vercel.json"
     }
   },
   "rewrites": [

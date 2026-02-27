@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["api/**/*", "server/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "vite.config.ts", "client/**/*"],
+  "compilerOptions": {
+    "noEmit": false,
+    "types": ["node", "express"],
+    "allowImportingTsExtensions": false,
+    "moduleResolution": "bundler"
+  }
+}

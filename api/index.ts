@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { type Request, type Response } from "express";
 import path from "path";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "../server/_core/oauth";
@@ -24,7 +24,7 @@ app.use(
 );
 
 // Health check
-app.get("/api/health", (_req, res) => {
+app.get("/api/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
@@ -33,7 +33,7 @@ const distPath = path.join(process.cwd(), "dist", "public");
 app.use(express.static(distPath));
 
 // SPA fallback — serve index.html for all non-API routes
-app.get("*", (_req, res) => {
+app.get("*", (_req: Request, res: Response) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
