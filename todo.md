@@ -24,3 +24,10 @@
 - [x] Frontend: Alert badge showing count of new critical discrepancies since last refresh
 - [x] Tests: 16/16 vitest tests passing (added getOrdersByCustomer + date-range tests)
 - [x] Checkpoint and deliver
+
+## Vercel Build Fixes
+
+- [x] Fix client/index.html — remove analytics script tags causing build failure
+- [x] Verify vite.config.ts root points to client/ correctly
+- [x] Remove VITE_ANALYTICS references — not needed for this app
+- [x] Re-checkpoint and guide user to re-upload
