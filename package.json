@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "test": "vitest run",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
-    "build:vercel": "vite build && esbuild api/index.ts --platform=node --bundle --format=esm --outfile=api/bundle.mjs"
+    "build:vercel": "vite build && esbuild api/index.ts --platform=node --bundle --format=esm --outfile=api/index.js --banner:js=\"import { createRequire } from 'module'; const require = createRequire(import.meta.url);\""
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

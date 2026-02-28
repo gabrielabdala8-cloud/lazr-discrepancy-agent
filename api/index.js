@@ -1,11 +1,17 @@
-"use strict";
+import { createRequire } from 'module'; const require = createRequire(import.meta.url);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod) => function __require() {
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
+  if (typeof require !== "undefined") return require.apply(this, arguments);
+  throw Error('Dynamic require of "' + x + '" is not supported');
+});
+var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __export = (target, all3) => {
@@ -28,12 +34,11 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/package.json
 var require_package = __commonJS({
-  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/package.json"(exports2, module2) {
-    module2.exports = {
+  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/package.json"(exports, module) {
+    module.exports = {
       name: "dotenv",
       version: "17.2.3",
       description: "Loads environment variables from .env file",
@@ -100,11 +105,11 @@ var require_package = __commonJS({
 
 // node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/main.js
 var require_main = __commonJS({
-  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/main.js"(exports2, module2) {
-    var fs = require("fs");
-    var path2 = require("path");
-    var os = require("os");
-    var crypto3 = require("crypto");
+  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/main.js"(exports, module) {
+    var fs = __require("fs");
+    var path2 = __require("path");
+    var os = __require("os");
+    var crypto3 = __require("crypto");
     var packageJson = require_package();
     var version3 = packageJson.version;
     var TIPS = [
@@ -416,20 +421,20 @@ var require_main = __commonJS({
       parse: parse3,
       populate
     };
-    module2.exports.configDotenv = DotenvModule.configDotenv;
-    module2.exports._configVault = DotenvModule._configVault;
-    module2.exports._parseVault = DotenvModule._parseVault;
-    module2.exports.config = DotenvModule.config;
-    module2.exports.decrypt = DotenvModule.decrypt;
-    module2.exports.parse = DotenvModule.parse;
-    module2.exports.populate = DotenvModule.populate;
-    module2.exports = DotenvModule;
+    module.exports.configDotenv = DotenvModule.configDotenv;
+    module.exports._configVault = DotenvModule._configVault;
+    module.exports._parseVault = DotenvModule._parseVault;
+    module.exports.config = DotenvModule.config;
+    module.exports.decrypt = DotenvModule.decrypt;
+    module.exports.parse = DotenvModule.parse;
+    module.exports.populate = DotenvModule.populate;
+    module.exports = DotenvModule;
   }
 });
 
 // node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/env-options.js
 var require_env_options = __commonJS({
-  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/env-options.js"(exports2, module2) {
+  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/env-options.js"(exports, module) {
     var options = {};
     if (process.env.DOTENV_CONFIG_ENCODING != null) {
       options.encoding = process.env.DOTENV_CONFIG_ENCODING;
@@ -449,15 +454,15 @@ var require_env_options = __commonJS({
     if (process.env.DOTENV_CONFIG_DOTENV_KEY != null) {
       options.DOTENV_KEY = process.env.DOTENV_CONFIG_DOTENV_KEY;
     }
-    module2.exports = options;
+    module.exports = options;
   }
 });
 
 // node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/cli-options.js
 var require_cli_options = __commonJS({
-  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/cli-options.js"(exports2, module2) {
+  "node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/lib/cli-options.js"(exports, module) {
     var re = /^dotenv_config_(encoding|path|quiet|debug|override|DOTENV_KEY)=(.+)$/;
-    module2.exports = function optionMatcher(args) {
+    module.exports = function optionMatcher(args) {
       const options = args.reduce(function(acc, cur) {
         const matches = cur.match(re);
         if (matches) {
@@ -475,9 +480,9 @@ var require_cli_options = __commonJS({
 
 // node_modules/.pnpm/depd@2.0.0/node_modules/depd/index.js
 var require_depd = __commonJS({
-  "node_modules/.pnpm/depd@2.0.0/node_modules/depd/index.js"(exports2, module2) {
-    var relative = require("path").relative;
-    module2.exports = depd;
+  "node_modules/.pnpm/depd@2.0.0/node_modules/depd/index.js"(exports, module) {
+    var relative = __require("path").relative;
+    module.exports = depd;
     var basePath = process.cwd();
     function containsNamespace(str, namespace) {
       var vals = str.split(/[ ,]+/);
@@ -781,11 +786,11 @@ var require_depd = __commonJS({
 
 // node_modules/.pnpm/bytes@3.1.2/node_modules/bytes/index.js
 var require_bytes = __commonJS({
-  "node_modules/.pnpm/bytes@3.1.2/node_modules/bytes/index.js"(exports2, module2) {
+  "node_modules/.pnpm/bytes@3.1.2/node_modules/bytes/index.js"(exports, module) {
     "use strict";
-    module2.exports = bytes;
-    module2.exports.format = format;
-    module2.exports.parse = parse3;
+    module.exports = bytes;
+    module.exports.format = format;
+    module.exports.parse = parse3;
     var formatThousandsRegExp = /\B(?=(\d{3})+(?!\d))/g;
     var formatDecimalsRegExp = /(?:\.0*|(\.[^0]+)0+)$/;
     var map2 = {
@@ -870,7 +875,7 @@ var require_bytes = __commonJS({
 
 // node_modules/.pnpm/content-type@1.0.5/node_modules/content-type/index.js
 var require_content_type = __commonJS({
-  "node_modules/.pnpm/content-type@1.0.5/node_modules/content-type/index.js"(exports2) {
+  "node_modules/.pnpm/content-type@1.0.5/node_modules/content-type/index.js"(exports) {
     "use strict";
     var PARAM_REGEXP = /; *([!#$%&'*+.^_`|~0-9A-Za-z-]+) *= *("(?:[\u000b\u0020\u0021\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u000b\u0020-\u00ff])*"|[!#$%&'*+.^_`|~0-9A-Za-z-]+) */g;
     var TEXT_REGEXP = /^[\u000b\u0020-\u007e\u0080-\u00ff]+$/;
@@ -878,8 +883,8 @@ var require_content_type = __commonJS({
     var QESC_REGEXP = /\\([\u000b\u0020-\u00ff])/g;
     var QUOTE_REGEXP = /([\\"])/g;
     var TYPE_REGEXP = /^[!#$%&'*+.^_`|~0-9A-Za-z-]+\/[!#$%&'*+.^_`|~0-9A-Za-z-]+$/;
-    exports2.format = format;
-    exports2.parse = parse3;
+    exports.format = format;
+    exports.parse = parse3;
     function format(obj) {
       if (!obj || typeof obj !== "object") {
         throw new TypeError("argument obj is required");
@@ -974,9 +979,9 @@ var require_content_type = __commonJS({
 
 // node_modules/.pnpm/setprototypeof@1.2.0/node_modules/setprototypeof/index.js
 var require_setprototypeof = __commonJS({
-  "node_modules/.pnpm/setprototypeof@1.2.0/node_modules/setprototypeof/index.js"(exports2, module2) {
+  "node_modules/.pnpm/setprototypeof@1.2.0/node_modules/setprototypeof/index.js"(exports, module) {
     "use strict";
-    module2.exports = Object.setPrototypeOf || ({ __proto__: [] } instanceof Array ? setProtoOf : mixinProperties);
+    module.exports = Object.setPrototypeOf || ({ __proto__: [] } instanceof Array ? setProtoOf : mixinProperties);
     function setProtoOf(obj, proto) {
       obj.__proto__ = proto;
       return obj;
@@ -994,8 +999,8 @@ var require_setprototypeof = __commonJS({
 
 // node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/codes.json
 var require_codes = __commonJS({
-  "node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/codes.json"(exports2, module2) {
-    module2.exports = {
+  "node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/codes.json"(exports, module) {
+    module.exports = {
       "100": "Continue",
       "101": "Switching Protocols",
       "102": "Processing",
@@ -1065,10 +1070,10 @@ var require_codes = __commonJS({
 
 // node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/index.js
 var require_statuses = __commonJS({
-  "node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/index.js"(exports2, module2) {
+  "node_modules/.pnpm/statuses@2.0.1/node_modules/statuses/index.js"(exports, module) {
     "use strict";
     var codes = require_codes();
-    module2.exports = status;
+    module.exports = status;
     status.message = codes;
     status.code = createMessageToStatusCodeMap(codes);
     status.codes = createStatusCodeList(codes);
@@ -1136,9 +1141,9 @@ var require_statuses = __commonJS({
 
 // node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits_browser.js
 var require_inherits_browser = __commonJS({
-  "node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits_browser.js"(exports2, module2) {
+  "node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits_browser.js"(exports, module) {
     if (typeof Object.create === "function") {
-      module2.exports = function inherits2(ctor, superCtor) {
+      module.exports = function inherits2(ctor, superCtor) {
         if (superCtor) {
           ctor.super_ = superCtor;
           ctor.prototype = Object.create(superCtor.prototype, {
@@ -1152,7 +1157,7 @@ var require_inherits_browser = __commonJS({
         }
       };
     } else {
-      module2.exports = function inherits2(ctor, superCtor) {
+      module.exports = function inherits2(ctor, superCtor) {
         if (superCtor) {
           ctor.super_ = superCtor;
           var TempCtor = function() {
@@ -1168,13 +1173,13 @@ var require_inherits_browser = __commonJS({
 
 // node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits.js
 var require_inherits = __commonJS({
-  "node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits.js"(exports2, module2) {
+  "node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/inherits.js"(exports, module) {
     try {
-      util3 = require("util");
+      util3 = __require("util");
       if (typeof util3.inherits !== "function") throw "";
-      module2.exports = util3.inherits;
+      module.exports = util3.inherits;
     } catch (e) {
-      module2.exports = require_inherits_browser();
+      module.exports = require_inherits_browser();
     }
     var util3;
   }
@@ -1182,9 +1187,9 @@ var require_inherits = __commonJS({
 
 // node_modules/.pnpm/toidentifier@1.0.1/node_modules/toidentifier/index.js
 var require_toidentifier = __commonJS({
-  "node_modules/.pnpm/toidentifier@1.0.1/node_modules/toidentifier/index.js"(exports2, module2) {
+  "node_modules/.pnpm/toidentifier@1.0.1/node_modules/toidentifier/index.js"(exports, module) {
     "use strict";
-    module2.exports = toIdentifier;
+    module.exports = toIdentifier;
     function toIdentifier(str) {
       return str.split(" ").map(function(token) {
         return token.slice(0, 1).toUpperCase() + token.slice(1);
@@ -1195,17 +1200,17 @@ var require_toidentifier = __commonJS({
 
 // node_modules/.pnpm/http-errors@2.0.0/node_modules/http-errors/index.js
 var require_http_errors = __commonJS({
-  "node_modules/.pnpm/http-errors@2.0.0/node_modules/http-errors/index.js"(exports2, module2) {
+  "node_modules/.pnpm/http-errors@2.0.0/node_modules/http-errors/index.js"(exports, module) {
     "use strict";
     var deprecate = require_depd()("http-errors");
     var setPrototypeOf = require_setprototypeof();
     var statuses = require_statuses();
     var inherits2 = require_inherits();
     var toIdentifier = require_toidentifier();
-    module2.exports = createError;
-    module2.exports.HttpError = createHttpErrorConstructor();
-    module2.exports.isHttpError = createIsHttpErrorFunction(module2.exports.HttpError);
-    populateConstructorExports(module2.exports, statuses.codes, module2.exports.HttpError);
+    module.exports = createError;
+    module.exports.HttpError = createHttpErrorConstructor();
+    module.exports.isHttpError = createIsHttpErrorFunction(module.exports.HttpError);
+    populateConstructorExports(module.exports, statuses.codes, module.exports.HttpError);
     function codeClass(status) {
       return Number(String(status).charAt(0) + "00");
     }
@@ -1333,7 +1338,7 @@ var require_http_errors = __commonJS({
         Object.defineProperty(func, "name", desc2);
       }
     }
-    function populateConstructorExports(exports3, codes, HttpError2) {
+    function populateConstructorExports(exports2, codes, HttpError2) {
       codes.forEach(function forEachCode(code) {
         var CodeError;
         var name = toIdentifier(statuses.message[code]);
@@ -1346,8 +1351,8 @@ var require_http_errors = __commonJS({
             break;
         }
         if (CodeError) {
-          exports3[code] = CodeError;
-          exports3[name] = CodeError;
+          exports2[code] = CodeError;
+          exports2[name] = CodeError;
         }
       });
     }
@@ -1359,13 +1364,13 @@ var require_http_errors = __commonJS({
 
 // node_modules/.pnpm/ms@2.0.0/node_modules/ms/index.js
 var require_ms = __commonJS({
-  "node_modules/.pnpm/ms@2.0.0/node_modules/ms/index.js"(exports2, module2) {
+  "node_modules/.pnpm/ms@2.0.0/node_modules/ms/index.js"(exports, module) {
     var s = 1e3;
     var m = s * 60;
     var h = m * 60;
     var d = h * 24;
     var y = d * 365.25;
-    module2.exports = function(val, options) {
+    module.exports = function(val, options) {
       options = options || {};
       var type = typeof val;
       if (type === "string" && val.length > 0) {
@@ -1461,16 +1466,16 @@ var require_ms = __commonJS({
 
 // node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/debug.js
 var require_debug = __commonJS({
-  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/debug.js"(exports2, module2) {
-    exports2 = module2.exports = createDebug.debug = createDebug["default"] = createDebug;
-    exports2.coerce = coerce;
-    exports2.disable = disable;
-    exports2.enable = enable;
-    exports2.enabled = enabled;
-    exports2.humanize = require_ms();
-    exports2.names = [];
-    exports2.skips = [];
-    exports2.formatters = {};
+  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/debug.js"(exports, module) {
+    exports = module.exports = createDebug.debug = createDebug["default"] = createDebug;
+    exports.coerce = coerce;
+    exports.disable = disable;
+    exports.enable = enable;
+    exports.enabled = enabled;
+    exports.humanize = require_ms();
+    exports.names = [];
+    exports.skips = [];
+    exports.formatters = {};
     var prevTime;
     function selectColor(namespace) {
       var hash2 = 0, i;
@@ -1478,7 +1483,7 @@ var require_debug = __commonJS({
         hash2 = (hash2 << 5) - hash2 + namespace.charCodeAt(i);
         hash2 |= 0;
       }
-      return exports2.colors[Math.abs(hash2) % exports2.colors.length];
+      return exports.colors[Math.abs(hash2) % exports.colors.length];
     }
     function createDebug(namespace) {
       function debug() {
@@ -1494,7 +1499,7 @@ var require_debug = __commonJS({
         for (var i = 0; i < args.length; i++) {
           args[i] = arguments[i];
         }
-        args[0] = exports2.coerce(args[0]);
+        args[0] = exports.coerce(args[0]);
         if ("string" !== typeof args[0]) {
           args.unshift("%O");
         }
@@ -1502,7 +1507,7 @@ var require_debug = __commonJS({
         args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
           if (match === "%%") return match;
           index++;
-          var formatter = exports2.formatters[format];
+          var formatter = exports.formatters[format];
           if ("function" === typeof formatter) {
             var val = args[index];
             match = formatter.call(self2, val);
@@ -1511,47 +1516,47 @@ var require_debug = __commonJS({
           }
           return match;
         });
-        exports2.formatArgs.call(self2, args);
-        var logFn = debug.log || exports2.log || console.log.bind(console);
+        exports.formatArgs.call(self2, args);
+        var logFn = debug.log || exports.log || console.log.bind(console);
         logFn.apply(self2, args);
       }
       debug.namespace = namespace;
-      debug.enabled = exports2.enabled(namespace);
-      debug.useColors = exports2.useColors();
+      debug.enabled = exports.enabled(namespace);
+      debug.useColors = exports.useColors();
       debug.color = selectColor(namespace);
-      if ("function" === typeof exports2.init) {
-        exports2.init(debug);
+      if ("function" === typeof exports.init) {
+        exports.init(debug);
       }
       return debug;
     }
     function enable(namespaces) {
-      exports2.save(namespaces);
-      exports2.names = [];
-      exports2.skips = [];
+      exports.save(namespaces);
+      exports.names = [];
+      exports.skips = [];
       var split = (typeof namespaces === "string" ? namespaces : "").split(/[\s,]+/);
       var len = split.length;
       for (var i = 0; i < len; i++) {
         if (!split[i]) continue;
         namespaces = split[i].replace(/\*/g, ".*?");
         if (namespaces[0] === "-") {
-          exports2.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
+          exports.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
         } else {
-          exports2.names.push(new RegExp("^" + namespaces + "$"));
+          exports.names.push(new RegExp("^" + namespaces + "$"));
         }
       }
     }
     function disable() {
-      exports2.enable("");
+      exports.enable("");
     }
     function enabled(name) {
       var i, len;
-      for (i = 0, len = exports2.skips.length; i < len; i++) {
-        if (exports2.skips[i].test(name)) {
+      for (i = 0, len = exports.skips.length; i < len; i++) {
+        if (exports.skips[i].test(name)) {
           return false;
         }
       }
-      for (i = 0, len = exports2.names.length; i < len; i++) {
-        if (exports2.names[i].test(name)) {
+      for (i = 0, len = exports.names.length; i < len; i++) {
+        if (exports.names[i].test(name)) {
           return true;
         }
       }
@@ -1566,15 +1571,15 @@ var require_debug = __commonJS({
 
 // node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/browser.js"(exports2, module2) {
-    exports2 = module2.exports = require_debug();
-    exports2.log = log;
-    exports2.formatArgs = formatArgs;
-    exports2.save = save;
-    exports2.load = load;
-    exports2.useColors = useColors;
-    exports2.storage = "undefined" != typeof chrome && "undefined" != typeof chrome.storage ? chrome.storage.local : localstorage();
-    exports2.colors = [
+  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/browser.js"(exports, module) {
+    exports = module.exports = require_debug();
+    exports.log = log;
+    exports.formatArgs = formatArgs;
+    exports.save = save;
+    exports.load = load;
+    exports.useColors = useColors;
+    exports.storage = "undefined" != typeof chrome && "undefined" != typeof chrome.storage ? chrome.storage.local : localstorage();
+    exports.colors = [
       "lightseagreen",
       "forestgreen",
       "goldenrod",
@@ -1592,7 +1597,7 @@ var require_browser = __commonJS({
       typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // double check webkit in userAgent just in case we are in a worker
       typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
-    exports2.formatters.j = function(v) {
+    exports.formatters.j = function(v) {
       try {
         return JSON.stringify(v);
       } catch (err) {
@@ -1601,7 +1606,7 @@ var require_browser = __commonJS({
     };
     function formatArgs(args) {
       var useColors2 = this.useColors;
-      args[0] = (useColors2 ? "%c" : "") + this.namespace + (useColors2 ? " %c" : " ") + args[0] + (useColors2 ? "%c " : " ") + "+" + exports2.humanize(this.diff);
+      args[0] = (useColors2 ? "%c" : "") + this.namespace + (useColors2 ? " %c" : " ") + args[0] + (useColors2 ? "%c " : " ") + "+" + exports.humanize(this.diff);
       if (!useColors2) return;
       var c = "color: " + this.color;
       args.splice(1, 0, c, "color: inherit");
@@ -1622,9 +1627,9 @@ var require_browser = __commonJS({
     function save(namespaces) {
       try {
         if (null == namespaces) {
-          exports2.storage.removeItem("debug");
+          exports.storage.removeItem("debug");
         } else {
-          exports2.storage.debug = namespaces;
+          exports.storage.debug = namespaces;
         }
       } catch (e) {
       }
@@ -1632,7 +1637,7 @@ var require_browser = __commonJS({
     function load() {
       var r;
       try {
-        r = exports2.storage.debug;
+        r = exports.storage.debug;
       } catch (e) {
       }
       if (!r && typeof process !== "undefined" && "env" in process) {
@@ -1640,7 +1645,7 @@ var require_browser = __commonJS({
       }
       return r;
     }
-    exports2.enable(load());
+    exports.enable(load());
     function localstorage() {
       try {
         return window.localStorage;
@@ -1652,18 +1657,18 @@ var require_browser = __commonJS({
 
 // node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/node.js"(exports2, module2) {
-    var tty = require("tty");
-    var util3 = require("util");
-    exports2 = module2.exports = require_debug();
-    exports2.init = init;
-    exports2.log = log;
-    exports2.formatArgs = formatArgs;
-    exports2.save = save;
-    exports2.load = load;
-    exports2.useColors = useColors;
-    exports2.colors = [6, 2, 3, 4, 5, 1];
-    exports2.inspectOpts = Object.keys(process.env).filter(function(key) {
+  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/node.js"(exports, module) {
+    var tty = __require("tty");
+    var util3 = __require("util");
+    exports = module.exports = require_debug();
+    exports.init = init;
+    exports.log = log;
+    exports.formatArgs = formatArgs;
+    exports.save = save;
+    exports.load = load;
+    exports.useColors = useColors;
+    exports.colors = [6, 2, 3, 4, 5, 1];
+    exports.inspectOpts = Object.keys(process.env).filter(function(key) {
       return /^debug_/i.test(key);
     }).reduce(function(obj, key) {
       var prop = key.substring(6).toLowerCase().replace(/_([a-z])/g, function(_, k) {
@@ -1684,15 +1689,15 @@ var require_node = __commonJS({
     }
     var stream4 = 1 === fd ? process.stdout : 2 === fd ? process.stderr : createWritableStdioStream(fd);
     function useColors() {
-      return "colors" in exports2.inspectOpts ? Boolean(exports2.inspectOpts.colors) : tty.isatty(fd);
+      return "colors" in exports.inspectOpts ? Boolean(exports.inspectOpts.colors) : tty.isatty(fd);
     }
-    exports2.formatters.o = function(v) {
+    exports.formatters.o = function(v) {
       this.inspectOpts.colors = this.useColors;
       return util3.inspect(v, this.inspectOpts).split("\n").map(function(str) {
         return str.trim();
       }).join(" ");
     };
-    exports2.formatters.O = function(v) {
+    exports.formatters.O = function(v) {
       this.inspectOpts.colors = this.useColors;
       return util3.inspect(v, this.inspectOpts);
     };
@@ -1703,7 +1708,7 @@ var require_node = __commonJS({
         var c = this.color;
         var prefix = "  \x1B[3" + c + ";1m" + name + " \x1B[0m";
         args[0] = prefix + args[0].split("\n").join("\n" + prefix);
-        args.push("\x1B[3" + c + "m+" + exports2.humanize(this.diff) + "\x1B[0m");
+        args.push("\x1B[3" + c + "m+" + exports.humanize(this.diff) + "\x1B[0m");
       } else {
         args[0] = (/* @__PURE__ */ new Date()).toUTCString() + " " + name + " " + args[0];
       }
@@ -1733,13 +1738,13 @@ var require_node = __commonJS({
           }
           break;
         case "FILE":
-          var fs = require("fs");
+          var fs = __require("fs");
           stream5 = new fs.SyncWriteStream(fd2, { autoClose: false });
           stream5._type = "fs";
           break;
         case "PIPE":
         case "TCP":
-          var net = require("net");
+          var net = __require("net");
           stream5 = new net.Socket({
             fd: fd2,
             readable: false,
@@ -1761,35 +1766,35 @@ var require_node = __commonJS({
     }
     function init(debug) {
       debug.inspectOpts = {};
-      var keys = Object.keys(exports2.inspectOpts);
+      var keys = Object.keys(exports.inspectOpts);
       for (var i = 0; i < keys.length; i++) {
-        debug.inspectOpts[keys[i]] = exports2.inspectOpts[keys[i]];
+        debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
       }
     }
-    exports2.enable(load());
+    exports.enable(load());
   }
 });
 
 // node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/index.js"(exports2, module2) {
+  "node_modules/.pnpm/debug@2.6.9/node_modules/debug/src/index.js"(exports, module) {
     if (typeof process !== "undefined" && process.type === "renderer") {
-      module2.exports = require_browser();
+      module.exports = require_browser();
     } else {
-      module2.exports = require_node();
+      module.exports = require_node();
     }
   }
 });
 
 // node_modules/.pnpm/destroy@1.2.0/node_modules/destroy/index.js
 var require_destroy = __commonJS({
-  "node_modules/.pnpm/destroy@1.2.0/node_modules/destroy/index.js"(exports2, module2) {
+  "node_modules/.pnpm/destroy@1.2.0/node_modules/destroy/index.js"(exports, module) {
     "use strict";
-    var EventEmitter2 = require("events").EventEmitter;
-    var ReadStream = require("fs").ReadStream;
-    var Stream = require("stream");
-    var Zlib = require("zlib");
-    module2.exports = destroy;
+    var EventEmitter2 = __require("events").EventEmitter;
+    var ReadStream = __require("fs").ReadStream;
+    var Stream = __require("stream");
+    var Zlib = __require("zlib");
+    module.exports = destroy;
     function destroy(stream4, suppress) {
       if (isFsReadStream(stream4)) {
         destroyReadStream(stream4);
@@ -1870,9 +1875,9 @@ var require_destroy = __commonJS({
 
 // node_modules/.pnpm/safer-buffer@2.1.2/node_modules/safer-buffer/safer.js
 var require_safer = __commonJS({
-  "node_modules/.pnpm/safer-buffer@2.1.2/node_modules/safer-buffer/safer.js"(exports2, module2) {
+  "node_modules/.pnpm/safer-buffer@2.1.2/node_modules/safer-buffer/safer.js"(exports, module) {
     "use strict";
-    var buffer = require("buffer");
+    var buffer = __require("buffer");
     var Buffer2 = buffer.Buffer;
     var safer = {};
     var key;
@@ -1932,16 +1937,16 @@ var require_safer = __commonJS({
         safer.constants.MAX_STRING_LENGTH = safer.kStringMaxLength;
       }
     }
-    module2.exports = safer;
+    module.exports = safer;
   }
 });
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/bom-handling.js
 var require_bom_handling = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/bom-handling.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/bom-handling.js"(exports) {
     "use strict";
     var BOMChar = "\uFEFF";
-    exports2.PrependBOM = PrependBOMWrapper;
+    exports.PrependBOM = PrependBOMWrapper;
     function PrependBOMWrapper(encoder2, options) {
       this.encoder = encoder2;
       this.addBOM = true;
@@ -1956,7 +1961,7 @@ var require_bom_handling = __commonJS({
     PrependBOMWrapper.prototype.end = function() {
       return this.encoder.end();
     };
-    exports2.StripBOM = StripBOMWrapper;
+    exports.StripBOM = StripBOMWrapper;
     function StripBOMWrapper(decoder2, options) {
       this.decoder = decoder2;
       this.pass = false;
@@ -1982,10 +1987,10 @@ var require_bom_handling = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/internal.js
 var require_internal = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/internal.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/internal.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    module2.exports = {
+    module.exports = {
       // Encodings
       utf8: { type: "_internal", bomAware: true },
       cesu8: { type: "_internal", bomAware: true },
@@ -2014,7 +2019,7 @@ var require_internal = __commonJS({
     }
     InternalCodec.prototype.encoder = InternalEncoder;
     InternalCodec.prototype.decoder = InternalDecoder;
-    var StringDecoder = require("string_decoder").StringDecoder;
+    var StringDecoder = __require("string_decoder").StringDecoder;
     if (!StringDecoder.prototype.end)
       StringDecoder.prototype.end = function() {
       };
@@ -2126,10 +2131,10 @@ var require_internal = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf16.js
 var require_utf16 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf16.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf16.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2.utf16be = Utf16BECodec;
+    exports.utf16be = Utf16BECodec;
     function Utf16BECodec() {
     }
     Utf16BECodec.prototype.encoder = Utf16BEEncoder;
@@ -2170,7 +2175,7 @@ var require_utf16 = __commonJS({
     };
     Utf16BEDecoder.prototype.end = function() {
     };
-    exports2.utf16 = Utf16Codec;
+    exports.utf16 = Utf16Codec;
     function Utf16Codec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -2242,11 +2247,11 @@ var require_utf16 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf7.js
 var require_utf7 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf7.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/utf7.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2.utf7 = Utf7Codec;
-    exports2.unicode11utf7 = "utf7";
+    exports.utf7 = Utf7Codec;
+    exports.unicode11utf7 = "utf7";
     function Utf7Codec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -2323,7 +2328,7 @@ var require_utf7 = __commonJS({
       this.base64Accum = "";
       return res;
     };
-    exports2.utf7imap = Utf7IMAPCodec;
+    exports.utf7imap = Utf7IMAPCodec;
     function Utf7IMAPCodec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -2443,10 +2448,10 @@ var require_utf7 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-codec.js
 var require_sbcs_codec = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-codec.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-codec.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2._sbcs = SBCSCodec;
+    exports._sbcs = SBCSCodec;
     function SBCSCodec(codecOptions, iconv) {
       if (!codecOptions)
         throw new Error("SBCS codec is called without the data.");
@@ -2499,9 +2504,9 @@ var require_sbcs_codec = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data.js
 var require_sbcs_data = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       // Not supported by iconv, not sure why.
       "10029": "maccenteuro",
       "maccenteuro": {
@@ -2648,9 +2653,9 @@ var require_sbcs_data = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data-generated.js
 var require_sbcs_data_generated = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data-generated.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/sbcs-data-generated.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       "437": "cp437",
       "737": "cp737",
       "775": "cp775",
@@ -3103,10 +3108,10 @@ var require_sbcs_data_generated = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-codec.js
 var require_dbcs_codec = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-codec.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-codec.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2._dbcs = DBCSCodec;
+    exports._dbcs = DBCSCodec;
     var UNASSIGNED = -1;
     var GB18030_CODE = -2;
     var SEQ_START = -10;
@@ -3484,8 +3489,8 @@ var require_dbcs_codec = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/shiftjis.json
 var require_shiftjis = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/shiftjis.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/shiftjis.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 128],
       ["a1", "\uFF61", 62],
       ["8140", "\u3000\u3001\u3002\uFF0C\uFF0E\u30FB\uFF1A\uFF1B\uFF1F\uFF01\u309B\u309C\xB4\uFF40\xA8\uFF3E\uFFE3\uFF3F\u30FD\u30FE\u309D\u309E\u3003\u4EDD\u3005\u3006\u3007\u30FC\u2015\u2010\uFF0F\uFF3C\uFF5E\u2225\uFF5C\u2026\u2025\u2018\u2019\u201C\u201D\uFF08\uFF09\u3014\u3015\uFF3B\uFF3D\uFF5B\uFF5D\u3008", 9, "\uFF0B\uFF0D\xB1\xD7"],
@@ -3615,8 +3620,8 @@ var require_shiftjis = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/eucjp.json
 var require_eucjp = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/eucjp.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/eucjp.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["8ea1", "\uFF61", 62],
       ["a1a1", "\u3000\u3001\u3002\uFF0C\uFF0E\u30FB\uFF1A\uFF1B\uFF1F\uFF01\u309B\u309C\xB4\uFF40\xA8\uFF3E\uFFE3\uFF3F\u30FD\u30FE\u309D\u309E\u3003\u4EDD\u3005\u3006\u3007\u30FC\u2015\u2010\uFF0F\uFF3C\uFF5E\u2225\uFF5C\u2026\u2025\u2018\u2019\u201C\u201D\uFF08\uFF09\u3014\u3015\uFF3B\uFF3D\uFF5B\uFF5D\u3008", 9, "\uFF0B\uFF0D\xB1\xD7\xF7\uFF1D\u2260\uFF1C\uFF1E\u2266\u2267\u221E\u2234\u2642\u2640\xB0\u2032\u2033\u2103\uFFE5\uFF04\uFFE0\uFFE1\uFF05\uFF03\uFF06\uFF0A\uFF20\xA7\u2606\u2605\u25CB\u25CF\u25CE\u25C7"],
@@ -3803,8 +3808,8 @@ var require_eucjp = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp936.json
 var require_cp936 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp936.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp936.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127, "\u20AC"],
       ["8140", "\u4E02\u4E04\u4E05\u4E06\u4E0F\u4E12\u4E17\u4E1F\u4E20\u4E21\u4E23\u4E26\u4E29\u4E2E\u4E2F\u4E31\u4E33\u4E35\u4E37\u4E3C\u4E40\u4E41\u4E42\u4E44\u4E46\u4E4A\u4E51\u4E55\u4E57\u4E5A\u4E5B\u4E62\u4E63\u4E64\u4E65\u4E67\u4E68\u4E6A", 5, "\u4E72\u4E74", 9, "\u4E7F", 6, "\u4E87\u4E8A"],
       ["8180", "\u4E90\u4E96\u4E97\u4E99\u4E9C\u4E9D\u4E9E\u4EA3\u4EAA\u4EAF\u4EB0\u4EB1\u4EB4\u4EB6\u4EB7\u4EB8\u4EB9\u4EBC\u4EBD\u4EBE\u4EC8\u4ECC\u4ECF\u4ED0\u4ED2\u4EDA\u4EDB\u4EDC\u4EE0\u4EE2\u4EE6\u4EE7\u4EE9\u4EED\u4EEE\u4EEF\u4EF1\u4EF4\u4EF8\u4EF9\u4EFA\u4EFC\u4EFE\u4F00\u4F02", 6, "\u4F0B\u4F0C\u4F12", 4, "\u4F1C\u4F1D\u4F21\u4F23\u4F28\u4F29\u4F2C\u4F2D\u4F2E\u4F31\u4F33\u4F35\u4F37\u4F39\u4F3B\u4F3E", 4, "\u4F44\u4F45\u4F47", 5, "\u4F52\u4F54\u4F56\u4F61\u4F62\u4F66\u4F68\u4F6A\u4F6B\u4F6D\u4F6E\u4F71\u4F72\u4F75\u4F77\u4F78\u4F79\u4F7A\u4F7D\u4F80\u4F81\u4F82\u4F85\u4F86\u4F87\u4F8A\u4F8C\u4F8E\u4F90\u4F92\u4F93\u4F95\u4F96\u4F98\u4F99\u4F9A\u4F9C\u4F9E\u4F9F\u4FA1\u4FA2"],
@@ -4073,8 +4078,8 @@ var require_cp936 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gbk-added.json
 var require_gbk_added = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gbk-added.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gbk-added.json"(exports, module) {
+    module.exports = [
       ["a140", "\uE4C6", 62],
       ["a180", "\uE505", 32],
       ["a240", "\uE526", 62],
@@ -4134,15 +4139,15 @@ var require_gbk_added = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json
 var require_gb18030_ranges = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json"(exports2, module2) {
-    module2.exports = { uChars: [128, 165, 169, 178, 184, 216, 226, 235, 238, 244, 248, 251, 253, 258, 276, 284, 300, 325, 329, 334, 364, 463, 465, 467, 469, 471, 473, 475, 477, 506, 594, 610, 712, 716, 730, 930, 938, 962, 970, 1026, 1104, 1106, 8209, 8215, 8218, 8222, 8231, 8241, 8244, 8246, 8252, 8365, 8452, 8454, 8458, 8471, 8482, 8556, 8570, 8596, 8602, 8713, 8720, 8722, 8726, 8731, 8737, 8740, 8742, 8748, 8751, 8760, 8766, 8777, 8781, 8787, 8802, 8808, 8816, 8854, 8858, 8870, 8896, 8979, 9322, 9372, 9548, 9588, 9616, 9622, 9634, 9652, 9662, 9672, 9676, 9680, 9702, 9735, 9738, 9793, 9795, 11906, 11909, 11913, 11917, 11928, 11944, 11947, 11951, 11956, 11960, 11964, 11979, 12284, 12292, 12312, 12319, 12330, 12351, 12436, 12447, 12535, 12543, 12586, 12842, 12850, 12964, 13200, 13215, 13218, 13253, 13263, 13267, 13270, 13384, 13428, 13727, 13839, 13851, 14617, 14703, 14801, 14816, 14964, 15183, 15471, 15585, 16471, 16736, 17208, 17325, 17330, 17374, 17623, 17997, 18018, 18212, 18218, 18301, 18318, 18760, 18811, 18814, 18820, 18823, 18844, 18848, 18872, 19576, 19620, 19738, 19887, 40870, 59244, 59336, 59367, 59413, 59417, 59423, 59431, 59437, 59443, 59452, 59460, 59478, 59493, 63789, 63866, 63894, 63976, 63986, 64016, 64018, 64021, 64025, 64034, 64037, 64042, 65074, 65093, 65107, 65112, 65127, 65132, 65375, 65510, 65536], gbChars: [0, 36, 38, 45, 50, 81, 89, 95, 96, 100, 103, 104, 105, 109, 126, 133, 148, 172, 175, 179, 208, 306, 307, 308, 309, 310, 311, 312, 313, 341, 428, 443, 544, 545, 558, 741, 742, 749, 750, 805, 819, 820, 7922, 7924, 7925, 7927, 7934, 7943, 7944, 7945, 7950, 8062, 8148, 8149, 8152, 8164, 8174, 8236, 8240, 8262, 8264, 8374, 8380, 8381, 8384, 8388, 8390, 8392, 8393, 8394, 8396, 8401, 8406, 8416, 8419, 8424, 8437, 8439, 8445, 8482, 8485, 8496, 8521, 8603, 8936, 8946, 9046, 9050, 9063, 9066, 9076, 9092, 9100, 9108, 9111, 9113, 9131, 9162, 9164, 9218, 9219, 11329, 11331, 11334, 11336, 11346, 11361, 11363, 11366, 11370, 11372, 11375, 11389, 11682, 11686, 11687, 11692, 11694, 11714, 11716, 11723, 11725, 11730, 11736, 11982, 11989, 12102, 12336, 12348, 12350, 12384, 12393, 12395, 12397, 12510, 12553, 12851, 12962, 12973, 13738, 13823, 13919, 13933, 14080, 14298, 14585, 14698, 15583, 15847, 16318, 16434, 16438, 16481, 16729, 17102, 17122, 17315, 17320, 17402, 17418, 17859, 17909, 17911, 17915, 17916, 17936, 17939, 17961, 18664, 18703, 18814, 18962, 19043, 33469, 33470, 33471, 33484, 33485, 33490, 33497, 33501, 33505, 33513, 33520, 33536, 33550, 37845, 37921, 37948, 38029, 38038, 38064, 38065, 38066, 38069, 38075, 38076, 38078, 39108, 39109, 39113, 39114, 39115, 39116, 39265, 39394, 189e3] };
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json"(exports, module) {
+    module.exports = { uChars: [128, 165, 169, 178, 184, 216, 226, 235, 238, 244, 248, 251, 253, 258, 276, 284, 300, 325, 329, 334, 364, 463, 465, 467, 469, 471, 473, 475, 477, 506, 594, 610, 712, 716, 730, 930, 938, 962, 970, 1026, 1104, 1106, 8209, 8215, 8218, 8222, 8231, 8241, 8244, 8246, 8252, 8365, 8452, 8454, 8458, 8471, 8482, 8556, 8570, 8596, 8602, 8713, 8720, 8722, 8726, 8731, 8737, 8740, 8742, 8748, 8751, 8760, 8766, 8777, 8781, 8787, 8802, 8808, 8816, 8854, 8858, 8870, 8896, 8979, 9322, 9372, 9548, 9588, 9616, 9622, 9634, 9652, 9662, 9672, 9676, 9680, 9702, 9735, 9738, 9793, 9795, 11906, 11909, 11913, 11917, 11928, 11944, 11947, 11951, 11956, 11960, 11964, 11979, 12284, 12292, 12312, 12319, 12330, 12351, 12436, 12447, 12535, 12543, 12586, 12842, 12850, 12964, 13200, 13215, 13218, 13253, 13263, 13267, 13270, 13384, 13428, 13727, 13839, 13851, 14617, 14703, 14801, 14816, 14964, 15183, 15471, 15585, 16471, 16736, 17208, 17325, 17330, 17374, 17623, 17997, 18018, 18212, 18218, 18301, 18318, 18760, 18811, 18814, 18820, 18823, 18844, 18848, 18872, 19576, 19620, 19738, 19887, 40870, 59244, 59336, 59367, 59413, 59417, 59423, 59431, 59437, 59443, 59452, 59460, 59478, 59493, 63789, 63866, 63894, 63976, 63986, 64016, 64018, 64021, 64025, 64034, 64037, 64042, 65074, 65093, 65107, 65112, 65127, 65132, 65375, 65510, 65536], gbChars: [0, 36, 38, 45, 50, 81, 89, 95, 96, 100, 103, 104, 105, 109, 126, 133, 148, 172, 175, 179, 208, 306, 307, 308, 309, 310, 311, 312, 313, 341, 428, 443, 544, 545, 558, 741, 742, 749, 750, 805, 819, 820, 7922, 7924, 7925, 7927, 7934, 7943, 7944, 7945, 7950, 8062, 8148, 8149, 8152, 8164, 8174, 8236, 8240, 8262, 8264, 8374, 8380, 8381, 8384, 8388, 8390, 8392, 8393, 8394, 8396, 8401, 8406, 8416, 8419, 8424, 8437, 8439, 8445, 8482, 8485, 8496, 8521, 8603, 8936, 8946, 9046, 9050, 9063, 9066, 9076, 9092, 9100, 9108, 9111, 9113, 9131, 9162, 9164, 9218, 9219, 11329, 11331, 11334, 11336, 11346, 11361, 11363, 11366, 11370, 11372, 11375, 11389, 11682, 11686, 11687, 11692, 11694, 11714, 11716, 11723, 11725, 11730, 11736, 11982, 11989, 12102, 12336, 12348, 12350, 12384, 12393, 12395, 12397, 12510, 12553, 12851, 12962, 12973, 13738, 13823, 13919, 13933, 14080, 14298, 14585, 14698, 15583, 15847, 16318, 16434, 16438, 16481, 16729, 17102, 17122, 17315, 17320, 17402, 17418, 17859, 17909, 17911, 17915, 17916, 17936, 17939, 17961, 18664, 18703, 18814, 18962, 19043, 33469, 33470, 33471, 33484, 33485, 33490, 33497, 33501, 33505, 33513, 33520, 33536, 33550, 37845, 37921, 37948, 38029, 38038, 38064, 38065, 38066, 38069, 38075, 38076, 38078, 39108, 39109, 39113, 39114, 39115, 39116, 39265, 39394, 189e3] };
   }
 });
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp949.json
 var require_cp949 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp949.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp949.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["8141", "\uAC02\uAC03\uAC05\uAC06\uAC0B", 4, "\uAC18\uAC1E\uAC1F\uAC21\uAC22\uAC23\uAC25", 6, "\uAC2E\uAC32\uAC33\uAC34"],
       ["8161", "\uAC35\uAC36\uAC37\uAC3A\uAC3B\uAC3D\uAC3E\uAC3F\uAC41", 9, "\uAC4C\uAC4E", 5, "\uAC55"],
@@ -4420,8 +4425,8 @@ var require_cp949 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp950.json
 var require_cp950 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp950.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/cp950.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["a140", "\u3000\uFF0C\u3001\u3002\uFF0E\u2027\uFF1B\uFF1A\uFF1F\uFF01\uFE30\u2026\u2025\uFE50\uFE51\uFE52\xB7\uFE54\uFE55\uFE56\uFE57\uFF5C\u2013\uFE31\u2014\uFE33\u2574\uFE34\uFE4F\uFF08\uFF09\uFE35\uFE36\uFF5B\uFF5D\uFE37\uFE38\u3014\u3015\uFE39\uFE3A\u3010\u3011\uFE3B\uFE3C\u300A\u300B\uFE3D\uFE3E\u3008\u3009\uFE3F\uFE40\u300C\u300D\uFE41\uFE42\u300E\u300F\uFE43\uFE44\uFE59\uFE5A"],
       ["a1a1", "\uFE5B\uFE5C\uFE5D\uFE5E\u2018\u2019\u201C\u201D\u301D\u301E\u2035\u2032\uFF03\uFF06\uFF0A\u203B\xA7\u3003\u25CB\u25CF\u25B3\u25B2\u25CE\u2606\u2605\u25C7\u25C6\u25A1\u25A0\u25BD\u25BC\u32A3\u2105\xAF\uFFE3\uFF3F\u02CD\uFE49\uFE4A\uFE4D\uFE4E\uFE4B\uFE4C\uFE5F\uFE60\uFE61\uFF0B\uFF0D\xD7\xF7\xB1\u221A\uFF1C\uFF1E\uFF1D\u2266\u2267\u2260\u221E\u2252\u2261\uFE62", 4, "\uFF5E\u2229\u222A\u22A5\u2220\u221F\u22BF\u33D2\u33D1\u222B\u222E\u2235\u2234\u2640\u2642\u2295\u2299\u2191\u2193\u2190\u2192\u2196\u2197\u2199\u2198\u2225\u2223\uFF0F"],
@@ -4603,8 +4608,8 @@ var require_cp950 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/big5-added.json
 var require_big5_added = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/big5-added.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/tables/big5-added.json"(exports, module) {
+    module.exports = [
       ["8740", "\u43F0\u4C32\u4603\u45A6\u4578\u{27267}\u4D77\u45B3\u{27CB1}\u4CE2\u{27CC5}\u3B95\u4736\u4744\u4C47\u4C40\u{242BF}\u{23617}\u{27352}\u{26E8B}\u{270D2}\u4C57\u{2A351}\u474F\u45DA\u4C85\u{27C6C}\u4D07\u4AA4\u46A1\u{26B23}\u7225\u{25A54}\u{21A63}\u{23E06}\u{23F61}\u664D\u56FB"],
       ["8767", "\u7D95\u591D\u{28BB9}\u3DF4\u9734\u{27BEF}\u5BDB\u{21D5E}\u5AA4\u3625\u{29EB0}\u5AD1\u5BB7\u5CFC\u676E\u8593\u{29945}\u7461\u749D\u3875\u{21D53}\u{2369E}\u{26021}\u3EEC"],
       ["87a1", "\u{258DE}\u3AF5\u7AFC\u9F97\u{24161}\u{2890D}\u{231EA}\u{20A8A}\u{2325E}\u430A\u8484\u9F96\u942F\u4930\u8613\u5896\u974A\u9218\u79D0\u7A32\u6660\u6A29\u889D\u744C\u7BC5\u6782\u7A2C\u524F\u9046\u34E6\u73C4\u{25DB9}\u74C6\u9FC7\u57B3\u492F\u544C\u4131\u{2368E}\u5818\u7A72\u{27B65}\u8B8F\u46AE\u{26E88}\u4181\u{25D99}\u7BAE\u{224BC}\u9FC8\u{224C1}\u{224C9}\u{224CC}\u9FC9\u8504\u{235BB}\u40B4\u9FCA\u44E1\u{2ADFF}\u62C1\u706E\u9FCB"],
@@ -4731,9 +4736,9 @@ var require_big5_added = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-data.js
 var require_dbcs_data = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-data.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/dbcs-data.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       // == Japanese/ShiftJIS ====================================================
       // All japanese encodings are based on JIS X set of standards:
       // JIS X 0201 - Single-byte encoding of ASCII + ¥ + Kana chars at 0xA1-0xDF.
@@ -4906,7 +4911,7 @@ var require_dbcs_data = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/index.js
 var require_encodings = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/index.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/encodings/index.js"(exports, module) {
     "use strict";
     var modules = [
       require_internal(),
@@ -4919,12 +4924,12 @@ var require_encodings = __commonJS({
       require_dbcs_data()
     ];
     for (i = 0; i < modules.length; i++) {
-      module2 = modules[i];
-      for (enc in module2)
-        if (Object.prototype.hasOwnProperty.call(module2, enc))
-          exports2[enc] = module2[enc];
+      module = modules[i];
+      for (enc in module)
+        if (Object.prototype.hasOwnProperty.call(module, enc))
+          exports[enc] = module[enc];
     }
-    var module2;
+    var module;
     var enc;
     var i;
   }
@@ -4932,11 +4937,11 @@ var require_encodings = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/streams.js
 var require_streams = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/streams.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/streams.js"(exports, module) {
     "use strict";
-    var Buffer2 = require("buffer").Buffer;
-    var Transform = require("stream").Transform;
-    module2.exports = function(iconv) {
+    var Buffer2 = __require("buffer").Buffer;
+    var Transform = __require("stream").Transform;
+    module.exports = function(iconv) {
       iconv.encodeStream = function encodeStream(encoding, options) {
         return new IconvLiteEncoderStream(iconv.getEncoder(encoding, options), options);
       };
@@ -5033,10 +5038,10 @@ var require_streams = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/extend-node.js
 var require_extend_node = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/extend-node.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/extend-node.js"(exports, module) {
     "use strict";
-    var Buffer2 = require("buffer").Buffer;
-    module2.exports = function(iconv) {
+    var Buffer2 = __require("buffer").Buffer;
+    module.exports = function(iconv) {
       var original = void 0;
       iconv.supportsNodeEncodingsExtension = !(Buffer2.from || new Buffer2(0) instanceof Uint8Array);
       iconv.extendNodeEncodings = function extendNodeEncodings() {
@@ -5062,7 +5067,7 @@ var require_extend_node = __commonJS({
         Buffer2.isNativeEncoding = function(enc) {
           return enc && nodeNativeEncodings[enc.toLowerCase()];
         };
-        var SlowBuffer = require("buffer").SlowBuffer;
+        var SlowBuffer = __require("buffer").SlowBuffer;
         original.SlowBufferToString = SlowBuffer.prototype.toString;
         SlowBuffer.prototype.toString = function(encoding, start, end) {
           encoding = String(encoding || "utf8").toLowerCase();
@@ -5160,7 +5165,7 @@ var require_extend_node = __commonJS({
           return length;
         };
         if (iconv.supportsStreams) {
-          var Readable2 = require("stream").Readable;
+          var Readable2 = __require("stream").Readable;
           original.ReadableSetEncoding = Readable2.prototype.setEncoding;
           Readable2.prototype.setEncoding = function setEncoding(enc, options) {
             this._readableState.decoder = iconv.getDecoder(enc, options);
@@ -5175,7 +5180,7 @@ var require_extend_node = __commonJS({
         if (!original)
           throw new Error("require('iconv-lite').undoExtendNodeEncodings(): Nothing to undo; extendNodeEncodings() is not called.");
         delete Buffer2.isNativeEncoding;
-        var SlowBuffer = require("buffer").SlowBuffer;
+        var SlowBuffer = __require("buffer").SlowBuffer;
         SlowBuffer.prototype.toString = original.SlowBufferToString;
         SlowBuffer.prototype.write = original.SlowBufferWrite;
         Buffer2.isEncoding = original.BufferIsEncoding;
@@ -5183,7 +5188,7 @@ var require_extend_node = __commonJS({
         Buffer2.prototype.toString = original.BufferToString;
         Buffer2.prototype.write = original.BufferWrite;
         if (iconv.supportsStreams) {
-          var Readable2 = require("stream").Readable;
+          var Readable2 = __require("stream").Readable;
           Readable2.prototype.setEncoding = original.ReadableSetEncoding;
           delete Readable2.prototype.collect;
         }
@@ -5195,11 +5200,11 @@ var require_extend_node = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/index.js
 var require_lib = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/index.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.4.24/node_modules/iconv-lite/lib/index.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
     var bomHandling = require_bom_handling();
-    var iconv = module2.exports;
+    var iconv = module.exports;
     iconv.encodings = null;
     iconv.defaultCharUnicode = "\uFFFD";
     iconv.defaultCharSingleByte = "?";
@@ -5298,9 +5303,9 @@ var require_lib = __commonJS({
 
 // node_modules/.pnpm/unpipe@1.0.0/node_modules/unpipe/index.js
 var require_unpipe = __commonJS({
-  "node_modules/.pnpm/unpipe@1.0.0/node_modules/unpipe/index.js"(exports2, module2) {
+  "node_modules/.pnpm/unpipe@1.0.0/node_modules/unpipe/index.js"(exports, module) {
     "use strict";
-    module2.exports = unpipe;
+    module.exports = unpipe;
     function hasPipeDataListeners(stream4) {
       var listeners = stream4.listeners("data");
       for (var i = 0; i < listeners.length; i++) {
@@ -5336,14 +5341,14 @@ var require_unpipe = __commonJS({
 
 // node_modules/.pnpm/raw-body@2.5.2/node_modules/raw-body/index.js
 var require_raw_body = __commonJS({
-  "node_modules/.pnpm/raw-body@2.5.2/node_modules/raw-body/index.js"(exports2, module2) {
+  "node_modules/.pnpm/raw-body@2.5.2/node_modules/raw-body/index.js"(exports, module) {
     "use strict";
     var asyncHooks = tryRequireAsyncHooks();
     var bytes = require_bytes();
     var createError = require_http_errors();
     var iconv = require_lib();
     var unpipe = require_unpipe();
-    module2.exports = getRawBody;
+    module.exports = getRawBody;
     var ICONV_ENCODING_MESSAGE_REGEXP = /^Encoding not recognized: /;
     function getDecoder(encoding) {
       if (!encoding) return null;
@@ -5505,7 +5510,7 @@ var require_raw_body = __commonJS({
     }
     function tryRequireAsyncHooks() {
       try {
-        return require("async_hooks");
+        return __require("async_hooks");
       } catch (e) {
         return {};
       }
@@ -5525,9 +5530,9 @@ var require_raw_body = __commonJS({
 
 // node_modules/.pnpm/ee-first@1.1.1/node_modules/ee-first/index.js
 var require_ee_first = __commonJS({
-  "node_modules/.pnpm/ee-first@1.1.1/node_modules/ee-first/index.js"(exports2, module2) {
+  "node_modules/.pnpm/ee-first@1.1.1/node_modules/ee-first/index.js"(exports, module) {
     "use strict";
-    module2.exports = first;
+    module.exports = first;
     function first(stuff, done) {
       if (!Array.isArray(stuff))
         throw new TypeError("arg must be an array of [ee, events...] arrays");
@@ -5581,10 +5586,10 @@ var require_ee_first = __commonJS({
 
 // node_modules/.pnpm/on-finished@2.4.1/node_modules/on-finished/index.js
 var require_on_finished = __commonJS({
-  "node_modules/.pnpm/on-finished@2.4.1/node_modules/on-finished/index.js"(exports2, module2) {
+  "node_modules/.pnpm/on-finished@2.4.1/node_modules/on-finished/index.js"(exports, module) {
     "use strict";
-    module2.exports = onFinished;
-    module2.exports.isFinished = isFinished;
+    module.exports = onFinished;
+    module.exports.isFinished = isFinished;
     var asyncHooks = tryRequireAsyncHooks();
     var first = require_ee_first();
     var defer = typeof setImmediate === "function" ? setImmediate : function(fn) {
@@ -5665,7 +5670,7 @@ var require_on_finished = __commonJS({
     }
     function tryRequireAsyncHooks() {
       try {
-        return require("async_hooks");
+        return __require("async_hooks");
       } catch (e) {
         return {};
       }
@@ -5685,7 +5690,7 @@ var require_on_finished = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/read.js
 var require_read = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/read.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/read.js"(exports, module) {
     "use strict";
     var createError = require_http_errors();
     var destroy = require_destroy();
@@ -5693,8 +5698,8 @@ var require_read = __commonJS({
     var iconv = require_lib();
     var onFinished = require_on_finished();
     var unpipe = require_unpipe();
-    var zlib2 = require("zlib");
-    module2.exports = read;
+    var zlib2 = __require("zlib");
+    module.exports = read;
     function read(req, res, next, parse3, debug, options) {
       var length;
       var opts = options;
@@ -5812,7 +5817,7 @@ var require_read = __commonJS({
 
 // node_modules/.pnpm/media-typer@0.3.0/node_modules/media-typer/index.js
 var require_media_typer = __commonJS({
-  "node_modules/.pnpm/media-typer@0.3.0/node_modules/media-typer/index.js"(exports2) {
+  "node_modules/.pnpm/media-typer@0.3.0/node_modules/media-typer/index.js"(exports) {
     var paramRegExp = /; *([!#$%&'\*\+\-\.0-9A-Z\^_`a-z\|~]+) *= *("(?:[ !\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u0020-\u007e])*"|[!#$%&'\*\+\-\.0-9A-Z\^_`a-z\|~]+) */g;
     var textRegExp = /^[\u0020-\u007e\u0080-\u00ff]+$/;
     var tokenRegExp = /^[!#$%&'\*\+\-\.0-9A-Z\^_`a-z\|~]+$/;
@@ -5821,8 +5826,8 @@ var require_media_typer = __commonJS({
     var subtypeNameRegExp = /^[A-Za-z0-9][A-Za-z0-9!#$&^_.-]{0,126}$/;
     var typeNameRegExp = /^[A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126}$/;
     var typeRegExp = /^ *([A-Za-z0-9][A-Za-z0-9!#$&^_-]{0,126})\/([A-Za-z0-9][A-Za-z0-9!#$&^_.+-]{0,126}) *$/;
-    exports2.format = format;
-    exports2.parse = parse3;
+    exports.format = format;
+    exports.parse = parse3;
     function format(obj) {
       if (!obj || typeof obj !== "object") {
         throw new TypeError("argument obj is required");
@@ -5936,8 +5941,8 @@ var require_media_typer = __commonJS({
 
 // node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/db.json
 var require_db = __commonJS({
-  "node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/db.json"(exports2, module2) {
-    module2.exports = {
+  "node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/db.json"(exports, module) {
+    module.exports = {
       "application/1d-interleaved-parityfec": {
         source: "iana"
       },
@@ -14461,27 +14466,27 @@ var require_db = __commonJS({
 
 // node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/index.js
 var require_mime_db = __commonJS({
-  "node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/index.js"(exports2, module2) {
-    module2.exports = require_db();
+  "node_modules/.pnpm/mime-db@1.52.0/node_modules/mime-db/index.js"(exports, module) {
+    module.exports = require_db();
   }
 });
 
 // node_modules/.pnpm/mime-types@2.1.35/node_modules/mime-types/index.js
 var require_mime_types = __commonJS({
-  "node_modules/.pnpm/mime-types@2.1.35/node_modules/mime-types/index.js"(exports2) {
+  "node_modules/.pnpm/mime-types@2.1.35/node_modules/mime-types/index.js"(exports) {
     "use strict";
     var db = require_mime_db();
-    var extname = require("path").extname;
+    var extname = __require("path").extname;
     var EXTRACT_TYPE_REGEXP = /^\s*([^;\s]*)(?:;|\s|$)/;
     var TEXT_TYPE_REGEXP = /^text\//i;
-    exports2.charset = charset;
-    exports2.charsets = { lookup: charset };
-    exports2.contentType = contentType;
-    exports2.extension = extension;
-    exports2.extensions = /* @__PURE__ */ Object.create(null);
-    exports2.lookup = lookup;
-    exports2.types = /* @__PURE__ */ Object.create(null);
-    populateMaps(exports2.extensions, exports2.types);
+    exports.charset = charset;
+    exports.charsets = { lookup: charset };
+    exports.contentType = contentType;
+    exports.extension = extension;
+    exports.extensions = /* @__PURE__ */ Object.create(null);
+    exports.lookup = lookup;
+    exports.types = /* @__PURE__ */ Object.create(null);
+    populateMaps(exports.extensions, exports.types);
     function charset(type) {
       if (!type || typeof type !== "string") {
         return false;
@@ -14500,12 +14505,12 @@ var require_mime_types = __commonJS({
       if (!str || typeof str !== "string") {
         return false;
       }
-      var mime = str.indexOf("/") === -1 ? exports2.lookup(str) : str;
+      var mime = str.indexOf("/") === -1 ? exports.lookup(str) : str;
       if (!mime) {
         return false;
       }
       if (mime.indexOf("charset") === -1) {
-        var charset2 = exports2.charset(mime);
+        var charset2 = exports.charset(mime);
         if (charset2) mime += "; charset=" + charset2.toLowerCase();
       }
       return mime;
@@ -14515,7 +14520,7 @@ var require_mime_types = __commonJS({
         return false;
       }
       var match = EXTRACT_TYPE_REGEXP.exec(type);
-      var exts = match && exports2.extensions[match[1].toLowerCase()];
+      var exts = match && exports.extensions[match[1].toLowerCase()];
       if (!exts || !exts.length) {
         return false;
       }
@@ -14529,7 +14534,7 @@ var require_mime_types = __commonJS({
       if (!extension2) {
         return false;
       }
-      return exports2.types[extension2] || false;
+      return exports.types[extension2] || false;
     }
     function populateMaps(extensions, types) {
       var preference = ["nginx", "apache", void 0, "iana"];
@@ -14558,15 +14563,15 @@ var require_mime_types = __commonJS({
 
 // node_modules/.pnpm/type-is@1.6.18/node_modules/type-is/index.js
 var require_type_is = __commonJS({
-  "node_modules/.pnpm/type-is@1.6.18/node_modules/type-is/index.js"(exports2, module2) {
+  "node_modules/.pnpm/type-is@1.6.18/node_modules/type-is/index.js"(exports, module) {
     "use strict";
     var typer = require_media_typer();
     var mime = require_mime_types();
-    module2.exports = typeofrequest;
-    module2.exports.is = typeis;
-    module2.exports.hasBody = hasbody;
-    module2.exports.normalize = normalize;
-    module2.exports.match = mimeMatch;
+    module.exports = typeofrequest;
+    module.exports.is = typeis;
+    module.exports.hasBody = hasbody;
+    module.exports.normalize = normalize;
+    module.exports.match = mimeMatch;
     function typeis(value, types_) {
       var i;
       var types = types_;
@@ -14663,7 +14668,7 @@ var require_type_is = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/json.js
 var require_json = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/json.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/json.js"(exports, module) {
     "use strict";
     var bytes = require_bytes();
     var contentType = require_content_type();
@@ -14671,7 +14676,7 @@ var require_json = __commonJS({
     var debug = require_src()("body-parser:json");
     var read = require_read();
     var typeis = require_type_is();
-    module2.exports = json3;
+    module.exports = json3;
     var FIRST_CHAR_REGEXP = /^[\x20\x09\x0a\x0d]*([^\x20\x09\x0a\x0d])/;
     var JSON_SYNTAX_CHAR = "#";
     var JSON_SYNTAX_REGEXP = /#+/g;
@@ -14797,13 +14802,13 @@ var require_json = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/raw.js
 var require_raw = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/raw.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/raw.js"(exports, module) {
     "use strict";
     var bytes = require_bytes();
     var debug = require_src()("body-parser:raw");
     var read = require_read();
     var typeis = require_type_is();
-    module2.exports = raw;
+    module.exports = raw;
     function raw(options) {
       var opts = options || {};
       var inflate = opts.inflate !== false;
@@ -14853,14 +14858,14 @@ var require_raw = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/text.js
 var require_text = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/text.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/text.js"(exports, module) {
     "use strict";
     var bytes = require_bytes();
     var contentType = require_content_type();
     var debug = require_src()("body-parser:text");
     var read = require_read();
     var typeis = require_type_is();
-    module2.exports = text2;
+    module.exports = text2;
     function text2(options) {
       var opts = options || {};
       var defaultCharset = opts.defaultCharset || "utf-8";
@@ -14919,22 +14924,22 @@ var require_text = __commonJS({
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/type.js
 var require_type = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/type.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/type.js"(exports, module) {
     "use strict";
-    module2.exports = TypeError;
+    module.exports = TypeError;
   }
 });
 
 // node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/util.inspect.js
 var require_util_inspect = __commonJS({
-  "node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/util.inspect.js"(exports2, module2) {
-    module2.exports = require("util").inspect;
+  "node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/util.inspect.js"(exports, module) {
+    module.exports = __require("util").inspect;
   }
 });
 
 // node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/index.js
 var require_object_inspect = __commonJS({
-  "node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/index.js"(exports2, module2) {
+  "node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/index.js"(exports, module) {
     var hasMap = typeof Map === "function" && Map.prototype;
     var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, "size") : null;
     var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === "function" ? mapSizeDescriptor.get : null;
@@ -14999,7 +15004,7 @@ var require_object_inspect = __commonJS({
       "double": /(["\\])/g,
       single: /(['\\])/g
     };
-    module2.exports = function inspect_(obj, options, depth, seen) {
+    module.exports = function inspect_(obj, options, depth, seen) {
       var opts = options || {};
       if (has(opts, "quoteStyle") && !has(quotes, opts.quoteStyle)) {
         throw new TypeError('option "quoteStyle" must be "single" or "double"');
@@ -15465,7 +15470,7 @@ var require_object_inspect = __commonJS({
 
 // node_modules/.pnpm/side-channel-list@1.0.0/node_modules/side-channel-list/index.js
 var require_side_channel_list = __commonJS({
-  "node_modules/.pnpm/side-channel-list@1.0.0/node_modules/side-channel-list/index.js"(exports2, module2) {
+  "node_modules/.pnpm/side-channel-list@1.0.0/node_modules/side-channel-list/index.js"(exports, module) {
     "use strict";
     var inspect = require_object_inspect();
     var $TypeError = require_type();
@@ -15516,7 +15521,7 @@ var require_side_channel_list = __commonJS({
         return listGetNode(objects, key, true);
       }
     };
-    module2.exports = function getSideChannelList() {
+    module.exports = function getSideChannelList() {
       var $o;
       var channel = {
         assert: function(key) {
@@ -15559,113 +15564,113 @@ var require_side_channel_list = __commonJS({
 
 // node_modules/.pnpm/es-object-atoms@1.1.1/node_modules/es-object-atoms/index.js
 var require_es_object_atoms = __commonJS({
-  "node_modules/.pnpm/es-object-atoms@1.1.1/node_modules/es-object-atoms/index.js"(exports2, module2) {
+  "node_modules/.pnpm/es-object-atoms@1.1.1/node_modules/es-object-atoms/index.js"(exports, module) {
     "use strict";
-    module2.exports = Object;
+    module.exports = Object;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/index.js
 var require_es_errors = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/index.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/index.js"(exports, module) {
     "use strict";
-    module2.exports = Error;
+    module.exports = Error;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/eval.js
 var require_eval = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/eval.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/eval.js"(exports, module) {
     "use strict";
-    module2.exports = EvalError;
+    module.exports = EvalError;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/range.js
 var require_range = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/range.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/range.js"(exports, module) {
     "use strict";
-    module2.exports = RangeError;
+    module.exports = RangeError;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/ref.js
 var require_ref = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/ref.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/ref.js"(exports, module) {
     "use strict";
-    module2.exports = ReferenceError;
+    module.exports = ReferenceError;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/syntax.js
 var require_syntax = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/syntax.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/syntax.js"(exports, module) {
     "use strict";
-    module2.exports = SyntaxError;
+    module.exports = SyntaxError;
   }
 });
 
 // node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/uri.js
 var require_uri = __commonJS({
-  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/uri.js"(exports2, module2) {
+  "node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/uri.js"(exports, module) {
     "use strict";
-    module2.exports = URIError;
+    module.exports = URIError;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/abs.js
 var require_abs = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/abs.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/abs.js"(exports, module) {
     "use strict";
-    module2.exports = Math.abs;
+    module.exports = Math.abs;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/floor.js
 var require_floor = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/floor.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/floor.js"(exports, module) {
     "use strict";
-    module2.exports = Math.floor;
+    module.exports = Math.floor;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/max.js
 var require_max = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/max.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/max.js"(exports, module) {
     "use strict";
-    module2.exports = Math.max;
+    module.exports = Math.max;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/min.js
 var require_min = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/min.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/min.js"(exports, module) {
     "use strict";
-    module2.exports = Math.min;
+    module.exports = Math.min;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/pow.js
 var require_pow = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/pow.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/pow.js"(exports, module) {
     "use strict";
-    module2.exports = Math.pow;
+    module.exports = Math.pow;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/round.js
 var require_round = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/round.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/round.js"(exports, module) {
     "use strict";
-    module2.exports = Math.round;
+    module.exports = Math.round;
   }
 });
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/isNaN.js
 var require_isNaN = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/isNaN.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/isNaN.js"(exports, module) {
     "use strict";
-    module2.exports = Number.isNaN || function isNaN2(a) {
+    module.exports = Number.isNaN || function isNaN2(a) {
       return a !== a;
     };
   }
@@ -15673,10 +15678,10 @@ var require_isNaN = __commonJS({
 
 // node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/sign.js
 var require_sign = __commonJS({
-  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/sign.js"(exports2, module2) {
+  "node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/sign.js"(exports, module) {
     "use strict";
     var $isNaN = require_isNaN();
-    module2.exports = function sign(number4) {
+    module.exports = function sign(number4) {
       if ($isNaN(number4) || number4 === 0) {
         return number4;
       }
@@ -15687,15 +15692,15 @@ var require_sign = __commonJS({
 
 // node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/gOPD.js
 var require_gOPD = __commonJS({
-  "node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/gOPD.js"(exports2, module2) {
+  "node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/gOPD.js"(exports, module) {
     "use strict";
-    module2.exports = Object.getOwnPropertyDescriptor;
+    module.exports = Object.getOwnPropertyDescriptor;
   }
 });
 
 // node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/index.js
 var require_gopd = __commonJS({
-  "node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/index.js"(exports2, module2) {
+  "node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/index.js"(exports, module) {
     "use strict";
     var $gOPD = require_gOPD();
     if ($gOPD) {
@@ -15705,13 +15710,13 @@ var require_gopd = __commonJS({
         $gOPD = null;
       }
     }
-    module2.exports = $gOPD;
+    module.exports = $gOPD;
   }
 });
 
 // node_modules/.pnpm/es-define-property@1.0.1/node_modules/es-define-property/index.js
 var require_es_define_property = __commonJS({
-  "node_modules/.pnpm/es-define-property@1.0.1/node_modules/es-define-property/index.js"(exports2, module2) {
+  "node_modules/.pnpm/es-define-property@1.0.1/node_modules/es-define-property/index.js"(exports, module) {
     "use strict";
     var $defineProperty = Object.defineProperty || false;
     if ($defineProperty) {
@@ -15721,15 +15726,15 @@ var require_es_define_property = __commonJS({
         $defineProperty = false;
       }
     }
-    module2.exports = $defineProperty;
+    module.exports = $defineProperty;
   }
 });
 
 // node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/shams.js
 var require_shams = __commonJS({
-  "node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/shams.js"(exports2, module2) {
+  "node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/shams.js"(exports, module) {
     "use strict";
-    module2.exports = function hasSymbols() {
+    module.exports = function hasSymbols() {
       if (typeof Symbol !== "function" || typeof Object.getOwnPropertySymbols !== "function") {
         return false;
       }
@@ -15782,11 +15787,11 @@ var require_shams = __commonJS({
 
 // node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/index.js
 var require_has_symbols = __commonJS({
-  "node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/index.js"(exports2, module2) {
+  "node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/index.js"(exports, module) {
     "use strict";
     var origSymbol = typeof Symbol !== "undefined" && Symbol;
     var hasSymbolSham = require_shams();
-    module2.exports = function hasNativeSymbols() {
+    module.exports = function hasNativeSymbols() {
       if (typeof origSymbol !== "function") {
         return false;
       }
@@ -15806,24 +15811,24 @@ var require_has_symbols = __commonJS({
 
 // node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Reflect.getPrototypeOf.js
 var require_Reflect_getPrototypeOf = __commonJS({
-  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Reflect.getPrototypeOf.js"(exports2, module2) {
+  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Reflect.getPrototypeOf.js"(exports, module) {
     "use strict";
-    module2.exports = typeof Reflect !== "undefined" && Reflect.getPrototypeOf || null;
+    module.exports = typeof Reflect !== "undefined" && Reflect.getPrototypeOf || null;
   }
 });
 
 // node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Object.getPrototypeOf.js
 var require_Object_getPrototypeOf = __commonJS({
-  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Object.getPrototypeOf.js"(exports2, module2) {
+  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/Object.getPrototypeOf.js"(exports, module) {
     "use strict";
     var $Object = require_es_object_atoms();
-    module2.exports = $Object.getPrototypeOf || null;
+    module.exports = $Object.getPrototypeOf || null;
   }
 });
 
 // node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/implementation.js
 var require_implementation = __commonJS({
-  "node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/implementation.js"(exports2, module2) {
+  "node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/implementation.js"(exports, module) {
     "use strict";
     var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
     var toStr = Object.prototype.toString;
@@ -15856,7 +15861,7 @@ var require_implementation = __commonJS({
       }
       return str;
     };
-    module2.exports = function bind2(that) {
+    module.exports = function bind2(that) {
       var target = this;
       if (typeof target !== "function" || toStr.apply(target) !== funcType) {
         throw new TypeError(ERROR_MESSAGE + target);
@@ -15899,58 +15904,58 @@ var require_implementation = __commonJS({
 
 // node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/index.js
 var require_function_bind = __commonJS({
-  "node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/index.js"(exports2, module2) {
+  "node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/index.js"(exports, module) {
     "use strict";
     var implementation = require_implementation();
-    module2.exports = Function.prototype.bind || implementation;
+    module.exports = Function.prototype.bind || implementation;
   }
 });
 
 // node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionCall.js
 var require_functionCall = __commonJS({
-  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionCall.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionCall.js"(exports, module) {
     "use strict";
-    module2.exports = Function.prototype.call;
+    module.exports = Function.prototype.call;
   }
 });
 
 // node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionApply.js
 var require_functionApply = __commonJS({
-  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionApply.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/functionApply.js"(exports, module) {
     "use strict";
-    module2.exports = Function.prototype.apply;
+    module.exports = Function.prototype.apply;
   }
 });
 
 // node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/reflectApply.js
 var require_reflectApply = __commonJS({
-  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/reflectApply.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/reflectApply.js"(exports, module) {
     "use strict";
-    module2.exports = typeof Reflect !== "undefined" && Reflect && Reflect.apply;
+    module.exports = typeof Reflect !== "undefined" && Reflect && Reflect.apply;
   }
 });
 
 // node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/actualApply.js
 var require_actualApply = __commonJS({
-  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/actualApply.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/actualApply.js"(exports, module) {
     "use strict";
     var bind2 = require_function_bind();
     var $apply = require_functionApply();
     var $call = require_functionCall();
     var $reflectApply = require_reflectApply();
-    module2.exports = $reflectApply || bind2.call($call, $apply);
+    module.exports = $reflectApply || bind2.call($call, $apply);
   }
 });
 
 // node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/index.js
 var require_call_bind_apply_helpers = __commonJS({
-  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/index.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-apply-helpers/index.js"(exports, module) {
     "use strict";
     var bind2 = require_function_bind();
     var $TypeError = require_type();
     var $call = require_functionCall();
     var $actualApply = require_actualApply();
-    module2.exports = function callBindBasic(args) {
+    module.exports = function callBindBasic(args) {
       if (args.length < 1 || typeof args[0] !== "function") {
         throw new $TypeError("a function is required");
       }
@@ -15961,7 +15966,7 @@ var require_call_bind_apply_helpers = __commonJS({
 
 // node_modules/.pnpm/dunder-proto@1.0.1/node_modules/dunder-proto/get.js
 var require_get = __commonJS({
-  "node_modules/.pnpm/dunder-proto@1.0.1/node_modules/dunder-proto/get.js"(exports2, module2) {
+  "node_modules/.pnpm/dunder-proto@1.0.1/node_modules/dunder-proto/get.js"(exports, module) {
     "use strict";
     var callBind = require_call_bind_apply_helpers();
     var gOPD = require_gopd();
@@ -15981,7 +15986,7 @@ var require_get = __commonJS({
     );
     var $Object = Object;
     var $getPrototypeOf = $Object.getPrototypeOf;
-    module2.exports = desc2 && typeof desc2.get === "function" ? callBind([desc2.get]) : typeof $getPrototypeOf === "function" ? (
+    module.exports = desc2 && typeof desc2.get === "function" ? callBind([desc2.get]) : typeof $getPrototypeOf === "function" ? (
       /** @type {import('./get')} */
       function getDunder(value) {
         return $getPrototypeOf(value == null ? value : $Object(value));
@@ -15992,12 +15997,12 @@ var require_get = __commonJS({
 
 // node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/index.js
 var require_get_proto = __commonJS({
-  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/index.js"(exports2, module2) {
+  "node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/index.js"(exports, module) {
     "use strict";
     var reflectGetProto = require_Reflect_getPrototypeOf();
     var originalGetProto = require_Object_getPrototypeOf();
     var getDunderProto = require_get();
-    module2.exports = reflectGetProto ? function getProto(O) {
+    module.exports = reflectGetProto ? function getProto(O) {
       return reflectGetProto(O);
     } : originalGetProto ? function getProto(O) {
       if (!O || typeof O !== "object" && typeof O !== "function") {
@@ -16012,18 +16017,18 @@ var require_get_proto = __commonJS({
 
 // node_modules/.pnpm/hasown@2.0.2/node_modules/hasown/index.js
 var require_hasown = __commonJS({
-  "node_modules/.pnpm/hasown@2.0.2/node_modules/hasown/index.js"(exports2, module2) {
+  "node_modules/.pnpm/hasown@2.0.2/node_modules/hasown/index.js"(exports, module) {
     "use strict";
     var call = Function.prototype.call;
     var $hasOwn = Object.prototype.hasOwnProperty;
     var bind2 = require_function_bind();
-    module2.exports = bind2.call(call, $hasOwn);
+    module.exports = bind2.call(call, $hasOwn);
   }
 });
 
 // node_modules/.pnpm/get-intrinsic@1.3.0/node_modules/get-intrinsic/index.js
 var require_get_intrinsic = __commonJS({
-  "node_modules/.pnpm/get-intrinsic@1.3.0/node_modules/get-intrinsic/index.js"(exports2, module2) {
+  "node_modules/.pnpm/get-intrinsic@1.3.0/node_modules/get-intrinsic/index.js"(exports, module) {
     "use strict";
     var undefined2;
     var $Object = require_es_object_atoms();
@@ -16288,7 +16293,7 @@ var require_get_intrinsic = __commonJS({
       }
       throw new $SyntaxError("intrinsic " + name + " does not exist!");
     };
-    module2.exports = function GetIntrinsic(name, allowMissing) {
+    module.exports = function GetIntrinsic(name, allowMissing) {
       if (typeof name !== "string" || name.length === 0) {
         throw new $TypeError("intrinsic name must be a non-empty string");
       }
@@ -16354,12 +16359,12 @@ var require_get_intrinsic = __commonJS({
 
 // node_modules/.pnpm/call-bound@1.0.4/node_modules/call-bound/index.js
 var require_call_bound = __commonJS({
-  "node_modules/.pnpm/call-bound@1.0.4/node_modules/call-bound/index.js"(exports2, module2) {
+  "node_modules/.pnpm/call-bound@1.0.4/node_modules/call-bound/index.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var callBindBasic = require_call_bind_apply_helpers();
     var $indexOf = callBindBasic([GetIntrinsic("%String.prototype.indexOf%")]);
-    module2.exports = function callBoundIntrinsic(name, allowMissing) {
+    module.exports = function callBoundIntrinsic(name, allowMissing) {
       var intrinsic = (
         /** @type {(this: unknown, ...args: unknown[]) => unknown} */
         GetIntrinsic(name, !!allowMissing)
@@ -16377,7 +16382,7 @@ var require_call_bound = __commonJS({
 
 // node_modules/.pnpm/side-channel-map@1.0.1/node_modules/side-channel-map/index.js
 var require_side_channel_map = __commonJS({
-  "node_modules/.pnpm/side-channel-map@1.0.1/node_modules/side-channel-map/index.js"(exports2, module2) {
+  "node_modules/.pnpm/side-channel-map@1.0.1/node_modules/side-channel-map/index.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var callBound = require_call_bound();
@@ -16389,7 +16394,7 @@ var require_side_channel_map = __commonJS({
     var $mapHas = callBound("Map.prototype.has", true);
     var $mapDelete = callBound("Map.prototype.delete", true);
     var $mapSize = callBound("Map.prototype.size", true);
-    module2.exports = !!$Map && /** @type {Exclude<import('.'), false>} */
+    module.exports = !!$Map && /** @type {Exclude<import('.'), false>} */
     function getSideChannelMap() {
       var $m;
       var channel = {
@@ -16433,7 +16438,7 @@ var require_side_channel_map = __commonJS({
 
 // node_modules/.pnpm/side-channel-weakmap@1.0.2/node_modules/side-channel-weakmap/index.js
 var require_side_channel_weakmap = __commonJS({
-  "node_modules/.pnpm/side-channel-weakmap@1.0.2/node_modules/side-channel-weakmap/index.js"(exports2, module2) {
+  "node_modules/.pnpm/side-channel-weakmap@1.0.2/node_modules/side-channel-weakmap/index.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var callBound = require_call_bound();
@@ -16445,7 +16450,7 @@ var require_side_channel_weakmap = __commonJS({
     var $weakMapSet = callBound("WeakMap.prototype.set", true);
     var $weakMapHas = callBound("WeakMap.prototype.has", true);
     var $weakMapDelete = callBound("WeakMap.prototype.delete", true);
-    module2.exports = $WeakMap ? (
+    module.exports = $WeakMap ? (
       /** @type {Exclude<import('.'), false>} */
       function getSideChannelWeakMap() {
         var $wm;
@@ -16506,7 +16511,7 @@ var require_side_channel_weakmap = __commonJS({
 
 // node_modules/.pnpm/side-channel@1.1.0/node_modules/side-channel/index.js
 var require_side_channel = __commonJS({
-  "node_modules/.pnpm/side-channel@1.1.0/node_modules/side-channel/index.js"(exports2, module2) {
+  "node_modules/.pnpm/side-channel@1.1.0/node_modules/side-channel/index.js"(exports, module) {
     "use strict";
     var $TypeError = require_type();
     var inspect = require_object_inspect();
@@ -16514,7 +16519,7 @@ var require_side_channel = __commonJS({
     var getSideChannelMap = require_side_channel_map();
     var getSideChannelWeakMap = require_side_channel_weakmap();
     var makeChannel = getSideChannelWeakMap || getSideChannelMap || getSideChannelList;
-    module2.exports = function getSideChannel() {
+    module.exports = function getSideChannel() {
       var $channelData;
       var channel = {
         assert: function(key) {
@@ -16545,7 +16550,7 @@ var require_side_channel = __commonJS({
 
 // node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/formats.js
 var require_formats = __commonJS({
-  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/formats.js"(exports2, module2) {
+  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/formats.js"(exports, module) {
     "use strict";
     var replace = String.prototype.replace;
     var percentTwenties = /%20/g;
@@ -16553,7 +16558,7 @@ var require_formats = __commonJS({
       RFC1738: "RFC1738",
       RFC3986: "RFC3986"
     };
-    module2.exports = {
+    module.exports = {
       "default": Format.RFC3986,
       formatters: {
         RFC1738: function(value) {
@@ -16571,7 +16576,7 @@ var require_formats = __commonJS({
 
 // node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/utils.js
 var require_utils = __commonJS({
-  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/utils.js"(exports2, module2) {
+  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/utils.js"(exports, module) {
     "use strict";
     var formats = require_formats();
     var has = Object.prototype.hasOwnProperty;
@@ -16759,7 +16764,7 @@ var require_utils = __commonJS({
       }
       return fn(val);
     };
-    module2.exports = {
+    module.exports = {
       arrayToObject: arrayToObject2,
       assign,
       combine,
@@ -16776,7 +16781,7 @@ var require_utils = __commonJS({
 
 // node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/stringify.js
 var require_stringify = __commonJS({
-  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/stringify.js"(exports2, module2) {
+  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/stringify.js"(exports, module) {
     "use strict";
     var getSideChannel = require_side_channel();
     var utils = require_utils();
@@ -16989,7 +16994,7 @@ var require_stringify = __commonJS({
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults2.strictNullHandling
       };
     };
-    module2.exports = function(object2, opts) {
+    module.exports = function(object2, opts) {
       var obj = object2;
       var options = normalizeStringifyOptions(opts);
       var objKeys;
@@ -17056,7 +17061,7 @@ var require_stringify = __commonJS({
 
 // node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/parse.js
 var require_parse = __commonJS({
-  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/parse.js"(exports2, module2) {
+  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/parse.js"(exports, module) {
     "use strict";
     var utils = require_utils();
     var has = Object.prototype.hasOwnProperty;
@@ -17260,7 +17265,7 @@ var require_parse = __commonJS({
         strictNullHandling: typeof opts.strictNullHandling === "boolean" ? opts.strictNullHandling : defaults2.strictNullHandling
       };
     };
-    module2.exports = function(str, opts) {
+    module.exports = function(str, opts) {
       var options = normalizeParseOptions(opts);
       if (str === "" || str === null || typeof str === "undefined") {
         return options.plainObjects ? /* @__PURE__ */ Object.create(null) : {};
@@ -17283,12 +17288,12 @@ var require_parse = __commonJS({
 
 // node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/index.js
 var require_lib2 = __commonJS({
-  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/index.js"(exports2, module2) {
+  "node_modules/.pnpm/qs@6.13.0/node_modules/qs/lib/index.js"(exports, module) {
     "use strict";
     var stringify = require_stringify();
     var parse3 = require_parse();
     var formats = require_formats();
-    module2.exports = {
+    module.exports = {
       formats,
       parse: parse3,
       stringify
@@ -17298,7 +17303,7 @@ var require_lib2 = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/urlencoded.js
 var require_urlencoded = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/urlencoded.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/lib/types/urlencoded.js"(exports, module) {
     "use strict";
     var bytes = require_bytes();
     var contentType = require_content_type();
@@ -17307,7 +17312,7 @@ var require_urlencoded = __commonJS({
     var deprecate = require_depd()("body-parser");
     var read = require_read();
     var typeis = require_type_is();
-    module2.exports = urlencoded;
+    module.exports = urlencoded;
     var parsers = /* @__PURE__ */ Object.create(null);
     function urlencoded(options) {
       var opts = options || {};
@@ -17436,7 +17441,7 @@ var require_urlencoded = __commonJS({
           mod = require_lib2();
           break;
         case "querystring":
-          mod = require("querystring");
+          mod = __require("querystring");
           break;
       }
       parsers[name] = mod;
@@ -17473,30 +17478,30 @@ var require_urlencoded = __commonJS({
 
 // node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/index.js
 var require_body_parser = __commonJS({
-  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/index.js"(exports2, module2) {
+  "node_modules/.pnpm/body-parser@1.20.3/node_modules/body-parser/index.js"(exports, module) {
     "use strict";
     var deprecate = require_depd()("body-parser");
     var parsers = /* @__PURE__ */ Object.create(null);
-    exports2 = module2.exports = deprecate.function(
+    exports = module.exports = deprecate.function(
       bodyParser,
       "bodyParser: use individual json/urlencoded middlewares"
     );
-    Object.defineProperty(exports2, "json", {
+    Object.defineProperty(exports, "json", {
       configurable: true,
       enumerable: true,
       get: createParserGetter("json")
     });
-    Object.defineProperty(exports2, "raw", {
+    Object.defineProperty(exports, "raw", {
       configurable: true,
       enumerable: true,
       get: createParserGetter("raw")
     });
-    Object.defineProperty(exports2, "text", {
+    Object.defineProperty(exports, "text", {
       configurable: true,
       enumerable: true,
       get: createParserGetter("text")
     });
-    Object.defineProperty(exports2, "urlencoded", {
+    Object.defineProperty(exports, "urlencoded", {
       configurable: true,
       enumerable: true,
       get: createParserGetter("urlencoded")
@@ -17510,8 +17515,8 @@ var require_body_parser = __commonJS({
           writable: true
         }
       });
-      var _urlencoded = exports2.urlencoded(opts);
-      var _json = exports2.json(opts);
+      var _urlencoded = exports.urlencoded(opts);
+      var _json = exports.json(opts);
       return function bodyParser2(req, res, next) {
         _json(req, res, function(err) {
           if (err) return next(err);
@@ -17550,9 +17555,9 @@ var require_body_parser = __commonJS({
 
 // node_modules/.pnpm/merge-descriptors@1.0.3/node_modules/merge-descriptors/index.js
 var require_merge_descriptors = __commonJS({
-  "node_modules/.pnpm/merge-descriptors@1.0.3/node_modules/merge-descriptors/index.js"(exports2, module2) {
+  "node_modules/.pnpm/merge-descriptors@1.0.3/node_modules/merge-descriptors/index.js"(exports, module) {
     "use strict";
-    module2.exports = merge3;
+    module.exports = merge3;
     var hasOwnProperty2 = Object.prototype.hasOwnProperty;
     function merge3(dest, src, redefine) {
       if (!dest) {
@@ -17578,9 +17583,9 @@ var require_merge_descriptors = __commonJS({
 
 // node_modules/.pnpm/encodeurl@2.0.0/node_modules/encodeurl/index.js
 var require_encodeurl = __commonJS({
-  "node_modules/.pnpm/encodeurl@2.0.0/node_modules/encodeurl/index.js"(exports2, module2) {
+  "node_modules/.pnpm/encodeurl@2.0.0/node_modules/encodeurl/index.js"(exports, module) {
     "use strict";
-    module2.exports = encodeUrl;
+    module.exports = encodeUrl;
     var ENCODE_CHARS_REGEXP = /(?:[^\x21\x23-\x3B\x3D\x3F-\x5F\x61-\x7A\x7C\x7E]|%(?:[^0-9A-Fa-f]|[0-9A-Fa-f][^0-9A-Fa-f]|$))+/g;
     var UNMATCHED_SURROGATE_PAIR_REGEXP = /(^|[^\uD800-\uDBFF])[\uDC00-\uDFFF]|[\uD800-\uDBFF]([^\uDC00-\uDFFF]|$)/g;
     var UNMATCHED_SURROGATE_PAIR_REPLACE = "$1\uFFFD$2";
@@ -17592,10 +17597,10 @@ var require_encodeurl = __commonJS({
 
 // node_modules/.pnpm/escape-html@1.0.3/node_modules/escape-html/index.js
 var require_escape_html = __commonJS({
-  "node_modules/.pnpm/escape-html@1.0.3/node_modules/escape-html/index.js"(exports2, module2) {
+  "node_modules/.pnpm/escape-html@1.0.3/node_modules/escape-html/index.js"(exports, module) {
     "use strict";
     var matchHtmlRegExp = /["'&<>]/;
-    module2.exports = escapeHtml;
+    module.exports = escapeHtml;
     function escapeHtml(string4) {
       var str = "" + string4;
       var match = matchHtmlRegExp.exec(str);
@@ -17639,13 +17644,13 @@ var require_escape_html = __commonJS({
 
 // node_modules/.pnpm/parseurl@1.3.3/node_modules/parseurl/index.js
 var require_parseurl = __commonJS({
-  "node_modules/.pnpm/parseurl@1.3.3/node_modules/parseurl/index.js"(exports2, module2) {
+  "node_modules/.pnpm/parseurl@1.3.3/node_modules/parseurl/index.js"(exports, module) {
     "use strict";
-    var url3 = require("url");
+    var url3 = __require("url");
     var parse3 = url3.parse;
     var Url = url3.Url;
-    module2.exports = parseurl;
-    module2.exports.original = originalurl;
+    module.exports = parseurl;
+    module.exports.original = originalurl;
     function parseurl(req) {
       var url4 = req.url;
       if (url4 === void 0) {
@@ -17723,7 +17728,7 @@ var require_parseurl = __commonJS({
 
 // node_modules/.pnpm/finalhandler@1.3.1/node_modules/finalhandler/index.js
 var require_finalhandler = __commonJS({
-  "node_modules/.pnpm/finalhandler@1.3.1/node_modules/finalhandler/index.js"(exports2, module2) {
+  "node_modules/.pnpm/finalhandler@1.3.1/node_modules/finalhandler/index.js"(exports, module) {
     "use strict";
     var debug = require_src()("finalhandler");
     var encodeUrl = require_encodeurl();
@@ -17742,10 +17747,10 @@ var require_finalhandler = __commonJS({
       var body = escapeHtml(message2).replace(NEWLINE_REGEXP, "<br>").replace(DOUBLE_SPACE_REGEXP, " &nbsp;");
       return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>' + body + "</pre>\n</body>\n</html>\n";
     }
-    module2.exports = finalhandler;
+    module.exports = finalhandler;
     function finalhandler(req, res, options) {
       var opts = options || {};
-      var env = opts.env || "production";
+      var env = opts.env || process.env.NODE_ENV || "development";
       var onerror = opts.onerror;
       return function(err) {
         var headers;
@@ -17873,9 +17878,9 @@ var require_finalhandler = __commonJS({
 
 // node_modules/.pnpm/array-flatten@1.1.1/node_modules/array-flatten/array-flatten.js
 var require_array_flatten = __commonJS({
-  "node_modules/.pnpm/array-flatten@1.1.1/node_modules/array-flatten/array-flatten.js"(exports2, module2) {
+  "node_modules/.pnpm/array-flatten@1.1.1/node_modules/array-flatten/array-flatten.js"(exports, module) {
     "use strict";
-    module2.exports = arrayFlatten;
+    module.exports = arrayFlatten;
     function flattenWithDepth(array2, result, depth) {
       for (var i = 0; i < array2.length; i++) {
         var value = array2[i];
@@ -17909,8 +17914,8 @@ var require_array_flatten = __commonJS({
 
 // node_modules/.pnpm/path-to-regexp@0.1.12/node_modules/path-to-regexp/index.js
 var require_path_to_regexp = __commonJS({
-  "node_modules/.pnpm/path-to-regexp@0.1.12/node_modules/path-to-regexp/index.js"(exports2, module2) {
-    module2.exports = pathToRegexp;
+  "node_modules/.pnpm/path-to-regexp@0.1.12/node_modules/path-to-regexp/index.js"(exports, module) {
+    module.exports = pathToRegexp;
     var MATCHING_GROUP_REGEXP = /\\.|\((?:\?<(.*?)>)?(?!\?)/g;
     function pathToRegexp(path2, keys, options) {
       options = options || {};
@@ -18016,12 +18021,12 @@ var require_path_to_regexp = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/layer.js
 var require_layer = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/layer.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/layer.js"(exports, module) {
     "use strict";
     var pathRegexp = require_path_to_regexp();
     var debug = require_src()("express:router:layer");
     var hasOwnProperty2 = Object.prototype.hasOwnProperty;
-    module2.exports = Layer;
+    module.exports = Layer;
     function Layer(path2, options, fn) {
       if (!(this instanceof Layer)) {
         return new Layer(path2, options, fn);
@@ -18111,10 +18116,10 @@ var require_layer = __commonJS({
 
 // node_modules/.pnpm/methods@1.1.2/node_modules/methods/index.js
 var require_methods = __commonJS({
-  "node_modules/.pnpm/methods@1.1.2/node_modules/methods/index.js"(exports2, module2) {
+  "node_modules/.pnpm/methods@1.1.2/node_modules/methods/index.js"(exports, module) {
     "use strict";
-    var http2 = require("http");
-    module2.exports = getCurrentNodeMethods() || getBasicNodeMethods();
+    var http2 = __require("http");
+    module.exports = getCurrentNodeMethods() || getBasicNodeMethods();
     function getCurrentNodeMethods() {
       return http2.METHODS && http2.METHODS.map(function lowerCaseMethod(method) {
         return method.toLowerCase();
@@ -18155,7 +18160,7 @@ var require_methods = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/route.js
 var require_route = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/route.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/route.js"(exports, module) {
     "use strict";
     var debug = require_src()("express:router:route");
     var flatten = require_array_flatten();
@@ -18163,7 +18168,7 @@ var require_route = __commonJS({
     var methods = require_methods();
     var slice = Array.prototype.slice;
     var toString3 = Object.prototype.toString;
-    module2.exports = Route;
+    module.exports = Route;
     function Route(path2) {
       this.path = path2;
       this.stack = [];
@@ -18267,8 +18272,8 @@ var require_route = __commonJS({
 
 // node_modules/.pnpm/utils-merge@1.0.1/node_modules/utils-merge/index.js
 var require_utils_merge = __commonJS({
-  "node_modules/.pnpm/utils-merge@1.0.1/node_modules/utils-merge/index.js"(exports2, module2) {
-    exports2 = module2.exports = function(a, b) {
+  "node_modules/.pnpm/utils-merge@1.0.1/node_modules/utils-merge/index.js"(exports, module) {
+    exports = module.exports = function(a, b) {
       if (a && b) {
         for (var key in b) {
           a[key] = b[key];
@@ -18281,7 +18286,7 @@ var require_utils_merge = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/index.js
 var require_router = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/index.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/router/index.js"(exports, module) {
     "use strict";
     var Route = require_route();
     var Layer = require_layer();
@@ -18295,7 +18300,7 @@ var require_router = __commonJS({
     var objectRegExp = /^\[object (\S+)\]$/;
     var slice = Array.prototype.slice;
     var toString3 = Object.prototype.toString;
-    var proto = module2.exports = function(options) {
+    var proto = module.exports = function(options) {
       var opts = options || {};
       function router2(req, res, next) {
         router2.handle(req, res, next);
@@ -18664,10 +18669,10 @@ var require_router = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/init.js
 var require_init = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/init.js"(exports2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/init.js"(exports) {
     "use strict";
     var setPrototypeOf = require_setprototypeof();
-    exports2.init = function(app2) {
+    exports.init = function(app2) {
       return function expressInit(req, res, next) {
         if (app2.enabled("x-powered-by")) res.setHeader("X-Powered-By", "Express");
         req.res = res;
@@ -18684,12 +18689,12 @@ var require_init = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/query.js
 var require_query = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/query.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/middleware/query.js"(exports, module) {
     "use strict";
     var merge3 = require_utils_merge();
     var parseUrl = require_parseurl();
     var qs = require_lib2();
-    module2.exports = function query(options) {
+    module.exports = function query(options) {
       var opts = merge3({}, options);
       var queryparse = qs.parse;
       if (typeof options === "function") {
@@ -18712,17 +18717,17 @@ var require_query = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/view.js
 var require_view = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/view.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/view.js"(exports, module) {
     "use strict";
     var debug = require_src()("express:view");
-    var path2 = require("path");
-    var fs = require("fs");
+    var path2 = __require("path");
+    var fs = __require("fs");
     var dirname = path2.dirname;
     var basename = path2.basename;
     var extname = path2.extname;
     var join = path2.join;
     var resolve = path2.resolve;
-    module2.exports = View2;
+    module.exports = View2;
     function View2(name, options) {
       var opts = options || {};
       this.defaultEngine = opts.defaultEngine;
@@ -18740,7 +18745,7 @@ var require_view = __commonJS({
       if (!opts.engines[this.ext]) {
         var mod = this.ext.slice(1);
         debug('require "%s"', mod);
-        var fn = require(mod).__express;
+        var fn = __require(mod).__express;
         if (typeof fn !== "function") {
           throw new Error('Module "' + mod + '" does not provide a view engine.');
         }
@@ -18792,8 +18797,8 @@ var require_view = __commonJS({
 
 // node_modules/.pnpm/safe-buffer@5.2.1/node_modules/safe-buffer/index.js
 var require_safe_buffer = __commonJS({
-  "node_modules/.pnpm/safe-buffer@5.2.1/node_modules/safe-buffer/index.js"(exports2, module2) {
-    var buffer = require("buffer");
+  "node_modules/.pnpm/safe-buffer@5.2.1/node_modules/safe-buffer/index.js"(exports, module) {
+    var buffer = __require("buffer");
     var Buffer2 = buffer.Buffer;
     function copyProps(src, dst) {
       for (var key in src) {
@@ -18801,10 +18806,10 @@ var require_safe_buffer = __commonJS({
       }
     }
     if (Buffer2.from && Buffer2.alloc && Buffer2.allocUnsafe && Buffer2.allocUnsafeSlow) {
-      module2.exports = buffer;
+      module.exports = buffer;
     } else {
-      copyProps(buffer, exports2);
-      exports2.Buffer = SafeBuffer;
+      copyProps(buffer, exports);
+      exports.Buffer = SafeBuffer;
     }
     function SafeBuffer(arg, encodingOrOffset, length) {
       return Buffer2(arg, encodingOrOffset, length);
@@ -18850,11 +18855,11 @@ var require_safe_buffer = __commonJS({
 
 // node_modules/.pnpm/content-disposition@0.5.4/node_modules/content-disposition/index.js
 var require_content_disposition = __commonJS({
-  "node_modules/.pnpm/content-disposition@0.5.4/node_modules/content-disposition/index.js"(exports2, module2) {
+  "node_modules/.pnpm/content-disposition@0.5.4/node_modules/content-disposition/index.js"(exports, module) {
     "use strict";
-    module2.exports = contentDisposition;
-    module2.exports.parse = parse3;
-    var basename = require("path").basename;
+    module.exports = contentDisposition;
+    module.exports.parse = parse3;
+    var basename = __require("path").basename;
     var Buffer2 = require_safe_buffer().Buffer;
     var ENCODE_URL_ATTR_CHAR_REGEXP = /[\x00-\x20"'()*,/:;<=>?@[\\\]{}\x7f]/g;
     var HEX_ESCAPE_REGEXP = /%[0-9A-Fa-f]{2}/;
@@ -19013,9 +19018,9 @@ var require_content_disposition = __commonJS({
 
 // node_modules/.pnpm/encodeurl@1.0.2/node_modules/encodeurl/index.js
 var require_encodeurl2 = __commonJS({
-  "node_modules/.pnpm/encodeurl@1.0.2/node_modules/encodeurl/index.js"(exports2, module2) {
+  "node_modules/.pnpm/encodeurl@1.0.2/node_modules/encodeurl/index.js"(exports, module) {
     "use strict";
-    module2.exports = encodeUrl;
+    module.exports = encodeUrl;
     var ENCODE_CHARS_REGEXP = /(?:[^\x21\x25\x26-\x3B\x3D\x3F-\x5B\x5D\x5F\x61-\x7A\x7E]|%(?:[^0-9A-Fa-f]|[0-9A-Fa-f][^0-9A-Fa-f]|$))+/g;
     var UNMATCHED_SURROGATE_PAIR_REGEXP = /(^|[^\uD800-\uDBFF])[\uDC00-\uDFFF]|[\uD800-\uDBFF]([^\uDC00-\uDFFF]|$)/g;
     var UNMATCHED_SURROGATE_PAIR_REPLACE = "$1\uFFFD$2";
@@ -19027,11 +19032,11 @@ var require_encodeurl2 = __commonJS({
 
 // node_modules/.pnpm/etag@1.8.1/node_modules/etag/index.js
 var require_etag = __commonJS({
-  "node_modules/.pnpm/etag@1.8.1/node_modules/etag/index.js"(exports2, module2) {
+  "node_modules/.pnpm/etag@1.8.1/node_modules/etag/index.js"(exports, module) {
     "use strict";
-    module2.exports = etag;
-    var crypto3 = require("crypto");
-    var Stats = require("fs").Stats;
+    module.exports = etag;
+    var crypto3 = __require("crypto");
+    var Stats = __require("fs").Stats;
     var toString3 = Object.prototype.toString;
     function entitytag(entity) {
       if (entity.length === 0) {
@@ -19069,10 +19074,10 @@ var require_etag = __commonJS({
 
 // node_modules/.pnpm/fresh@0.5.2/node_modules/fresh/index.js
 var require_fresh = __commonJS({
-  "node_modules/.pnpm/fresh@0.5.2/node_modules/fresh/index.js"(exports2, module2) {
+  "node_modules/.pnpm/fresh@0.5.2/node_modules/fresh/index.js"(exports, module) {
     "use strict";
     var CACHE_CONTROL_NO_CACHE_REGEXP = /(?:^|,)\s*?no-cache\s*?(?:,|$)/;
-    module2.exports = fresh;
+    module.exports = fresh;
     function fresh(reqHeaders, resHeaders) {
       var modifiedSince = reqHeaders["if-modified-since"];
       var noneMatch = reqHeaders["if-none-match"];
@@ -19142,16 +19147,16 @@ var require_fresh = __commonJS({
 
 // node_modules/.pnpm/mime@1.6.0/node_modules/mime/types.json
 var require_types = __commonJS({
-  "node_modules/.pnpm/mime@1.6.0/node_modules/mime/types.json"(exports2, module2) {
-    module2.exports = { "application/andrew-inset": ["ez"], "application/applixware": ["aw"], "application/atom+xml": ["atom"], "application/atomcat+xml": ["atomcat"], "application/atomsvc+xml": ["atomsvc"], "application/bdoc": ["bdoc"], "application/ccxml+xml": ["ccxml"], "application/cdmi-capability": ["cdmia"], "application/cdmi-container": ["cdmic"], "application/cdmi-domain": ["cdmid"], "application/cdmi-object": ["cdmio"], "application/cdmi-queue": ["cdmiq"], "application/cu-seeme": ["cu"], "application/dash+xml": ["mpd"], "application/davmount+xml": ["davmount"], "application/docbook+xml": ["dbk"], "application/dssc+der": ["dssc"], "application/dssc+xml": ["xdssc"], "application/ecmascript": ["ecma"], "application/emma+xml": ["emma"], "application/epub+zip": ["epub"], "application/exi": ["exi"], "application/font-tdpfr": ["pfr"], "application/font-woff": [], "application/font-woff2": [], "application/geo+json": ["geojson"], "application/gml+xml": ["gml"], "application/gpx+xml": ["gpx"], "application/gxf": ["gxf"], "application/gzip": ["gz"], "application/hyperstudio": ["stk"], "application/inkml+xml": ["ink", "inkml"], "application/ipfix": ["ipfix"], "application/java-archive": ["jar", "war", "ear"], "application/java-serialized-object": ["ser"], "application/java-vm": ["class"], "application/javascript": ["js", "mjs"], "application/json": ["json", "map"], "application/json5": ["json5"], "application/jsonml+json": ["jsonml"], "application/ld+json": ["jsonld"], "application/lost+xml": ["lostxml"], "application/mac-binhex40": ["hqx"], "application/mac-compactpro": ["cpt"], "application/mads+xml": ["mads"], "application/manifest+json": ["webmanifest"], "application/marc": ["mrc"], "application/marcxml+xml": ["mrcx"], "application/mathematica": ["ma", "nb", "mb"], "application/mathml+xml": ["mathml"], "application/mbox": ["mbox"], "application/mediaservercontrol+xml": ["mscml"], "application/metalink+xml": ["metalink"], "application/metalink4+xml": ["meta4"], "application/mets+xml": ["mets"], "application/mods+xml": ["mods"], "application/mp21": ["m21", "mp21"], "application/mp4": ["mp4s", "m4p"], "application/msword": ["doc", "dot"], "application/mxf": ["mxf"], "application/octet-stream": ["bin", "dms", "lrf", "mar", "so", "dist", "distz", "pkg", "bpk", "dump", "elc", "deploy", "exe", "dll", "deb", "dmg", "iso", "img", "msi", "msp", "msm", "buffer"], "application/oda": ["oda"], "application/oebps-package+xml": ["opf"], "application/ogg": ["ogx"], "application/omdoc+xml": ["omdoc"], "application/onenote": ["onetoc", "onetoc2", "onetmp", "onepkg"], "application/oxps": ["oxps"], "application/patch-ops-error+xml": ["xer"], "application/pdf": ["pdf"], "application/pgp-encrypted": ["pgp"], "application/pgp-signature": ["asc", "sig"], "application/pics-rules": ["prf"], "application/pkcs10": ["p10"], "application/pkcs7-mime": ["p7m", "p7c"], "application/pkcs7-signature": ["p7s"], "application/pkcs8": ["p8"], "application/pkix-attr-cert": ["ac"], "application/pkix-cert": ["cer"], "application/pkix-crl": ["crl"], "application/pkix-pkipath": ["pkipath"], "application/pkixcmp": ["pki"], "application/pls+xml": ["pls"], "application/postscript": ["ai", "eps", "ps"], "application/prs.cww": ["cww"], "application/pskc+xml": ["pskcxml"], "application/raml+yaml": ["raml"], "application/rdf+xml": ["rdf"], "application/reginfo+xml": ["rif"], "application/relax-ng-compact-syntax": ["rnc"], "application/resource-lists+xml": ["rl"], "application/resource-lists-diff+xml": ["rld"], "application/rls-services+xml": ["rs"], "application/rpki-ghostbusters": ["gbr"], "application/rpki-manifest": ["mft"], "application/rpki-roa": ["roa"], "application/rsd+xml": ["rsd"], "application/rss+xml": ["rss"], "application/rtf": ["rtf"], "application/sbml+xml": ["sbml"], "application/scvp-cv-request": ["scq"], "application/scvp-cv-response": ["scs"], "application/scvp-vp-request": ["spq"], "application/scvp-vp-response": ["spp"], "application/sdp": ["sdp"], "application/set-payment-initiation": ["setpay"], "application/set-registration-initiation": ["setreg"], "application/shf+xml": ["shf"], "application/smil+xml": ["smi", "smil"], "application/sparql-query": ["rq"], "application/sparql-results+xml": ["srx"], "application/srgs": ["gram"], "application/srgs+xml": ["grxml"], "application/sru+xml": ["sru"], "application/ssdl+xml": ["ssdl"], "application/ssml+xml": ["ssml"], "application/tei+xml": ["tei", "teicorpus"], "application/thraud+xml": ["tfi"], "application/timestamped-data": ["tsd"], "application/vnd.3gpp.pic-bw-large": ["plb"], "application/vnd.3gpp.pic-bw-small": ["psb"], "application/vnd.3gpp.pic-bw-var": ["pvb"], "application/vnd.3gpp2.tcap": ["tcap"], "application/vnd.3m.post-it-notes": ["pwn"], "application/vnd.accpac.simply.aso": ["aso"], "application/vnd.accpac.simply.imp": ["imp"], "application/vnd.acucobol": ["acu"], "application/vnd.acucorp": ["atc", "acutc"], "application/vnd.adobe.air-application-installer-package+zip": ["air"], "application/vnd.adobe.formscentral.fcdt": ["fcdt"], "application/vnd.adobe.fxp": ["fxp", "fxpl"], "application/vnd.adobe.xdp+xml": ["xdp"], "application/vnd.adobe.xfdf": ["xfdf"], "application/vnd.ahead.space": ["ahead"], "application/vnd.airzip.filesecure.azf": ["azf"], "application/vnd.airzip.filesecure.azs": ["azs"], "application/vnd.amazon.ebook": ["azw"], "application/vnd.americandynamics.acc": ["acc"], "application/vnd.amiga.ami": ["ami"], "application/vnd.android.package-archive": ["apk"], "application/vnd.anser-web-certificate-issue-initiation": ["cii"], "application/vnd.anser-web-funds-transfer-initiation": ["fti"], "application/vnd.antix.game-component": ["atx"], "application/vnd.apple.installer+xml": ["mpkg"], "application/vnd.apple.mpegurl": ["m3u8"], "application/vnd.apple.pkpass": ["pkpass"], "application/vnd.aristanetworks.swi": ["swi"], "application/vnd.astraea-software.iota": ["iota"], "application/vnd.audiograph": ["aep"], "application/vnd.blueice.multipass": ["mpm"], "application/vnd.bmi": ["bmi"], "application/vnd.businessobjects": ["rep"], "application/vnd.chemdraw+xml": ["cdxml"], "application/vnd.chipnuts.karaoke-mmd": ["mmd"], "application/vnd.cinderella": ["cdy"], "application/vnd.claymore": ["cla"], "application/vnd.cloanto.rp9": ["rp9"], "application/vnd.clonk.c4group": ["c4g", "c4d", "c4f", "c4p", "c4u"], "application/vnd.cluetrust.cartomobile-config": ["c11amc"], "application/vnd.cluetrust.cartomobile-config-pkg": ["c11amz"], "application/vnd.commonspace": ["csp"], "application/vnd.contact.cmsg": ["cdbcmsg"], "application/vnd.cosmocaller": ["cmc"], "application/vnd.crick.clicker": ["clkx"], "application/vnd.crick.clicker.keyboard": ["clkk"], "application/vnd.crick.clicker.palette": ["clkp"], "application/vnd.crick.clicker.template": ["clkt"], "application/vnd.crick.clicker.wordbank": ["clkw"], "application/vnd.criticaltools.wbs+xml": ["wbs"], "application/vnd.ctc-posml": ["pml"], "application/vnd.cups-ppd": ["ppd"], "application/vnd.curl.car": ["car"], "application/vnd.curl.pcurl": ["pcurl"], "application/vnd.dart": ["dart"], "application/vnd.data-vision.rdz": ["rdz"], "application/vnd.dece.data": ["uvf", "uvvf", "uvd", "uvvd"], "application/vnd.dece.ttml+xml": ["uvt", "uvvt"], "application/vnd.dece.unspecified": ["uvx", "uvvx"], "application/vnd.dece.zip": ["uvz", "uvvz"], "application/vnd.denovo.fcselayout-link": ["fe_launch"], "application/vnd.dna": ["dna"], "application/vnd.dolby.mlp": ["mlp"], "application/vnd.dpgraph": ["dpg"], "application/vnd.dreamfactory": ["dfac"], "application/vnd.ds-keypoint": ["kpxx"], "application/vnd.dvb.ait": ["ait"], "application/vnd.dvb.service": ["svc"], "application/vnd.dynageo": ["geo"], "application/vnd.ecowin.chart": ["mag"], "application/vnd.enliven": ["nml"], "application/vnd.epson.esf": ["esf"], "application/vnd.epson.msf": ["msf"], "application/vnd.epson.quickanime": ["qam"], "application/vnd.epson.salt": ["slt"], "application/vnd.epson.ssf": ["ssf"], "application/vnd.eszigno3+xml": ["es3", "et3"], "application/vnd.ezpix-album": ["ez2"], "application/vnd.ezpix-package": ["ez3"], "application/vnd.fdf": ["fdf"], "application/vnd.fdsn.mseed": ["mseed"], "application/vnd.fdsn.seed": ["seed", "dataless"], "application/vnd.flographit": ["gph"], "application/vnd.fluxtime.clip": ["ftc"], "application/vnd.framemaker": ["fm", "frame", "maker", "book"], "application/vnd.frogans.fnc": ["fnc"], "application/vnd.frogans.ltf": ["ltf"], "application/vnd.fsc.weblaunch": ["fsc"], "application/vnd.fujitsu.oasys": ["oas"], "application/vnd.fujitsu.oasys2": ["oa2"], "application/vnd.fujitsu.oasys3": ["oa3"], "application/vnd.fujitsu.oasysgp": ["fg5"], "application/vnd.fujitsu.oasysprs": ["bh2"], "application/vnd.fujixerox.ddd": ["ddd"], "application/vnd.fujixerox.docuworks": ["xdw"], "application/vnd.fujixerox.docuworks.binder": ["xbd"], "application/vnd.fuzzysheet": ["fzs"], "application/vnd.genomatix.tuxedo": ["txd"], "application/vnd.geogebra.file": ["ggb"], "application/vnd.geogebra.tool": ["ggt"], "application/vnd.geometry-explorer": ["gex", "gre"], "application/vnd.geonext": ["gxt"], "application/vnd.geoplan": ["g2w"], "application/vnd.geospace": ["g3w"], "application/vnd.gmx": ["gmx"], "application/vnd.google-apps.document": ["gdoc"], "application/vnd.google-apps.presentation": ["gslides"], "application/vnd.google-apps.spreadsheet": ["gsheet"], "application/vnd.google-earth.kml+xml": ["kml"], "application/vnd.google-earth.kmz": ["kmz"], "application/vnd.grafeq": ["gqf", "gqs"], "application/vnd.groove-account": ["gac"], "application/vnd.groove-help": ["ghf"], "application/vnd.groove-identity-message": ["gim"], "application/vnd.groove-injector": ["grv"], "application/vnd.groove-tool-message": ["gtm"], "application/vnd.groove-tool-template": ["tpl"], "application/vnd.groove-vcard": ["vcg"], "application/vnd.hal+xml": ["hal"], "application/vnd.handheld-entertainment+xml": ["zmm"], "application/vnd.hbci": ["hbci"], "application/vnd.hhe.lesson-player": ["les"], "application/vnd.hp-hpgl": ["hpgl"], "application/vnd.hp-hpid": ["hpid"], "application/vnd.hp-hps": ["hps"], "application/vnd.hp-jlyt": ["jlt"], "application/vnd.hp-pcl": ["pcl"], "application/vnd.hp-pclxl": ["pclxl"], "application/vnd.hydrostatix.sof-data": ["sfd-hdstx"], "application/vnd.ibm.minipay": ["mpy"], "application/vnd.ibm.modcap": ["afp", "listafp", "list3820"], "application/vnd.ibm.rights-management": ["irm"], "application/vnd.ibm.secure-container": ["sc"], "application/vnd.iccprofile": ["icc", "icm"], "application/vnd.igloader": ["igl"], "application/vnd.immervision-ivp": ["ivp"], "application/vnd.immervision-ivu": ["ivu"], "application/vnd.insors.igm": ["igm"], "application/vnd.intercon.formnet": ["xpw", "xpx"], "application/vnd.intergeo": ["i2g"], "application/vnd.intu.qbo": ["qbo"], "application/vnd.intu.qfx": ["qfx"], "application/vnd.ipunplugged.rcprofile": ["rcprofile"], "application/vnd.irepository.package+xml": ["irp"], "application/vnd.is-xpr": ["xpr"], "application/vnd.isac.fcs": ["fcs"], "application/vnd.jam": ["jam"], "application/vnd.jcp.javame.midlet-rms": ["rms"], "application/vnd.jisp": ["jisp"], "application/vnd.joost.joda-archive": ["joda"], "application/vnd.kahootz": ["ktz", "ktr"], "application/vnd.kde.karbon": ["karbon"], "application/vnd.kde.kchart": ["chrt"], "application/vnd.kde.kformula": ["kfo"], "application/vnd.kde.kivio": ["flw"], "application/vnd.kde.kontour": ["kon"], "application/vnd.kde.kpresenter": ["kpr", "kpt"], "application/vnd.kde.kspread": ["ksp"], "application/vnd.kde.kword": ["kwd", "kwt"], "application/vnd.kenameaapp": ["htke"], "application/vnd.kidspiration": ["kia"], "application/vnd.kinar": ["kne", "knp"], "application/vnd.koan": ["skp", "skd", "skt", "skm"], "application/vnd.kodak-descriptor": ["sse"], "application/vnd.las.las+xml": ["lasxml"], "application/vnd.llamagraphics.life-balance.desktop": ["lbd"], "application/vnd.llamagraphics.life-balance.exchange+xml": ["lbe"], "application/vnd.lotus-1-2-3": ["123"], "application/vnd.lotus-approach": ["apr"], "application/vnd.lotus-freelance": ["pre"], "application/vnd.lotus-notes": ["nsf"], "application/vnd.lotus-organizer": ["org"], "application/vnd.lotus-screencam": ["scm"], "application/vnd.lotus-wordpro": ["lwp"], "application/vnd.macports.portpkg": ["portpkg"], "application/vnd.mcd": ["mcd"], "application/vnd.medcalcdata": ["mc1"], "application/vnd.mediastation.cdkey": ["cdkey"], "application/vnd.mfer": ["mwf"], "application/vnd.mfmp": ["mfm"], "application/vnd.micrografx.flo": ["flo"], "application/vnd.micrografx.igx": ["igx"], "application/vnd.mif": ["mif"], "application/vnd.mobius.daf": ["daf"], "application/vnd.mobius.dis": ["dis"], "application/vnd.mobius.mbk": ["mbk"], "application/vnd.mobius.mqy": ["mqy"], "application/vnd.mobius.msl": ["msl"], "application/vnd.mobius.plc": ["plc"], "application/vnd.mobius.txf": ["txf"], "application/vnd.mophun.application": ["mpn"], "application/vnd.mophun.certificate": ["mpc"], "application/vnd.mozilla.xul+xml": ["xul"], "application/vnd.ms-artgalry": ["cil"], "application/vnd.ms-cab-compressed": ["cab"], "application/vnd.ms-excel": ["xls", "xlm", "xla", "xlc", "xlt", "xlw"], "application/vnd.ms-excel.addin.macroenabled.12": ["xlam"], "application/vnd.ms-excel.sheet.binary.macroenabled.12": ["xlsb"], "application/vnd.ms-excel.sheet.macroenabled.12": ["xlsm"], "application/vnd.ms-excel.template.macroenabled.12": ["xltm"], "application/vnd.ms-fontobject": ["eot"], "application/vnd.ms-htmlhelp": ["chm"], "application/vnd.ms-ims": ["ims"], "application/vnd.ms-lrm": ["lrm"], "application/vnd.ms-officetheme": ["thmx"], "application/vnd.ms-outlook": ["msg"], "application/vnd.ms-pki.seccat": ["cat"], "application/vnd.ms-pki.stl": ["stl"], "application/vnd.ms-powerpoint": ["ppt", "pps", "pot"], "application/vnd.ms-powerpoint.addin.macroenabled.12": ["ppam"], "application/vnd.ms-powerpoint.presentation.macroenabled.12": ["pptm"], "application/vnd.ms-powerpoint.slide.macroenabled.12": ["sldm"], "application/vnd.ms-powerpoint.slideshow.macroenabled.12": ["ppsm"], "application/vnd.ms-powerpoint.template.macroenabled.12": ["potm"], "application/vnd.ms-project": ["mpp", "mpt"], "application/vnd.ms-word.document.macroenabled.12": ["docm"], "application/vnd.ms-word.template.macroenabled.12": ["dotm"], "application/vnd.ms-works": ["wps", "wks", "wcm", "wdb"], "application/vnd.ms-wpl": ["wpl"], "application/vnd.ms-xpsdocument": ["xps"], "application/vnd.mseq": ["mseq"], "application/vnd.musician": ["mus"], "application/vnd.muvee.style": ["msty"], "application/vnd.mynfc": ["taglet"], "application/vnd.neurolanguage.nlu": ["nlu"], "application/vnd.nitf": ["ntf", "nitf"], "application/vnd.noblenet-directory": ["nnd"], "application/vnd.noblenet-sealer": ["nns"], "application/vnd.noblenet-web": ["nnw"], "application/vnd.nokia.n-gage.data": ["ngdat"], "application/vnd.nokia.n-gage.symbian.install": ["n-gage"], "application/vnd.nokia.radio-preset": ["rpst"], "application/vnd.nokia.radio-presets": ["rpss"], "application/vnd.novadigm.edm": ["edm"], "application/vnd.novadigm.edx": ["edx"], "application/vnd.novadigm.ext": ["ext"], "application/vnd.oasis.opendocument.chart": ["odc"], "application/vnd.oasis.opendocument.chart-template": ["otc"], "application/vnd.oasis.opendocument.database": ["odb"], "application/vnd.oasis.opendocument.formula": ["odf"], "application/vnd.oasis.opendocument.formula-template": ["odft"], "application/vnd.oasis.opendocument.graphics": ["odg"], "application/vnd.oasis.opendocument.graphics-template": ["otg"], "application/vnd.oasis.opendocument.image": ["odi"], "application/vnd.oasis.opendocument.image-template": ["oti"], "application/vnd.oasis.opendocument.presentation": ["odp"], "application/vnd.oasis.opendocument.presentation-template": ["otp"], "application/vnd.oasis.opendocument.spreadsheet": ["ods"], "application/vnd.oasis.opendocument.spreadsheet-template": ["ots"], "application/vnd.oasis.opendocument.text": ["odt"], "application/vnd.oasis.opendocument.text-master": ["odm"], "application/vnd.oasis.opendocument.text-template": ["ott"], "application/vnd.oasis.opendocument.text-web": ["oth"], "application/vnd.olpc-sugar": ["xo"], "application/vnd.oma.dd2+xml": ["dd2"], "application/vnd.openofficeorg.extension": ["oxt"], "application/vnd.openxmlformats-officedocument.presentationml.presentation": ["pptx"], "application/vnd.openxmlformats-officedocument.presentationml.slide": ["sldx"], "application/vnd.openxmlformats-officedocument.presentationml.slideshow": ["ppsx"], "application/vnd.openxmlformats-officedocument.presentationml.template": ["potx"], "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ["xlsx"], "application/vnd.openxmlformats-officedocument.spreadsheetml.template": ["xltx"], "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ["docx"], "application/vnd.openxmlformats-officedocument.wordprocessingml.template": ["dotx"], "application/vnd.osgeo.mapguide.package": ["mgp"], "application/vnd.osgi.dp": ["dp"], "application/vnd.osgi.subsystem": ["esa"], "application/vnd.palm": ["pdb", "pqa", "oprc"], "application/vnd.pawaafile": ["paw"], "application/vnd.pg.format": ["str"], "application/vnd.pg.osasli": ["ei6"], "application/vnd.picsel": ["efif"], "application/vnd.pmi.widget": ["wg"], "application/vnd.pocketlearn": ["plf"], "application/vnd.powerbuilder6": ["pbd"], "application/vnd.previewsystems.box": ["box"], "application/vnd.proteus.magazine": ["mgz"], "application/vnd.publishare-delta-tree": ["qps"], "application/vnd.pvi.ptid1": ["ptid"], "application/vnd.quark.quarkxpress": ["qxd", "qxt", "qwd", "qwt", "qxl", "qxb"], "application/vnd.realvnc.bed": ["bed"], "application/vnd.recordare.musicxml": ["mxl"], "application/vnd.recordare.musicxml+xml": ["musicxml"], "application/vnd.rig.cryptonote": ["cryptonote"], "application/vnd.rim.cod": ["cod"], "application/vnd.rn-realmedia": ["rm"], "application/vnd.rn-realmedia-vbr": ["rmvb"], "application/vnd.route66.link66+xml": ["link66"], "application/vnd.sailingtracker.track": ["st"], "application/vnd.seemail": ["see"], "application/vnd.sema": ["sema"], "application/vnd.semd": ["semd"], "application/vnd.semf": ["semf"], "application/vnd.shana.informed.formdata": ["ifm"], "application/vnd.shana.informed.formtemplate": ["itp"], "application/vnd.shana.informed.interchange": ["iif"], "application/vnd.shana.informed.package": ["ipk"], "application/vnd.simtech-mindmapper": ["twd", "twds"], "application/vnd.smaf": ["mmf"], "application/vnd.smart.teacher": ["teacher"], "application/vnd.solent.sdkm+xml": ["sdkm", "sdkd"], "application/vnd.spotfire.dxp": ["dxp"], "application/vnd.spotfire.sfs": ["sfs"], "application/vnd.stardivision.calc": ["sdc"], "application/vnd.stardivision.draw": ["sda"], "application/vnd.stardivision.impress": ["sdd"], "application/vnd.stardivision.math": ["smf"], "application/vnd.stardivision.writer": ["sdw", "vor"], "application/vnd.stardivision.writer-global": ["sgl"], "application/vnd.stepmania.package": ["smzip"], "application/vnd.stepmania.stepchart": ["sm"], "application/vnd.sun.wadl+xml": ["wadl"], "application/vnd.sun.xml.calc": ["sxc"], "application/vnd.sun.xml.calc.template": ["stc"], "application/vnd.sun.xml.draw": ["sxd"], "application/vnd.sun.xml.draw.template": ["std"], "application/vnd.sun.xml.impress": ["sxi"], "application/vnd.sun.xml.impress.template": ["sti"], "application/vnd.sun.xml.math": ["sxm"], "application/vnd.sun.xml.writer": ["sxw"], "application/vnd.sun.xml.writer.global": ["sxg"], "application/vnd.sun.xml.writer.template": ["stw"], "application/vnd.sus-calendar": ["sus", "susp"], "application/vnd.svd": ["svd"], "application/vnd.symbian.install": ["sis", "sisx"], "application/vnd.syncml+xml": ["xsm"], "application/vnd.syncml.dm+wbxml": ["bdm"], "application/vnd.syncml.dm+xml": ["xdm"], "application/vnd.tao.intent-module-archive": ["tao"], "application/vnd.tcpdump.pcap": ["pcap", "cap", "dmp"], "application/vnd.tmobile-livetv": ["tmo"], "application/vnd.trid.tpt": ["tpt"], "application/vnd.triscape.mxs": ["mxs"], "application/vnd.trueapp": ["tra"], "application/vnd.ufdl": ["ufd", "ufdl"], "application/vnd.uiq.theme": ["utz"], "application/vnd.umajin": ["umj"], "application/vnd.unity": ["unityweb"], "application/vnd.uoml+xml": ["uoml"], "application/vnd.vcx": ["vcx"], "application/vnd.visio": ["vsd", "vst", "vss", "vsw"], "application/vnd.visionary": ["vis"], "application/vnd.vsf": ["vsf"], "application/vnd.wap.wbxml": ["wbxml"], "application/vnd.wap.wmlc": ["wmlc"], "application/vnd.wap.wmlscriptc": ["wmlsc"], "application/vnd.webturbo": ["wtb"], "application/vnd.wolfram.player": ["nbp"], "application/vnd.wordperfect": ["wpd"], "application/vnd.wqd": ["wqd"], "application/vnd.wt.stf": ["stf"], "application/vnd.xara": ["xar"], "application/vnd.xfdl": ["xfdl"], "application/vnd.yamaha.hv-dic": ["hvd"], "application/vnd.yamaha.hv-script": ["hvs"], "application/vnd.yamaha.hv-voice": ["hvp"], "application/vnd.yamaha.openscoreformat": ["osf"], "application/vnd.yamaha.openscoreformat.osfpvg+xml": ["osfpvg"], "application/vnd.yamaha.smaf-audio": ["saf"], "application/vnd.yamaha.smaf-phrase": ["spf"], "application/vnd.yellowriver-custom-menu": ["cmp"], "application/vnd.zul": ["zir", "zirz"], "application/vnd.zzazz.deck+xml": ["zaz"], "application/voicexml+xml": ["vxml"], "application/wasm": ["wasm"], "application/widget": ["wgt"], "application/winhlp": ["hlp"], "application/wsdl+xml": ["wsdl"], "application/wspolicy+xml": ["wspolicy"], "application/x-7z-compressed": ["7z"], "application/x-abiword": ["abw"], "application/x-ace-compressed": ["ace"], "application/x-apple-diskimage": [], "application/x-arj": ["arj"], "application/x-authorware-bin": ["aab", "x32", "u32", "vox"], "application/x-authorware-map": ["aam"], "application/x-authorware-seg": ["aas"], "application/x-bcpio": ["bcpio"], "application/x-bdoc": [], "application/x-bittorrent": ["torrent"], "application/x-blorb": ["blb", "blorb"], "application/x-bzip": ["bz"], "application/x-bzip2": ["bz2", "boz"], "application/x-cbr": ["cbr", "cba", "cbt", "cbz", "cb7"], "application/x-cdlink": ["vcd"], "application/x-cfs-compressed": ["cfs"], "application/x-chat": ["chat"], "application/x-chess-pgn": ["pgn"], "application/x-chrome-extension": ["crx"], "application/x-cocoa": ["cco"], "application/x-conference": ["nsc"], "application/x-cpio": ["cpio"], "application/x-csh": ["csh"], "application/x-debian-package": ["udeb"], "application/x-dgc-compressed": ["dgc"], "application/x-director": ["dir", "dcr", "dxr", "cst", "cct", "cxt", "w3d", "fgd", "swa"], "application/x-doom": ["wad"], "application/x-dtbncx+xml": ["ncx"], "application/x-dtbook+xml": ["dtb"], "application/x-dtbresource+xml": ["res"], "application/x-dvi": ["dvi"], "application/x-envoy": ["evy"], "application/x-eva": ["eva"], "application/x-font-bdf": ["bdf"], "application/x-font-ghostscript": ["gsf"], "application/x-font-linux-psf": ["psf"], "application/x-font-pcf": ["pcf"], "application/x-font-snf": ["snf"], "application/x-font-type1": ["pfa", "pfb", "pfm", "afm"], "application/x-freearc": ["arc"], "application/x-futuresplash": ["spl"], "application/x-gca-compressed": ["gca"], "application/x-glulx": ["ulx"], "application/x-gnumeric": ["gnumeric"], "application/x-gramps-xml": ["gramps"], "application/x-gtar": ["gtar"], "application/x-hdf": ["hdf"], "application/x-httpd-php": ["php"], "application/x-install-instructions": ["install"], "application/x-iso9660-image": [], "application/x-java-archive-diff": ["jardiff"], "application/x-java-jnlp-file": ["jnlp"], "application/x-latex": ["latex"], "application/x-lua-bytecode": ["luac"], "application/x-lzh-compressed": ["lzh", "lha"], "application/x-makeself": ["run"], "application/x-mie": ["mie"], "application/x-mobipocket-ebook": ["prc", "mobi"], "application/x-ms-application": ["application"], "application/x-ms-shortcut": ["lnk"], "application/x-ms-wmd": ["wmd"], "application/x-ms-wmz": ["wmz"], "application/x-ms-xbap": ["xbap"], "application/x-msaccess": ["mdb"], "application/x-msbinder": ["obd"], "application/x-mscardfile": ["crd"], "application/x-msclip": ["clp"], "application/x-msdos-program": [], "application/x-msdownload": ["com", "bat"], "application/x-msmediaview": ["mvb", "m13", "m14"], "application/x-msmetafile": ["wmf", "emf", "emz"], "application/x-msmoney": ["mny"], "application/x-mspublisher": ["pub"], "application/x-msschedule": ["scd"], "application/x-msterminal": ["trm"], "application/x-mswrite": ["wri"], "application/x-netcdf": ["nc", "cdf"], "application/x-ns-proxy-autoconfig": ["pac"], "application/x-nzb": ["nzb"], "application/x-perl": ["pl", "pm"], "application/x-pilot": [], "application/x-pkcs12": ["p12", "pfx"], "application/x-pkcs7-certificates": ["p7b", "spc"], "application/x-pkcs7-certreqresp": ["p7r"], "application/x-rar-compressed": ["rar"], "application/x-redhat-package-manager": ["rpm"], "application/x-research-info-systems": ["ris"], "application/x-sea": ["sea"], "application/x-sh": ["sh"], "application/x-shar": ["shar"], "application/x-shockwave-flash": ["swf"], "application/x-silverlight-app": ["xap"], "application/x-sql": ["sql"], "application/x-stuffit": ["sit"], "application/x-stuffitx": ["sitx"], "application/x-subrip": ["srt"], "application/x-sv4cpio": ["sv4cpio"], "application/x-sv4crc": ["sv4crc"], "application/x-t3vm-image": ["t3"], "application/x-tads": ["gam"], "application/x-tar": ["tar"], "application/x-tcl": ["tcl", "tk"], "application/x-tex": ["tex"], "application/x-tex-tfm": ["tfm"], "application/x-texinfo": ["texinfo", "texi"], "application/x-tgif": ["obj"], "application/x-ustar": ["ustar"], "application/x-virtualbox-hdd": ["hdd"], "application/x-virtualbox-ova": ["ova"], "application/x-virtualbox-ovf": ["ovf"], "application/x-virtualbox-vbox": ["vbox"], "application/x-virtualbox-vbox-extpack": ["vbox-extpack"], "application/x-virtualbox-vdi": ["vdi"], "application/x-virtualbox-vhd": ["vhd"], "application/x-virtualbox-vmdk": ["vmdk"], "application/x-wais-source": ["src"], "application/x-web-app-manifest+json": ["webapp"], "application/x-x509-ca-cert": ["der", "crt", "pem"], "application/x-xfig": ["fig"], "application/x-xliff+xml": ["xlf"], "application/x-xpinstall": ["xpi"], "application/x-xz": ["xz"], "application/x-zmachine": ["z1", "z2", "z3", "z4", "z5", "z6", "z7", "z8"], "application/xaml+xml": ["xaml"], "application/xcap-diff+xml": ["xdf"], "application/xenc+xml": ["xenc"], "application/xhtml+xml": ["xhtml", "xht"], "application/xml": ["xml", "xsl", "xsd", "rng"], "application/xml-dtd": ["dtd"], "application/xop+xml": ["xop"], "application/xproc+xml": ["xpl"], "application/xslt+xml": ["xslt"], "application/xspf+xml": ["xspf"], "application/xv+xml": ["mxml", "xhvml", "xvml", "xvm"], "application/yang": ["yang"], "application/yin+xml": ["yin"], "application/zip": ["zip"], "audio/3gpp": [], "audio/adpcm": ["adp"], "audio/basic": ["au", "snd"], "audio/midi": ["mid", "midi", "kar", "rmi"], "audio/mp3": [], "audio/mp4": ["m4a", "mp4a"], "audio/mpeg": ["mpga", "mp2", "mp2a", "mp3", "m2a", "m3a"], "audio/ogg": ["oga", "ogg", "spx"], "audio/s3m": ["s3m"], "audio/silk": ["sil"], "audio/vnd.dece.audio": ["uva", "uvva"], "audio/vnd.digital-winds": ["eol"], "audio/vnd.dra": ["dra"], "audio/vnd.dts": ["dts"], "audio/vnd.dts.hd": ["dtshd"], "audio/vnd.lucent.voice": ["lvp"], "audio/vnd.ms-playready.media.pya": ["pya"], "audio/vnd.nuera.ecelp4800": ["ecelp4800"], "audio/vnd.nuera.ecelp7470": ["ecelp7470"], "audio/vnd.nuera.ecelp9600": ["ecelp9600"], "audio/vnd.rip": ["rip"], "audio/wav": ["wav"], "audio/wave": [], "audio/webm": ["weba"], "audio/x-aac": ["aac"], "audio/x-aiff": ["aif", "aiff", "aifc"], "audio/x-caf": ["caf"], "audio/x-flac": ["flac"], "audio/x-m4a": [], "audio/x-matroska": ["mka"], "audio/x-mpegurl": ["m3u"], "audio/x-ms-wax": ["wax"], "audio/x-ms-wma": ["wma"], "audio/x-pn-realaudio": ["ram", "ra"], "audio/x-pn-realaudio-plugin": ["rmp"], "audio/x-realaudio": [], "audio/x-wav": [], "audio/xm": ["xm"], "chemical/x-cdx": ["cdx"], "chemical/x-cif": ["cif"], "chemical/x-cmdf": ["cmdf"], "chemical/x-cml": ["cml"], "chemical/x-csml": ["csml"], "chemical/x-xyz": ["xyz"], "font/collection": ["ttc"], "font/otf": ["otf"], "font/ttf": ["ttf"], "font/woff": ["woff"], "font/woff2": ["woff2"], "image/apng": ["apng"], "image/bmp": ["bmp"], "image/cgm": ["cgm"], "image/g3fax": ["g3"], "image/gif": ["gif"], "image/ief": ["ief"], "image/jp2": ["jp2", "jpg2"], "image/jpeg": ["jpeg", "jpg", "jpe"], "image/jpm": ["jpm"], "image/jpx": ["jpx", "jpf"], "image/ktx": ["ktx"], "image/png": ["png"], "image/prs.btif": ["btif"], "image/sgi": ["sgi"], "image/svg+xml": ["svg", "svgz"], "image/tiff": ["tiff", "tif"], "image/vnd.adobe.photoshop": ["psd"], "image/vnd.dece.graphic": ["uvi", "uvvi", "uvg", "uvvg"], "image/vnd.djvu": ["djvu", "djv"], "image/vnd.dvb.subtitle": [], "image/vnd.dwg": ["dwg"], "image/vnd.dxf": ["dxf"], "image/vnd.fastbidsheet": ["fbs"], "image/vnd.fpx": ["fpx"], "image/vnd.fst": ["fst"], "image/vnd.fujixerox.edmics-mmr": ["mmr"], "image/vnd.fujixerox.edmics-rlc": ["rlc"], "image/vnd.ms-modi": ["mdi"], "image/vnd.ms-photo": ["wdp"], "image/vnd.net-fpx": ["npx"], "image/vnd.wap.wbmp": ["wbmp"], "image/vnd.xiff": ["xif"], "image/webp": ["webp"], "image/x-3ds": ["3ds"], "image/x-cmu-raster": ["ras"], "image/x-cmx": ["cmx"], "image/x-freehand": ["fh", "fhc", "fh4", "fh5", "fh7"], "image/x-icon": ["ico"], "image/x-jng": ["jng"], "image/x-mrsid-image": ["sid"], "image/x-ms-bmp": [], "image/x-pcx": ["pcx"], "image/x-pict": ["pic", "pct"], "image/x-portable-anymap": ["pnm"], "image/x-portable-bitmap": ["pbm"], "image/x-portable-graymap": ["pgm"], "image/x-portable-pixmap": ["ppm"], "image/x-rgb": ["rgb"], "image/x-tga": ["tga"], "image/x-xbitmap": ["xbm"], "image/x-xpixmap": ["xpm"], "image/x-xwindowdump": ["xwd"], "message/rfc822": ["eml", "mime"], "model/gltf+json": ["gltf"], "model/gltf-binary": ["glb"], "model/iges": ["igs", "iges"], "model/mesh": ["msh", "mesh", "silo"], "model/vnd.collada+xml": ["dae"], "model/vnd.dwf": ["dwf"], "model/vnd.gdl": ["gdl"], "model/vnd.gtw": ["gtw"], "model/vnd.mts": ["mts"], "model/vnd.vtu": ["vtu"], "model/vrml": ["wrl", "vrml"], "model/x3d+binary": ["x3db", "x3dbz"], "model/x3d+vrml": ["x3dv", "x3dvz"], "model/x3d+xml": ["x3d", "x3dz"], "text/cache-manifest": ["appcache", "manifest"], "text/calendar": ["ics", "ifb"], "text/coffeescript": ["coffee", "litcoffee"], "text/css": ["css"], "text/csv": ["csv"], "text/hjson": ["hjson"], "text/html": ["html", "htm", "shtml"], "text/jade": ["jade"], "text/jsx": ["jsx"], "text/less": ["less"], "text/markdown": ["markdown", "md"], "text/mathml": ["mml"], "text/n3": ["n3"], "text/plain": ["txt", "text", "conf", "def", "list", "log", "in", "ini"], "text/prs.lines.tag": ["dsc"], "text/richtext": ["rtx"], "text/rtf": [], "text/sgml": ["sgml", "sgm"], "text/slim": ["slim", "slm"], "text/stylus": ["stylus", "styl"], "text/tab-separated-values": ["tsv"], "text/troff": ["t", "tr", "roff", "man", "me", "ms"], "text/turtle": ["ttl"], "text/uri-list": ["uri", "uris", "urls"], "text/vcard": ["vcard"], "text/vnd.curl": ["curl"], "text/vnd.curl.dcurl": ["dcurl"], "text/vnd.curl.mcurl": ["mcurl"], "text/vnd.curl.scurl": ["scurl"], "text/vnd.dvb.subtitle": ["sub"], "text/vnd.fly": ["fly"], "text/vnd.fmi.flexstor": ["flx"], "text/vnd.graphviz": ["gv"], "text/vnd.in3d.3dml": ["3dml"], "text/vnd.in3d.spot": ["spot"], "text/vnd.sun.j2me.app-descriptor": ["jad"], "text/vnd.wap.wml": ["wml"], "text/vnd.wap.wmlscript": ["wmls"], "text/vtt": ["vtt"], "text/x-asm": ["s", "asm"], "text/x-c": ["c", "cc", "cxx", "cpp", "h", "hh", "dic"], "text/x-component": ["htc"], "text/x-fortran": ["f", "for", "f77", "f90"], "text/x-handlebars-template": ["hbs"], "text/x-java-source": ["java"], "text/x-lua": ["lua"], "text/x-markdown": ["mkd"], "text/x-nfo": ["nfo"], "text/x-opml": ["opml"], "text/x-org": [], "text/x-pascal": ["p", "pas"], "text/x-processing": ["pde"], "text/x-sass": ["sass"], "text/x-scss": ["scss"], "text/x-setext": ["etx"], "text/x-sfv": ["sfv"], "text/x-suse-ymp": ["ymp"], "text/x-uuencode": ["uu"], "text/x-vcalendar": ["vcs"], "text/x-vcard": ["vcf"], "text/xml": [], "text/yaml": ["yaml", "yml"], "video/3gpp": ["3gp", "3gpp"], "video/3gpp2": ["3g2"], "video/h261": ["h261"], "video/h263": ["h263"], "video/h264": ["h264"], "video/jpeg": ["jpgv"], "video/jpm": ["jpgm"], "video/mj2": ["mj2", "mjp2"], "video/mp2t": ["ts"], "video/mp4": ["mp4", "mp4v", "mpg4"], "video/mpeg": ["mpeg", "mpg", "mpe", "m1v", "m2v"], "video/ogg": ["ogv"], "video/quicktime": ["qt", "mov"], "video/vnd.dece.hd": ["uvh", "uvvh"], "video/vnd.dece.mobile": ["uvm", "uvvm"], "video/vnd.dece.pd": ["uvp", "uvvp"], "video/vnd.dece.sd": ["uvs", "uvvs"], "video/vnd.dece.video": ["uvv", "uvvv"], "video/vnd.dvb.file": ["dvb"], "video/vnd.fvt": ["fvt"], "video/vnd.mpegurl": ["mxu", "m4u"], "video/vnd.ms-playready.media.pyv": ["pyv"], "video/vnd.uvvu.mp4": ["uvu", "uvvu"], "video/vnd.vivo": ["viv"], "video/webm": ["webm"], "video/x-f4v": ["f4v"], "video/x-fli": ["fli"], "video/x-flv": ["flv"], "video/x-m4v": ["m4v"], "video/x-matroska": ["mkv", "mk3d", "mks"], "video/x-mng": ["mng"], "video/x-ms-asf": ["asf", "asx"], "video/x-ms-vob": ["vob"], "video/x-ms-wm": ["wm"], "video/x-ms-wmv": ["wmv"], "video/x-ms-wmx": ["wmx"], "video/x-ms-wvx": ["wvx"], "video/x-msvideo": ["avi"], "video/x-sgi-movie": ["movie"], "video/x-smv": ["smv"], "x-conference/x-cooltalk": ["ice"] };
+  "node_modules/.pnpm/mime@1.6.0/node_modules/mime/types.json"(exports, module) {
+    module.exports = { "application/andrew-inset": ["ez"], "application/applixware": ["aw"], "application/atom+xml": ["atom"], "application/atomcat+xml": ["atomcat"], "application/atomsvc+xml": ["atomsvc"], "application/bdoc": ["bdoc"], "application/ccxml+xml": ["ccxml"], "application/cdmi-capability": ["cdmia"], "application/cdmi-container": ["cdmic"], "application/cdmi-domain": ["cdmid"], "application/cdmi-object": ["cdmio"], "application/cdmi-queue": ["cdmiq"], "application/cu-seeme": ["cu"], "application/dash+xml": ["mpd"], "application/davmount+xml": ["davmount"], "application/docbook+xml": ["dbk"], "application/dssc+der": ["dssc"], "application/dssc+xml": ["xdssc"], "application/ecmascript": ["ecma"], "application/emma+xml": ["emma"], "application/epub+zip": ["epub"], "application/exi": ["exi"], "application/font-tdpfr": ["pfr"], "application/font-woff": [], "application/font-woff2": [], "application/geo+json": ["geojson"], "application/gml+xml": ["gml"], "application/gpx+xml": ["gpx"], "application/gxf": ["gxf"], "application/gzip": ["gz"], "application/hyperstudio": ["stk"], "application/inkml+xml": ["ink", "inkml"], "application/ipfix": ["ipfix"], "application/java-archive": ["jar", "war", "ear"], "application/java-serialized-object": ["ser"], "application/java-vm": ["class"], "application/javascript": ["js", "mjs"], "application/json": ["json", "map"], "application/json5": ["json5"], "application/jsonml+json": ["jsonml"], "application/ld+json": ["jsonld"], "application/lost+xml": ["lostxml"], "application/mac-binhex40": ["hqx"], "application/mac-compactpro": ["cpt"], "application/mads+xml": ["mads"], "application/manifest+json": ["webmanifest"], "application/marc": ["mrc"], "application/marcxml+xml": ["mrcx"], "application/mathematica": ["ma", "nb", "mb"], "application/mathml+xml": ["mathml"], "application/mbox": ["mbox"], "application/mediaservercontrol+xml": ["mscml"], "application/metalink+xml": ["metalink"], "application/metalink4+xml": ["meta4"], "application/mets+xml": ["mets"], "application/mods+xml": ["mods"], "application/mp21": ["m21", "mp21"], "application/mp4": ["mp4s", "m4p"], "application/msword": ["doc", "dot"], "application/mxf": ["mxf"], "application/octet-stream": ["bin", "dms", "lrf", "mar", "so", "dist", "distz", "pkg", "bpk", "dump", "elc", "deploy", "exe", "dll", "deb", "dmg", "iso", "img", "msi", "msp", "msm", "buffer"], "application/oda": ["oda"], "application/oebps-package+xml": ["opf"], "application/ogg": ["ogx"], "application/omdoc+xml": ["omdoc"], "application/onenote": ["onetoc", "onetoc2", "onetmp", "onepkg"], "application/oxps": ["oxps"], "application/patch-ops-error+xml": ["xer"], "application/pdf": ["pdf"], "application/pgp-encrypted": ["pgp"], "application/pgp-signature": ["asc", "sig"], "application/pics-rules": ["prf"], "application/pkcs10": ["p10"], "application/pkcs7-mime": ["p7m", "p7c"], "application/pkcs7-signature": ["p7s"], "application/pkcs8": ["p8"], "application/pkix-attr-cert": ["ac"], "application/pkix-cert": ["cer"], "application/pkix-crl": ["crl"], "application/pkix-pkipath": ["pkipath"], "application/pkixcmp": ["pki"], "application/pls+xml": ["pls"], "application/postscript": ["ai", "eps", "ps"], "application/prs.cww": ["cww"], "application/pskc+xml": ["pskcxml"], "application/raml+yaml": ["raml"], "application/rdf+xml": ["rdf"], "application/reginfo+xml": ["rif"], "application/relax-ng-compact-syntax": ["rnc"], "application/resource-lists+xml": ["rl"], "application/resource-lists-diff+xml": ["rld"], "application/rls-services+xml": ["rs"], "application/rpki-ghostbusters": ["gbr"], "application/rpki-manifest": ["mft"], "application/rpki-roa": ["roa"], "application/rsd+xml": ["rsd"], "application/rss+xml": ["rss"], "application/rtf": ["rtf"], "application/sbml+xml": ["sbml"], "application/scvp-cv-request": ["scq"], "application/scvp-cv-response": ["scs"], "application/scvp-vp-request": ["spq"], "application/scvp-vp-response": ["spp"], "application/sdp": ["sdp"], "application/set-payment-initiation": ["setpay"], "application/set-registration-initiation": ["setreg"], "application/shf+xml": ["shf"], "application/smil+xml": ["smi", "smil"], "application/sparql-query": ["rq"], "application/sparql-results+xml": ["srx"], "application/srgs": ["gram"], "application/srgs+xml": ["grxml"], "application/sru+xml": ["sru"], "application/ssdl+xml": ["ssdl"], "application/ssml+xml": ["ssml"], "application/tei+xml": ["tei", "teicorpus"], "application/thraud+xml": ["tfi"], "application/timestamped-data": ["tsd"], "application/vnd.3gpp.pic-bw-large": ["plb"], "application/vnd.3gpp.pic-bw-small": ["psb"], "application/vnd.3gpp.pic-bw-var": ["pvb"], "application/vnd.3gpp2.tcap": ["tcap"], "application/vnd.3m.post-it-notes": ["pwn"], "application/vnd.accpac.simply.aso": ["aso"], "application/vnd.accpac.simply.imp": ["imp"], "application/vnd.acucobol": ["acu"], "application/vnd.acucorp": ["atc", "acutc"], "application/vnd.adobe.air-application-installer-package+zip": ["air"], "application/vnd.adobe.formscentral.fcdt": ["fcdt"], "application/vnd.adobe.fxp": ["fxp", "fxpl"], "application/vnd.adobe.xdp+xml": ["xdp"], "application/vnd.adobe.xfdf": ["xfdf"], "application/vnd.ahead.space": ["ahead"], "application/vnd.airzip.filesecure.azf": ["azf"], "application/vnd.airzip.filesecure.azs": ["azs"], "application/vnd.amazon.ebook": ["azw"], "application/vnd.americandynamics.acc": ["acc"], "application/vnd.amiga.ami": ["ami"], "application/vnd.android.package-archive": ["apk"], "application/vnd.anser-web-certificate-issue-initiation": ["cii"], "application/vnd.anser-web-funds-transfer-initiation": ["fti"], "application/vnd.antix.game-component": ["atx"], "application/vnd.apple.installer+xml": ["mpkg"], "application/vnd.apple.mpegurl": ["m3u8"], "application/vnd.apple.pkpass": ["pkpass"], "application/vnd.aristanetworks.swi": ["swi"], "application/vnd.astraea-software.iota": ["iota"], "application/vnd.audiograph": ["aep"], "application/vnd.blueice.multipass": ["mpm"], "application/vnd.bmi": ["bmi"], "application/vnd.businessobjects": ["rep"], "application/vnd.chemdraw+xml": ["cdxml"], "application/vnd.chipnuts.karaoke-mmd": ["mmd"], "application/vnd.cinderella": ["cdy"], "application/vnd.claymore": ["cla"], "application/vnd.cloanto.rp9": ["rp9"], "application/vnd.clonk.c4group": ["c4g", "c4d", "c4f", "c4p", "c4u"], "application/vnd.cluetrust.cartomobile-config": ["c11amc"], "application/vnd.cluetrust.cartomobile-config-pkg": ["c11amz"], "application/vnd.commonspace": ["csp"], "application/vnd.contact.cmsg": ["cdbcmsg"], "application/vnd.cosmocaller": ["cmc"], "application/vnd.crick.clicker": ["clkx"], "application/vnd.crick.clicker.keyboard": ["clkk"], "application/vnd.crick.clicker.palette": ["clkp"], "application/vnd.crick.clicker.template": ["clkt"], "application/vnd.crick.clicker.wordbank": ["clkw"], "application/vnd.criticaltools.wbs+xml": ["wbs"], "application/vnd.ctc-posml": ["pml"], "application/vnd.cups-ppd": ["ppd"], "application/vnd.curl.car": ["car"], "application/vnd.curl.pcurl": ["pcurl"], "application/vnd.dart": ["dart"], "application/vnd.data-vision.rdz": ["rdz"], "application/vnd.dece.data": ["uvf", "uvvf", "uvd", "uvvd"], "application/vnd.dece.ttml+xml": ["uvt", "uvvt"], "application/vnd.dece.unspecified": ["uvx", "uvvx"], "application/vnd.dece.zip": ["uvz", "uvvz"], "application/vnd.denovo.fcselayout-link": ["fe_launch"], "application/vnd.dna": ["dna"], "application/vnd.dolby.mlp": ["mlp"], "application/vnd.dpgraph": ["dpg"], "application/vnd.dreamfactory": ["dfac"], "application/vnd.ds-keypoint": ["kpxx"], "application/vnd.dvb.ait": ["ait"], "application/vnd.dvb.service": ["svc"], "application/vnd.dynageo": ["geo"], "application/vnd.ecowin.chart": ["mag"], "application/vnd.enliven": ["nml"], "application/vnd.epson.esf": ["esf"], "application/vnd.epson.msf": ["msf"], "application/vnd.epson.quickanime": ["qam"], "application/vnd.epson.salt": ["slt"], "application/vnd.epson.ssf": ["ssf"], "application/vnd.eszigno3+xml": ["es3", "et3"], "application/vnd.ezpix-album": ["ez2"], "application/vnd.ezpix-package": ["ez3"], "application/vnd.fdf": ["fdf"], "application/vnd.fdsn.mseed": ["mseed"], "application/vnd.fdsn.seed": ["seed", "dataless"], "application/vnd.flographit": ["gph"], "application/vnd.fluxtime.clip": ["ftc"], "application/vnd.framemaker": ["fm", "frame", "maker", "book"], "application/vnd.frogans.fnc": ["fnc"], "application/vnd.frogans.ltf": ["ltf"], "application/vnd.fsc.weblaunch": ["fsc"], "application/vnd.fujitsu.oasys": ["oas"], "application/vnd.fujitsu.oasys2": ["oa2"], "application/vnd.fujitsu.oasys3": ["oa3"], "application/vnd.fujitsu.oasysgp": ["fg5"], "application/vnd.fujitsu.oasysprs": ["bh2"], "application/vnd.fujixerox.ddd": ["ddd"], "application/vnd.fujixerox.docuworks": ["xdw"], "application/vnd.fujixerox.docuworks.binder": ["xbd"], "application/vnd.fuzzysheet": ["fzs"], "application/vnd.genomatix.tuxedo": ["txd"], "application/vnd.geogebra.file": ["ggb"], "application/vnd.geogebra.tool": ["ggt"], "application/vnd.geometry-explorer": ["gex", "gre"], "application/vnd.geonext": ["gxt"], "application/vnd.geoplan": ["g2w"], "application/vnd.geospace": ["g3w"], "application/vnd.gmx": ["gmx"], "application/vnd.google-apps.document": ["gdoc"], "application/vnd.google-apps.presentation": ["gslides"], "application/vnd.google-apps.spreadsheet": ["gsheet"], "application/vnd.google-earth.kml+xml": ["kml"], "application/vnd.google-earth.kmz": ["kmz"], "application/vnd.grafeq": ["gqf", "gqs"], "application/vnd.groove-account": ["gac"], "application/vnd.groove-help": ["ghf"], "application/vnd.groove-identity-message": ["gim"], "application/vnd.groove-injector": ["grv"], "application/vnd.groove-tool-message": ["gtm"], "application/vnd.groove-tool-template": ["tpl"], "application/vnd.groove-vcard": ["vcg"], "application/vnd.hal+xml": ["hal"], "application/vnd.handheld-entertainment+xml": ["zmm"], "application/vnd.hbci": ["hbci"], "application/vnd.hhe.lesson-player": ["les"], "application/vnd.hp-hpgl": ["hpgl"], "application/vnd.hp-hpid": ["hpid"], "application/vnd.hp-hps": ["hps"], "application/vnd.hp-jlyt": ["jlt"], "application/vnd.hp-pcl": ["pcl"], "application/vnd.hp-pclxl": ["pclxl"], "application/vnd.hydrostatix.sof-data": ["sfd-hdstx"], "application/vnd.ibm.minipay": ["mpy"], "application/vnd.ibm.modcap": ["afp", "listafp", "list3820"], "application/vnd.ibm.rights-management": ["irm"], "application/vnd.ibm.secure-container": ["sc"], "application/vnd.iccprofile": ["icc", "icm"], "application/vnd.igloader": ["igl"], "application/vnd.immervision-ivp": ["ivp"], "application/vnd.immervision-ivu": ["ivu"], "application/vnd.insors.igm": ["igm"], "application/vnd.intercon.formnet": ["xpw", "xpx"], "application/vnd.intergeo": ["i2g"], "application/vnd.intu.qbo": ["qbo"], "application/vnd.intu.qfx": ["qfx"], "application/vnd.ipunplugged.rcprofile": ["rcprofile"], "application/vnd.irepository.package+xml": ["irp"], "application/vnd.is-xpr": ["xpr"], "application/vnd.isac.fcs": ["fcs"], "application/vnd.jam": ["jam"], "application/vnd.jcp.javame.midlet-rms": ["rms"], "application/vnd.jisp": ["jisp"], "application/vnd.joost.joda-archive": ["joda"], "application/vnd.kahootz": ["ktz", "ktr"], "application/vnd.kde.karbon": ["karbon"], "application/vnd.kde.kchart": ["chrt"], "application/vnd.kde.kformula": ["kfo"], "application/vnd.kde.kivio": ["flw"], "application/vnd.kde.kontour": ["kon"], "application/vnd.kde.kpresenter": ["kpr", "kpt"], "application/vnd.kde.kspread": ["ksp"], "application/vnd.kde.kword": ["kwd", "kwt"], "application/vnd.kenameaapp": ["htke"], "application/vnd.kidspiration": ["kia"], "application/vnd.kinar": ["kne", "knp"], "application/vnd.koan": ["skp", "skd", "skt", "skm"], "application/vnd.kodak-descriptor": ["sse"], "application/vnd.las.las+xml": ["lasxml"], "application/vnd.llamagraphics.life-balance.desktop": ["lbd"], "application/vnd.llamagraphics.life-balance.exchange+xml": ["lbe"], "application/vnd.lotus-1-2-3": ["123"], "application/vnd.lotus-approach": ["apr"], "application/vnd.lotus-freelance": ["pre"], "application/vnd.lotus-notes": ["nsf"], "application/vnd.lotus-organizer": ["org"], "application/vnd.lotus-screencam": ["scm"], "application/vnd.lotus-wordpro": ["lwp"], "application/vnd.macports.portpkg": ["portpkg"], "application/vnd.mcd": ["mcd"], "application/vnd.medcalcdata": ["mc1"], "application/vnd.mediastation.cdkey": ["cdkey"], "application/vnd.mfer": ["mwf"], "application/vnd.mfmp": ["mfm"], "application/vnd.micrografx.flo": ["flo"], "application/vnd.micrografx.igx": ["igx"], "application/vnd.mif": ["mif"], "application/vnd.mobius.daf": ["daf"], "application/vnd.mobius.dis": ["dis"], "application/vnd.mobius.mbk": ["mbk"], "application/vnd.mobius.mqy": ["mqy"], "application/vnd.mobius.msl": ["msl"], "application/vnd.mobius.plc": ["plc"], "application/vnd.mobius.txf": ["txf"], "application/vnd.mophun.application": ["mpn"], "application/vnd.mophun.certificate": ["mpc"], "application/vnd.mozilla.xul+xml": ["xul"], "application/vnd.ms-artgalry": ["cil"], "application/vnd.ms-cab-compressed": ["cab"], "application/vnd.ms-excel": ["xls", "xlm", "xla", "xlc", "xlt", "xlw"], "application/vnd.ms-excel.addin.macroenabled.12": ["xlam"], "application/vnd.ms-excel.sheet.binary.macroenabled.12": ["xlsb"], "application/vnd.ms-excel.sheet.macroenabled.12": ["xlsm"], "application/vnd.ms-excel.template.macroenabled.12": ["xltm"], "application/vnd.ms-fontobject": ["eot"], "application/vnd.ms-htmlhelp": ["chm"], "application/vnd.ms-ims": ["ims"], "application/vnd.ms-lrm": ["lrm"], "application/vnd.ms-officetheme": ["thmx"], "application/vnd.ms-outlook": ["msg"], "application/vnd.ms-pki.seccat": ["cat"], "application/vnd.ms-pki.stl": ["stl"], "application/vnd.ms-powerpoint": ["ppt", "pps", "pot"], "application/vnd.ms-powerpoint.addin.macroenabled.12": ["ppam"], "application/vnd.ms-powerpoint.presentation.macroenabled.12": ["pptm"], "application/vnd.ms-powerpoint.slide.macroenabled.12": ["sldm"], "application/vnd.ms-powerpoint.slideshow.macroenabled.12": ["ppsm"], "application/vnd.ms-powerpoint.template.macroenabled.12": ["potm"], "application/vnd.ms-project": ["mpp", "mpt"], "application/vnd.ms-word.document.macroenabled.12": ["docm"], "application/vnd.ms-word.template.macroenabled.12": ["dotm"], "application/vnd.ms-works": ["wps", "wks", "wcm", "wdb"], "application/vnd.ms-wpl": ["wpl"], "application/vnd.ms-xpsdocument": ["xps"], "application/vnd.mseq": ["mseq"], "application/vnd.musician": ["mus"], "application/vnd.muvee.style": ["msty"], "application/vnd.mynfc": ["taglet"], "application/vnd.neurolanguage.nlu": ["nlu"], "application/vnd.nitf": ["ntf", "nitf"], "application/vnd.noblenet-directory": ["nnd"], "application/vnd.noblenet-sealer": ["nns"], "application/vnd.noblenet-web": ["nnw"], "application/vnd.nokia.n-gage.data": ["ngdat"], "application/vnd.nokia.n-gage.symbian.install": ["n-gage"], "application/vnd.nokia.radio-preset": ["rpst"], "application/vnd.nokia.radio-presets": ["rpss"], "application/vnd.novadigm.edm": ["edm"], "application/vnd.novadigm.edx": ["edx"], "application/vnd.novadigm.ext": ["ext"], "application/vnd.oasis.opendocument.chart": ["odc"], "application/vnd.oasis.opendocument.chart-template": ["otc"], "application/vnd.oasis.opendocument.database": ["odb"], "application/vnd.oasis.opendocument.formula": ["odf"], "application/vnd.oasis.opendocument.formula-template": ["odft"], "application/vnd.oasis.opendocument.graphics": ["odg"], "application/vnd.oasis.opendocument.graphics-template": ["otg"], "application/vnd.oasis.opendocument.image": ["odi"], "application/vnd.oasis.opendocument.image-template": ["oti"], "application/vnd.oasis.opendocument.presentation": ["odp"], "application/vnd.oasis.opendocument.presentation-template": ["otp"], "application/vnd.oasis.opendocument.spreadsheet": ["ods"], "application/vnd.oasis.opendocument.spreadsheet-template": ["ots"], "application/vnd.oasis.opendocument.text": ["odt"], "application/vnd.oasis.opendocument.text-master": ["odm"], "application/vnd.oasis.opendocument.text-template": ["ott"], "application/vnd.oasis.opendocument.text-web": ["oth"], "application/vnd.olpc-sugar": ["xo"], "application/vnd.oma.dd2+xml": ["dd2"], "application/vnd.openofficeorg.extension": ["oxt"], "application/vnd.openxmlformats-officedocument.presentationml.presentation": ["pptx"], "application/vnd.openxmlformats-officedocument.presentationml.slide": ["sldx"], "application/vnd.openxmlformats-officedocument.presentationml.slideshow": ["ppsx"], "application/vnd.openxmlformats-officedocument.presentationml.template": ["potx"], "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": ["xlsx"], "application/vnd.openxmlformats-officedocument.spreadsheetml.template": ["xltx"], "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ["docx"], "application/vnd.openxmlformats-officedocument.wordprocessingml.template": ["dotx"], "application/vnd.osgeo.mapguide.package": ["mgp"], "application/vnd.osgi.dp": ["dp"], "application/vnd.osgi.subsystem": ["esa"], "application/vnd.palm": ["pdb", "pqa", "oprc"], "application/vnd.pawaafile": ["paw"], "application/vnd.pg.format": ["str"], "application/vnd.pg.osasli": ["ei6"], "application/vnd.picsel": ["efif"], "application/vnd.pmi.widget": ["wg"], "application/vnd.pocketlearn": ["plf"], "application/vnd.powerbuilder6": ["pbd"], "application/vnd.previewsystems.box": ["box"], "application/vnd.proteus.magazine": ["mgz"], "application/vnd.publishare-delta-tree": ["qps"], "application/vnd.pvi.ptid1": ["ptid"], "application/vnd.quark.quarkxpress": ["qxd", "qxt", "qwd", "qwt", "qxl", "qxb"], "application/vnd.realvnc.bed": ["bed"], "application/vnd.recordare.musicxml": ["mxl"], "application/vnd.recordare.musicxml+xml": ["musicxml"], "application/vnd.rig.cryptonote": ["cryptonote"], "application/vnd.rim.cod": ["cod"], "application/vnd.rn-realmedia": ["rm"], "application/vnd.rn-realmedia-vbr": ["rmvb"], "application/vnd.route66.link66+xml": ["link66"], "application/vnd.sailingtracker.track": ["st"], "application/vnd.seemail": ["see"], "application/vnd.sema": ["sema"], "application/vnd.semd": ["semd"], "application/vnd.semf": ["semf"], "application/vnd.shana.informed.formdata": ["ifm"], "application/vnd.shana.informed.formtemplate": ["itp"], "application/vnd.shana.informed.interchange": ["iif"], "application/vnd.shana.informed.package": ["ipk"], "application/vnd.simtech-mindmapper": ["twd", "twds"], "application/vnd.smaf": ["mmf"], "application/vnd.smart.teacher": ["teacher"], "application/vnd.solent.sdkm+xml": ["sdkm", "sdkd"], "application/vnd.spotfire.dxp": ["dxp"], "application/vnd.spotfire.sfs": ["sfs"], "application/vnd.stardivision.calc": ["sdc"], "application/vnd.stardivision.draw": ["sda"], "application/vnd.stardivision.impress": ["sdd"], "application/vnd.stardivision.math": ["smf"], "application/vnd.stardivision.writer": ["sdw", "vor"], "application/vnd.stardivision.writer-global": ["sgl"], "application/vnd.stepmania.package": ["smzip"], "application/vnd.stepmania.stepchart": ["sm"], "application/vnd.sun.wadl+xml": ["wadl"], "application/vnd.sun.xml.calc": ["sxc"], "application/vnd.sun.xml.calc.template": ["stc"], "application/vnd.sun.xml.draw": ["sxd"], "application/vnd.sun.xml.draw.template": ["std"], "application/vnd.sun.xml.impress": ["sxi"], "application/vnd.sun.xml.impress.template": ["sti"], "application/vnd.sun.xml.math": ["sxm"], "application/vnd.sun.xml.writer": ["sxw"], "application/vnd.sun.xml.writer.global": ["sxg"], "application/vnd.sun.xml.writer.template": ["stw"], "application/vnd.sus-calendar": ["sus", "susp"], "application/vnd.svd": ["svd"], "application/vnd.symbian.install": ["sis", "sisx"], "application/vnd.syncml+xml": ["xsm"], "application/vnd.syncml.dm+wbxml": ["bdm"], "application/vnd.syncml.dm+xml": ["xdm"], "application/vnd.tao.intent-module-archive": ["tao"], "application/vnd.tcpdump.pcap": ["pcap", "cap", "dmp"], "application/vnd.tmobile-livetv": ["tmo"], "application/vnd.trid.tpt": ["tpt"], "application/vnd.triscape.mxs": ["mxs"], "application/vnd.trueapp": ["tra"], "application/vnd.ufdl": ["ufd", "ufdl"], "application/vnd.uiq.theme": ["utz"], "application/vnd.umajin": ["umj"], "application/vnd.unity": ["unityweb"], "application/vnd.uoml+xml": ["uoml"], "application/vnd.vcx": ["vcx"], "application/vnd.visio": ["vsd", "vst", "vss", "vsw"], "application/vnd.visionary": ["vis"], "application/vnd.vsf": ["vsf"], "application/vnd.wap.wbxml": ["wbxml"], "application/vnd.wap.wmlc": ["wmlc"], "application/vnd.wap.wmlscriptc": ["wmlsc"], "application/vnd.webturbo": ["wtb"], "application/vnd.wolfram.player": ["nbp"], "application/vnd.wordperfect": ["wpd"], "application/vnd.wqd": ["wqd"], "application/vnd.wt.stf": ["stf"], "application/vnd.xara": ["xar"], "application/vnd.xfdl": ["xfdl"], "application/vnd.yamaha.hv-dic": ["hvd"], "application/vnd.yamaha.hv-script": ["hvs"], "application/vnd.yamaha.hv-voice": ["hvp"], "application/vnd.yamaha.openscoreformat": ["osf"], "application/vnd.yamaha.openscoreformat.osfpvg+xml": ["osfpvg"], "application/vnd.yamaha.smaf-audio": ["saf"], "application/vnd.yamaha.smaf-phrase": ["spf"], "application/vnd.yellowriver-custom-menu": ["cmp"], "application/vnd.zul": ["zir", "zirz"], "application/vnd.zzazz.deck+xml": ["zaz"], "application/voicexml+xml": ["vxml"], "application/wasm": ["wasm"], "application/widget": ["wgt"], "application/winhlp": ["hlp"], "application/wsdl+xml": ["wsdl"], "application/wspolicy+xml": ["wspolicy"], "application/x-7z-compressed": ["7z"], "application/x-abiword": ["abw"], "application/x-ace-compressed": ["ace"], "application/x-apple-diskimage": [], "application/x-arj": ["arj"], "application/x-authorware-bin": ["aab", "x32", "u32", "vox"], "application/x-authorware-map": ["aam"], "application/x-authorware-seg": ["aas"], "application/x-bcpio": ["bcpio"], "application/x-bdoc": [], "application/x-bittorrent": ["torrent"], "application/x-blorb": ["blb", "blorb"], "application/x-bzip": ["bz"], "application/x-bzip2": ["bz2", "boz"], "application/x-cbr": ["cbr", "cba", "cbt", "cbz", "cb7"], "application/x-cdlink": ["vcd"], "application/x-cfs-compressed": ["cfs"], "application/x-chat": ["chat"], "application/x-chess-pgn": ["pgn"], "application/x-chrome-extension": ["crx"], "application/x-cocoa": ["cco"], "application/x-conference": ["nsc"], "application/x-cpio": ["cpio"], "application/x-csh": ["csh"], "application/x-debian-package": ["udeb"], "application/x-dgc-compressed": ["dgc"], "application/x-director": ["dir", "dcr", "dxr", "cst", "cct", "cxt", "w3d", "fgd", "swa"], "application/x-doom": ["wad"], "application/x-dtbncx+xml": ["ncx"], "application/x-dtbook+xml": ["dtb"], "application/x-dtbresource+xml": ["res"], "application/x-dvi": ["dvi"], "application/x-envoy": ["evy"], "application/x-eva": ["eva"], "application/x-font-bdf": ["bdf"], "application/x-font-ghostscript": ["gsf"], "application/x-font-linux-psf": ["psf"], "application/x-font-pcf": ["pcf"], "application/x-font-snf": ["snf"], "application/x-font-type1": ["pfa", "pfb", "pfm", "afm"], "application/x-freearc": ["arc"], "application/x-futuresplash": ["spl"], "application/x-gca-compressed": ["gca"], "application/x-glulx": ["ulx"], "application/x-gnumeric": ["gnumeric"], "application/x-gramps-xml": ["gramps"], "application/x-gtar": ["gtar"], "application/x-hdf": ["hdf"], "application/x-httpd-php": ["php"], "application/x-install-instructions": ["install"], "application/x-iso9660-image": [], "application/x-java-archive-diff": ["jardiff"], "application/x-java-jnlp-file": ["jnlp"], "application/x-latex": ["latex"], "application/x-lua-bytecode": ["luac"], "application/x-lzh-compressed": ["lzh", "lha"], "application/x-makeself": ["run"], "application/x-mie": ["mie"], "application/x-mobipocket-ebook": ["prc", "mobi"], "application/x-ms-application": ["application"], "application/x-ms-shortcut": ["lnk"], "application/x-ms-wmd": ["wmd"], "application/x-ms-wmz": ["wmz"], "application/x-ms-xbap": ["xbap"], "application/x-msaccess": ["mdb"], "application/x-msbinder": ["obd"], "application/x-mscardfile": ["crd"], "application/x-msclip": ["clp"], "application/x-msdos-program": [], "application/x-msdownload": ["com", "bat"], "application/x-msmediaview": ["mvb", "m13", "m14"], "application/x-msmetafile": ["wmf", "emf", "emz"], "application/x-msmoney": ["mny"], "application/x-mspublisher": ["pub"], "application/x-msschedule": ["scd"], "application/x-msterminal": ["trm"], "application/x-mswrite": ["wri"], "application/x-netcdf": ["nc", "cdf"], "application/x-ns-proxy-autoconfig": ["pac"], "application/x-nzb": ["nzb"], "application/x-perl": ["pl", "pm"], "application/x-pilot": [], "application/x-pkcs12": ["p12", "pfx"], "application/x-pkcs7-certificates": ["p7b", "spc"], "application/x-pkcs7-certreqresp": ["p7r"], "application/x-rar-compressed": ["rar"], "application/x-redhat-package-manager": ["rpm"], "application/x-research-info-systems": ["ris"], "application/x-sea": ["sea"], "application/x-sh": ["sh"], "application/x-shar": ["shar"], "application/x-shockwave-flash": ["swf"], "application/x-silverlight-app": ["xap"], "application/x-sql": ["sql"], "application/x-stuffit": ["sit"], "application/x-stuffitx": ["sitx"], "application/x-subrip": ["srt"], "application/x-sv4cpio": ["sv4cpio"], "application/x-sv4crc": ["sv4crc"], "application/x-t3vm-image": ["t3"], "application/x-tads": ["gam"], "application/x-tar": ["tar"], "application/x-tcl": ["tcl", "tk"], "application/x-tex": ["tex"], "application/x-tex-tfm": ["tfm"], "application/x-texinfo": ["texinfo", "texi"], "application/x-tgif": ["obj"], "application/x-ustar": ["ustar"], "application/x-virtualbox-hdd": ["hdd"], "application/x-virtualbox-ova": ["ova"], "application/x-virtualbox-ovf": ["ovf"], "application/x-virtualbox-vbox": ["vbox"], "application/x-virtualbox-vbox-extpack": ["vbox-extpack"], "application/x-virtualbox-vdi": ["vdi"], "application/x-virtualbox-vhd": ["vhd"], "application/x-virtualbox-vmdk": ["vmdk"], "application/x-wais-source": ["src"], "application/x-web-app-manifest+json": ["webapp"], "application/x-x509-ca-cert": ["der", "crt", "pem"], "application/x-xfig": ["fig"], "application/x-xliff+xml": ["xlf"], "application/x-xpinstall": ["xpi"], "application/x-xz": ["xz"], "application/x-zmachine": ["z1", "z2", "z3", "z4", "z5", "z6", "z7", "z8"], "application/xaml+xml": ["xaml"], "application/xcap-diff+xml": ["xdf"], "application/xenc+xml": ["xenc"], "application/xhtml+xml": ["xhtml", "xht"], "application/xml": ["xml", "xsl", "xsd", "rng"], "application/xml-dtd": ["dtd"], "application/xop+xml": ["xop"], "application/xproc+xml": ["xpl"], "application/xslt+xml": ["xslt"], "application/xspf+xml": ["xspf"], "application/xv+xml": ["mxml", "xhvml", "xvml", "xvm"], "application/yang": ["yang"], "application/yin+xml": ["yin"], "application/zip": ["zip"], "audio/3gpp": [], "audio/adpcm": ["adp"], "audio/basic": ["au", "snd"], "audio/midi": ["mid", "midi", "kar", "rmi"], "audio/mp3": [], "audio/mp4": ["m4a", "mp4a"], "audio/mpeg": ["mpga", "mp2", "mp2a", "mp3", "m2a", "m3a"], "audio/ogg": ["oga", "ogg", "spx"], "audio/s3m": ["s3m"], "audio/silk": ["sil"], "audio/vnd.dece.audio": ["uva", "uvva"], "audio/vnd.digital-winds": ["eol"], "audio/vnd.dra": ["dra"], "audio/vnd.dts": ["dts"], "audio/vnd.dts.hd": ["dtshd"], "audio/vnd.lucent.voice": ["lvp"], "audio/vnd.ms-playready.media.pya": ["pya"], "audio/vnd.nuera.ecelp4800": ["ecelp4800"], "audio/vnd.nuera.ecelp7470": ["ecelp7470"], "audio/vnd.nuera.ecelp9600": ["ecelp9600"], "audio/vnd.rip": ["rip"], "audio/wav": ["wav"], "audio/wave": [], "audio/webm": ["weba"], "audio/x-aac": ["aac"], "audio/x-aiff": ["aif", "aiff", "aifc"], "audio/x-caf": ["caf"], "audio/x-flac": ["flac"], "audio/x-m4a": [], "audio/x-matroska": ["mka"], "audio/x-mpegurl": ["m3u"], "audio/x-ms-wax": ["wax"], "audio/x-ms-wma": ["wma"], "audio/x-pn-realaudio": ["ram", "ra"], "audio/x-pn-realaudio-plugin": ["rmp"], "audio/x-realaudio": [], "audio/x-wav": [], "audio/xm": ["xm"], "chemical/x-cdx": ["cdx"], "chemical/x-cif": ["cif"], "chemical/x-cmdf": ["cmdf"], "chemical/x-cml": ["cml"], "chemical/x-csml": ["csml"], "chemical/x-xyz": ["xyz"], "font/collection": ["ttc"], "font/otf": ["otf"], "font/ttf": ["ttf"], "font/woff": ["woff"], "font/woff2": ["woff2"], "image/apng": ["apng"], "image/bmp": ["bmp"], "image/cgm": ["cgm"], "image/g3fax": ["g3"], "image/gif": ["gif"], "image/ief": ["ief"], "image/jp2": ["jp2", "jpg2"], "image/jpeg": ["jpeg", "jpg", "jpe"], "image/jpm": ["jpm"], "image/jpx": ["jpx", "jpf"], "image/ktx": ["ktx"], "image/png": ["png"], "image/prs.btif": ["btif"], "image/sgi": ["sgi"], "image/svg+xml": ["svg", "svgz"], "image/tiff": ["tiff", "tif"], "image/vnd.adobe.photoshop": ["psd"], "image/vnd.dece.graphic": ["uvi", "uvvi", "uvg", "uvvg"], "image/vnd.djvu": ["djvu", "djv"], "image/vnd.dvb.subtitle": [], "image/vnd.dwg": ["dwg"], "image/vnd.dxf": ["dxf"], "image/vnd.fastbidsheet": ["fbs"], "image/vnd.fpx": ["fpx"], "image/vnd.fst": ["fst"], "image/vnd.fujixerox.edmics-mmr": ["mmr"], "image/vnd.fujixerox.edmics-rlc": ["rlc"], "image/vnd.ms-modi": ["mdi"], "image/vnd.ms-photo": ["wdp"], "image/vnd.net-fpx": ["npx"], "image/vnd.wap.wbmp": ["wbmp"], "image/vnd.xiff": ["xif"], "image/webp": ["webp"], "image/x-3ds": ["3ds"], "image/x-cmu-raster": ["ras"], "image/x-cmx": ["cmx"], "image/x-freehand": ["fh", "fhc", "fh4", "fh5", "fh7"], "image/x-icon": ["ico"], "image/x-jng": ["jng"], "image/x-mrsid-image": ["sid"], "image/x-ms-bmp": [], "image/x-pcx": ["pcx"], "image/x-pict": ["pic", "pct"], "image/x-portable-anymap": ["pnm"], "image/x-portable-bitmap": ["pbm"], "image/x-portable-graymap": ["pgm"], "image/x-portable-pixmap": ["ppm"], "image/x-rgb": ["rgb"], "image/x-tga": ["tga"], "image/x-xbitmap": ["xbm"], "image/x-xpixmap": ["xpm"], "image/x-xwindowdump": ["xwd"], "message/rfc822": ["eml", "mime"], "model/gltf+json": ["gltf"], "model/gltf-binary": ["glb"], "model/iges": ["igs", "iges"], "model/mesh": ["msh", "mesh", "silo"], "model/vnd.collada+xml": ["dae"], "model/vnd.dwf": ["dwf"], "model/vnd.gdl": ["gdl"], "model/vnd.gtw": ["gtw"], "model/vnd.mts": ["mts"], "model/vnd.vtu": ["vtu"], "model/vrml": ["wrl", "vrml"], "model/x3d+binary": ["x3db", "x3dbz"], "model/x3d+vrml": ["x3dv", "x3dvz"], "model/x3d+xml": ["x3d", "x3dz"], "text/cache-manifest": ["appcache", "manifest"], "text/calendar": ["ics", "ifb"], "text/coffeescript": ["coffee", "litcoffee"], "text/css": ["css"], "text/csv": ["csv"], "text/hjson": ["hjson"], "text/html": ["html", "htm", "shtml"], "text/jade": ["jade"], "text/jsx": ["jsx"], "text/less": ["less"], "text/markdown": ["markdown", "md"], "text/mathml": ["mml"], "text/n3": ["n3"], "text/plain": ["txt", "text", "conf", "def", "list", "log", "in", "ini"], "text/prs.lines.tag": ["dsc"], "text/richtext": ["rtx"], "text/rtf": [], "text/sgml": ["sgml", "sgm"], "text/slim": ["slim", "slm"], "text/stylus": ["stylus", "styl"], "text/tab-separated-values": ["tsv"], "text/troff": ["t", "tr", "roff", "man", "me", "ms"], "text/turtle": ["ttl"], "text/uri-list": ["uri", "uris", "urls"], "text/vcard": ["vcard"], "text/vnd.curl": ["curl"], "text/vnd.curl.dcurl": ["dcurl"], "text/vnd.curl.mcurl": ["mcurl"], "text/vnd.curl.scurl": ["scurl"], "text/vnd.dvb.subtitle": ["sub"], "text/vnd.fly": ["fly"], "text/vnd.fmi.flexstor": ["flx"], "text/vnd.graphviz": ["gv"], "text/vnd.in3d.3dml": ["3dml"], "text/vnd.in3d.spot": ["spot"], "text/vnd.sun.j2me.app-descriptor": ["jad"], "text/vnd.wap.wml": ["wml"], "text/vnd.wap.wmlscript": ["wmls"], "text/vtt": ["vtt"], "text/x-asm": ["s", "asm"], "text/x-c": ["c", "cc", "cxx", "cpp", "h", "hh", "dic"], "text/x-component": ["htc"], "text/x-fortran": ["f", "for", "f77", "f90"], "text/x-handlebars-template": ["hbs"], "text/x-java-source": ["java"], "text/x-lua": ["lua"], "text/x-markdown": ["mkd"], "text/x-nfo": ["nfo"], "text/x-opml": ["opml"], "text/x-org": [], "text/x-pascal": ["p", "pas"], "text/x-processing": ["pde"], "text/x-sass": ["sass"], "text/x-scss": ["scss"], "text/x-setext": ["etx"], "text/x-sfv": ["sfv"], "text/x-suse-ymp": ["ymp"], "text/x-uuencode": ["uu"], "text/x-vcalendar": ["vcs"], "text/x-vcard": ["vcf"], "text/xml": [], "text/yaml": ["yaml", "yml"], "video/3gpp": ["3gp", "3gpp"], "video/3gpp2": ["3g2"], "video/h261": ["h261"], "video/h263": ["h263"], "video/h264": ["h264"], "video/jpeg": ["jpgv"], "video/jpm": ["jpgm"], "video/mj2": ["mj2", "mjp2"], "video/mp2t": ["ts"], "video/mp4": ["mp4", "mp4v", "mpg4"], "video/mpeg": ["mpeg", "mpg", "mpe", "m1v", "m2v"], "video/ogg": ["ogv"], "video/quicktime": ["qt", "mov"], "video/vnd.dece.hd": ["uvh", "uvvh"], "video/vnd.dece.mobile": ["uvm", "uvvm"], "video/vnd.dece.pd": ["uvp", "uvvp"], "video/vnd.dece.sd": ["uvs", "uvvs"], "video/vnd.dece.video": ["uvv", "uvvv"], "video/vnd.dvb.file": ["dvb"], "video/vnd.fvt": ["fvt"], "video/vnd.mpegurl": ["mxu", "m4u"], "video/vnd.ms-playready.media.pyv": ["pyv"], "video/vnd.uvvu.mp4": ["uvu", "uvvu"], "video/vnd.vivo": ["viv"], "video/webm": ["webm"], "video/x-f4v": ["f4v"], "video/x-fli": ["fli"], "video/x-flv": ["flv"], "video/x-m4v": ["m4v"], "video/x-matroska": ["mkv", "mk3d", "mks"], "video/x-mng": ["mng"], "video/x-ms-asf": ["asf", "asx"], "video/x-ms-vob": ["vob"], "video/x-ms-wm": ["wm"], "video/x-ms-wmv": ["wmv"], "video/x-ms-wmx": ["wmx"], "video/x-ms-wvx": ["wvx"], "video/x-msvideo": ["avi"], "video/x-sgi-movie": ["movie"], "video/x-smv": ["smv"], "x-conference/x-cooltalk": ["ice"] };
   }
 });
 
 // node_modules/.pnpm/mime@1.6.0/node_modules/mime/mime.js
 var require_mime = __commonJS({
-  "node_modules/.pnpm/mime@1.6.0/node_modules/mime/mime.js"(exports2, module2) {
-    var path2 = require("path");
-    var fs = require("fs");
+  "node_modules/.pnpm/mime@1.6.0/node_modules/mime/mime.js"(exports, module) {
+    var path2 = __require("path");
+    var fs = __require("fs");
     function Mime() {
       this.types = /* @__PURE__ */ Object.create(null);
       this.extensions = /* @__PURE__ */ Object.create(null);
@@ -19197,20 +19202,20 @@ var require_mime = __commonJS({
         return /^text\/|^application\/(javascript|json)/.test(mimeType) ? "UTF-8" : fallback;
       }
     };
-    module2.exports = mime;
+    module.exports = mime;
   }
 });
 
 // node_modules/.pnpm/ms@2.1.3/node_modules/ms/index.js
 var require_ms2 = __commonJS({
-  "node_modules/.pnpm/ms@2.1.3/node_modules/ms/index.js"(exports2, module2) {
+  "node_modules/.pnpm/ms@2.1.3/node_modules/ms/index.js"(exports, module) {
     var s = 1e3;
     var m = s * 60;
     var h = m * 60;
     var d = h * 24;
     var w = d * 7;
     var y = d * 365.25;
-    module2.exports = function(val, options) {
+    module.exports = function(val, options) {
       options = options || {};
       var type = typeof val;
       if (type === "string" && val.length > 0) {
@@ -19319,9 +19324,9 @@ var require_ms2 = __commonJS({
 
 // node_modules/.pnpm/range-parser@1.2.1/node_modules/range-parser/index.js
 var require_range_parser = __commonJS({
-  "node_modules/.pnpm/range-parser@1.2.1/node_modules/range-parser/index.js"(exports2, module2) {
+  "node_modules/.pnpm/range-parser@1.2.1/node_modules/range-parser/index.js"(exports, module) {
     "use strict";
-    module2.exports = rangeParser;
+    module.exports = rangeParser;
     function rangeParser(size, str, options) {
       if (typeof str !== "string") {
         throw new TypeError("argument str must be a string");
@@ -19400,7 +19405,7 @@ var require_range_parser = __commonJS({
 
 // node_modules/.pnpm/send@0.19.0/node_modules/send/index.js
 var require_send = __commonJS({
-  "node_modules/.pnpm/send@0.19.0/node_modules/send/index.js"(exports2, module2) {
+  "node_modules/.pnpm/send@0.19.0/node_modules/send/index.js"(exports, module) {
     "use strict";
     var createError = require_http_errors();
     var debug = require_src()("send");
@@ -19410,15 +19415,15 @@ var require_send = __commonJS({
     var escapeHtml = require_escape_html();
     var etag = require_etag();
     var fresh = require_fresh();
-    var fs = require("fs");
+    var fs = __require("fs");
     var mime = require_mime();
     var ms = require_ms2();
     var onFinished = require_on_finished();
     var parseRange = require_range_parser();
-    var path2 = require("path");
+    var path2 = __require("path");
     var statuses = require_statuses();
-    var Stream = require("stream");
-    var util3 = require("util");
+    var Stream = __require("stream");
+    var util3 = __require("util");
     var extname = path2.extname;
     var join = path2.join;
     var normalize = path2.normalize;
@@ -19427,8 +19432,8 @@ var require_send = __commonJS({
     var BYTES_RANGE_REGEXP = /^ *bytes=/;
     var MAX_MAXAGE = 60 * 60 * 24 * 365 * 1e3;
     var UP_PATH_REGEXP = /(?:^|[\\/])\.\.(?:[\\/]|$)/;
-    module2.exports = send;
-    module2.exports.mime = mime;
+    module.exports = send;
+    module.exports.mime = mime;
     function send(req, path3, options) {
       return new SendStream(req, path3, options);
     }
@@ -19945,9 +19950,9 @@ var require_send = __commonJS({
 
 // node_modules/.pnpm/forwarded@0.2.0/node_modules/forwarded/index.js
 var require_forwarded = __commonJS({
-  "node_modules/.pnpm/forwarded@0.2.0/node_modules/forwarded/index.js"(exports2, module2) {
+  "node_modules/.pnpm/forwarded@0.2.0/node_modules/forwarded/index.js"(exports, module) {
     "use strict";
-    module2.exports = forwarded;
+    module.exports = forwarded;
     function forwarded(req) {
       if (!req) {
         throw new TypeError("argument req is required");
@@ -19992,13 +19997,13 @@ var require_forwarded = __commonJS({
 
 // node_modules/.pnpm/ipaddr.js@1.9.1/node_modules/ipaddr.js/lib/ipaddr.js
 var require_ipaddr = __commonJS({
-  "node_modules/.pnpm/ipaddr.js@1.9.1/node_modules/ipaddr.js/lib/ipaddr.js"(exports2, module2) {
+  "node_modules/.pnpm/ipaddr.js@1.9.1/node_modules/ipaddr.js/lib/ipaddr.js"(exports, module) {
     (function() {
       var expandIPv6, ipaddr, ipv4Part, ipv4Regexes, ipv6Part, ipv6Regexes, matchCIDR, root, zoneIndex;
       ipaddr = {};
       root = this;
-      if (typeof module2 !== "undefined" && module2 !== null && module2.exports) {
-        module2.exports = ipaddr;
+      if (typeof module !== "undefined" && module !== null && module.exports) {
+        module.exports = ipaddr;
       } else {
         root["ipaddr"] = ipaddr;
       }
@@ -20608,17 +20613,17 @@ var require_ipaddr = __commonJS({
           return addr;
         }
       };
-    }).call(exports2);
+    }).call(exports);
   }
 });
 
 // node_modules/.pnpm/proxy-addr@2.0.7/node_modules/proxy-addr/index.js
 var require_proxy_addr = __commonJS({
-  "node_modules/.pnpm/proxy-addr@2.0.7/node_modules/proxy-addr/index.js"(exports2, module2) {
+  "node_modules/.pnpm/proxy-addr@2.0.7/node_modules/proxy-addr/index.js"(exports, module) {
     "use strict";
-    module2.exports = proxyaddr;
-    module2.exports.all = alladdrs;
-    module2.exports.compile = compile;
+    module.exports = proxyaddr;
+    module.exports.all = alladdrs;
+    module.exports.compile = compile;
     var forwarded = require_forwarded();
     var ipaddr = require_ipaddr();
     var DIGIT_REGEXP = /^[0-9]+$/;
@@ -20773,7 +20778,7 @@ var require_proxy_addr = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/utils.js
 var require_utils2 = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/utils.js"(exports2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/utils.js"(exports) {
     "use strict";
     var Buffer2 = require_safe_buffer().Buffer;
     var contentDisposition = require_content_disposition();
@@ -20784,29 +20789,29 @@ var require_utils2 = __commonJS({
     var etag = require_etag();
     var proxyaddr = require_proxy_addr();
     var qs = require_lib2();
-    var querystring = require("querystring");
-    exports2.etag = createETagGenerator({ weak: false });
-    exports2.wetag = createETagGenerator({ weak: true });
-    exports2.isAbsolute = function(path2) {
+    var querystring = __require("querystring");
+    exports.etag = createETagGenerator({ weak: false });
+    exports.wetag = createETagGenerator({ weak: true });
+    exports.isAbsolute = function(path2) {
       if ("/" === path2[0]) return true;
       if (":" === path2[1] && ("\\" === path2[2] || "/" === path2[2])) return true;
       if ("\\\\" === path2.substring(0, 2)) return true;
     };
-    exports2.flatten = deprecate.function(
+    exports.flatten = deprecate.function(
       flatten,
       "utils.flatten: use array-flatten npm module instead"
     );
-    exports2.normalizeType = function(type) {
+    exports.normalizeType = function(type) {
       return ~type.indexOf("/") ? acceptParams(type) : { value: mime.lookup(type), params: {} };
     };
-    exports2.normalizeTypes = function(types) {
+    exports.normalizeTypes = function(types) {
       var ret = [];
       for (var i = 0; i < types.length; ++i) {
-        ret.push(exports2.normalizeType(types[i]));
+        ret.push(exports.normalizeType(types[i]));
       }
       return ret;
     };
-    exports2.contentDisposition = deprecate.function(
+    exports.contentDisposition = deprecate.function(
       contentDisposition,
       "utils.contentDisposition: use content-disposition npm module instead"
     );
@@ -20823,7 +20828,7 @@ var require_utils2 = __commonJS({
       }
       return ret;
     }
-    exports2.compileETag = function(val) {
+    exports.compileETag = function(val) {
       var fn;
       if (typeof val === "function") {
         return val;
@@ -20831,19 +20836,19 @@ var require_utils2 = __commonJS({
       switch (val) {
         case true:
         case "weak":
-          fn = exports2.wetag;
+          fn = exports.wetag;
           break;
         case false:
           break;
         case "strong":
-          fn = exports2.etag;
+          fn = exports.etag;
           break;
         default:
           throw new TypeError("unknown value for etag function: " + val);
       }
       return fn;
     };
-    exports2.compileQueryParser = function compileQueryParser(val) {
+    exports.compileQueryParser = function compileQueryParser(val) {
       var fn;
       if (typeof val === "function") {
         return val;
@@ -20864,7 +20869,7 @@ var require_utils2 = __commonJS({
       }
       return fn;
     };
-    exports2.compileTrust = function(val) {
+    exports.compileTrust = function(val) {
       if (typeof val === "function") return val;
       if (val === true) {
         return function() {
@@ -20883,7 +20888,7 @@ var require_utils2 = __commonJS({
       }
       return proxyaddr.compile(val || []);
     };
-    exports2.setCharset = function setCharset(type, charset) {
+    exports.setCharset = function setCharset(type, charset) {
       if (!type || !charset) {
         return type;
       }
@@ -20910,7 +20915,7 @@ var require_utils2 = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/application.js
 var require_application = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/application.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/application.js"(exports, module) {
     "use strict";
     var finalhandler = require_finalhandler();
     var Router = require_router();
@@ -20919,18 +20924,18 @@ var require_application = __commonJS({
     var query = require_query();
     var debug = require_src()("express:application");
     var View2 = require_view();
-    var http2 = require("http");
+    var http2 = __require("http");
     var compileETag = require_utils2().compileETag;
     var compileQueryParser = require_utils2().compileQueryParser;
     var compileTrust = require_utils2().compileTrust;
     var deprecate = require_depd()("express");
     var flatten = require_array_flatten();
     var merge3 = require_utils_merge();
-    var resolve = require("path").resolve;
+    var resolve = __require("path").resolve;
     var setPrototypeOf = require_setprototypeof();
     var hasOwnProperty2 = Object.prototype.hasOwnProperty;
     var slice = Array.prototype.slice;
-    var app2 = exports2 = module2.exports = {};
+    var app2 = exports = module.exports = {};
     var trustProxyDefaultSymbol = "@@symbol:trust_proxy_default";
     app2.init = function init() {
       this.cache = {};
@@ -20939,7 +20944,7 @@ var require_application = __commonJS({
       this.defaultConfiguration();
     };
     app2.defaultConfiguration = function defaultConfiguration() {
-      var env = "production";
+      var env = process.env.NODE_ENV || "development";
       this.enable("x-powered-by");
       this.set("etag", "weak");
       this.set("env", env);
@@ -21186,10 +21191,10 @@ var require_application = __commonJS({
 
 // node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/charset.js
 var require_charset = __commonJS({
-  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/charset.js"(exports2, module2) {
+  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/charset.js"(exports, module) {
     "use strict";
-    module2.exports = preferredCharsets;
-    module2.exports.preferredCharsets = preferredCharsets;
+    module.exports = preferredCharsets;
+    module.exports.preferredCharsets = preferredCharsets;
     var simpleCharsetRegExp = /^\s*([^\s;]+)\s*(?:;(.*))?$/;
     function parseAcceptCharset(accept) {
       var accepts = accept.split(",");
@@ -21273,10 +21278,10 @@ var require_charset = __commonJS({
 
 // node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/encoding.js
 var require_encoding = __commonJS({
-  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/encoding.js"(exports2, module2) {
+  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/encoding.js"(exports, module) {
     "use strict";
-    module2.exports = preferredEncodings;
-    module2.exports.preferredEncodings = preferredEncodings;
+    module.exports = preferredEncodings;
+    module.exports.preferredEncodings = preferredEncodings;
     var simpleEncodingRegExp = /^\s*([^\s;]+)\s*(?:;(.*))?$/;
     function parseAcceptEncoding(accept) {
       var accepts = accept.split(",");
@@ -21371,10 +21376,10 @@ var require_encoding = __commonJS({
 
 // node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/language.js
 var require_language = __commonJS({
-  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/language.js"(exports2, module2) {
+  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/language.js"(exports, module) {
     "use strict";
-    module2.exports = preferredLanguages;
-    module2.exports.preferredLanguages = preferredLanguages;
+    module.exports = preferredLanguages;
+    module.exports.preferredLanguages = preferredLanguages;
     var simpleLanguageRegExp = /^\s*([^\s\-;]+)(?:-([^\s;]+))?\s*(?:;(.*))?$/;
     function parseAcceptLanguage(accept) {
       var accepts = accept.split(",");
@@ -21466,10 +21471,10 @@ var require_language = __commonJS({
 
 // node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/mediaType.js
 var require_mediaType = __commonJS({
-  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/mediaType.js"(exports2, module2) {
+  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/lib/mediaType.js"(exports, module) {
     "use strict";
-    module2.exports = preferredMediaTypes;
-    module2.exports.preferredMediaTypes = preferredMediaTypes;
+    module.exports = preferredMediaTypes;
+    module.exports.preferredMediaTypes = preferredMediaTypes;
     var simpleMediaTypeRegExp = /^\s*([^\s\/;]+)\/([^;\s]+)\s*(?:;(.*))?$/;
     function parseAccept(accept) {
       var accepts = splitMediaTypes(accept);
@@ -21628,14 +21633,14 @@ var require_mediaType = __commonJS({
 
 // node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/index.js
 var require_negotiator = __commonJS({
-  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/index.js"(exports2, module2) {
+  "node_modules/.pnpm/negotiator@0.6.3/node_modules/negotiator/index.js"(exports, module) {
     "use strict";
     var preferredCharsets = require_charset();
     var preferredEncodings = require_encoding();
     var preferredLanguages = require_language();
     var preferredMediaTypes = require_mediaType();
-    module2.exports = Negotiator;
-    module2.exports.Negotiator = Negotiator;
+    module.exports = Negotiator;
+    module.exports.Negotiator = Negotiator;
     function Negotiator(request) {
       if (!(this instanceof Negotiator)) {
         return new Negotiator(request);
@@ -21683,11 +21688,11 @@ var require_negotiator = __commonJS({
 
 // node_modules/.pnpm/accepts@1.3.8/node_modules/accepts/index.js
 var require_accepts = __commonJS({
-  "node_modules/.pnpm/accepts@1.3.8/node_modules/accepts/index.js"(exports2, module2) {
+  "node_modules/.pnpm/accepts@1.3.8/node_modules/accepts/index.js"(exports, module) {
     "use strict";
     var Negotiator = require_negotiator();
     var mime = require_mime_types();
-    module2.exports = Accepts;
+    module.exports = Accepts;
     function Accepts(req) {
       if (!(this instanceof Accepts)) {
         return new Accepts(req);
@@ -21764,19 +21769,19 @@ var require_accepts = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/request.js
 var require_request = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/request.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/request.js"(exports, module) {
     "use strict";
     var accepts = require_accepts();
     var deprecate = require_depd()("express");
-    var isIP = require("net").isIP;
+    var isIP = __require("net").isIP;
     var typeis = require_type_is();
-    var http2 = require("http");
+    var http2 = __require("http");
     var fresh = require_fresh();
     var parseRange = require_range_parser();
     var parse3 = require_parseurl();
     var proxyaddr = require_proxy_addr();
     var req = Object.create(http2.IncomingMessage.prototype);
-    module2.exports = req;
+    module.exports = req;
     req.get = req.header = function header(name) {
       if (!name) {
         throw new TypeError("name argument is required to req.get");
@@ -21928,17 +21933,17 @@ var require_request = __commonJS({
 
 // node_modules/.pnpm/cookie-signature@1.0.6/node_modules/cookie-signature/index.js
 var require_cookie_signature = __commonJS({
-  "node_modules/.pnpm/cookie-signature@1.0.6/node_modules/cookie-signature/index.js"(exports2) {
-    var crypto3 = require("crypto");
-    exports2.sign = function(val, secret) {
+  "node_modules/.pnpm/cookie-signature@1.0.6/node_modules/cookie-signature/index.js"(exports) {
+    var crypto3 = __require("crypto");
+    exports.sign = function(val, secret) {
       if ("string" != typeof val) throw new TypeError("Cookie value must be provided as a string.");
       if ("string" != typeof secret) throw new TypeError("Secret string must be provided.");
       return val + "." + crypto3.createHmac("sha256", secret).update(val).digest("base64").replace(/\=+$/, "");
     };
-    exports2.unsign = function(val, secret) {
+    exports.unsign = function(val, secret) {
       if ("string" != typeof val) throw new TypeError("Signed cookie string must be provided.");
       if ("string" != typeof secret) throw new TypeError("Secret string must be provided.");
-      var str = val.slice(0, val.lastIndexOf(".")), mac = exports2.sign(str, secret);
+      var str = val.slice(0, val.lastIndexOf(".")), mac = exports.sign(str, secret);
       return sha1(mac) == sha1(val) ? str : false;
     };
     function sha1(str) {
@@ -21949,10 +21954,10 @@ var require_cookie_signature = __commonJS({
 
 // node_modules/.pnpm/cookie@0.7.1/node_modules/cookie/index.js
 var require_cookie = __commonJS({
-  "node_modules/.pnpm/cookie@0.7.1/node_modules/cookie/index.js"(exports2) {
+  "node_modules/.pnpm/cookie@0.7.1/node_modules/cookie/index.js"(exports) {
     "use strict";
-    exports2.parse = parse3;
-    exports2.serialize = serialize;
+    exports.parse = parse3;
+    exports.serialize = serialize;
     var __toString = Object.prototype.toString;
     var cookieNameRegExp = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
     var cookieValueRegExp = /^("?)[\u0021\u0023-\u002B\u002D-\u003A\u003C-\u005B\u005D-\u007E]*\1$/;
@@ -22114,10 +22119,10 @@ var require_cookie = __commonJS({
 
 // node_modules/.pnpm/vary@1.1.2/node_modules/vary/index.js
 var require_vary = __commonJS({
-  "node_modules/.pnpm/vary@1.1.2/node_modules/vary/index.js"(exports2, module2) {
+  "node_modules/.pnpm/vary@1.1.2/node_modules/vary/index.js"(exports, module) {
     "use strict";
-    module2.exports = vary;
-    module2.exports.append = append2;
+    module.exports = vary;
+    module.exports.append = append2;
     var FIELD_NAME_REGEXP = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
     function append2(header, field) {
       if (typeof header !== "string") {
@@ -22187,7 +22192,7 @@ var require_vary = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/response.js
 var require_response = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/response.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/response.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safe_buffer().Buffer;
     var contentDisposition = require_content_disposition();
@@ -22195,10 +22200,10 @@ var require_response = __commonJS({
     var deprecate = require_depd()("express");
     var encodeUrl = require_encodeurl();
     var escapeHtml = require_escape_html();
-    var http2 = require("http");
+    var http2 = __require("http");
     var isAbsolute = require_utils2().isAbsolute;
     var onFinished = require_on_finished();
-    var path2 = require("path");
+    var path2 = __require("path");
     var statuses = require_statuses();
     var merge3 = require_utils_merge();
     var sign = require_cookie_signature().sign;
@@ -22212,7 +22217,7 @@ var require_response = __commonJS({
     var resolve = path2.resolve;
     var vary = require_vary();
     var res = Object.create(http2.ServerResponse.prototype);
-    module2.exports = res;
+    module.exports = res;
     var charsetRegExp = /;\s*charset\s*=/;
     res.status = function status(code) {
       if ((typeof code === "string" || Math.floor(code) !== code) && code > 99 && code < 1e3) {
@@ -22729,16 +22734,16 @@ var require_response = __commonJS({
 
 // node_modules/.pnpm/serve-static@1.16.2/node_modules/serve-static/index.js
 var require_serve_static = __commonJS({
-  "node_modules/.pnpm/serve-static@1.16.2/node_modules/serve-static/index.js"(exports2, module2) {
+  "node_modules/.pnpm/serve-static@1.16.2/node_modules/serve-static/index.js"(exports, module) {
     "use strict";
     var encodeUrl = require_encodeurl();
     var escapeHtml = require_escape_html();
     var parseUrl = require_parseurl();
-    var resolve = require("path").resolve;
+    var resolve = __require("path").resolve;
     var send = require_send();
-    var url3 = require("url");
-    module2.exports = serveStatic;
-    module2.exports.mime = send.mime;
+    var url3 = __require("url");
+    module.exports = serveStatic;
+    module.exports.mime = send.mime;
     function serveStatic(root, options) {
       if (!root) {
         throw new TypeError("root path required");
@@ -22834,17 +22839,17 @@ var require_serve_static = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/lib/express.js
 var require_express = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/express.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/lib/express.js"(exports, module) {
     "use strict";
     var bodyParser = require_body_parser();
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var mixin = require_merge_descriptors();
     var proto = require_application();
     var Route = require_route();
     var Router = require_router();
     var req = require_request();
     var res = require_response();
-    exports2 = module2.exports = createApplication;
+    exports = module.exports = createApplication;
     function createApplication() {
       var app2 = function(req2, res2, next) {
         app2.handle(req2, res2, next);
@@ -22860,17 +22865,17 @@ var require_express = __commonJS({
       app2.init();
       return app2;
     }
-    exports2.application = proto;
-    exports2.request = req;
-    exports2.response = res;
-    exports2.Route = Route;
-    exports2.Router = Router;
-    exports2.json = bodyParser.json;
-    exports2.query = require_query();
-    exports2.raw = bodyParser.raw;
-    exports2.static = require_serve_static();
-    exports2.text = bodyParser.text;
-    exports2.urlencoded = bodyParser.urlencoded;
+    exports.application = proto;
+    exports.request = req;
+    exports.response = res;
+    exports.Route = Route;
+    exports.Router = Router;
+    exports.json = bodyParser.json;
+    exports.query = require_query();
+    exports.raw = bodyParser.raw;
+    exports.static = require_serve_static();
+    exports.text = bodyParser.text;
+    exports.urlencoded = bodyParser.urlencoded;
     var removedMiddlewares = [
       "bodyParser",
       "compress",
@@ -22891,7 +22896,7 @@ var require_express = __commonJS({
       "staticCache"
     ];
     removedMiddlewares.forEach(function(name) {
-      Object.defineProperty(exports2, name, {
+      Object.defineProperty(exports, name, {
         get: function() {
           throw new Error("Most middleware (like " + name + ") is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.");
         },
@@ -22903,16 +22908,16 @@ var require_express = __commonJS({
 
 // node_modules/.pnpm/express@4.21.2/node_modules/express/index.js
 var require_express2 = __commonJS({
-  "node_modules/.pnpm/express@4.21.2/node_modules/express/index.js"(exports2, module2) {
+  "node_modules/.pnpm/express@4.21.2/node_modules/express/index.js"(exports, module) {
     "use strict";
-    module2.exports = require_express();
+    module.exports = require_express();
   }
 });
 
 // node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/lib/SqlString.js
 var require_SqlString = __commonJS({
-  "node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/lib/SqlString.js"(exports2) {
-    var SqlString = exports2;
+  "node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/lib/SqlString.js"(exports) {
+    var SqlString = exports;
     var ID_GLOBAL_REGEXP = /`/g;
     var QUAL_GLOBAL_REGEXP = /\./g;
     var CHARS_GLOBAL_REGEXP = /[\0\b\t\n\r\x1a\"\'\\]/g;
@@ -23107,370 +23112,370 @@ var require_SqlString = __commonJS({
 
 // node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/index.js
 var require_sqlstring = __commonJS({
-  "node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/index.js"(exports2, module2) {
-    module2.exports = require_SqlString();
+  "node_modules/.pnpm/sqlstring@2.3.3/node_modules/sqlstring/index.js"(exports, module) {
+    module.exports = require_SqlString();
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/client.js
 var require_client = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/client.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/client.js"(exports) {
     "use strict";
-    exports2.LONG_PASSWORD = 1;
-    exports2.FOUND_ROWS = 2;
-    exports2.LONG_FLAG = 4;
-    exports2.CONNECT_WITH_DB = 8;
-    exports2.NO_SCHEMA = 16;
-    exports2.COMPRESS = 32;
-    exports2.ODBC = 64;
-    exports2.LOCAL_FILES = 128;
-    exports2.IGNORE_SPACE = 256;
-    exports2.PROTOCOL_41 = 512;
-    exports2.INTERACTIVE = 1024;
-    exports2.SSL = 2048;
-    exports2.IGNORE_SIGPIPE = 4096;
-    exports2.TRANSACTIONS = 8192;
-    exports2.RESERVED = 16384;
-    exports2.SECURE_CONNECTION = 32768;
-    exports2.MULTI_STATEMENTS = 65536;
-    exports2.MULTI_RESULTS = 131072;
-    exports2.PS_MULTI_RESULTS = 262144;
-    exports2.PLUGIN_AUTH = 524288;
-    exports2.CONNECT_ATTRS = 1048576;
-    exports2.PLUGIN_AUTH_LENENC_CLIENT_DATA = 2097152;
-    exports2.CAN_HANDLE_EXPIRED_PASSWORDS = 4194304;
-    exports2.SESSION_TRACK = 8388608;
-    exports2.DEPRECATE_EOF = 16777216;
-    exports2.SSL_VERIFY_SERVER_CERT = 1073741824;
-    exports2.REMEMBER_OPTIONS = 2147483648;
-    exports2.MULTI_FACTOR_AUTHENTICATION = 268435456;
+    exports.LONG_PASSWORD = 1;
+    exports.FOUND_ROWS = 2;
+    exports.LONG_FLAG = 4;
+    exports.CONNECT_WITH_DB = 8;
+    exports.NO_SCHEMA = 16;
+    exports.COMPRESS = 32;
+    exports.ODBC = 64;
+    exports.LOCAL_FILES = 128;
+    exports.IGNORE_SPACE = 256;
+    exports.PROTOCOL_41 = 512;
+    exports.INTERACTIVE = 1024;
+    exports.SSL = 2048;
+    exports.IGNORE_SIGPIPE = 4096;
+    exports.TRANSACTIONS = 8192;
+    exports.RESERVED = 16384;
+    exports.SECURE_CONNECTION = 32768;
+    exports.MULTI_STATEMENTS = 65536;
+    exports.MULTI_RESULTS = 131072;
+    exports.PS_MULTI_RESULTS = 262144;
+    exports.PLUGIN_AUTH = 524288;
+    exports.CONNECT_ATTRS = 1048576;
+    exports.PLUGIN_AUTH_LENENC_CLIENT_DATA = 2097152;
+    exports.CAN_HANDLE_EXPIRED_PASSWORDS = 4194304;
+    exports.SESSION_TRACK = 8388608;
+    exports.DEPRECATE_EOF = 16777216;
+    exports.SSL_VERIFY_SERVER_CERT = 1073741824;
+    exports.REMEMBER_OPTIONS = 2147483648;
+    exports.MULTI_FACTOR_AUTHENTICATION = 268435456;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charsets.js
 var require_charsets = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charsets.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charsets.js"(exports) {
     "use strict";
-    exports2.BIG5_CHINESE_CI = 1;
-    exports2.LATIN2_CZECH_CS = 2;
-    exports2.DEC8_SWEDISH_CI = 3;
-    exports2.CP850_GENERAL_CI = 4;
-    exports2.LATIN1_GERMAN1_CI = 5;
-    exports2.HP8_ENGLISH_CI = 6;
-    exports2.KOI8R_GENERAL_CI = 7;
-    exports2.LATIN1_SWEDISH_CI = 8;
-    exports2.LATIN2_GENERAL_CI = 9;
-    exports2.SWE7_SWEDISH_CI = 10;
-    exports2.ASCII_GENERAL_CI = 11;
-    exports2.UJIS_JAPANESE_CI = 12;
-    exports2.SJIS_JAPANESE_CI = 13;
-    exports2.CP1251_BULGARIAN_CI = 14;
-    exports2.LATIN1_DANISH_CI = 15;
-    exports2.HEBREW_GENERAL_CI = 16;
-    exports2.TIS620_THAI_CI = 18;
-    exports2.EUCKR_KOREAN_CI = 19;
-    exports2.LATIN7_ESTONIAN_CS = 20;
-    exports2.LATIN2_HUNGARIAN_CI = 21;
-    exports2.KOI8U_GENERAL_CI = 22;
-    exports2.CP1251_UKRAINIAN_CI = 23;
-    exports2.GB2312_CHINESE_CI = 24;
-    exports2.GREEK_GENERAL_CI = 25;
-    exports2.CP1250_GENERAL_CI = 26;
-    exports2.LATIN2_CROATIAN_CI = 27;
-    exports2.GBK_CHINESE_CI = 28;
-    exports2.CP1257_LITHUANIAN_CI = 29;
-    exports2.LATIN5_TURKISH_CI = 30;
-    exports2.LATIN1_GERMAN2_CI = 31;
-    exports2.ARMSCII8_GENERAL_CI = 32;
-    exports2.UTF8_GENERAL_CI = 33;
-    exports2.CP1250_CZECH_CS = 34;
-    exports2.UCS2_GENERAL_CI = 35;
-    exports2.CP866_GENERAL_CI = 36;
-    exports2.KEYBCS2_GENERAL_CI = 37;
-    exports2.MACCE_GENERAL_CI = 38;
-    exports2.MACROMAN_GENERAL_CI = 39;
-    exports2.CP852_GENERAL_CI = 40;
-    exports2.LATIN7_GENERAL_CI = 41;
-    exports2.LATIN7_GENERAL_CS = 42;
-    exports2.MACCE_BIN = 43;
-    exports2.CP1250_CROATIAN_CI = 44;
-    exports2.UTF8MB4_GENERAL_CI = 45;
-    exports2.UTF8MB4_BIN = 46;
-    exports2.LATIN1_BIN = 47;
-    exports2.LATIN1_GENERAL_CI = 48;
-    exports2.LATIN1_GENERAL_CS = 49;
-    exports2.CP1251_BIN = 50;
-    exports2.CP1251_GENERAL_CI = 51;
-    exports2.CP1251_GENERAL_CS = 52;
-    exports2.MACROMAN_BIN = 53;
-    exports2.UTF16_GENERAL_CI = 54;
-    exports2.UTF16_BIN = 55;
-    exports2.UTF16LE_GENERAL_CI = 56;
-    exports2.CP1256_GENERAL_CI = 57;
-    exports2.CP1257_BIN = 58;
-    exports2.CP1257_GENERAL_CI = 59;
-    exports2.UTF32_GENERAL_CI = 60;
-    exports2.UTF32_BIN = 61;
-    exports2.UTF16LE_BIN = 62;
-    exports2.BINARY = 63;
-    exports2.ARMSCII8_BIN = 64;
-    exports2.ASCII_BIN = 65;
-    exports2.CP1250_BIN = 66;
-    exports2.CP1256_BIN = 67;
-    exports2.CP866_BIN = 68;
-    exports2.DEC8_BIN = 69;
-    exports2.GREEK_BIN = 70;
-    exports2.HEBREW_BIN = 71;
-    exports2.HP8_BIN = 72;
-    exports2.KEYBCS2_BIN = 73;
-    exports2.KOI8R_BIN = 74;
-    exports2.KOI8U_BIN = 75;
-    exports2.UTF8_TOLOWER_CI = 76;
-    exports2.LATIN2_BIN = 77;
-    exports2.LATIN5_BIN = 78;
-    exports2.LATIN7_BIN = 79;
-    exports2.CP850_BIN = 80;
-    exports2.CP852_BIN = 81;
-    exports2.SWE7_BIN = 82;
-    exports2.UTF8_BIN = 83;
-    exports2.BIG5_BIN = 84;
-    exports2.EUCKR_BIN = 85;
-    exports2.GB2312_BIN = 86;
-    exports2.GBK_BIN = 87;
-    exports2.SJIS_BIN = 88;
-    exports2.TIS620_BIN = 89;
-    exports2.UCS2_BIN = 90;
-    exports2.UJIS_BIN = 91;
-    exports2.GEOSTD8_GENERAL_CI = 92;
-    exports2.GEOSTD8_BIN = 93;
-    exports2.LATIN1_SPANISH_CI = 94;
-    exports2.CP932_JAPANESE_CI = 95;
-    exports2.CP932_BIN = 96;
-    exports2.EUCJPMS_JAPANESE_CI = 97;
-    exports2.EUCJPMS_BIN = 98;
-    exports2.CP1250_POLISH_CI = 99;
-    exports2.UTF16_UNICODE_CI = 101;
-    exports2.UTF16_ICELANDIC_CI = 102;
-    exports2.UTF16_LATVIAN_CI = 103;
-    exports2.UTF16_ROMANIAN_CI = 104;
-    exports2.UTF16_SLOVENIAN_CI = 105;
-    exports2.UTF16_POLISH_CI = 106;
-    exports2.UTF16_ESTONIAN_CI = 107;
-    exports2.UTF16_SPANISH_CI = 108;
-    exports2.UTF16_SWEDISH_CI = 109;
-    exports2.UTF16_TURKISH_CI = 110;
-    exports2.UTF16_CZECH_CI = 111;
-    exports2.UTF16_DANISH_CI = 112;
-    exports2.UTF16_LITHUANIAN_CI = 113;
-    exports2.UTF16_SLOVAK_CI = 114;
-    exports2.UTF16_SPANISH2_CI = 115;
-    exports2.UTF16_ROMAN_CI = 116;
-    exports2.UTF16_PERSIAN_CI = 117;
-    exports2.UTF16_ESPERANTO_CI = 118;
-    exports2.UTF16_HUNGARIAN_CI = 119;
-    exports2.UTF16_SINHALA_CI = 120;
-    exports2.UTF16_GERMAN2_CI = 121;
-    exports2.UTF16_CROATIAN_CI = 122;
-    exports2.UTF16_UNICODE_520_CI = 123;
-    exports2.UTF16_VIETNAMESE_CI = 124;
-    exports2.UCS2_UNICODE_CI = 128;
-    exports2.UCS2_ICELANDIC_CI = 129;
-    exports2.UCS2_LATVIAN_CI = 130;
-    exports2.UCS2_ROMANIAN_CI = 131;
-    exports2.UCS2_SLOVENIAN_CI = 132;
-    exports2.UCS2_POLISH_CI = 133;
-    exports2.UCS2_ESTONIAN_CI = 134;
-    exports2.UCS2_SPANISH_CI = 135;
-    exports2.UCS2_SWEDISH_CI = 136;
-    exports2.UCS2_TURKISH_CI = 137;
-    exports2.UCS2_CZECH_CI = 138;
-    exports2.UCS2_DANISH_CI = 139;
-    exports2.UCS2_LITHUANIAN_CI = 140;
-    exports2.UCS2_SLOVAK_CI = 141;
-    exports2.UCS2_SPANISH2_CI = 142;
-    exports2.UCS2_ROMAN_CI = 143;
-    exports2.UCS2_PERSIAN_CI = 144;
-    exports2.UCS2_ESPERANTO_CI = 145;
-    exports2.UCS2_HUNGARIAN_CI = 146;
-    exports2.UCS2_SINHALA_CI = 147;
-    exports2.UCS2_GERMAN2_CI = 148;
-    exports2.UCS2_CROATIAN_CI = 149;
-    exports2.UCS2_UNICODE_520_CI = 150;
-    exports2.UCS2_VIETNAMESE_CI = 151;
-    exports2.UCS2_GENERAL_MYSQL500_CI = 159;
-    exports2.UTF32_UNICODE_CI = 160;
-    exports2.UTF32_ICELANDIC_CI = 161;
-    exports2.UTF32_LATVIAN_CI = 162;
-    exports2.UTF32_ROMANIAN_CI = 163;
-    exports2.UTF32_SLOVENIAN_CI = 164;
-    exports2.UTF32_POLISH_CI = 165;
-    exports2.UTF32_ESTONIAN_CI = 166;
-    exports2.UTF32_SPANISH_CI = 167;
-    exports2.UTF32_SWEDISH_CI = 168;
-    exports2.UTF32_TURKISH_CI = 169;
-    exports2.UTF32_CZECH_CI = 170;
-    exports2.UTF32_DANISH_CI = 171;
-    exports2.UTF32_LITHUANIAN_CI = 172;
-    exports2.UTF32_SLOVAK_CI = 173;
-    exports2.UTF32_SPANISH2_CI = 174;
-    exports2.UTF32_ROMAN_CI = 175;
-    exports2.UTF32_PERSIAN_CI = 176;
-    exports2.UTF32_ESPERANTO_CI = 177;
-    exports2.UTF32_HUNGARIAN_CI = 178;
-    exports2.UTF32_SINHALA_CI = 179;
-    exports2.UTF32_GERMAN2_CI = 180;
-    exports2.UTF32_CROATIAN_CI = 181;
-    exports2.UTF32_UNICODE_520_CI = 182;
-    exports2.UTF32_VIETNAMESE_CI = 183;
-    exports2.UTF8_UNICODE_CI = 192;
-    exports2.UTF8_ICELANDIC_CI = 193;
-    exports2.UTF8_LATVIAN_CI = 194;
-    exports2.UTF8_ROMANIAN_CI = 195;
-    exports2.UTF8_SLOVENIAN_CI = 196;
-    exports2.UTF8_POLISH_CI = 197;
-    exports2.UTF8_ESTONIAN_CI = 198;
-    exports2.UTF8_SPANISH_CI = 199;
-    exports2.UTF8_SWEDISH_CI = 200;
-    exports2.UTF8_TURKISH_CI = 201;
-    exports2.UTF8_CZECH_CI = 202;
-    exports2.UTF8_DANISH_CI = 203;
-    exports2.UTF8_LITHUANIAN_CI = 204;
-    exports2.UTF8_SLOVAK_CI = 205;
-    exports2.UTF8_SPANISH2_CI = 206;
-    exports2.UTF8_ROMAN_CI = 207;
-    exports2.UTF8_PERSIAN_CI = 208;
-    exports2.UTF8_ESPERANTO_CI = 209;
-    exports2.UTF8_HUNGARIAN_CI = 210;
-    exports2.UTF8_SINHALA_CI = 211;
-    exports2.UTF8_GERMAN2_CI = 212;
-    exports2.UTF8_CROATIAN_CI = 213;
-    exports2.UTF8_UNICODE_520_CI = 214;
-    exports2.UTF8_VIETNAMESE_CI = 215;
-    exports2.UTF8_GENERAL_MYSQL500_CI = 223;
-    exports2.UTF8MB4_UNICODE_CI = 224;
-    exports2.UTF8MB4_ICELANDIC_CI = 225;
-    exports2.UTF8MB4_LATVIAN_CI = 226;
-    exports2.UTF8MB4_ROMANIAN_CI = 227;
-    exports2.UTF8MB4_SLOVENIAN_CI = 228;
-    exports2.UTF8MB4_POLISH_CI = 229;
-    exports2.UTF8MB4_ESTONIAN_CI = 230;
-    exports2.UTF8MB4_SPANISH_CI = 231;
-    exports2.UTF8MB4_SWEDISH_CI = 232;
-    exports2.UTF8MB4_TURKISH_CI = 233;
-    exports2.UTF8MB4_CZECH_CI = 234;
-    exports2.UTF8MB4_DANISH_CI = 235;
-    exports2.UTF8MB4_LITHUANIAN_CI = 236;
-    exports2.UTF8MB4_SLOVAK_CI = 237;
-    exports2.UTF8MB4_SPANISH2_CI = 238;
-    exports2.UTF8MB4_ROMAN_CI = 239;
-    exports2.UTF8MB4_PERSIAN_CI = 240;
-    exports2.UTF8MB4_ESPERANTO_CI = 241;
-    exports2.UTF8MB4_HUNGARIAN_CI = 242;
-    exports2.UTF8MB4_SINHALA_CI = 243;
-    exports2.UTF8MB4_GERMAN2_CI = 244;
-    exports2.UTF8MB4_CROATIAN_CI = 245;
-    exports2.UTF8MB4_UNICODE_520_CI = 246;
-    exports2.UTF8MB4_VIETNAMESE_CI = 247;
-    exports2.GB18030_CHINESE_CI = 248;
-    exports2.GB18030_BIN = 249;
-    exports2.GB18030_UNICODE_520_CI = 250;
-    exports2.UTF8_GENERAL50_CI = 253;
-    exports2.UTF8MB4_0900_AI_CI = 255;
-    exports2.UTF8MB4_DE_PB_0900_AI_CI = 256;
-    exports2.UTF8MB4_IS_0900_AI_CI = 257;
-    exports2.UTF8MB4_LV_0900_AI_CI = 258;
-    exports2.UTF8MB4_RO_0900_AI_CI = 259;
-    exports2.UTF8MB4_SL_0900_AI_CI = 260;
-    exports2.UTF8MB4_PL_0900_AI_CI = 261;
-    exports2.UTF8MB4_ET_0900_AI_CI = 262;
-    exports2.UTF8MB4_ES_0900_AI_CI = 263;
-    exports2.UTF8MB4_SV_0900_AI_CI = 264;
-    exports2.UTF8MB4_TR_0900_AI_CI = 265;
-    exports2.UTF8MB4_CS_0900_AI_CI = 266;
-    exports2.UTF8MB4_DA_0900_AI_CI = 267;
-    exports2.UTF8MB4_LT_0900_AI_CI = 268;
-    exports2.UTF8MB4_SK_0900_AI_CI = 269;
-    exports2.UTF8MB4_ES_TRAD_0900_AI_CI = 270;
-    exports2.UTF8MB4_LA_0900_AI_CI = 271;
-    exports2.UTF8MB4_EO_0900_AI_CI = 273;
-    exports2.UTF8MB4_HU_0900_AI_CI = 274;
-    exports2.UTF8MB4_HR_0900_AI_CI = 275;
-    exports2.UTF8MB4_VI_0900_AI_CI = 277;
-    exports2.UTF8MB4_0900_AS_CS = 278;
-    exports2.UTF8MB4_DE_PB_0900_AS_CS = 279;
-    exports2.UTF8MB4_IS_0900_AS_CS = 280;
-    exports2.UTF8MB4_LV_0900_AS_CS = 281;
-    exports2.UTF8MB4_RO_0900_AS_CS = 282;
-    exports2.UTF8MB4_SL_0900_AS_CS = 283;
-    exports2.UTF8MB4_PL_0900_AS_CS = 284;
-    exports2.UTF8MB4_ET_0900_AS_CS = 285;
-    exports2.UTF8MB4_ES_0900_AS_CS = 286;
-    exports2.UTF8MB4_SV_0900_AS_CS = 287;
-    exports2.UTF8MB4_TR_0900_AS_CS = 288;
-    exports2.UTF8MB4_CS_0900_AS_CS = 289;
-    exports2.UTF8MB4_DA_0900_AS_CS = 290;
-    exports2.UTF8MB4_LT_0900_AS_CS = 291;
-    exports2.UTF8MB4_SK_0900_AS_CS = 292;
-    exports2.UTF8MB4_ES_TRAD_0900_AS_CS = 293;
-    exports2.UTF8MB4_LA_0900_AS_CS = 294;
-    exports2.UTF8MB4_EO_0900_AS_CS = 296;
-    exports2.UTF8MB4_HU_0900_AS_CS = 297;
-    exports2.UTF8MB4_HR_0900_AS_CS = 298;
-    exports2.UTF8MB4_VI_0900_AS_CS = 300;
-    exports2.UTF8MB4_JA_0900_AS_CS = 303;
-    exports2.UTF8MB4_JA_0900_AS_CS_KS = 304;
-    exports2.UTF8MB4_0900_AS_CI = 305;
-    exports2.UTF8MB4_RU_0900_AI_CI = 306;
-    exports2.UTF8MB4_RU_0900_AS_CS = 307;
-    exports2.UTF8MB4_ZH_0900_AS_CS = 308;
-    exports2.UTF8MB4_0900_BIN = 309;
-    exports2.BIG5 = exports2.BIG5_CHINESE_CI;
-    exports2.DEC8 = exports2.DEC8_SWEDISH_CI;
-    exports2.CP850 = exports2.CP850_GENERAL_CI;
-    exports2.HP8 = exports2.HP8_ENGLISH_CI;
-    exports2.KOI8R = exports2.KOI8R_GENERAL_CI;
-    exports2.LATIN1 = exports2.LATIN1_SWEDISH_CI;
-    exports2.LATIN2 = exports2.LATIN2_GENERAL_CI;
-    exports2.SWE7 = exports2.SWE7_SWEDISH_CI;
-    exports2.ASCII = exports2.ASCII_GENERAL_CI;
-    exports2.UJIS = exports2.UJIS_JAPANESE_CI;
-    exports2.SJIS = exports2.SJIS_JAPANESE_CI;
-    exports2.HEBREW = exports2.HEBREW_GENERAL_CI;
-    exports2.TIS620 = exports2.TIS620_THAI_CI;
-    exports2.EUCKR = exports2.EUCKR_KOREAN_CI;
-    exports2.KOI8U = exports2.KOI8U_GENERAL_CI;
-    exports2.GB2312 = exports2.GB2312_CHINESE_CI;
-    exports2.GREEK = exports2.GREEK_GENERAL_CI;
-    exports2.CP1250 = exports2.CP1250_GENERAL_CI;
-    exports2.GBK = exports2.GBK_CHINESE_CI;
-    exports2.LATIN5 = exports2.LATIN5_TURKISH_CI;
-    exports2.ARMSCII8 = exports2.ARMSCII8_GENERAL_CI;
-    exports2.UTF8 = exports2.UTF8_GENERAL_CI;
-    exports2.UCS2 = exports2.UCS2_GENERAL_CI;
-    exports2.CP866 = exports2.CP866_GENERAL_CI;
-    exports2.KEYBCS2 = exports2.KEYBCS2_GENERAL_CI;
-    exports2.MACCE = exports2.MACCE_GENERAL_CI;
-    exports2.MACROMAN = exports2.MACROMAN_GENERAL_CI;
-    exports2.CP852 = exports2.CP852_GENERAL_CI;
-    exports2.LATIN7 = exports2.LATIN7_GENERAL_CI;
-    exports2.UTF8MB4 = exports2.UTF8MB4_GENERAL_CI;
-    exports2.CP1251 = exports2.CP1251_GENERAL_CI;
-    exports2.UTF16 = exports2.UTF16_GENERAL_CI;
-    exports2.UTF16LE = exports2.UTF16LE_GENERAL_CI;
-    exports2.CP1256 = exports2.CP1256_GENERAL_CI;
-    exports2.CP1257 = exports2.CP1257_GENERAL_CI;
-    exports2.UTF32 = exports2.UTF32_GENERAL_CI;
-    exports2.CP932 = exports2.CP932_JAPANESE_CI;
-    exports2.EUCJPMS = exports2.EUCJPMS_JAPANESE_CI;
-    exports2.GB18030 = exports2.GB18030_CHINESE_CI;
-    exports2.GEOSTD8 = exports2.GEOSTD8_GENERAL_CI;
+    exports.BIG5_CHINESE_CI = 1;
+    exports.LATIN2_CZECH_CS = 2;
+    exports.DEC8_SWEDISH_CI = 3;
+    exports.CP850_GENERAL_CI = 4;
+    exports.LATIN1_GERMAN1_CI = 5;
+    exports.HP8_ENGLISH_CI = 6;
+    exports.KOI8R_GENERAL_CI = 7;
+    exports.LATIN1_SWEDISH_CI = 8;
+    exports.LATIN2_GENERAL_CI = 9;
+    exports.SWE7_SWEDISH_CI = 10;
+    exports.ASCII_GENERAL_CI = 11;
+    exports.UJIS_JAPANESE_CI = 12;
+    exports.SJIS_JAPANESE_CI = 13;
+    exports.CP1251_BULGARIAN_CI = 14;
+    exports.LATIN1_DANISH_CI = 15;
+    exports.HEBREW_GENERAL_CI = 16;
+    exports.TIS620_THAI_CI = 18;
+    exports.EUCKR_KOREAN_CI = 19;
+    exports.LATIN7_ESTONIAN_CS = 20;
+    exports.LATIN2_HUNGARIAN_CI = 21;
+    exports.KOI8U_GENERAL_CI = 22;
+    exports.CP1251_UKRAINIAN_CI = 23;
+    exports.GB2312_CHINESE_CI = 24;
+    exports.GREEK_GENERAL_CI = 25;
+    exports.CP1250_GENERAL_CI = 26;
+    exports.LATIN2_CROATIAN_CI = 27;
+    exports.GBK_CHINESE_CI = 28;
+    exports.CP1257_LITHUANIAN_CI = 29;
+    exports.LATIN5_TURKISH_CI = 30;
+    exports.LATIN1_GERMAN2_CI = 31;
+    exports.ARMSCII8_GENERAL_CI = 32;
+    exports.UTF8_GENERAL_CI = 33;
+    exports.CP1250_CZECH_CS = 34;
+    exports.UCS2_GENERAL_CI = 35;
+    exports.CP866_GENERAL_CI = 36;
+    exports.KEYBCS2_GENERAL_CI = 37;
+    exports.MACCE_GENERAL_CI = 38;
+    exports.MACROMAN_GENERAL_CI = 39;
+    exports.CP852_GENERAL_CI = 40;
+    exports.LATIN7_GENERAL_CI = 41;
+    exports.LATIN7_GENERAL_CS = 42;
+    exports.MACCE_BIN = 43;
+    exports.CP1250_CROATIAN_CI = 44;
+    exports.UTF8MB4_GENERAL_CI = 45;
+    exports.UTF8MB4_BIN = 46;
+    exports.LATIN1_BIN = 47;
+    exports.LATIN1_GENERAL_CI = 48;
+    exports.LATIN1_GENERAL_CS = 49;
+    exports.CP1251_BIN = 50;
+    exports.CP1251_GENERAL_CI = 51;
+    exports.CP1251_GENERAL_CS = 52;
+    exports.MACROMAN_BIN = 53;
+    exports.UTF16_GENERAL_CI = 54;
+    exports.UTF16_BIN = 55;
+    exports.UTF16LE_GENERAL_CI = 56;
+    exports.CP1256_GENERAL_CI = 57;
+    exports.CP1257_BIN = 58;
+    exports.CP1257_GENERAL_CI = 59;
+    exports.UTF32_GENERAL_CI = 60;
+    exports.UTF32_BIN = 61;
+    exports.UTF16LE_BIN = 62;
+    exports.BINARY = 63;
+    exports.ARMSCII8_BIN = 64;
+    exports.ASCII_BIN = 65;
+    exports.CP1250_BIN = 66;
+    exports.CP1256_BIN = 67;
+    exports.CP866_BIN = 68;
+    exports.DEC8_BIN = 69;
+    exports.GREEK_BIN = 70;
+    exports.HEBREW_BIN = 71;
+    exports.HP8_BIN = 72;
+    exports.KEYBCS2_BIN = 73;
+    exports.KOI8R_BIN = 74;
+    exports.KOI8U_BIN = 75;
+    exports.UTF8_TOLOWER_CI = 76;
+    exports.LATIN2_BIN = 77;
+    exports.LATIN5_BIN = 78;
+    exports.LATIN7_BIN = 79;
+    exports.CP850_BIN = 80;
+    exports.CP852_BIN = 81;
+    exports.SWE7_BIN = 82;
+    exports.UTF8_BIN = 83;
+    exports.BIG5_BIN = 84;
+    exports.EUCKR_BIN = 85;
+    exports.GB2312_BIN = 86;
+    exports.GBK_BIN = 87;
+    exports.SJIS_BIN = 88;
+    exports.TIS620_BIN = 89;
+    exports.UCS2_BIN = 90;
+    exports.UJIS_BIN = 91;
+    exports.GEOSTD8_GENERAL_CI = 92;
+    exports.GEOSTD8_BIN = 93;
+    exports.LATIN1_SPANISH_CI = 94;
+    exports.CP932_JAPANESE_CI = 95;
+    exports.CP932_BIN = 96;
+    exports.EUCJPMS_JAPANESE_CI = 97;
+    exports.EUCJPMS_BIN = 98;
+    exports.CP1250_POLISH_CI = 99;
+    exports.UTF16_UNICODE_CI = 101;
+    exports.UTF16_ICELANDIC_CI = 102;
+    exports.UTF16_LATVIAN_CI = 103;
+    exports.UTF16_ROMANIAN_CI = 104;
+    exports.UTF16_SLOVENIAN_CI = 105;
+    exports.UTF16_POLISH_CI = 106;
+    exports.UTF16_ESTONIAN_CI = 107;
+    exports.UTF16_SPANISH_CI = 108;
+    exports.UTF16_SWEDISH_CI = 109;
+    exports.UTF16_TURKISH_CI = 110;
+    exports.UTF16_CZECH_CI = 111;
+    exports.UTF16_DANISH_CI = 112;
+    exports.UTF16_LITHUANIAN_CI = 113;
+    exports.UTF16_SLOVAK_CI = 114;
+    exports.UTF16_SPANISH2_CI = 115;
+    exports.UTF16_ROMAN_CI = 116;
+    exports.UTF16_PERSIAN_CI = 117;
+    exports.UTF16_ESPERANTO_CI = 118;
+    exports.UTF16_HUNGARIAN_CI = 119;
+    exports.UTF16_SINHALA_CI = 120;
+    exports.UTF16_GERMAN2_CI = 121;
+    exports.UTF16_CROATIAN_CI = 122;
+    exports.UTF16_UNICODE_520_CI = 123;
+    exports.UTF16_VIETNAMESE_CI = 124;
+    exports.UCS2_UNICODE_CI = 128;
+    exports.UCS2_ICELANDIC_CI = 129;
+    exports.UCS2_LATVIAN_CI = 130;
+    exports.UCS2_ROMANIAN_CI = 131;
+    exports.UCS2_SLOVENIAN_CI = 132;
+    exports.UCS2_POLISH_CI = 133;
+    exports.UCS2_ESTONIAN_CI = 134;
+    exports.UCS2_SPANISH_CI = 135;
+    exports.UCS2_SWEDISH_CI = 136;
+    exports.UCS2_TURKISH_CI = 137;
+    exports.UCS2_CZECH_CI = 138;
+    exports.UCS2_DANISH_CI = 139;
+    exports.UCS2_LITHUANIAN_CI = 140;
+    exports.UCS2_SLOVAK_CI = 141;
+    exports.UCS2_SPANISH2_CI = 142;
+    exports.UCS2_ROMAN_CI = 143;
+    exports.UCS2_PERSIAN_CI = 144;
+    exports.UCS2_ESPERANTO_CI = 145;
+    exports.UCS2_HUNGARIAN_CI = 146;
+    exports.UCS2_SINHALA_CI = 147;
+    exports.UCS2_GERMAN2_CI = 148;
+    exports.UCS2_CROATIAN_CI = 149;
+    exports.UCS2_UNICODE_520_CI = 150;
+    exports.UCS2_VIETNAMESE_CI = 151;
+    exports.UCS2_GENERAL_MYSQL500_CI = 159;
+    exports.UTF32_UNICODE_CI = 160;
+    exports.UTF32_ICELANDIC_CI = 161;
+    exports.UTF32_LATVIAN_CI = 162;
+    exports.UTF32_ROMANIAN_CI = 163;
+    exports.UTF32_SLOVENIAN_CI = 164;
+    exports.UTF32_POLISH_CI = 165;
+    exports.UTF32_ESTONIAN_CI = 166;
+    exports.UTF32_SPANISH_CI = 167;
+    exports.UTF32_SWEDISH_CI = 168;
+    exports.UTF32_TURKISH_CI = 169;
+    exports.UTF32_CZECH_CI = 170;
+    exports.UTF32_DANISH_CI = 171;
+    exports.UTF32_LITHUANIAN_CI = 172;
+    exports.UTF32_SLOVAK_CI = 173;
+    exports.UTF32_SPANISH2_CI = 174;
+    exports.UTF32_ROMAN_CI = 175;
+    exports.UTF32_PERSIAN_CI = 176;
+    exports.UTF32_ESPERANTO_CI = 177;
+    exports.UTF32_HUNGARIAN_CI = 178;
+    exports.UTF32_SINHALA_CI = 179;
+    exports.UTF32_GERMAN2_CI = 180;
+    exports.UTF32_CROATIAN_CI = 181;
+    exports.UTF32_UNICODE_520_CI = 182;
+    exports.UTF32_VIETNAMESE_CI = 183;
+    exports.UTF8_UNICODE_CI = 192;
+    exports.UTF8_ICELANDIC_CI = 193;
+    exports.UTF8_LATVIAN_CI = 194;
+    exports.UTF8_ROMANIAN_CI = 195;
+    exports.UTF8_SLOVENIAN_CI = 196;
+    exports.UTF8_POLISH_CI = 197;
+    exports.UTF8_ESTONIAN_CI = 198;
+    exports.UTF8_SPANISH_CI = 199;
+    exports.UTF8_SWEDISH_CI = 200;
+    exports.UTF8_TURKISH_CI = 201;
+    exports.UTF8_CZECH_CI = 202;
+    exports.UTF8_DANISH_CI = 203;
+    exports.UTF8_LITHUANIAN_CI = 204;
+    exports.UTF8_SLOVAK_CI = 205;
+    exports.UTF8_SPANISH2_CI = 206;
+    exports.UTF8_ROMAN_CI = 207;
+    exports.UTF8_PERSIAN_CI = 208;
+    exports.UTF8_ESPERANTO_CI = 209;
+    exports.UTF8_HUNGARIAN_CI = 210;
+    exports.UTF8_SINHALA_CI = 211;
+    exports.UTF8_GERMAN2_CI = 212;
+    exports.UTF8_CROATIAN_CI = 213;
+    exports.UTF8_UNICODE_520_CI = 214;
+    exports.UTF8_VIETNAMESE_CI = 215;
+    exports.UTF8_GENERAL_MYSQL500_CI = 223;
+    exports.UTF8MB4_UNICODE_CI = 224;
+    exports.UTF8MB4_ICELANDIC_CI = 225;
+    exports.UTF8MB4_LATVIAN_CI = 226;
+    exports.UTF8MB4_ROMANIAN_CI = 227;
+    exports.UTF8MB4_SLOVENIAN_CI = 228;
+    exports.UTF8MB4_POLISH_CI = 229;
+    exports.UTF8MB4_ESTONIAN_CI = 230;
+    exports.UTF8MB4_SPANISH_CI = 231;
+    exports.UTF8MB4_SWEDISH_CI = 232;
+    exports.UTF8MB4_TURKISH_CI = 233;
+    exports.UTF8MB4_CZECH_CI = 234;
+    exports.UTF8MB4_DANISH_CI = 235;
+    exports.UTF8MB4_LITHUANIAN_CI = 236;
+    exports.UTF8MB4_SLOVAK_CI = 237;
+    exports.UTF8MB4_SPANISH2_CI = 238;
+    exports.UTF8MB4_ROMAN_CI = 239;
+    exports.UTF8MB4_PERSIAN_CI = 240;
+    exports.UTF8MB4_ESPERANTO_CI = 241;
+    exports.UTF8MB4_HUNGARIAN_CI = 242;
+    exports.UTF8MB4_SINHALA_CI = 243;
+    exports.UTF8MB4_GERMAN2_CI = 244;
+    exports.UTF8MB4_CROATIAN_CI = 245;
+    exports.UTF8MB4_UNICODE_520_CI = 246;
+    exports.UTF8MB4_VIETNAMESE_CI = 247;
+    exports.GB18030_CHINESE_CI = 248;
+    exports.GB18030_BIN = 249;
+    exports.GB18030_UNICODE_520_CI = 250;
+    exports.UTF8_GENERAL50_CI = 253;
+    exports.UTF8MB4_0900_AI_CI = 255;
+    exports.UTF8MB4_DE_PB_0900_AI_CI = 256;
+    exports.UTF8MB4_IS_0900_AI_CI = 257;
+    exports.UTF8MB4_LV_0900_AI_CI = 258;
+    exports.UTF8MB4_RO_0900_AI_CI = 259;
+    exports.UTF8MB4_SL_0900_AI_CI = 260;
+    exports.UTF8MB4_PL_0900_AI_CI = 261;
+    exports.UTF8MB4_ET_0900_AI_CI = 262;
+    exports.UTF8MB4_ES_0900_AI_CI = 263;
+    exports.UTF8MB4_SV_0900_AI_CI = 264;
+    exports.UTF8MB4_TR_0900_AI_CI = 265;
+    exports.UTF8MB4_CS_0900_AI_CI = 266;
+    exports.UTF8MB4_DA_0900_AI_CI = 267;
+    exports.UTF8MB4_LT_0900_AI_CI = 268;
+    exports.UTF8MB4_SK_0900_AI_CI = 269;
+    exports.UTF8MB4_ES_TRAD_0900_AI_CI = 270;
+    exports.UTF8MB4_LA_0900_AI_CI = 271;
+    exports.UTF8MB4_EO_0900_AI_CI = 273;
+    exports.UTF8MB4_HU_0900_AI_CI = 274;
+    exports.UTF8MB4_HR_0900_AI_CI = 275;
+    exports.UTF8MB4_VI_0900_AI_CI = 277;
+    exports.UTF8MB4_0900_AS_CS = 278;
+    exports.UTF8MB4_DE_PB_0900_AS_CS = 279;
+    exports.UTF8MB4_IS_0900_AS_CS = 280;
+    exports.UTF8MB4_LV_0900_AS_CS = 281;
+    exports.UTF8MB4_RO_0900_AS_CS = 282;
+    exports.UTF8MB4_SL_0900_AS_CS = 283;
+    exports.UTF8MB4_PL_0900_AS_CS = 284;
+    exports.UTF8MB4_ET_0900_AS_CS = 285;
+    exports.UTF8MB4_ES_0900_AS_CS = 286;
+    exports.UTF8MB4_SV_0900_AS_CS = 287;
+    exports.UTF8MB4_TR_0900_AS_CS = 288;
+    exports.UTF8MB4_CS_0900_AS_CS = 289;
+    exports.UTF8MB4_DA_0900_AS_CS = 290;
+    exports.UTF8MB4_LT_0900_AS_CS = 291;
+    exports.UTF8MB4_SK_0900_AS_CS = 292;
+    exports.UTF8MB4_ES_TRAD_0900_AS_CS = 293;
+    exports.UTF8MB4_LA_0900_AS_CS = 294;
+    exports.UTF8MB4_EO_0900_AS_CS = 296;
+    exports.UTF8MB4_HU_0900_AS_CS = 297;
+    exports.UTF8MB4_HR_0900_AS_CS = 298;
+    exports.UTF8MB4_VI_0900_AS_CS = 300;
+    exports.UTF8MB4_JA_0900_AS_CS = 303;
+    exports.UTF8MB4_JA_0900_AS_CS_KS = 304;
+    exports.UTF8MB4_0900_AS_CI = 305;
+    exports.UTF8MB4_RU_0900_AI_CI = 306;
+    exports.UTF8MB4_RU_0900_AS_CS = 307;
+    exports.UTF8MB4_ZH_0900_AS_CS = 308;
+    exports.UTF8MB4_0900_BIN = 309;
+    exports.BIG5 = exports.BIG5_CHINESE_CI;
+    exports.DEC8 = exports.DEC8_SWEDISH_CI;
+    exports.CP850 = exports.CP850_GENERAL_CI;
+    exports.HP8 = exports.HP8_ENGLISH_CI;
+    exports.KOI8R = exports.KOI8R_GENERAL_CI;
+    exports.LATIN1 = exports.LATIN1_SWEDISH_CI;
+    exports.LATIN2 = exports.LATIN2_GENERAL_CI;
+    exports.SWE7 = exports.SWE7_SWEDISH_CI;
+    exports.ASCII = exports.ASCII_GENERAL_CI;
+    exports.UJIS = exports.UJIS_JAPANESE_CI;
+    exports.SJIS = exports.SJIS_JAPANESE_CI;
+    exports.HEBREW = exports.HEBREW_GENERAL_CI;
+    exports.TIS620 = exports.TIS620_THAI_CI;
+    exports.EUCKR = exports.EUCKR_KOREAN_CI;
+    exports.KOI8U = exports.KOI8U_GENERAL_CI;
+    exports.GB2312 = exports.GB2312_CHINESE_CI;
+    exports.GREEK = exports.GREEK_GENERAL_CI;
+    exports.CP1250 = exports.CP1250_GENERAL_CI;
+    exports.GBK = exports.GBK_CHINESE_CI;
+    exports.LATIN5 = exports.LATIN5_TURKISH_CI;
+    exports.ARMSCII8 = exports.ARMSCII8_GENERAL_CI;
+    exports.UTF8 = exports.UTF8_GENERAL_CI;
+    exports.UCS2 = exports.UCS2_GENERAL_CI;
+    exports.CP866 = exports.CP866_GENERAL_CI;
+    exports.KEYBCS2 = exports.KEYBCS2_GENERAL_CI;
+    exports.MACCE = exports.MACCE_GENERAL_CI;
+    exports.MACROMAN = exports.MACROMAN_GENERAL_CI;
+    exports.CP852 = exports.CP852_GENERAL_CI;
+    exports.LATIN7 = exports.LATIN7_GENERAL_CI;
+    exports.UTF8MB4 = exports.UTF8MB4_GENERAL_CI;
+    exports.CP1251 = exports.CP1251_GENERAL_CI;
+    exports.UTF16 = exports.UTF16_GENERAL_CI;
+    exports.UTF16LE = exports.UTF16LE_GENERAL_CI;
+    exports.CP1256 = exports.CP1256_GENERAL_CI;
+    exports.CP1257 = exports.CP1257_GENERAL_CI;
+    exports.UTF32 = exports.UTF32_GENERAL_CI;
+    exports.CP932 = exports.CP932_JAPANESE_CI;
+    exports.EUCJPMS = exports.EUCJPMS_JAPANESE_CI;
+    exports.GB18030 = exports.GB18030_CHINESE_CI;
+    exports.GEOSTD8 = exports.GEOSTD8_GENERAL_CI;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/package.json
 var require_package2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/package.json"(exports2, module2) {
-    module2.exports = {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/package.json"(exports, module) {
+    module.exports = {
       name: "mysql2",
       version: "3.15.1",
       description: "fast mysql driver. Implements core protocol, prepared statements, ssl and compression in native JS",
@@ -23555,11 +23560,11 @@ var require_package2 = __commonJS({
 
 // node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/defaults.js
 var require_defaults = __commonJS({
-  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/defaults.js"(exports2) {
+  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/defaults.js"(exports) {
     "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.defaults = void 0;
-    exports2.defaults = [
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.defaults = void 0;
+    exports.defaults = [
       "-----BEGIN CERTIFICATE-----\nMIIEEjCCAvqgAwIBAgIJAM2ZN/+nPi27MA0GCSqGSIb3DQEBCwUAMIGVMQswCQYD\nVQQGEwJVUzEQMA4GA1UEBwwHU2VhdHRsZTETMBEGA1UECAwKV2FzaGluZ3RvbjEi\nMCAGA1UECgwZQW1hem9uIFdlYiBTZXJ2aWNlcywgSW5jLjETMBEGA1UECwwKQW1h\nem9uIFJEUzEmMCQGA1UEAwwdQW1hem9uIFJEUyBhZi1zb3V0aC0xIFJvb3QgQ0Ew\nHhcNMTkxMDI4MTgwNTU4WhcNMjQxMDI2MTgwNTU4WjCBlTELMAkGA1UEBhMCVVMx\nEDAOBgNVBAcMB1NlYXR0bGUxEzARBgNVBAgMCldhc2hpbmd0b24xIjAgBgNVBAoM\nGUFtYXpvbiBXZWIgU2VydmljZXMsIEluYy4xEzARBgNVBAsMCkFtYXpvbiBSRFMx\nJjAkBgNVBAMMHUFtYXpvbiBSRFMgYWYtc291dGgtMSBSb290IENBMIIBIjANBgkq\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwR2351uPMZaJk2gMGT+1sk8HE9MQh2rc\n/sCnbxGn2p1c7Oi9aBbd/GiFijeJb2BXvHU+TOq3d3Jjqepq8tapXVt4ojbTJNyC\nJ5E7r7KjTktKdLxtBE1MK25aY+IRJjtdU6vG3KiPKUT1naO3xs3yt0F76WVuFivd\n9OHv2a+KHvPkRUWIxpmAHuMY9SIIMmEZtVE7YZGx5ah0iO4JzItHcbVR0y0PBH55\narpFBddpIVHCacp1FUPxSEWkOpI7q0AaU4xfX0fe1BV5HZYRKpBOIp1TtZWvJD+X\njGUtL1BEsT5vN5g9MkqdtYrC+3SNpAk4VtpvJrdjraI/hhvfeXNnAwIDAQABo2Mw\nYTAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUEEi/\nWWMcBJsoGXg+EZwkQ0MscZQwHwYDVR0jBBgwFoAUEEi/WWMcBJsoGXg+EZwkQ0Ms\ncZQwDQYJKoZIhvcNAQELBQADggEBAGDZ5js5Pc/gC58LJrwMPXFhJDBS8QuDm23C\nFFUdlqucskwOS3907ErK1ZkmVJCIqFLArHqskFXMAkRZ2PNR7RjWLqBs+0znG5yH\nhRKb4DXzhUFQ18UBRcvT6V6zN97HTRsEEaNhM/7k8YLe7P8vfNZ28VIoJIGGgv9D\nwQBBvkxQ71oOmAG0AwaGD0ORGUfbYry9Dz4a4IcUsZyRWRMADixgrFv6VuETp26s\n/+z+iqNaGWlELBKh3iQCT6Y/1UnkPLO42bxrCSyOvshdkYN58Q2gMTE1SVTqyo8G\nLw8lLAz9bnvUSgHzB3jRrSx6ggF/WRMRYlR++y6LXP4SAsSAaC0=\n-----END CERTIFICATE-----\n",
       "-----BEGIN CERTIFICATE-----\nMIIEEjCCAvqgAwIBAgIJAJYM4LxvTZA6MA0GCSqGSIb3DQEBCwUAMIGVMQswCQYD\nVQQGEwJVUzEQMA4GA1UEBwwHU2VhdHRsZTETMBEGA1UECAwKV2FzaGluZ3RvbjEi\nMCAGA1UECgwZQW1hem9uIFdlYiBTZXJ2aWNlcywgSW5jLjETMBEGA1UECwwKQW1h\nem9uIFJEUzEmMCQGA1UEAwwdQW1hem9uIFJEUyBldS1zb3V0aC0xIFJvb3QgQ0Ew\nHhcNMTkxMDMwMjAyMDM2WhcNMjQxMDI4MjAyMDM2WjCBlTELMAkGA1UEBhMCVVMx\nEDAOBgNVBAcMB1NlYXR0bGUxEzARBgNVBAgMCldhc2hpbmd0b24xIjAgBgNVBAoM\nGUFtYXpvbiBXZWIgU2VydmljZXMsIEluYy4xEzARBgNVBAsMCkFtYXpvbiBSRFMx\nJjAkBgNVBAMMHUFtYXpvbiBSRFMgZXUtc291dGgtMSBSb290IENBMIIBIjANBgkq\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqM921jXCXeqpRNCS9CBPOe5N7gMaEt+D\ns5uR3riZbqzRlHGiF1jZihkXfHAIQewDwy+Yz+Oec1aEZCQMhUHxZJPusuX0cJfj\nb+UluFqHIijL2TfXJ3D0PVLLoNTQJZ8+GAPECyojAaNuoHbdVqxhOcznMsXIXVFq\nyVLKDGvyKkJjai/iSPDrQMXufg3kWt0ISjNLvsG5IFXgP4gttsM8i0yvRd4QcHoo\nDjvH7V3cS+CQqW5SnDrGnHToB0RLskE1ET+oNOfeN9PWOxQprMOX/zmJhnJQlTqD\nQP7jcf7SddxrKFjuziFiouskJJyNDsMjt1Lf60+oHZhed2ogTeifGwIDAQABo2Mw\nYTAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUFBAF\ncgJe/BBuZiGeZ8STfpkgRYQwHwYDVR0jBBgwFoAUFBAFcgJe/BBuZiGeZ8STfpkg\nRYQwDQYJKoZIhvcNAQELBQADggEBAKAYUtlvDuX2UpZW9i1QgsjFuy/ErbW0dLHU\ne/IcFtju2z6RLZ+uF+5A8Kme7IKG1hgt8s+w9TRVQS/7ukQzoK3TaN6XKXRosjtc\no9Rm4gYWM8bmglzY1TPNaiI4HC7546hSwJhubjN0bXCuj/0sHD6w2DkiGuwKNAef\nyTu5vZhPkeNyXLykxkzz7bNp2/PtMBnzIp+WpS7uUDmWyScGPohKMq5PqvL59z+L\nZI3CYeMZrJ5VpXUg3fNNIz/83N3G0sk7wr0ohs/kHTP7xPOYB0zD7Ku4HA0Q9Swf\nWX0qr6UQgTPMjfYDLffI7aEId0gxKw1eGYc6Cq5JAZ3ipi/cBFc=\n-----END CERTIFICATE-----\n",
       "-----BEGIN CERTIFICATE-----\nMIIEEjCCAvqgAwIBAgIJANew34ehz5l8MA0GCSqGSIb3DQEBCwUAMIGVMQswCQYD\nVQQGEwJVUzEQMA4GA1UEBwwHU2VhdHRsZTETMBEGA1UECAwKV2FzaGluZ3RvbjEi\nMCAGA1UECgwZQW1hem9uIFdlYiBTZXJ2aWNlcywgSW5jLjETMBEGA1UECwwKQW1h\nem9uIFJEUzEmMCQGA1UEAwwdQW1hem9uIFJEUyBtZS1zb3V0aC0xIFJvb3QgQ0Ew\nHhcNMTkwNTEwMjE0ODI3WhcNMjQwNTA4MjE0ODI3WjCBlTELMAkGA1UEBhMCVVMx\nEDAOBgNVBAcMB1NlYXR0bGUxEzARBgNVBAgMCldhc2hpbmd0b24xIjAgBgNVBAoM\nGUFtYXpvbiBXZWIgU2VydmljZXMsIEluYy4xEzARBgNVBAsMCkFtYXpvbiBSRFMx\nJjAkBgNVBAMMHUFtYXpvbiBSRFMgbWUtc291dGgtMSBSb290IENBMIIBIjANBgkq\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp7BYV88MukcY+rq0r79+C8UzkT30fEfT\naPXbx1d6M7uheGN4FMaoYmL+JE1NZPaMRIPTHhFtLSdPccInvenRDIatcXX+jgOk\nUA6lnHQ98pwN0pfDUyz/Vph4jBR9LcVkBbe0zdoKKp+HGbMPRU0N2yNrog9gM5O8\ngkU/3O2csJ/OFQNnj4c2NQloGMUpEmedwJMOyQQfcUyt9CvZDfIPNnheUS29jGSw\nERpJe/AENu8Pxyc72jaXQuD+FEi2Ck6lBkSlWYQFhTottAeGvVFNCzKszCntrtqd\nrdYUwurYsLTXDHv9nW2hfDUQa0mhXf9gNDOBIVAZugR9NqNRNyYLHQIDAQABo2Mw\nYTAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU54cf\nDjgwBx4ycBH8+/r8WXdaiqYwHwYDVR0jBBgwFoAU54cfDjgwBx4ycBH8+/r8WXda\niqYwDQYJKoZIhvcNAQELBQADggEBAIIMTSPx/dR7jlcxggr+O6OyY49Rlap2laKA\neC/XI4ySP3vQkIFlP822U9Kh8a9s46eR0uiwV4AGLabcu0iKYfXjPkIprVCqeXV7\nny9oDtrbflyj7NcGdZLvuzSwgl9SYTJp7PVCZtZutsPYlbJrBPHwFABvAkMvRtDB\nhitIg4AESDGPoCl94sYHpfDfjpUDMSrAMDUyO6DyBdZH5ryRMAs3lGtsmkkNUrso\naTW6R05681Z0mvkRdb+cdXtKOSuDZPoe2wJJIaz3IlNQNSrB5TImMYgmt6iAsFhv\n3vfTSTKrZDNTJn4ybG6pq1zWExoXsktZPylJly6R3RBwV6nwqBM=\n-----END CERTIFICATE-----\n",
@@ -23681,11 +23686,11 @@ var require_defaults = __commonJS({
 
 // node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/proxies.js
 var require_proxies = __commonJS({
-  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/proxies.js"(exports2) {
+  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/profiles/ca/proxies.js"(exports) {
     "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.proxies = void 0;
-    exports2.proxies = [
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.proxies = void 0;
+    exports.proxies = [
       "-----BEGIN CERTIFICATE-----\nMIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAxMB4XDTE1MDUyNjAwMDAwMFoXDTM4MDExNzAwMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALJ4gHHKeNXj\nca9HgFB0fW7Y14h29Jlo91ghYPl0hAEvrAIthtOgQ3pOsqTQNroBvo3bSMgHFzZM\n9O6II8c+6zf1tRn4SWiw3te5djgdYZ6k/oI2peVKVuRF4fn9tBb6dNqcmzU5L/qw\nIFAGbHrQgLKm+a/sRxmPUDgH3KKHOVj4utWp+UhnMJbulHheb4mjUcAwhmahRWa6\nVOujw5H5SNz/0egwLX0tdHA114gk957EWW67c4cX8jJGKLhD+rcdqsq08p8kDi1L\n93FcXmn/6pUCyziKrlA4b9v7LWIbxcceVOF34GfID5yHI9Y/QCB/IIDEgEw+OyQm\njgSubJrIqg0CAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAYYwHQYDVR0OBBYEFIQYzIU07LwMlJQuCFmcx7IQTgoIMA0GCSqGSIb3DQEBCwUA\nA4IBAQCY8jdaQZChGsV2USggNiMOruYou6r4lK5IpDB/G/wkjUu0yKGX9rbxenDI\nU5PMCCjjmCXPI6T53iHTfIUJrU6adTrCC2qJeHZERxhlbI1Bjjt/msv0tadQ1wUs\nN+gDS63pYaACbvXy8MWy7Vu33PqUXHeeE6V/Uq2V8viTO96LXFvKWlJbYK8U90vv\no/ufQJVtMVT8QtPHRh8jrdkPSHCa2XV4cdFyQzR1bldZwgJcJmApzyMZFo6IQ6XU\n5MsI+yMRQ+hDKXJioaldXgjUkK642M4UwtBV8ob2xJNDd2ZhwLnoQdeXeGADbkpy\nrqXRfboQnoZsG4q5WTP468SQvvG5\n-----END CERTIFICATE-----\n",
       "-----BEGIN CERTIFICATE-----\nMIIFQTCCAymgAwIBAgITBmyf0pY1hp8KD+WGePhbJruKNzANBgkqhkiG9w0BAQwF\nADA5MQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6\nb24gUm9vdCBDQSAyMB4XDTE1MDUyNjAwMDAwMFoXDTQwMDUyNjAwMDAwMFowOTEL\nMAkGA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJv\nb3QgQ0EgMjCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAK2Wny2cSkxK\ngXlRmeyKy2tgURO8TW0G/LAIjd0ZEGrHJgw12MBvIITplLGbhQPDW9tK6Mj4kHbZ\nW0/jTOgGNk3Mmqw9DJArktQGGWCsN0R5hYGCrVo34A3MnaZMUnbqQ523BNFQ9lXg\n1dKmSYXpN+nKfq5clU1Imj+uIFptiJXZNLhSGkOQsL9sBbm2eLfq0OQ6PBJTYv9K\n8nu+NQWpEjTj82R0Yiw9AElaKP4yRLuH3WUnAnE72kr3H9rN9yFVkE8P7K6C4Z9r\n2UXTu/Bfh+08LDmG2j/e7HJV63mjrdvdfLC6HM783k81ds8P+HgfajZRRidhW+me\nz/CiVX18JYpvL7TFz4QuK/0NURBs+18bvBt+xa47mAExkv8LV/SasrlX6avvDXbR\n8O70zoan4G7ptGmh32n2M8ZpLpcTnqWHsFcQgTfJU7O7f/aS0ZzQGPSSbtqDT6Zj\nmUyl+17vIWR6IF9sZIUVyzfpYgwLKhbcAS4y2j5L9Z469hdAlO+ekQiG+r5jqFoz\n7Mt0Q5X5bGlSNscpb/xVA1wf+5+9R+vnSUeVC06JIglJ4PVhHvG/LopyboBZ/1c6\n+XUyo05f7O0oYtlNc/LMgRdg7c3r3NunysV+Ar3yVAhU/bQtCSwXVEqY0VThUWcI\n0u1ufm8/0i2BWSlmy5A5lREedCf+3euvAgMBAAGjQjBAMA8GA1UdEwEB/wQFMAMB\nAf8wDgYDVR0PAQH/BAQDAgGGMB0GA1UdDgQWBBSwDPBMMPQFWAJI/TPlUq9LhONm\nUjANBgkqhkiG9w0BAQwFAAOCAgEAqqiAjw54o+Ci1M3m9Zh6O+oAA7CXDpO8Wqj2\nLIxyh6mx/H9z/WNxeKWHWc8w4Q0QshNabYL1auaAn6AFC2jkR2vHat+2/XcycuUY\n+gn0oJMsXdKMdYV2ZZAMA3m3MSNjrXiDCYZohMr/+c8mmpJ5581LxedhpxfL86kS\nk5Nrp+gvU5LEYFiwzAJRGFuFjWJZY7attN6a+yb3ACfAXVU3dJnJUH/jWS5E4ywl\n7uxMMne0nxrpS10gxdr9HIcWxkPo1LsmmkVwXqkLN1PiRnsn/eBG8om3zEK2yygm\nbtmlyTrIQRNg91CMFa6ybRoVGld45pIq2WWQgj9sAq+uEjonljYE1x2igGOpm/Hl\nurR8FLBOybEfdF849lHqm/osohHUqS0nGkWxr7JOcQ3AWEbWaQbLU8uz/mtBzUF+\nfUwPfHJ5elnNXkoOrJupmHN5fLT0zLm4BwyydFy4x2+IoZCn9Kr5v2c69BoVYh63\nn749sSmvZ6ES8lgQGVMDMBu4Gon2nL2XA46jCfMdiyHxtN/kHNGfZQIG6lzWE7OE\n76KlXIx3KadowGuuQNKotOrN8I1LOJwZmhsoVLiJkO/KdYE+HvJkJMcYr07/R54H\n9jVlpNMKVv/1F2Rs76giJUmTtt8AF9pYfl3uxRuw0dFfIRDH+fO6AgonB8Xx1sfT\n4PsJYGw=\n-----END CERTIFICATE-----\n",
       "-----BEGIN CERTIFICATE-----\nMIIBtjCCAVugAwIBAgITBmyf1XSXNmY/Owua2eiedgPySjAKBggqhkjOPQQDAjA5\nMQswCQYDVQQGEwJVUzEPMA0GA1UEChMGQW1hem9uMRkwFwYDVQQDExBBbWF6b24g\nUm9vdCBDQSAzMB4XDTE1MDUyNjAwMDAwMFoXDTQwMDUyNjAwMDAwMFowOTELMAkG\nA1UEBhMCVVMxDzANBgNVBAoTBkFtYXpvbjEZMBcGA1UEAxMQQW1hem9uIFJvb3Qg\nQ0EgMzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABCmXp8ZBf8ANm+gBG1bG8lKl\nui2yEujSLtf6ycXYqm0fc4E7O5hrOXwzpcVOho6AF2hiRVd9RFgdszflZwjrZt6j\nQjBAMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGGMB0GA1UdDgQWBBSr\nttvXBp43rDCGB5Fwx5zEGbF4wDAKBggqhkjOPQQDAgNJADBGAiEA4IWSoxe3jfkr\nBqWTrBqYaGFy+uGh0PsceGCmQ5nFuMQCIQCcAu/xlJyzlvnrxir4tiz+OpAUFteM\nYyRIHN8wfdVoOw==\n-----END CERTIFICATE-----\n",
@@ -23697,9 +23702,9 @@ var require_proxies = __commonJS({
 
 // node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/index.js
 var require_lib3 = __commonJS({
-  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/index.js"(exports2, module2) {
+  "node_modules/.pnpm/aws-ssl-profiles@1.1.2/node_modules/aws-ssl-profiles/lib/index.js"(exports, module) {
     "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
+    Object.defineProperty(exports, "__esModule", { value: true });
     var defaults_js_1 = require_defaults();
     var proxies_js_1 = require_proxies();
     var proxyBundle = {
@@ -23708,18 +23713,18 @@ var require_lib3 = __commonJS({
     var profiles = {
       ca: [...defaults_js_1.defaults, ...proxies_js_1.proxies]
     };
-    module2.exports = profiles;
-    module2.exports.proxyBundle = proxyBundle;
-    module2.exports.default = profiles;
+    module.exports = profiles;
+    module.exports.proxyBundle = proxyBundle;
+    module.exports.default = profiles;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/ssl_profiles.js
 var require_ssl_profiles = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/ssl_profiles.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/ssl_profiles.js"(exports) {
     "use strict";
     var awsCaBundle = require_lib3();
-    exports2["Amazon RDS"] = {
+    exports["Amazon RDS"] = {
       ca: awsCaBundle.ca
     };
   }
@@ -23727,9 +23732,9 @@ var require_ssl_profiles = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection_config.js
 var require_connection_config = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection_config.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection_config.js"(exports, module) {
     "use strict";
-    var { URL: URL2 } = require("url");
+    var { URL: URL2 } = __require("url");
     var ClientConstants = require_client();
     var Charsets = require_charsets();
     var { version: version3 } = require_package2();
@@ -23968,16 +23973,16 @@ var require_connection_config = __commonJS({
         return options;
       }
     };
-    module2.exports = ConnectionConfig;
+    module.exports = ConnectionConfig;
   }
 });
 
 // node_modules/.pnpm/lru.min@1.1.2/node_modules/lru.min/lib/index.js
 var require_lib4 = __commonJS({
-  "node_modules/.pnpm/lru.min@1.1.2/node_modules/lru.min/lib/index.js"(exports2) {
+  "node_modules/.pnpm/lru.min@1.1.2/node_modules/lru.min/lib/index.js"(exports) {
     "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.createLRU = void 0;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.createLRU = void 0;
     var createLRU = (options) => {
       let { max } = options;
       if (!(Number.isInteger(max) && max > 0))
@@ -24201,13 +24206,13 @@ var require_lib4 = __commonJS({
         }
       };
     };
-    exports2.createLRU = createLRU;
+    exports.createLRU = createLRU;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/parser_cache.js
 var require_parser_cache = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/parser_cache.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/parser_cache.js"(exports, module) {
     "use strict";
     var { createLRU } = require_lib4();
     var parserCache = createLRU({
@@ -24256,7 +24261,7 @@ var require_parser_cache = __commonJS({
     function clearCache() {
       parserCache.clear();
     }
-    module2.exports = {
+    module.exports = {
       getParser,
       setMaxCache,
       clearCache,
@@ -24267,7 +24272,7 @@ var require_parser_cache = __commonJS({
 
 // node_modules/.pnpm/denque@2.1.0/node_modules/denque/index.js
 var require_denque = __commonJS({
-  "node_modules/.pnpm/denque@2.1.0/node_modules/denque/index.js"(exports2, module2) {
+  "node_modules/.pnpm/denque@2.1.0/node_modules/denque/index.js"(exports, module) {
     "use strict";
     function Denque(array2, options) {
       var options = options || {};
@@ -24576,3984 +24581,3984 @@ var require_denque = __commonJS({
       var nextPow2 = 1 << log2 + 1;
       return Math.max(nextPow2, 4);
     };
-    module2.exports = Denque;
+    module.exports = Denque;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/errors.js
 var require_errors = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/errors.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/errors.js"(exports) {
     "use strict";
-    exports2.EE_CANTCREATEFILE = 1;
-    exports2.EE_READ = 2;
-    exports2.EE_WRITE = 3;
-    exports2.EE_BADCLOSE = 4;
-    exports2.EE_OUTOFMEMORY = 5;
-    exports2.EE_DELETE = 6;
-    exports2.EE_LINK = 7;
-    exports2.EE_EOFERR = 9;
-    exports2.EE_CANTLOCK = 10;
-    exports2.EE_CANTUNLOCK = 11;
-    exports2.EE_DIR = 12;
-    exports2.EE_STAT = 13;
-    exports2.EE_CANT_CHSIZE = 14;
-    exports2.EE_CANT_OPEN_STREAM = 15;
-    exports2.EE_GETWD = 16;
-    exports2.EE_SETWD = 17;
-    exports2.EE_LINK_WARNING = 18;
-    exports2.EE_OPEN_WARNING = 19;
-    exports2.EE_DISK_FULL = 20;
-    exports2.EE_CANT_MKDIR = 21;
-    exports2.EE_UNKNOWN_CHARSET = 22;
-    exports2.EE_OUT_OF_FILERESOURCES = 23;
-    exports2.EE_CANT_READLINK = 24;
-    exports2.EE_CANT_SYMLINK = 25;
-    exports2.EE_REALPATH = 26;
-    exports2.EE_SYNC = 27;
-    exports2.EE_UNKNOWN_COLLATION = 28;
-    exports2.EE_FILENOTFOUND = 29;
-    exports2.EE_FILE_NOT_CLOSED = 30;
-    exports2.EE_CHANGE_OWNERSHIP = 31;
-    exports2.EE_CHANGE_PERMISSIONS = 32;
-    exports2.EE_CANT_SEEK = 33;
-    exports2.EE_CAPACITY_EXCEEDED = 34;
-    exports2.EE_DISK_FULL_WITH_RETRY_MSG = 35;
-    exports2.EE_FAILED_TO_CREATE_TIMER = 36;
-    exports2.EE_FAILED_TO_DELETE_TIMER = 37;
-    exports2.EE_FAILED_TO_CREATE_TIMER_QUEUE = 38;
-    exports2.EE_FAILED_TO_START_TIMER_NOTIFY_THREAD = 39;
-    exports2.EE_FAILED_TO_CREATE_TIMER_NOTIFY_THREAD_INTERRUPT_EVENT = 40;
-    exports2.EE_EXITING_TIMER_NOTIFY_THREAD = 41;
-    exports2.EE_WIN_LIBRARY_LOAD_FAILED = 42;
-    exports2.EE_WIN_RUN_TIME_ERROR_CHECK = 43;
-    exports2.EE_FAILED_TO_DETERMINE_LARGE_PAGE_SIZE = 44;
-    exports2.EE_FAILED_TO_KILL_ALL_THREADS = 45;
-    exports2.EE_FAILED_TO_CREATE_IO_COMPLETION_PORT = 46;
-    exports2.EE_FAILED_TO_OPEN_DEFAULTS_FILE = 47;
-    exports2.EE_FAILED_TO_HANDLE_DEFAULTS_FILE = 48;
-    exports2.EE_WRONG_DIRECTIVE_IN_CONFIG_FILE = 49;
-    exports2.EE_SKIPPING_DIRECTIVE_DUE_TO_MAX_INCLUDE_RECURSION = 50;
-    exports2.EE_INCORRECT_GRP_DEFINITION_IN_CONFIG_FILE = 51;
-    exports2.EE_OPTION_WITHOUT_GRP_IN_CONFIG_FILE = 52;
-    exports2.EE_CONFIG_FILE_PERMISSION_ERROR = 53;
-    exports2.EE_IGNORE_WORLD_WRITABLE_CONFIG_FILE = 54;
-    exports2.EE_USING_DISABLED_OPTION = 55;
-    exports2.EE_USING_DISABLED_SHORT_OPTION = 56;
-    exports2.EE_USING_PASSWORD_ON_CLI_IS_INSECURE = 57;
-    exports2.EE_UNKNOWN_SUFFIX_FOR_VARIABLE = 58;
-    exports2.EE_SSL_ERROR_FROM_FILE = 59;
-    exports2.EE_SSL_ERROR = 60;
-    exports2.EE_NET_SEND_ERROR_IN_BOOTSTRAP = 61;
-    exports2.EE_PACKETS_OUT_OF_ORDER = 62;
-    exports2.EE_UNKNOWN_PROTOCOL_OPTION = 63;
-    exports2.EE_FAILED_TO_LOCATE_SERVER_PUBLIC_KEY = 64;
-    exports2.EE_PUBLIC_KEY_NOT_IN_PEM_FORMAT = 65;
-    exports2.EE_DEBUG_INFO = 66;
-    exports2.EE_UNKNOWN_VARIABLE = 67;
-    exports2.EE_UNKNOWN_OPTION = 68;
-    exports2.EE_UNKNOWN_SHORT_OPTION = 69;
-    exports2.EE_OPTION_WITHOUT_ARGUMENT = 70;
-    exports2.EE_OPTION_REQUIRES_ARGUMENT = 71;
-    exports2.EE_SHORT_OPTION_REQUIRES_ARGUMENT = 72;
-    exports2.EE_OPTION_IGNORED_DUE_TO_INVALID_VALUE = 73;
-    exports2.EE_OPTION_WITH_EMPTY_VALUE = 74;
-    exports2.EE_FAILED_TO_ASSIGN_MAX_VALUE_TO_OPTION = 75;
-    exports2.EE_INCORRECT_BOOLEAN_VALUE_FOR_OPTION = 76;
-    exports2.EE_FAILED_TO_SET_OPTION_VALUE = 77;
-    exports2.EE_INCORRECT_INT_VALUE_FOR_OPTION = 78;
-    exports2.EE_INCORRECT_UINT_VALUE_FOR_OPTION = 79;
-    exports2.EE_ADJUSTED_SIGNED_VALUE_FOR_OPTION = 80;
-    exports2.EE_ADJUSTED_UNSIGNED_VALUE_FOR_OPTION = 81;
-    exports2.EE_ADJUSTED_ULONGLONG_VALUE_FOR_OPTION = 82;
-    exports2.EE_ADJUSTED_DOUBLE_VALUE_FOR_OPTION = 83;
-    exports2.EE_INVALID_DECIMAL_VALUE_FOR_OPTION = 84;
-    exports2.EE_COLLATION_PARSER_ERROR = 85;
-    exports2.EE_FAILED_TO_RESET_BEFORE_PRIMARY_IGNORABLE_CHAR = 86;
-    exports2.EE_FAILED_TO_RESET_BEFORE_TERTIARY_IGNORABLE_CHAR = 87;
-    exports2.EE_SHIFT_CHAR_OUT_OF_RANGE = 88;
-    exports2.EE_RESET_CHAR_OUT_OF_RANGE = 89;
-    exports2.EE_UNKNOWN_LDML_TAG = 90;
-    exports2.EE_FAILED_TO_RESET_BEFORE_SECONDARY_IGNORABLE_CHAR = 91;
-    exports2.EE_FAILED_PROCESSING_DIRECTIVE = 92;
-    exports2.EE_PTHREAD_KILL_FAILED = 93;
-    exports2.HA_ERR_KEY_NOT_FOUND = 120;
-    exports2.HA_ERR_FOUND_DUPP_KEY = 121;
-    exports2.HA_ERR_INTERNAL_ERROR = 122;
-    exports2.HA_ERR_RECORD_CHANGED = 123;
-    exports2.HA_ERR_WRONG_INDEX = 124;
-    exports2.HA_ERR_ROLLED_BACK = 125;
-    exports2.HA_ERR_CRASHED = 126;
-    exports2.HA_ERR_WRONG_IN_RECORD = 127;
-    exports2.HA_ERR_OUT_OF_MEM = 128;
-    exports2.HA_ERR_NOT_A_TABLE = 130;
-    exports2.HA_ERR_WRONG_COMMAND = 131;
-    exports2.HA_ERR_OLD_FILE = 132;
-    exports2.HA_ERR_NO_ACTIVE_RECORD = 133;
-    exports2.HA_ERR_RECORD_DELETED = 134;
-    exports2.HA_ERR_RECORD_FILE_FULL = 135;
-    exports2.HA_ERR_INDEX_FILE_FULL = 136;
-    exports2.HA_ERR_END_OF_FILE = 137;
-    exports2.HA_ERR_UNSUPPORTED = 138;
-    exports2.HA_ERR_TOO_BIG_ROW = 139;
-    exports2.HA_WRONG_CREATE_OPTION = 140;
-    exports2.HA_ERR_FOUND_DUPP_UNIQUE = 141;
-    exports2.HA_ERR_UNKNOWN_CHARSET = 142;
-    exports2.HA_ERR_WRONG_MRG_TABLE_DEF = 143;
-    exports2.HA_ERR_CRASHED_ON_REPAIR = 144;
-    exports2.HA_ERR_CRASHED_ON_USAGE = 145;
-    exports2.HA_ERR_LOCK_WAIT_TIMEOUT = 146;
-    exports2.HA_ERR_LOCK_TABLE_FULL = 147;
-    exports2.HA_ERR_READ_ONLY_TRANSACTION = 148;
-    exports2.HA_ERR_LOCK_DEADLOCK = 149;
-    exports2.HA_ERR_CANNOT_ADD_FOREIGN = 150;
-    exports2.HA_ERR_NO_REFERENCED_ROW = 151;
-    exports2.HA_ERR_ROW_IS_REFERENCED = 152;
-    exports2.HA_ERR_NO_SAVEPOINT = 153;
-    exports2.HA_ERR_NON_UNIQUE_BLOCK_SIZE = 154;
-    exports2.HA_ERR_NO_SUCH_TABLE = 155;
-    exports2.HA_ERR_TABLE_EXIST = 156;
-    exports2.HA_ERR_NO_CONNECTION = 157;
-    exports2.HA_ERR_NULL_IN_SPATIAL = 158;
-    exports2.HA_ERR_TABLE_DEF_CHANGED = 159;
-    exports2.HA_ERR_NO_PARTITION_FOUND = 160;
-    exports2.HA_ERR_RBR_LOGGING_FAILED = 161;
-    exports2.HA_ERR_DROP_INDEX_FK = 162;
-    exports2.HA_ERR_FOREIGN_DUPLICATE_KEY = 163;
-    exports2.HA_ERR_TABLE_NEEDS_UPGRADE = 164;
-    exports2.HA_ERR_TABLE_READONLY = 165;
-    exports2.HA_ERR_AUTOINC_READ_FAILED = 166;
-    exports2.HA_ERR_AUTOINC_ERANGE = 167;
-    exports2.HA_ERR_GENERIC = 168;
-    exports2.HA_ERR_RECORD_IS_THE_SAME = 169;
-    exports2.HA_ERR_LOGGING_IMPOSSIBLE = 170;
-    exports2.HA_ERR_CORRUPT_EVENT = 171;
-    exports2.HA_ERR_NEW_FILE = 172;
-    exports2.HA_ERR_ROWS_EVENT_APPLY = 173;
-    exports2.HA_ERR_INITIALIZATION = 174;
-    exports2.HA_ERR_FILE_TOO_SHORT = 175;
-    exports2.HA_ERR_WRONG_CRC = 176;
-    exports2.HA_ERR_TOO_MANY_CONCURRENT_TRXS = 177;
-    exports2.HA_ERR_NOT_IN_LOCK_PARTITIONS = 178;
-    exports2.HA_ERR_INDEX_COL_TOO_LONG = 179;
-    exports2.HA_ERR_INDEX_CORRUPT = 180;
-    exports2.HA_ERR_UNDO_REC_TOO_BIG = 181;
-    exports2.HA_FTS_INVALID_DOCID = 182;
-    exports2.HA_ERR_TABLE_IN_FK_CHECK = 183;
-    exports2.HA_ERR_TABLESPACE_EXISTS = 184;
-    exports2.HA_ERR_TOO_MANY_FIELDS = 185;
-    exports2.HA_ERR_ROW_IN_WRONG_PARTITION = 186;
-    exports2.HA_ERR_INNODB_READ_ONLY = 187;
-    exports2.HA_ERR_FTS_EXCEED_RESULT_CACHE_LIMIT = 188;
-    exports2.HA_ERR_TEMP_FILE_WRITE_FAILURE = 189;
-    exports2.HA_ERR_INNODB_FORCED_RECOVERY = 190;
-    exports2.HA_ERR_FTS_TOO_MANY_WORDS_IN_PHRASE = 191;
-    exports2.HA_ERR_FK_DEPTH_EXCEEDED = 192;
-    exports2.HA_MISSING_CREATE_OPTION = 193;
-    exports2.HA_ERR_SE_OUT_OF_MEMORY = 194;
-    exports2.HA_ERR_TABLE_CORRUPT = 195;
-    exports2.HA_ERR_QUERY_INTERRUPTED = 196;
-    exports2.HA_ERR_TABLESPACE_MISSING = 197;
-    exports2.HA_ERR_TABLESPACE_IS_NOT_EMPTY = 198;
-    exports2.HA_ERR_WRONG_FILE_NAME = 199;
-    exports2.HA_ERR_NOT_ALLOWED_COMMAND = 200;
-    exports2.HA_ERR_COMPUTE_FAILED = 201;
-    exports2.HA_ERR_ROW_FORMAT_CHANGED = 202;
-    exports2.HA_ERR_NO_WAIT_LOCK = 203;
-    exports2.HA_ERR_DISK_FULL_NOWAIT = 204;
-    exports2.HA_ERR_NO_SESSION_TEMP = 205;
-    exports2.HA_ERR_WRONG_TABLE_NAME = 206;
-    exports2.HA_ERR_TOO_LONG_PATH = 207;
-    exports2.HA_ERR_SAMPLING_INIT_FAILED = 208;
-    exports2.HA_ERR_FTS_TOO_MANY_NESTED_EXP = 209;
-    exports2.ER_HASHCHK = 1e3;
-    exports2.ER_NISAMCHK = 1001;
-    exports2.ER_NO = 1002;
-    exports2.ER_YES = 1003;
-    exports2.ER_CANT_CREATE_FILE = 1004;
-    exports2.ER_CANT_CREATE_TABLE = 1005;
-    exports2.ER_CANT_CREATE_DB = 1006;
-    exports2.ER_DB_CREATE_EXISTS = 1007;
-    exports2.ER_DB_DROP_EXISTS = 1008;
-    exports2.ER_DB_DROP_DELETE = 1009;
-    exports2.ER_DB_DROP_RMDIR = 1010;
-    exports2.ER_CANT_DELETE_FILE = 1011;
-    exports2.ER_CANT_FIND_SYSTEM_REC = 1012;
-    exports2.ER_CANT_GET_STAT = 1013;
-    exports2.ER_CANT_GET_WD = 1014;
-    exports2.ER_CANT_LOCK = 1015;
-    exports2.ER_CANT_OPEN_FILE = 1016;
-    exports2.ER_FILE_NOT_FOUND = 1017;
-    exports2.ER_CANT_READ_DIR = 1018;
-    exports2.ER_CANT_SET_WD = 1019;
-    exports2.ER_CHECKREAD = 1020;
-    exports2.ER_DISK_FULL = 1021;
-    exports2.ER_DUP_KEY = 1022;
-    exports2.ER_ERROR_ON_CLOSE = 1023;
-    exports2.ER_ERROR_ON_READ = 1024;
-    exports2.ER_ERROR_ON_RENAME = 1025;
-    exports2.ER_ERROR_ON_WRITE = 1026;
-    exports2.ER_FILE_USED = 1027;
-    exports2.ER_FILSORT_ABORT = 1028;
-    exports2.ER_FORM_NOT_FOUND = 1029;
-    exports2.ER_GET_ERRNO = 1030;
-    exports2.ER_ILLEGAL_HA = 1031;
-    exports2.ER_KEY_NOT_FOUND = 1032;
-    exports2.ER_NOT_FORM_FILE = 1033;
-    exports2.ER_NOT_KEYFILE = 1034;
-    exports2.ER_OLD_KEYFILE = 1035;
-    exports2.ER_OPEN_AS_READONLY = 1036;
-    exports2.ER_OUTOFMEMORY = 1037;
-    exports2.ER_OUT_OF_SORTMEMORY = 1038;
-    exports2.ER_UNEXPECTED_EOF = 1039;
-    exports2.ER_CON_COUNT_ERROR = 1040;
-    exports2.ER_OUT_OF_RESOURCES = 1041;
-    exports2.ER_BAD_HOST_ERROR = 1042;
-    exports2.ER_HANDSHAKE_ERROR = 1043;
-    exports2.ER_DBACCESS_DENIED_ERROR = 1044;
-    exports2.ER_ACCESS_DENIED_ERROR = 1045;
-    exports2.ER_NO_DB_ERROR = 1046;
-    exports2.ER_UNKNOWN_COM_ERROR = 1047;
-    exports2.ER_BAD_NULL_ERROR = 1048;
-    exports2.ER_BAD_DB_ERROR = 1049;
-    exports2.ER_TABLE_EXISTS_ERROR = 1050;
-    exports2.ER_BAD_TABLE_ERROR = 1051;
-    exports2.ER_NON_UNIQ_ERROR = 1052;
-    exports2.ER_SERVER_SHUTDOWN = 1053;
-    exports2.ER_BAD_FIELD_ERROR = 1054;
-    exports2.ER_WRONG_FIELD_WITH_GROUP = 1055;
-    exports2.ER_WRONG_GROUP_FIELD = 1056;
-    exports2.ER_WRONG_SUM_SELECT = 1057;
-    exports2.ER_WRONG_VALUE_COUNT = 1058;
-    exports2.ER_TOO_LONG_IDENT = 1059;
-    exports2.ER_DUP_FIELDNAME = 1060;
-    exports2.ER_DUP_KEYNAME = 1061;
-    exports2.ER_DUP_ENTRY = 1062;
-    exports2.ER_WRONG_FIELD_SPEC = 1063;
-    exports2.ER_PARSE_ERROR = 1064;
-    exports2.ER_EMPTY_QUERY = 1065;
-    exports2.ER_NONUNIQ_TABLE = 1066;
-    exports2.ER_INVALID_DEFAULT = 1067;
-    exports2.ER_MULTIPLE_PRI_KEY = 1068;
-    exports2.ER_TOO_MANY_KEYS = 1069;
-    exports2.ER_TOO_MANY_KEY_PARTS = 1070;
-    exports2.ER_TOO_LONG_KEY = 1071;
-    exports2.ER_KEY_COLUMN_DOES_NOT_EXITS = 1072;
-    exports2.ER_BLOB_USED_AS_KEY = 1073;
-    exports2.ER_TOO_BIG_FIELDLENGTH = 1074;
-    exports2.ER_WRONG_AUTO_KEY = 1075;
-    exports2.ER_READY = 1076;
-    exports2.ER_NORMAL_SHUTDOWN = 1077;
-    exports2.ER_GOT_SIGNAL = 1078;
-    exports2.ER_SHUTDOWN_COMPLETE = 1079;
-    exports2.ER_FORCING_CLOSE = 1080;
-    exports2.ER_IPSOCK_ERROR = 1081;
-    exports2.ER_NO_SUCH_INDEX = 1082;
-    exports2.ER_WRONG_FIELD_TERMINATORS = 1083;
-    exports2.ER_BLOBS_AND_NO_TERMINATED = 1084;
-    exports2.ER_TEXTFILE_NOT_READABLE = 1085;
-    exports2.ER_FILE_EXISTS_ERROR = 1086;
-    exports2.ER_LOAD_INFO = 1087;
-    exports2.ER_ALTER_INFO = 1088;
-    exports2.ER_WRONG_SUB_KEY = 1089;
-    exports2.ER_CANT_REMOVE_ALL_FIELDS = 1090;
-    exports2.ER_CANT_DROP_FIELD_OR_KEY = 1091;
-    exports2.ER_INSERT_INFO = 1092;
-    exports2.ER_UPDATE_TABLE_USED = 1093;
-    exports2.ER_NO_SUCH_THREAD = 1094;
-    exports2.ER_KILL_DENIED_ERROR = 1095;
-    exports2.ER_NO_TABLES_USED = 1096;
-    exports2.ER_TOO_BIG_SET = 1097;
-    exports2.ER_NO_UNIQUE_LOGFILE = 1098;
-    exports2.ER_TABLE_NOT_LOCKED_FOR_WRITE = 1099;
-    exports2.ER_TABLE_NOT_LOCKED = 1100;
-    exports2.ER_BLOB_CANT_HAVE_DEFAULT = 1101;
-    exports2.ER_WRONG_DB_NAME = 1102;
-    exports2.ER_WRONG_TABLE_NAME = 1103;
-    exports2.ER_TOO_BIG_SELECT = 1104;
-    exports2.ER_UNKNOWN_ERROR = 1105;
-    exports2.ER_UNKNOWN_PROCEDURE = 1106;
-    exports2.ER_WRONG_PARAMCOUNT_TO_PROCEDURE = 1107;
-    exports2.ER_WRONG_PARAMETERS_TO_PROCEDURE = 1108;
-    exports2.ER_UNKNOWN_TABLE = 1109;
-    exports2.ER_FIELD_SPECIFIED_TWICE = 1110;
-    exports2.ER_INVALID_GROUP_FUNC_USE = 1111;
-    exports2.ER_UNSUPPORTED_EXTENSION = 1112;
-    exports2.ER_TABLE_MUST_HAVE_COLUMNS = 1113;
-    exports2.ER_RECORD_FILE_FULL = 1114;
-    exports2.ER_UNKNOWN_CHARACTER_SET = 1115;
-    exports2.ER_TOO_MANY_TABLES = 1116;
-    exports2.ER_TOO_MANY_FIELDS = 1117;
-    exports2.ER_TOO_BIG_ROWSIZE = 1118;
-    exports2.ER_STACK_OVERRUN = 1119;
-    exports2.ER_WRONG_OUTER_JOIN = 1120;
-    exports2.ER_NULL_COLUMN_IN_INDEX = 1121;
-    exports2.ER_CANT_FIND_UDF = 1122;
-    exports2.ER_CANT_INITIALIZE_UDF = 1123;
-    exports2.ER_UDF_NO_PATHS = 1124;
-    exports2.ER_UDF_EXISTS = 1125;
-    exports2.ER_CANT_OPEN_LIBRARY = 1126;
-    exports2.ER_CANT_FIND_DL_ENTRY = 1127;
-    exports2.ER_FUNCTION_NOT_DEFINED = 1128;
-    exports2.ER_HOST_IS_BLOCKED = 1129;
-    exports2.ER_HOST_NOT_PRIVILEGED = 1130;
-    exports2.ER_PASSWORD_ANONYMOUS_USER = 1131;
-    exports2.ER_PASSWORD_NOT_ALLOWED = 1132;
-    exports2.ER_PASSWORD_NO_MATCH = 1133;
-    exports2.ER_UPDATE_INFO = 1134;
-    exports2.ER_CANT_CREATE_THREAD = 1135;
-    exports2.ER_WRONG_VALUE_COUNT_ON_ROW = 1136;
-    exports2.ER_CANT_REOPEN_TABLE = 1137;
-    exports2.ER_INVALID_USE_OF_NULL = 1138;
-    exports2.ER_REGEXP_ERROR = 1139;
-    exports2.ER_MIX_OF_GROUP_FUNC_AND_FIELDS = 1140;
-    exports2.ER_NONEXISTING_GRANT = 1141;
-    exports2.ER_TABLEACCESS_DENIED_ERROR = 1142;
-    exports2.ER_COLUMNACCESS_DENIED_ERROR = 1143;
-    exports2.ER_ILLEGAL_GRANT_FOR_TABLE = 1144;
-    exports2.ER_GRANT_WRONG_HOST_OR_USER = 1145;
-    exports2.ER_NO_SUCH_TABLE = 1146;
-    exports2.ER_NONEXISTING_TABLE_GRANT = 1147;
-    exports2.ER_NOT_ALLOWED_COMMAND = 1148;
-    exports2.ER_SYNTAX_ERROR = 1149;
-    exports2.ER_UNUSED1 = 1150;
-    exports2.ER_UNUSED2 = 1151;
-    exports2.ER_ABORTING_CONNECTION = 1152;
-    exports2.ER_NET_PACKET_TOO_LARGE = 1153;
-    exports2.ER_NET_READ_ERROR_FROM_PIPE = 1154;
-    exports2.ER_NET_FCNTL_ERROR = 1155;
-    exports2.ER_NET_PACKETS_OUT_OF_ORDER = 1156;
-    exports2.ER_NET_UNCOMPRESS_ERROR = 1157;
-    exports2.ER_NET_READ_ERROR = 1158;
-    exports2.ER_NET_READ_INTERRUPTED = 1159;
-    exports2.ER_NET_ERROR_ON_WRITE = 1160;
-    exports2.ER_NET_WRITE_INTERRUPTED = 1161;
-    exports2.ER_TOO_LONG_STRING = 1162;
-    exports2.ER_TABLE_CANT_HANDLE_BLOB = 1163;
-    exports2.ER_TABLE_CANT_HANDLE_AUTO_INCREMENT = 1164;
-    exports2.ER_UNUSED3 = 1165;
-    exports2.ER_WRONG_COLUMN_NAME = 1166;
-    exports2.ER_WRONG_KEY_COLUMN = 1167;
-    exports2.ER_WRONG_MRG_TABLE = 1168;
-    exports2.ER_DUP_UNIQUE = 1169;
-    exports2.ER_BLOB_KEY_WITHOUT_LENGTH = 1170;
-    exports2.ER_PRIMARY_CANT_HAVE_NULL = 1171;
-    exports2.ER_TOO_MANY_ROWS = 1172;
-    exports2.ER_REQUIRES_PRIMARY_KEY = 1173;
-    exports2.ER_NO_RAID_COMPILED = 1174;
-    exports2.ER_UPDATE_WITHOUT_KEY_IN_SAFE_MODE = 1175;
-    exports2.ER_KEY_DOES_NOT_EXITS = 1176;
-    exports2.ER_CHECK_NO_SUCH_TABLE = 1177;
-    exports2.ER_CHECK_NOT_IMPLEMENTED = 1178;
-    exports2.ER_CANT_DO_THIS_DURING_AN_TRANSACTION = 1179;
-    exports2.ER_ERROR_DURING_COMMIT = 1180;
-    exports2.ER_ERROR_DURING_ROLLBACK = 1181;
-    exports2.ER_ERROR_DURING_FLUSH_LOGS = 1182;
-    exports2.ER_ERROR_DURING_CHECKPOINT = 1183;
-    exports2.ER_NEW_ABORTING_CONNECTION = 1184;
-    exports2.ER_DUMP_NOT_IMPLEMENTED = 1185;
-    exports2.ER_FLUSH_MASTER_BINLOG_CLOSED = 1186;
-    exports2.ER_INDEX_REBUILD = 1187;
-    exports2.ER_SOURCE = 1188;
-    exports2.ER_SOURCE_NET_READ = 1189;
-    exports2.ER_SOURCE_NET_WRITE = 1190;
-    exports2.ER_FT_MATCHING_KEY_NOT_FOUND = 1191;
-    exports2.ER_LOCK_OR_ACTIVE_TRANSACTION = 1192;
-    exports2.ER_UNKNOWN_SYSTEM_VARIABLE = 1193;
-    exports2.ER_CRASHED_ON_USAGE = 1194;
-    exports2.ER_CRASHED_ON_REPAIR = 1195;
-    exports2.ER_WARNING_NOT_COMPLETE_ROLLBACK = 1196;
-    exports2.ER_TRANS_CACHE_FULL = 1197;
-    exports2.ER_SLAVE_MUST_STOP = 1198;
-    exports2.ER_REPLICA_NOT_RUNNING = 1199;
-    exports2.ER_BAD_REPLICA = 1200;
-    exports2.ER_CONNECTION_METADATA = 1201;
-    exports2.ER_REPLICA_THREAD = 1202;
-    exports2.ER_TOO_MANY_USER_CONNECTIONS = 1203;
-    exports2.ER_SET_CONSTANTS_ONLY = 1204;
-    exports2.ER_LOCK_WAIT_TIMEOUT = 1205;
-    exports2.ER_LOCK_TABLE_FULL = 1206;
-    exports2.ER_READ_ONLY_TRANSACTION = 1207;
-    exports2.ER_DROP_DB_WITH_READ_LOCK = 1208;
-    exports2.ER_CREATE_DB_WITH_READ_LOCK = 1209;
-    exports2.ER_WRONG_ARGUMENTS = 1210;
-    exports2.ER_NO_PERMISSION_TO_CREATE_USER = 1211;
-    exports2.ER_UNION_TABLES_IN_DIFFERENT_DIR = 1212;
-    exports2.ER_LOCK_DEADLOCK = 1213;
-    exports2.ER_TABLE_CANT_HANDLE_FT = 1214;
-    exports2.ER_CANNOT_ADD_FOREIGN = 1215;
-    exports2.ER_NO_REFERENCED_ROW = 1216;
-    exports2.ER_ROW_IS_REFERENCED = 1217;
-    exports2.ER_CONNECT_TO_SOURCE = 1218;
-    exports2.ER_QUERY_ON_MASTER = 1219;
-    exports2.ER_ERROR_WHEN_EXECUTING_COMMAND = 1220;
-    exports2.ER_WRONG_USAGE = 1221;
-    exports2.ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT = 1222;
-    exports2.ER_CANT_UPDATE_WITH_READLOCK = 1223;
-    exports2.ER_MIXING_NOT_ALLOWED = 1224;
-    exports2.ER_DUP_ARGUMENT = 1225;
-    exports2.ER_USER_LIMIT_REACHED = 1226;
-    exports2.ER_SPECIFIC_ACCESS_DENIED_ERROR = 1227;
-    exports2.ER_LOCAL_VARIABLE = 1228;
-    exports2.ER_GLOBAL_VARIABLE = 1229;
-    exports2.ER_NO_DEFAULT = 1230;
-    exports2.ER_WRONG_VALUE_FOR_VAR = 1231;
-    exports2.ER_WRONG_TYPE_FOR_VAR = 1232;
-    exports2.ER_VAR_CANT_BE_READ = 1233;
-    exports2.ER_CANT_USE_OPTION_HERE = 1234;
-    exports2.ER_NOT_SUPPORTED_YET = 1235;
-    exports2.ER_SOURCE_FATAL_ERROR_READING_BINLOG = 1236;
-    exports2.ER_REPLICA_IGNORED_TABLE = 1237;
-    exports2.ER_INCORRECT_GLOBAL_LOCAL_VAR = 1238;
-    exports2.ER_WRONG_FK_DEF = 1239;
-    exports2.ER_KEY_REF_DO_NOT_MATCH_TABLE_REF = 1240;
-    exports2.ER_OPERAND_COLUMNS = 1241;
-    exports2.ER_SUBQUERY_NO_1_ROW = 1242;
-    exports2.ER_UNKNOWN_STMT_HANDLER = 1243;
-    exports2.ER_CORRUPT_HELP_DB = 1244;
-    exports2.ER_CYCLIC_REFERENCE = 1245;
-    exports2.ER_AUTO_CONVERT = 1246;
-    exports2.ER_ILLEGAL_REFERENCE = 1247;
-    exports2.ER_DERIVED_MUST_HAVE_ALIAS = 1248;
-    exports2.ER_SELECT_REDUCED = 1249;
-    exports2.ER_TABLENAME_NOT_ALLOWED_HERE = 1250;
-    exports2.ER_NOT_SUPPORTED_AUTH_MODE = 1251;
-    exports2.ER_SPATIAL_CANT_HAVE_NULL = 1252;
-    exports2.ER_COLLATION_CHARSET_MISMATCH = 1253;
-    exports2.ER_SLAVE_WAS_RUNNING = 1254;
-    exports2.ER_SLAVE_WAS_NOT_RUNNING = 1255;
-    exports2.ER_TOO_BIG_FOR_UNCOMPRESS = 1256;
-    exports2.ER_ZLIB_Z_MEM_ERROR = 1257;
-    exports2.ER_ZLIB_Z_BUF_ERROR = 1258;
-    exports2.ER_ZLIB_Z_DATA_ERROR = 1259;
-    exports2.ER_CUT_VALUE_GROUP_CONCAT = 1260;
-    exports2.ER_WARN_TOO_FEW_RECORDS = 1261;
-    exports2.ER_WARN_TOO_MANY_RECORDS = 1262;
-    exports2.ER_WARN_NULL_TO_NOTNULL = 1263;
-    exports2.ER_WARN_DATA_OUT_OF_RANGE = 1264;
-    exports2.WARN_DATA_TRUNCATED = 1265;
-    exports2.ER_WARN_USING_OTHER_HANDLER = 1266;
-    exports2.ER_CANT_AGGREGATE_2COLLATIONS = 1267;
-    exports2.ER_DROP_USER = 1268;
-    exports2.ER_REVOKE_GRANTS = 1269;
-    exports2.ER_CANT_AGGREGATE_3COLLATIONS = 1270;
-    exports2.ER_CANT_AGGREGATE_NCOLLATIONS = 1271;
-    exports2.ER_VARIABLE_IS_NOT_STRUCT = 1272;
-    exports2.ER_UNKNOWN_COLLATION = 1273;
-    exports2.ER_REPLICA_IGNORED_SSL_PARAMS = 1274;
-    exports2.ER_SERVER_IS_IN_SECURE_AUTH_MODE = 1275;
-    exports2.ER_WARN_FIELD_RESOLVED = 1276;
-    exports2.ER_BAD_REPLICA_UNTIL_COND = 1277;
-    exports2.ER_MISSING_SKIP_REPLICA = 1278;
-    exports2.ER_UNTIL_COND_IGNORED = 1279;
-    exports2.ER_WRONG_NAME_FOR_INDEX = 1280;
-    exports2.ER_WRONG_NAME_FOR_CATALOG = 1281;
-    exports2.ER_WARN_QC_RESIZE = 1282;
-    exports2.ER_BAD_FT_COLUMN = 1283;
-    exports2.ER_UNKNOWN_KEY_CACHE = 1284;
-    exports2.ER_WARN_HOSTNAME_WONT_WORK = 1285;
-    exports2.ER_UNKNOWN_STORAGE_ENGINE = 1286;
-    exports2.ER_WARN_DEPRECATED_SYNTAX = 1287;
-    exports2.ER_NON_UPDATABLE_TABLE = 1288;
-    exports2.ER_FEATURE_DISABLED = 1289;
-    exports2.ER_OPTION_PREVENTS_STATEMENT = 1290;
-    exports2.ER_DUPLICATED_VALUE_IN_TYPE = 1291;
-    exports2.ER_TRUNCATED_WRONG_VALUE = 1292;
-    exports2.ER_TOO_MUCH_AUTO_TIMESTAMP_COLS = 1293;
-    exports2.ER_INVALID_ON_UPDATE = 1294;
-    exports2.ER_UNSUPPORTED_PS = 1295;
-    exports2.ER_GET_ERRMSG = 1296;
-    exports2.ER_GET_TEMPORARY_ERRMSG = 1297;
-    exports2.ER_UNKNOWN_TIME_ZONE = 1298;
-    exports2.ER_WARN_INVALID_TIMESTAMP = 1299;
-    exports2.ER_INVALID_CHARACTER_STRING = 1300;
-    exports2.ER_WARN_ALLOWED_PACKET_OVERFLOWED = 1301;
-    exports2.ER_CONFLICTING_DECLARATIONS = 1302;
-    exports2.ER_SP_NO_RECURSIVE_CREATE = 1303;
-    exports2.ER_SP_ALREADY_EXISTS = 1304;
-    exports2.ER_SP_DOES_NOT_EXIST = 1305;
-    exports2.ER_SP_DROP_FAILED = 1306;
-    exports2.ER_SP_STORE_FAILED = 1307;
-    exports2.ER_SP_LILABEL_MISMATCH = 1308;
-    exports2.ER_SP_LABEL_REDEFINE = 1309;
-    exports2.ER_SP_LABEL_MISMATCH = 1310;
-    exports2.ER_SP_UNINIT_VAR = 1311;
-    exports2.ER_SP_BADSELECT = 1312;
-    exports2.ER_SP_BADRETURN = 1313;
-    exports2.ER_SP_BADSTATEMENT = 1314;
-    exports2.ER_UPDATE_LOG_DEPRECATED_IGNORED = 1315;
-    exports2.ER_UPDATE_LOG_DEPRECATED_TRANSLATED = 1316;
-    exports2.ER_QUERY_INTERRUPTED = 1317;
-    exports2.ER_SP_WRONG_NO_OF_ARGS = 1318;
-    exports2.ER_SP_COND_MISMATCH = 1319;
-    exports2.ER_SP_NORETURN = 1320;
-    exports2.ER_SP_NORETURNEND = 1321;
-    exports2.ER_SP_BAD_CURSOR_QUERY = 1322;
-    exports2.ER_SP_BAD_CURSOR_SELECT = 1323;
-    exports2.ER_SP_CURSOR_MISMATCH = 1324;
-    exports2.ER_SP_CURSOR_ALREADY_OPEN = 1325;
-    exports2.ER_SP_CURSOR_NOT_OPEN = 1326;
-    exports2.ER_SP_UNDECLARED_VAR = 1327;
-    exports2.ER_SP_WRONG_NO_OF_FETCH_ARGS = 1328;
-    exports2.ER_SP_FETCH_NO_DATA = 1329;
-    exports2.ER_SP_DUP_PARAM = 1330;
-    exports2.ER_SP_DUP_VAR = 1331;
-    exports2.ER_SP_DUP_COND = 1332;
-    exports2.ER_SP_DUP_CURS = 1333;
-    exports2.ER_SP_CANT_ALTER = 1334;
-    exports2.ER_SP_SUBSELECT_NYI = 1335;
-    exports2.ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG = 1336;
-    exports2.ER_SP_VARCOND_AFTER_CURSHNDLR = 1337;
-    exports2.ER_SP_CURSOR_AFTER_HANDLER = 1338;
-    exports2.ER_SP_CASE_NOT_FOUND = 1339;
-    exports2.ER_FPARSER_TOO_BIG_FILE = 1340;
-    exports2.ER_FPARSER_BAD_HEADER = 1341;
-    exports2.ER_FPARSER_EOF_IN_COMMENT = 1342;
-    exports2.ER_FPARSER_ERROR_IN_PARAMETER = 1343;
-    exports2.ER_FPARSER_EOF_IN_UNKNOWN_PARAMETER = 1344;
-    exports2.ER_VIEW_NO_EXPLAIN = 1345;
-    exports2.ER_FRM_UNKNOWN_TYPE = 1346;
-    exports2.ER_WRONG_OBJECT = 1347;
-    exports2.ER_NONUPDATEABLE_COLUMN = 1348;
-    exports2.ER_VIEW_SELECT_DERIVED = 1349;
-    exports2.ER_VIEW_SELECT_CLAUSE = 1350;
-    exports2.ER_VIEW_SELECT_VARIABLE = 1351;
-    exports2.ER_VIEW_SELECT_TMPTABLE = 1352;
-    exports2.ER_VIEW_WRONG_LIST = 1353;
-    exports2.ER_WARN_VIEW_MERGE = 1354;
-    exports2.ER_WARN_VIEW_WITHOUT_KEY = 1355;
-    exports2.ER_VIEW_INVALID = 1356;
-    exports2.ER_SP_NO_DROP_SP = 1357;
-    exports2.ER_SP_GOTO_IN_HNDLR = 1358;
-    exports2.ER_TRG_ALREADY_EXISTS = 1359;
-    exports2.ER_TRG_DOES_NOT_EXIST = 1360;
-    exports2.ER_TRG_ON_VIEW_OR_TEMP_TABLE = 1361;
-    exports2.ER_TRG_CANT_CHANGE_ROW = 1362;
-    exports2.ER_TRG_NO_SUCH_ROW_IN_TRG = 1363;
-    exports2.ER_NO_DEFAULT_FOR_FIELD = 1364;
-    exports2.ER_DIVISION_BY_ZERO = 1365;
-    exports2.ER_TRUNCATED_WRONG_VALUE_FOR_FIELD = 1366;
-    exports2.ER_ILLEGAL_VALUE_FOR_TYPE = 1367;
-    exports2.ER_VIEW_NONUPD_CHECK = 1368;
-    exports2.ER_VIEW_CHECK_FAILED = 1369;
-    exports2.ER_PROCACCESS_DENIED_ERROR = 1370;
-    exports2.ER_RELAY_LOG_FAIL = 1371;
-    exports2.ER_PASSWD_LENGTH = 1372;
-    exports2.ER_UNKNOWN_TARGET_BINLOG = 1373;
-    exports2.ER_IO_ERR_LOG_INDEX_READ = 1374;
-    exports2.ER_BINLOG_PURGE_PROHIBITED = 1375;
-    exports2.ER_FSEEK_FAIL = 1376;
-    exports2.ER_BINLOG_PURGE_FATAL_ERR = 1377;
-    exports2.ER_LOG_IN_USE = 1378;
-    exports2.ER_LOG_PURGE_UNKNOWN_ERR = 1379;
-    exports2.ER_RELAY_LOG_INIT = 1380;
-    exports2.ER_NO_BINARY_LOGGING = 1381;
-    exports2.ER_RESERVED_SYNTAX = 1382;
-    exports2.ER_WSAS_FAILED = 1383;
-    exports2.ER_DIFF_GROUPS_PROC = 1384;
-    exports2.ER_NO_GROUP_FOR_PROC = 1385;
-    exports2.ER_ORDER_WITH_PROC = 1386;
-    exports2.ER_LOGGING_PROHIBIT_CHANGING_OF = 1387;
-    exports2.ER_NO_FILE_MAPPING = 1388;
-    exports2.ER_WRONG_MAGIC = 1389;
-    exports2.ER_PS_MANY_PARAM = 1390;
-    exports2.ER_KEY_PART_0 = 1391;
-    exports2.ER_VIEW_CHECKSUM = 1392;
-    exports2.ER_VIEW_MULTIUPDATE = 1393;
-    exports2.ER_VIEW_NO_INSERT_FIELD_LIST = 1394;
-    exports2.ER_VIEW_DELETE_MERGE_VIEW = 1395;
-    exports2.ER_CANNOT_USER = 1396;
-    exports2.ER_XAER_NOTA = 1397;
-    exports2.ER_XAER_INVAL = 1398;
-    exports2.ER_XAER_RMFAIL = 1399;
-    exports2.ER_XAER_OUTSIDE = 1400;
-    exports2.ER_XAER_RMERR = 1401;
-    exports2.ER_XA_RBROLLBACK = 1402;
-    exports2.ER_NONEXISTING_PROC_GRANT = 1403;
-    exports2.ER_PROC_AUTO_GRANT_FAIL = 1404;
-    exports2.ER_PROC_AUTO_REVOKE_FAIL = 1405;
-    exports2.ER_DATA_TOO_LONG = 1406;
-    exports2.ER_SP_BAD_SQLSTATE = 1407;
-    exports2.ER_STARTUP = 1408;
-    exports2.ER_LOAD_FROM_FIXED_SIZE_ROWS_TO_VAR = 1409;
-    exports2.ER_CANT_CREATE_USER_WITH_GRANT = 1410;
-    exports2.ER_WRONG_VALUE_FOR_TYPE = 1411;
-    exports2.ER_TABLE_DEF_CHANGED = 1412;
-    exports2.ER_SP_DUP_HANDLER = 1413;
-    exports2.ER_SP_NOT_VAR_ARG = 1414;
-    exports2.ER_SP_NO_RETSET = 1415;
-    exports2.ER_CANT_CREATE_GEOMETRY_OBJECT = 1416;
-    exports2.ER_FAILED_ROUTINE_BREAK_BINLOG = 1417;
-    exports2.ER_BINLOG_UNSAFE_ROUTINE = 1418;
-    exports2.ER_BINLOG_CREATE_ROUTINE_NEED_SUPER = 1419;
-    exports2.ER_EXEC_STMT_WITH_OPEN_CURSOR = 1420;
-    exports2.ER_STMT_HAS_NO_OPEN_CURSOR = 1421;
-    exports2.ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG = 1422;
-    exports2.ER_NO_DEFAULT_FOR_VIEW_FIELD = 1423;
-    exports2.ER_SP_NO_RECURSION = 1424;
-    exports2.ER_TOO_BIG_SCALE = 1425;
-    exports2.ER_TOO_BIG_PRECISION = 1426;
-    exports2.ER_M_BIGGER_THAN_D = 1427;
-    exports2.ER_WRONG_LOCK_OF_SYSTEM_TABLE = 1428;
-    exports2.ER_CONNECT_TO_FOREIGN_DATA_SOURCE = 1429;
-    exports2.ER_QUERY_ON_FOREIGN_DATA_SOURCE = 1430;
-    exports2.ER_FOREIGN_DATA_SOURCE_DOESNT_EXIST = 1431;
-    exports2.ER_FOREIGN_DATA_STRING_INVALID_CANT_CREATE = 1432;
-    exports2.ER_FOREIGN_DATA_STRING_INVALID = 1433;
-    exports2.ER_CANT_CREATE_FEDERATED_TABLE = 1434;
-    exports2.ER_TRG_IN_WRONG_SCHEMA = 1435;
-    exports2.ER_STACK_OVERRUN_NEED_MORE = 1436;
-    exports2.ER_TOO_LONG_BODY = 1437;
-    exports2.ER_WARN_CANT_DROP_DEFAULT_KEYCACHE = 1438;
-    exports2.ER_TOO_BIG_DISPLAYWIDTH = 1439;
-    exports2.ER_XAER_DUPID = 1440;
-    exports2.ER_DATETIME_FUNCTION_OVERFLOW = 1441;
-    exports2.ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG = 1442;
-    exports2.ER_VIEW_PREVENT_UPDATE = 1443;
-    exports2.ER_PS_NO_RECURSION = 1444;
-    exports2.ER_SP_CANT_SET_AUTOCOMMIT = 1445;
-    exports2.ER_MALFORMED_DEFINER = 1446;
-    exports2.ER_VIEW_FRM_NO_USER = 1447;
-    exports2.ER_VIEW_OTHER_USER = 1448;
-    exports2.ER_NO_SUCH_USER = 1449;
-    exports2.ER_FORBID_SCHEMA_CHANGE = 1450;
-    exports2.ER_ROW_IS_REFERENCED_2 = 1451;
-    exports2.ER_NO_REFERENCED_ROW_2 = 1452;
-    exports2.ER_SP_BAD_VAR_SHADOW = 1453;
-    exports2.ER_TRG_NO_DEFINER = 1454;
-    exports2.ER_OLD_FILE_FORMAT = 1455;
-    exports2.ER_SP_RECURSION_LIMIT = 1456;
-    exports2.ER_SP_PROC_TABLE_CORRUPT = 1457;
-    exports2.ER_SP_WRONG_NAME = 1458;
-    exports2.ER_TABLE_NEEDS_UPGRADE = 1459;
-    exports2.ER_SP_NO_AGGREGATE = 1460;
-    exports2.ER_MAX_PREPARED_STMT_COUNT_REACHED = 1461;
-    exports2.ER_VIEW_RECURSIVE = 1462;
-    exports2.ER_NON_GROUPING_FIELD_USED = 1463;
-    exports2.ER_TABLE_CANT_HANDLE_SPKEYS = 1464;
-    exports2.ER_NO_TRIGGERS_ON_SYSTEM_SCHEMA = 1465;
-    exports2.ER_REMOVED_SPACES = 1466;
-    exports2.ER_AUTOINC_READ_FAILED = 1467;
-    exports2.ER_USERNAME = 1468;
-    exports2.ER_HOSTNAME = 1469;
-    exports2.ER_WRONG_STRING_LENGTH = 1470;
-    exports2.ER_NON_INSERTABLE_TABLE = 1471;
-    exports2.ER_ADMIN_WRONG_MRG_TABLE = 1472;
-    exports2.ER_TOO_HIGH_LEVEL_OF_NESTING_FOR_SELECT = 1473;
-    exports2.ER_NAME_BECOMES_EMPTY = 1474;
-    exports2.ER_AMBIGUOUS_FIELD_TERM = 1475;
-    exports2.ER_FOREIGN_SERVER_EXISTS = 1476;
-    exports2.ER_FOREIGN_SERVER_DOESNT_EXIST = 1477;
-    exports2.ER_ILLEGAL_HA_CREATE_OPTION = 1478;
-    exports2.ER_PARTITION_REQUIRES_VALUES_ERROR = 1479;
-    exports2.ER_PARTITION_WRONG_VALUES_ERROR = 1480;
-    exports2.ER_PARTITION_MAXVALUE_ERROR = 1481;
-    exports2.ER_PARTITION_SUBPARTITION_ERROR = 1482;
-    exports2.ER_PARTITION_SUBPART_MIX_ERROR = 1483;
-    exports2.ER_PARTITION_WRONG_NO_PART_ERROR = 1484;
-    exports2.ER_PARTITION_WRONG_NO_SUBPART_ERROR = 1485;
-    exports2.ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR = 1486;
-    exports2.ER_NO_CONST_EXPR_IN_RANGE_OR_LIST_ERROR = 1487;
-    exports2.ER_FIELD_NOT_FOUND_PART_ERROR = 1488;
-    exports2.ER_LIST_OF_FIELDS_ONLY_IN_HASH_ERROR = 1489;
-    exports2.ER_INCONSISTENT_PARTITION_INFO_ERROR = 1490;
-    exports2.ER_PARTITION_FUNC_NOT_ALLOWED_ERROR = 1491;
-    exports2.ER_PARTITIONS_MUST_BE_DEFINED_ERROR = 1492;
-    exports2.ER_RANGE_NOT_INCREASING_ERROR = 1493;
-    exports2.ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR = 1494;
-    exports2.ER_MULTIPLE_DEF_CONST_IN_LIST_PART_ERROR = 1495;
-    exports2.ER_PARTITION_ENTRY_ERROR = 1496;
-    exports2.ER_MIX_HANDLER_ERROR = 1497;
-    exports2.ER_PARTITION_NOT_DEFINED_ERROR = 1498;
-    exports2.ER_TOO_MANY_PARTITIONS_ERROR = 1499;
-    exports2.ER_SUBPARTITION_ERROR = 1500;
-    exports2.ER_CANT_CREATE_HANDLER_FILE = 1501;
-    exports2.ER_BLOB_FIELD_IN_PART_FUNC_ERROR = 1502;
-    exports2.ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF = 1503;
-    exports2.ER_NO_PARTS_ERROR = 1504;
-    exports2.ER_PARTITION_MGMT_ON_NONPARTITIONED = 1505;
-    exports2.ER_FOREIGN_KEY_ON_PARTITIONED = 1506;
-    exports2.ER_DROP_PARTITION_NON_EXISTENT = 1507;
-    exports2.ER_DROP_LAST_PARTITION = 1508;
-    exports2.ER_COALESCE_ONLY_ON_HASH_PARTITION = 1509;
-    exports2.ER_REORG_HASH_ONLY_ON_SAME_NO = 1510;
-    exports2.ER_REORG_NO_PARAM_ERROR = 1511;
-    exports2.ER_ONLY_ON_RANGE_LIST_PARTITION = 1512;
-    exports2.ER_ADD_PARTITION_SUBPART_ERROR = 1513;
-    exports2.ER_ADD_PARTITION_NO_NEW_PARTITION = 1514;
-    exports2.ER_COALESCE_PARTITION_NO_PARTITION = 1515;
-    exports2.ER_REORG_PARTITION_NOT_EXIST = 1516;
-    exports2.ER_SAME_NAME_PARTITION = 1517;
-    exports2.ER_NO_BINLOG_ERROR = 1518;
-    exports2.ER_CONSECUTIVE_REORG_PARTITIONS = 1519;
-    exports2.ER_REORG_OUTSIDE_RANGE = 1520;
-    exports2.ER_PARTITION_FUNCTION_FAILURE = 1521;
-    exports2.ER_PART_STATE_ERROR = 1522;
-    exports2.ER_LIMITED_PART_RANGE = 1523;
-    exports2.ER_PLUGIN_IS_NOT_LOADED = 1524;
-    exports2.ER_WRONG_VALUE = 1525;
-    exports2.ER_NO_PARTITION_FOR_GIVEN_VALUE = 1526;
-    exports2.ER_FILEGROUP_OPTION_ONLY_ONCE = 1527;
-    exports2.ER_CREATE_FILEGROUP_FAILED = 1528;
-    exports2.ER_DROP_FILEGROUP_FAILED = 1529;
-    exports2.ER_TABLESPACE_AUTO_EXTEND_ERROR = 1530;
-    exports2.ER_WRONG_SIZE_NUMBER = 1531;
-    exports2.ER_SIZE_OVERFLOW_ERROR = 1532;
-    exports2.ER_ALTER_FILEGROUP_FAILED = 1533;
-    exports2.ER_BINLOG_ROW_LOGGING_FAILED = 1534;
-    exports2.ER_BINLOG_ROW_WRONG_TABLE_DEF = 1535;
-    exports2.ER_BINLOG_ROW_RBR_TO_SBR = 1536;
-    exports2.ER_EVENT_ALREADY_EXISTS = 1537;
-    exports2.ER_EVENT_STORE_FAILED = 1538;
-    exports2.ER_EVENT_DOES_NOT_EXIST = 1539;
-    exports2.ER_EVENT_CANT_ALTER = 1540;
-    exports2.ER_EVENT_DROP_FAILED = 1541;
-    exports2.ER_EVENT_INTERVAL_NOT_POSITIVE_OR_TOO_BIG = 1542;
-    exports2.ER_EVENT_ENDS_BEFORE_STARTS = 1543;
-    exports2.ER_EVENT_EXEC_TIME_IN_THE_PAST = 1544;
-    exports2.ER_EVENT_OPEN_TABLE_FAILED = 1545;
-    exports2.ER_EVENT_NEITHER_M_EXPR_NOR_M_AT = 1546;
-    exports2.ER_COL_COUNT_DOESNT_MATCH_CORRUPTED = 1547;
-    exports2.ER_CANNOT_LOAD_FROM_TABLE = 1548;
-    exports2.ER_EVENT_CANNOT_DELETE = 1549;
-    exports2.ER_EVENT_COMPILE_ERROR = 1550;
-    exports2.ER_EVENT_SAME_NAME = 1551;
-    exports2.ER_EVENT_DATA_TOO_LONG = 1552;
-    exports2.ER_DROP_INDEX_FK = 1553;
-    exports2.ER_WARN_DEPRECATED_SYNTAX_WITH_VER = 1554;
-    exports2.ER_CANT_WRITE_LOCK_LOG_TABLE = 1555;
-    exports2.ER_CANT_LOCK_LOG_TABLE = 1556;
-    exports2.ER_FOREIGN_DUPLICATE_KEY = 1557;
-    exports2.ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE = 1558;
-    exports2.ER_TEMP_TABLE_PREVENTS_SWITCH_OUT_OF_RBR = 1559;
-    exports2.ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1560;
-    exports2.ER_NDB_CANT_SWITCH_BINLOG_FORMAT = 1561;
-    exports2.ER_PARTITION_NO_TEMPORARY = 1562;
-    exports2.ER_PARTITION_CONST_DOMAIN_ERROR = 1563;
-    exports2.ER_PARTITION_FUNCTION_IS_NOT_ALLOWED = 1564;
-    exports2.ER_DDL_LOG_ERROR = 1565;
-    exports2.ER_NULL_IN_VALUES_LESS_THAN = 1566;
-    exports2.ER_WRONG_PARTITION_NAME = 1567;
-    exports2.ER_CANT_CHANGE_TX_CHARACTERISTICS = 1568;
-    exports2.ER_DUP_ENTRY_AUTOINCREMENT_CASE = 1569;
-    exports2.ER_EVENT_MODIFY_QUEUE_ERROR = 1570;
-    exports2.ER_EVENT_SET_VAR_ERROR = 1571;
-    exports2.ER_PARTITION_MERGE_ERROR = 1572;
-    exports2.ER_CANT_ACTIVATE_LOG = 1573;
-    exports2.ER_RBR_NOT_AVAILABLE = 1574;
-    exports2.ER_BASE64_DECODE_ERROR = 1575;
-    exports2.ER_EVENT_RECURSION_FORBIDDEN = 1576;
-    exports2.ER_EVENTS_DB_ERROR = 1577;
-    exports2.ER_ONLY_INTEGERS_ALLOWED = 1578;
-    exports2.ER_UNSUPORTED_LOG_ENGINE = 1579;
-    exports2.ER_BAD_LOG_STATEMENT = 1580;
-    exports2.ER_CANT_RENAME_LOG_TABLE = 1581;
-    exports2.ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT = 1582;
-    exports2.ER_WRONG_PARAMETERS_TO_NATIVE_FCT = 1583;
-    exports2.ER_WRONG_PARAMETERS_TO_STORED_FCT = 1584;
-    exports2.ER_NATIVE_FCT_NAME_COLLISION = 1585;
-    exports2.ER_DUP_ENTRY_WITH_KEY_NAME = 1586;
-    exports2.ER_BINLOG_PURGE_EMFILE = 1587;
-    exports2.ER_EVENT_CANNOT_CREATE_IN_THE_PAST = 1588;
-    exports2.ER_EVENT_CANNOT_ALTER_IN_THE_PAST = 1589;
-    exports2.ER_SLAVE_INCIDENT = 1590;
-    exports2.ER_NO_PARTITION_FOR_GIVEN_VALUE_SILENT = 1591;
-    exports2.ER_BINLOG_UNSAFE_STATEMENT = 1592;
-    exports2.ER_BINLOG_FATAL_ERROR = 1593;
-    exports2.ER_SLAVE_RELAY_LOG_READ_FAILURE = 1594;
-    exports2.ER_SLAVE_RELAY_LOG_WRITE_FAILURE = 1595;
-    exports2.ER_SLAVE_CREATE_EVENT_FAILURE = 1596;
-    exports2.ER_SLAVE_MASTER_COM_FAILURE = 1597;
-    exports2.ER_BINLOG_LOGGING_IMPOSSIBLE = 1598;
-    exports2.ER_VIEW_NO_CREATION_CTX = 1599;
-    exports2.ER_VIEW_INVALID_CREATION_CTX = 1600;
-    exports2.ER_SR_INVALID_CREATION_CTX = 1601;
-    exports2.ER_TRG_CORRUPTED_FILE = 1602;
-    exports2.ER_TRG_NO_CREATION_CTX = 1603;
-    exports2.ER_TRG_INVALID_CREATION_CTX = 1604;
-    exports2.ER_EVENT_INVALID_CREATION_CTX = 1605;
-    exports2.ER_TRG_CANT_OPEN_TABLE = 1606;
-    exports2.ER_CANT_CREATE_SROUTINE = 1607;
-    exports2.ER_NEVER_USED = 1608;
-    exports2.ER_NO_FORMAT_DESCRIPTION_EVENT_BEFORE_BINLOG_STATEMENT = 1609;
-    exports2.ER_REPLICA_CORRUPT_EVENT = 1610;
-    exports2.ER_LOAD_DATA_INVALID_COLUMN = 1611;
-    exports2.ER_LOG_PURGE_NO_FILE = 1612;
-    exports2.ER_XA_RBTIMEOUT = 1613;
-    exports2.ER_XA_RBDEADLOCK = 1614;
-    exports2.ER_NEED_REPREPARE = 1615;
-    exports2.ER_DELAYED_NOT_SUPPORTED = 1616;
-    exports2.WARN_NO_CONNECTION_METADATA = 1617;
-    exports2.WARN_OPTION_IGNORED = 1618;
-    exports2.ER_PLUGIN_DELETE_BUILTIN = 1619;
-    exports2.WARN_PLUGIN_BUSY = 1620;
-    exports2.ER_VARIABLE_IS_READONLY = 1621;
-    exports2.ER_WARN_ENGINE_TRANSACTION_ROLLBACK = 1622;
-    exports2.ER_SLAVE_HEARTBEAT_FAILURE = 1623;
-    exports2.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE = 1624;
-    exports2.ER_NDB_REPLICATION_SCHEMA_ERROR = 1625;
-    exports2.ER_CONFLICT_FN_PARSE_ERROR = 1626;
-    exports2.ER_EXCEPTIONS_WRITE_ERROR = 1627;
-    exports2.ER_TOO_LONG_TABLE_COMMENT = 1628;
-    exports2.ER_TOO_LONG_FIELD_COMMENT = 1629;
-    exports2.ER_FUNC_INEXISTENT_NAME_COLLISION = 1630;
-    exports2.ER_DATABASE_NAME = 1631;
-    exports2.ER_TABLE_NAME = 1632;
-    exports2.ER_PARTITION_NAME = 1633;
-    exports2.ER_SUBPARTITION_NAME = 1634;
-    exports2.ER_TEMPORARY_NAME = 1635;
-    exports2.ER_RENAMED_NAME = 1636;
-    exports2.ER_TOO_MANY_CONCURRENT_TRXS = 1637;
-    exports2.WARN_NON_ASCII_SEPARATOR_NOT_IMPLEMENTED = 1638;
-    exports2.ER_DEBUG_SYNC_TIMEOUT = 1639;
-    exports2.ER_DEBUG_SYNC_HIT_LIMIT = 1640;
-    exports2.ER_DUP_SIGNAL_SET = 1641;
-    exports2.ER_SIGNAL_WARN = 1642;
-    exports2.ER_SIGNAL_NOT_FOUND = 1643;
-    exports2.ER_SIGNAL_EXCEPTION = 1644;
-    exports2.ER_RESIGNAL_WITHOUT_ACTIVE_HANDLER = 1645;
-    exports2.ER_SIGNAL_BAD_CONDITION_TYPE = 1646;
-    exports2.WARN_COND_ITEM_TRUNCATED = 1647;
-    exports2.ER_COND_ITEM_TOO_LONG = 1648;
-    exports2.ER_UNKNOWN_LOCALE = 1649;
-    exports2.ER_REPLICA_IGNORE_SERVER_IDS = 1650;
-    exports2.ER_QUERY_CACHE_DISABLED = 1651;
-    exports2.ER_SAME_NAME_PARTITION_FIELD = 1652;
-    exports2.ER_PARTITION_COLUMN_LIST_ERROR = 1653;
-    exports2.ER_WRONG_TYPE_COLUMN_VALUE_ERROR = 1654;
-    exports2.ER_TOO_MANY_PARTITION_FUNC_FIELDS_ERROR = 1655;
-    exports2.ER_MAXVALUE_IN_VALUES_IN = 1656;
-    exports2.ER_TOO_MANY_VALUES_ERROR = 1657;
-    exports2.ER_ROW_SINGLE_PARTITION_FIELD_ERROR = 1658;
-    exports2.ER_FIELD_TYPE_NOT_ALLOWED_AS_PARTITION_FIELD = 1659;
-    exports2.ER_PARTITION_FIELDS_TOO_LONG = 1660;
-    exports2.ER_BINLOG_ROW_ENGINE_AND_STMT_ENGINE = 1661;
-    exports2.ER_BINLOG_ROW_MODE_AND_STMT_ENGINE = 1662;
-    exports2.ER_BINLOG_UNSAFE_AND_STMT_ENGINE = 1663;
-    exports2.ER_BINLOG_ROW_INJECTION_AND_STMT_ENGINE = 1664;
-    exports2.ER_BINLOG_STMT_MODE_AND_ROW_ENGINE = 1665;
-    exports2.ER_BINLOG_ROW_INJECTION_AND_STMT_MODE = 1666;
-    exports2.ER_BINLOG_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE = 1667;
-    exports2.ER_BINLOG_UNSAFE_LIMIT = 1668;
-    exports2.ER_UNUSED4 = 1669;
-    exports2.ER_BINLOG_UNSAFE_SYSTEM_TABLE = 1670;
-    exports2.ER_BINLOG_UNSAFE_AUTOINC_COLUMNS = 1671;
-    exports2.ER_BINLOG_UNSAFE_UDF = 1672;
-    exports2.ER_BINLOG_UNSAFE_SYSTEM_VARIABLE = 1673;
-    exports2.ER_BINLOG_UNSAFE_SYSTEM_FUNCTION = 1674;
-    exports2.ER_BINLOG_UNSAFE_NONTRANS_AFTER_TRANS = 1675;
-    exports2.ER_MESSAGE_AND_STATEMENT = 1676;
-    exports2.ER_SLAVE_CONVERSION_FAILED = 1677;
-    exports2.ER_REPLICA_CANT_CREATE_CONVERSION = 1678;
-    exports2.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1679;
-    exports2.ER_PATH_LENGTH = 1680;
-    exports2.ER_WARN_DEPRECATED_SYNTAX_NO_REPLACEMENT = 1681;
-    exports2.ER_WRONG_NATIVE_TABLE_STRUCTURE = 1682;
-    exports2.ER_WRONG_PERFSCHEMA_USAGE = 1683;
-    exports2.ER_WARN_I_S_SKIPPED_TABLE = 1684;
-    exports2.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1685;
-    exports2.ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1686;
-    exports2.ER_SPATIAL_MUST_HAVE_GEOM_COL = 1687;
-    exports2.ER_TOO_LONG_INDEX_COMMENT = 1688;
-    exports2.ER_LOCK_ABORTED = 1689;
-    exports2.ER_DATA_OUT_OF_RANGE = 1690;
-    exports2.ER_WRONG_SPVAR_TYPE_IN_LIMIT = 1691;
-    exports2.ER_BINLOG_UNSAFE_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE = 1692;
-    exports2.ER_BINLOG_UNSAFE_MIXED_STATEMENT = 1693;
-    exports2.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1694;
-    exports2.ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1695;
-    exports2.ER_FAILED_READ_FROM_PAR_FILE = 1696;
-    exports2.ER_VALUES_IS_NOT_INT_TYPE_ERROR = 1697;
-    exports2.ER_ACCESS_DENIED_NO_PASSWORD_ERROR = 1698;
-    exports2.ER_SET_PASSWORD_AUTH_PLUGIN = 1699;
-    exports2.ER_GRANT_PLUGIN_USER_EXISTS = 1700;
-    exports2.ER_TRUNCATE_ILLEGAL_FK = 1701;
-    exports2.ER_PLUGIN_IS_PERMANENT = 1702;
-    exports2.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MIN = 1703;
-    exports2.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MAX = 1704;
-    exports2.ER_STMT_CACHE_FULL = 1705;
-    exports2.ER_MULTI_UPDATE_KEY_CONFLICT = 1706;
-    exports2.ER_TABLE_NEEDS_REBUILD = 1707;
-    exports2.WARN_OPTION_BELOW_LIMIT = 1708;
-    exports2.ER_INDEX_COLUMN_TOO_LONG = 1709;
-    exports2.ER_ERROR_IN_TRIGGER_BODY = 1710;
-    exports2.ER_ERROR_IN_UNKNOWN_TRIGGER_BODY = 1711;
-    exports2.ER_INDEX_CORRUPT = 1712;
-    exports2.ER_UNDO_RECORD_TOO_BIG = 1713;
-    exports2.ER_BINLOG_UNSAFE_INSERT_IGNORE_SELECT = 1714;
-    exports2.ER_BINLOG_UNSAFE_INSERT_SELECT_UPDATE = 1715;
-    exports2.ER_BINLOG_UNSAFE_REPLACE_SELECT = 1716;
-    exports2.ER_BINLOG_UNSAFE_CREATE_IGNORE_SELECT = 1717;
-    exports2.ER_BINLOG_UNSAFE_CREATE_REPLACE_SELECT = 1718;
-    exports2.ER_BINLOG_UNSAFE_UPDATE_IGNORE = 1719;
-    exports2.ER_PLUGIN_NO_UNINSTALL = 1720;
-    exports2.ER_PLUGIN_NO_INSTALL = 1721;
-    exports2.ER_BINLOG_UNSAFE_WRITE_AUTOINC_SELECT = 1722;
-    exports2.ER_BINLOG_UNSAFE_CREATE_SELECT_AUTOINC = 1723;
-    exports2.ER_BINLOG_UNSAFE_INSERT_TWO_KEYS = 1724;
-    exports2.ER_TABLE_IN_FK_CHECK = 1725;
-    exports2.ER_UNSUPPORTED_ENGINE = 1726;
-    exports2.ER_BINLOG_UNSAFE_AUTOINC_NOT_FIRST = 1727;
-    exports2.ER_CANNOT_LOAD_FROM_TABLE_V2 = 1728;
-    exports2.ER_SOURCE_DELAY_VALUE_OUT_OF_RANGE = 1729;
-    exports2.ER_ONLY_FD_AND_RBR_EVENTS_ALLOWED_IN_BINLOG_STATEMENT = 1730;
-    exports2.ER_PARTITION_EXCHANGE_DIFFERENT_OPTION = 1731;
-    exports2.ER_PARTITION_EXCHANGE_PART_TABLE = 1732;
-    exports2.ER_PARTITION_EXCHANGE_TEMP_TABLE = 1733;
-    exports2.ER_PARTITION_INSTEAD_OF_SUBPARTITION = 1734;
-    exports2.ER_UNKNOWN_PARTITION = 1735;
-    exports2.ER_TABLES_DIFFERENT_METADATA = 1736;
-    exports2.ER_ROW_DOES_NOT_MATCH_PARTITION = 1737;
-    exports2.ER_BINLOG_CACHE_SIZE_GREATER_THAN_MAX = 1738;
-    exports2.ER_WARN_INDEX_NOT_APPLICABLE = 1739;
-    exports2.ER_PARTITION_EXCHANGE_FOREIGN_KEY = 1740;
-    exports2.ER_NO_SUCH_KEY_VALUE = 1741;
-    exports2.ER_RPL_INFO_DATA_TOO_LONG = 1742;
-    exports2.ER_NETWORK_READ_EVENT_CHECKSUM_FAILURE = 1743;
-    exports2.ER_BINLOG_READ_EVENT_CHECKSUM_FAILURE = 1744;
-    exports2.ER_BINLOG_STMT_CACHE_SIZE_GREATER_THAN_MAX = 1745;
-    exports2.ER_CANT_UPDATE_TABLE_IN_CREATE_TABLE_SELECT = 1746;
-    exports2.ER_PARTITION_CLAUSE_ON_NONPARTITIONED = 1747;
-    exports2.ER_ROW_DOES_NOT_MATCH_GIVEN_PARTITION_SET = 1748;
-    exports2.ER_NO_SUCH_PARTITION = 1749;
-    exports2.ER_CHANGE_RPL_INFO_REPOSITORY_FAILURE = 1750;
-    exports2.ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_CREATED_TEMP_TABLE = 1751;
-    exports2.ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_DROPPED_TEMP_TABLE = 1752;
-    exports2.ER_MTA_FEATURE_IS_NOT_SUPPORTED = 1753;
-    exports2.ER_MTA_UPDATED_DBS_GREATER_MAX = 1754;
-    exports2.ER_MTA_CANT_PARALLEL = 1755;
-    exports2.ER_MTA_INCONSISTENT_DATA = 1756;
-    exports2.ER_FULLTEXT_NOT_SUPPORTED_WITH_PARTITIONING = 1757;
-    exports2.ER_DA_INVALID_CONDITION_NUMBER = 1758;
-    exports2.ER_INSECURE_PLAIN_TEXT = 1759;
-    exports2.ER_INSECURE_CHANGE_SOURCE = 1760;
-    exports2.ER_FOREIGN_DUPLICATE_KEY_WITH_CHILD_INFO = 1761;
-    exports2.ER_FOREIGN_DUPLICATE_KEY_WITHOUT_CHILD_INFO = 1762;
-    exports2.ER_SQLTHREAD_WITH_SECURE_REPLICA = 1763;
-    exports2.ER_TABLE_HAS_NO_FT = 1764;
-    exports2.ER_VARIABLE_NOT_SETTABLE_IN_SF_OR_TRIGGER = 1765;
-    exports2.ER_VARIABLE_NOT_SETTABLE_IN_TRANSACTION = 1766;
-    exports2.ER_GTID_NEXT_IS_NOT_IN_GTID_NEXT_LIST = 1767;
-    exports2.ER_CANT_CHANGE_GTID_NEXT_IN_TRANSACTION = 1768;
-    exports2.ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION = 1769;
-    exports2.ER_GTID_NEXT_CANT_BE_AUTOMATIC_IF_GTID_NEXT_LIST_IS_NON_NULL = 1770;
-    exports2.ER_SKIPPING_LOGGED_TRANSACTION = 1771;
-    exports2.ER_MALFORMED_GTID_SET_SPECIFICATION = 1772;
-    exports2.ER_MALFORMED_GTID_SET_ENCODING = 1773;
-    exports2.ER_MALFORMED_GTID_SPECIFICATION = 1774;
-    exports2.ER_GNO_EXHAUSTED = 1775;
-    exports2.ER_BAD_REPLICA_AUTO_POSITION = 1776;
-    exports2.ER_AUTO_POSITION_REQUIRES_GTID_MODE_NOT_OFF = 1777;
-    exports2.ER_CANT_DO_IMPLICIT_COMMIT_IN_TRX_WHEN_GTID_NEXT_IS_SET = 1778;
-    exports2.ER_GTID_MODE_ON_REQUIRES_ENFORCE_GTID_CONSISTENCY_ON = 1779;
-    exports2.ER_GTID_MODE_REQUIRES_BINLOG = 1780;
-    exports2.ER_CANT_SET_GTID_NEXT_TO_GTID_WHEN_GTID_MODE_IS_OFF = 1781;
-    exports2.ER_CANT_SET_GTID_NEXT_TO_ANONYMOUS_WHEN_GTID_MODE_IS_ON = 1782;
-    exports2.ER_CANT_SET_GTID_NEXT_LIST_TO_NON_NULL_WHEN_GTID_MODE_IS_OFF = 1783;
-    exports2.ER_FOUND_GTID_EVENT_WHEN_GTID_MODE_IS_OFF = 1784;
-    exports2.ER_GTID_UNSAFE_NON_TRANSACTIONAL_TABLE = 1785;
-    exports2.ER_GTID_UNSAFE_CREATE_SELECT = 1786;
-    exports2.ER_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRANSACTION = 1787;
-    exports2.ER_GTID_MODE_CAN_ONLY_CHANGE_ONE_STEP_AT_A_TIME = 1788;
-    exports2.ER_SOURCE_HAS_PURGED_REQUIRED_GTIDS = 1789;
-    exports2.ER_CANT_SET_GTID_NEXT_WHEN_OWNING_GTID = 1790;
-    exports2.ER_UNKNOWN_EXPLAIN_FORMAT = 1791;
-    exports2.ER_CANT_EXECUTE_IN_READ_ONLY_TRANSACTION = 1792;
-    exports2.ER_TOO_LONG_TABLE_PARTITION_COMMENT = 1793;
-    exports2.ER_REPLICA_CONFIGURATION = 1794;
-    exports2.ER_INNODB_FT_LIMIT = 1795;
-    exports2.ER_INNODB_NO_FT_TEMP_TABLE = 1796;
-    exports2.ER_INNODB_FT_WRONG_DOCID_COLUMN = 1797;
-    exports2.ER_INNODB_FT_WRONG_DOCID_INDEX = 1798;
-    exports2.ER_INNODB_ONLINE_LOG_TOO_BIG = 1799;
-    exports2.ER_UNKNOWN_ALTER_ALGORITHM = 1800;
-    exports2.ER_UNKNOWN_ALTER_LOCK = 1801;
-    exports2.ER_MTA_CHANGE_SOURCE_CANT_RUN_WITH_GAPS = 1802;
-    exports2.ER_MTA_RECOVERY_FAILURE = 1803;
-    exports2.ER_MTA_RESET_WORKERS = 1804;
-    exports2.ER_COL_COUNT_DOESNT_MATCH_CORRUPTED_V2 = 1805;
-    exports2.ER_REPLICA_SILENT_RETRY_TRANSACTION = 1806;
-    exports2.ER_DISCARD_FK_CHECKS_RUNNING = 1807;
-    exports2.ER_TABLE_SCHEMA_MISMATCH = 1808;
-    exports2.ER_TABLE_IN_SYSTEM_TABLESPACE = 1809;
-    exports2.ER_IO_READ_ERROR = 1810;
-    exports2.ER_IO_WRITE_ERROR = 1811;
-    exports2.ER_TABLESPACE_MISSING = 1812;
-    exports2.ER_TABLESPACE_EXISTS = 1813;
-    exports2.ER_TABLESPACE_DISCARDED = 1814;
-    exports2.ER_INTERNAL_ERROR = 1815;
-    exports2.ER_INNODB_IMPORT_ERROR = 1816;
-    exports2.ER_INNODB_INDEX_CORRUPT = 1817;
-    exports2.ER_INVALID_YEAR_COLUMN_LENGTH = 1818;
-    exports2.ER_NOT_VALID_PASSWORD = 1819;
-    exports2.ER_MUST_CHANGE_PASSWORD = 1820;
-    exports2.ER_FK_NO_INDEX_CHILD = 1821;
-    exports2.ER_FK_NO_INDEX_PARENT = 1822;
-    exports2.ER_FK_FAIL_ADD_SYSTEM = 1823;
-    exports2.ER_FK_CANNOT_OPEN_PARENT = 1824;
-    exports2.ER_FK_INCORRECT_OPTION = 1825;
-    exports2.ER_FK_DUP_NAME = 1826;
-    exports2.ER_PASSWORD_FORMAT = 1827;
-    exports2.ER_FK_COLUMN_CANNOT_DROP = 1828;
-    exports2.ER_FK_COLUMN_CANNOT_DROP_CHILD = 1829;
-    exports2.ER_FK_COLUMN_NOT_NULL = 1830;
-    exports2.ER_DUP_INDEX = 1831;
-    exports2.ER_FK_COLUMN_CANNOT_CHANGE = 1832;
-    exports2.ER_FK_COLUMN_CANNOT_CHANGE_CHILD = 1833;
-    exports2.ER_UNUSED5 = 1834;
-    exports2.ER_MALFORMED_PACKET = 1835;
-    exports2.ER_READ_ONLY_MODE = 1836;
-    exports2.ER_GTID_NEXT_TYPE_UNDEFINED_GTID = 1837;
-    exports2.ER_VARIABLE_NOT_SETTABLE_IN_SP = 1838;
-    exports2.ER_CANT_SET_GTID_PURGED_WHEN_GTID_MODE_IS_OFF = 1839;
-    exports2.ER_CANT_SET_GTID_PURGED_WHEN_GTID_EXECUTED_IS_NOT_EMPTY = 1840;
-    exports2.ER_CANT_SET_GTID_PURGED_WHEN_OWNED_GTIDS_IS_NOT_EMPTY = 1841;
-    exports2.ER_GTID_PURGED_WAS_CHANGED = 1842;
-    exports2.ER_GTID_EXECUTED_WAS_CHANGED = 1843;
-    exports2.ER_BINLOG_STMT_MODE_AND_NO_REPL_TABLES = 1844;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED = 1845;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON = 1846;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COPY = 1847;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_PARTITION = 1848;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_RENAME = 1849;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE = 1850;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_CHECK = 1851;
-    exports2.ER_UNUSED6 = 1852;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOPK = 1853;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_AUTOINC = 1854;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_HIDDEN_FTS = 1855;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_CHANGE_FTS = 1856;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FTS = 1857;
-    exports2.ER_SQL_REPLICA_SKIP_COUNTER_NOT_SETTABLE_IN_GTID_MODE = 1858;
-    exports2.ER_DUP_UNKNOWN_IN_INDEX = 1859;
-    exports2.ER_IDENT_CAUSES_TOO_LONG_PATH = 1860;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOT_NULL = 1861;
-    exports2.ER_MUST_CHANGE_PASSWORD_LOGIN = 1862;
-    exports2.ER_ROW_IN_WRONG_PARTITION = 1863;
-    exports2.ER_MTA_EVENT_BIGGER_PENDING_JOBS_SIZE_MAX = 1864;
-    exports2.ER_INNODB_NO_FT_USES_PARSER = 1865;
-    exports2.ER_BINLOG_LOGICAL_CORRUPTION = 1866;
-    exports2.ER_WARN_PURGE_LOG_IN_USE = 1867;
-    exports2.ER_WARN_PURGE_LOG_IS_ACTIVE = 1868;
-    exports2.ER_AUTO_INCREMENT_CONFLICT = 1869;
-    exports2.WARN_ON_BLOCKHOLE_IN_RBR = 1870;
-    exports2.ER_REPLICA_CM_INIT_REPOSITORY = 1871;
-    exports2.ER_REPLICA_AM_INIT_REPOSITORY = 1872;
-    exports2.ER_ACCESS_DENIED_CHANGE_USER_ERROR = 1873;
-    exports2.ER_INNODB_READ_ONLY = 1874;
-    exports2.ER_STOP_REPLICA_SQL_THREAD_TIMEOUT = 1875;
-    exports2.ER_STOP_REPLICA_IO_THREAD_TIMEOUT = 1876;
-    exports2.ER_TABLE_CORRUPT = 1877;
-    exports2.ER_TEMP_FILE_WRITE_FAILURE = 1878;
-    exports2.ER_INNODB_FT_AUX_NOT_HEX_ID = 1879;
-    exports2.ER_OLD_TEMPORALS_UPGRADED = 1880;
-    exports2.ER_INNODB_FORCED_RECOVERY = 1881;
-    exports2.ER_AES_INVALID_IV = 1882;
-    exports2.ER_PLUGIN_CANNOT_BE_UNINSTALLED = 1883;
-    exports2.ER_GTID_UNSAFE_BINLOG_SPLITTABLE_STATEMENT_AND_ASSIGNED_GTID = 1884;
-    exports2.ER_REPLICA_HAS_MORE_GTIDS_THAN_SOURCE = 1885;
-    exports2.ER_MISSING_KEY = 1886;
-    exports2.WARN_NAMED_PIPE_ACCESS_EVERYONE = 1887;
-    exports2.ER_FILE_CORRUPT = 3e3;
-    exports2.ER_ERROR_ON_SOURCE = 3001;
-    exports2.ER_INCONSISTENT_ERROR = 3002;
-    exports2.ER_STORAGE_ENGINE_NOT_LOADED = 3003;
-    exports2.ER_GET_STACKED_DA_WITHOUT_ACTIVE_HANDLER = 3004;
-    exports2.ER_WARN_LEGACY_SYNTAX_CONVERTED = 3005;
-    exports2.ER_BINLOG_UNSAFE_FULLTEXT_PLUGIN = 3006;
-    exports2.ER_CANNOT_DISCARD_TEMPORARY_TABLE = 3007;
-    exports2.ER_FK_DEPTH_EXCEEDED = 3008;
-    exports2.ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE_V2 = 3009;
-    exports2.ER_WARN_TRIGGER_DOESNT_HAVE_CREATED = 3010;
-    exports2.ER_REFERENCED_TRG_DOES_NOT_EXIST = 3011;
-    exports2.ER_EXPLAIN_NOT_SUPPORTED = 3012;
-    exports2.ER_INVALID_FIELD_SIZE = 3013;
-    exports2.ER_MISSING_HA_CREATE_OPTION = 3014;
-    exports2.ER_ENGINE_OUT_OF_MEMORY = 3015;
-    exports2.ER_PASSWORD_EXPIRE_ANONYMOUS_USER = 3016;
-    exports2.ER_REPLICA_SQL_THREAD_MUST_STOP = 3017;
-    exports2.ER_NO_FT_MATERIALIZED_SUBQUERY = 3018;
-    exports2.ER_INNODB_UNDO_LOG_FULL = 3019;
-    exports2.ER_INVALID_ARGUMENT_FOR_LOGARITHM = 3020;
-    exports2.ER_REPLICA_CHANNEL_IO_THREAD_MUST_STOP = 3021;
-    exports2.ER_WARN_OPEN_TEMP_TABLES_MUST_BE_ZERO = 3022;
-    exports2.ER_WARN_ONLY_SOURCE_LOG_FILE_NO_POS = 3023;
-    exports2.ER_QUERY_TIMEOUT = 3024;
-    exports2.ER_NON_RO_SELECT_DISABLE_TIMER = 3025;
-    exports2.ER_DUP_LIST_ENTRY = 3026;
-    exports2.ER_SQL_MODE_NO_EFFECT = 3027;
-    exports2.ER_AGGREGATE_ORDER_FOR_UNION = 3028;
-    exports2.ER_AGGREGATE_ORDER_NON_AGG_QUERY = 3029;
-    exports2.ER_REPLICA_WORKER_STOPPED_PREVIOUS_THD_ERROR = 3030;
-    exports2.ER_DONT_SUPPORT_REPLICA_PRESERVE_COMMIT_ORDER = 3031;
-    exports2.ER_SERVER_OFFLINE_MODE = 3032;
-    exports2.ER_GIS_DIFFERENT_SRIDS = 3033;
-    exports2.ER_GIS_UNSUPPORTED_ARGUMENT = 3034;
-    exports2.ER_GIS_UNKNOWN_ERROR = 3035;
-    exports2.ER_GIS_UNKNOWN_EXCEPTION = 3036;
-    exports2.ER_GIS_INVALID_DATA = 3037;
-    exports2.ER_BOOST_GEOMETRY_EMPTY_INPUT_EXCEPTION = 3038;
-    exports2.ER_BOOST_GEOMETRY_CENTROID_EXCEPTION = 3039;
-    exports2.ER_BOOST_GEOMETRY_OVERLAY_INVALID_INPUT_EXCEPTION = 3040;
-    exports2.ER_BOOST_GEOMETRY_TURN_INFO_EXCEPTION = 3041;
-    exports2.ER_BOOST_GEOMETRY_SELF_INTERSECTION_POINT_EXCEPTION = 3042;
-    exports2.ER_BOOST_GEOMETRY_UNKNOWN_EXCEPTION = 3043;
-    exports2.ER_STD_BAD_ALLOC_ERROR = 3044;
-    exports2.ER_STD_DOMAIN_ERROR = 3045;
-    exports2.ER_STD_LENGTH_ERROR = 3046;
-    exports2.ER_STD_INVALID_ARGUMENT = 3047;
-    exports2.ER_STD_OUT_OF_RANGE_ERROR = 3048;
-    exports2.ER_STD_OVERFLOW_ERROR = 3049;
-    exports2.ER_STD_RANGE_ERROR = 3050;
-    exports2.ER_STD_UNDERFLOW_ERROR = 3051;
-    exports2.ER_STD_LOGIC_ERROR = 3052;
-    exports2.ER_STD_RUNTIME_ERROR = 3053;
-    exports2.ER_STD_UNKNOWN_EXCEPTION = 3054;
-    exports2.ER_GIS_DATA_WRONG_ENDIANESS = 3055;
-    exports2.ER_CHANGE_SOURCE_PASSWORD_LENGTH = 3056;
-    exports2.ER_USER_LOCK_WRONG_NAME = 3057;
-    exports2.ER_USER_LOCK_DEADLOCK = 3058;
-    exports2.ER_REPLACE_INACCESSIBLE_ROWS = 3059;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_GIS = 3060;
-    exports2.ER_ILLEGAL_USER_VAR = 3061;
-    exports2.ER_GTID_MODE_OFF = 3062;
-    exports2.ER_UNSUPPORTED_BY_REPLICATION_THREAD = 3063;
-    exports2.ER_INCORRECT_TYPE = 3064;
-    exports2.ER_FIELD_IN_ORDER_NOT_SELECT = 3065;
-    exports2.ER_AGGREGATE_IN_ORDER_NOT_SELECT = 3066;
-    exports2.ER_INVALID_RPL_WILD_TABLE_FILTER_PATTERN = 3067;
-    exports2.ER_NET_OK_PACKET_TOO_LARGE = 3068;
-    exports2.ER_INVALID_JSON_DATA = 3069;
-    exports2.ER_INVALID_GEOJSON_MISSING_MEMBER = 3070;
-    exports2.ER_INVALID_GEOJSON_WRONG_TYPE = 3071;
-    exports2.ER_INVALID_GEOJSON_UNSPECIFIED = 3072;
-    exports2.ER_DIMENSION_UNSUPPORTED = 3073;
-    exports2.ER_REPLICA_CHANNEL_DOES_NOT_EXIST = 3074;
-    exports2.ER_SLAVE_MULTIPLE_CHANNELS_HOST_PORT = 3075;
-    exports2.ER_REPLICA_CHANNEL_NAME_INVALID_OR_TOO_LONG = 3076;
-    exports2.ER_REPLICA_NEW_CHANNEL_WRONG_REPOSITORY = 3077;
-    exports2.ER_SLAVE_CHANNEL_DELETE = 3078;
-    exports2.ER_REPLICA_MULTIPLE_CHANNELS_CMD = 3079;
-    exports2.ER_REPLICA_MAX_CHANNELS_EXCEEDED = 3080;
-    exports2.ER_REPLICA_CHANNEL_MUST_STOP = 3081;
-    exports2.ER_REPLICA_CHANNEL_NOT_RUNNING = 3082;
-    exports2.ER_REPLICA_CHANNEL_WAS_RUNNING = 3083;
-    exports2.ER_REPLICA_CHANNEL_WAS_NOT_RUNNING = 3084;
-    exports2.ER_REPLICA_CHANNEL_SQL_THREAD_MUST_STOP = 3085;
-    exports2.ER_REPLICA_CHANNEL_SQL_SKIP_COUNTER = 3086;
-    exports2.ER_WRONG_FIELD_WITH_GROUP_V2 = 3087;
-    exports2.ER_MIX_OF_GROUP_FUNC_AND_FIELDS_V2 = 3088;
-    exports2.ER_WARN_DEPRECATED_SYSVAR_UPDATE = 3089;
-    exports2.ER_WARN_DEPRECATED_SQLMODE = 3090;
-    exports2.ER_CANNOT_LOG_PARTIAL_DROP_DATABASE_WITH_GTID = 3091;
-    exports2.ER_GROUP_REPLICATION_CONFIGURATION = 3092;
-    exports2.ER_GROUP_REPLICATION_RUNNING = 3093;
-    exports2.ER_GROUP_REPLICATION_APPLIER_INIT_ERROR = 3094;
-    exports2.ER_GROUP_REPLICATION_STOP_APPLIER_THREAD_TIMEOUT = 3095;
-    exports2.ER_GROUP_REPLICATION_COMMUNICATION_LAYER_SESSION_ERROR = 3096;
-    exports2.ER_GROUP_REPLICATION_COMMUNICATION_LAYER_JOIN_ERROR = 3097;
-    exports2.ER_BEFORE_DML_VALIDATION_ERROR = 3098;
-    exports2.ER_PREVENTS_VARIABLE_WITHOUT_RBR = 3099;
-    exports2.ER_RUN_HOOK_ERROR = 3100;
-    exports2.ER_TRANSACTION_ROLLBACK_DURING_COMMIT = 3101;
-    exports2.ER_GENERATED_COLUMN_FUNCTION_IS_NOT_ALLOWED = 3102;
-    exports2.ER_UNSUPPORTED_ALTER_INPLACE_ON_VIRTUAL_COLUMN = 3103;
-    exports2.ER_WRONG_FK_OPTION_FOR_GENERATED_COLUMN = 3104;
-    exports2.ER_NON_DEFAULT_VALUE_FOR_GENERATED_COLUMN = 3105;
-    exports2.ER_UNSUPPORTED_ACTION_ON_GENERATED_COLUMN = 3106;
-    exports2.ER_GENERATED_COLUMN_NON_PRIOR = 3107;
-    exports2.ER_DEPENDENT_BY_GENERATED_COLUMN = 3108;
-    exports2.ER_GENERATED_COLUMN_REF_AUTO_INC = 3109;
-    exports2.ER_FEATURE_NOT_AVAILABLE = 3110;
-    exports2.ER_CANT_SET_GTID_MODE = 3111;
-    exports2.ER_CANT_USE_AUTO_POSITION_WITH_GTID_MODE_OFF = 3112;
-    exports2.ER_CANT_REPLICATE_ANONYMOUS_WITH_AUTO_POSITION = 3113;
-    exports2.ER_CANT_REPLICATE_ANONYMOUS_WITH_GTID_MODE_ON = 3114;
-    exports2.ER_CANT_REPLICATE_GTID_WITH_GTID_MODE_OFF = 3115;
-    exports2.ER_CANT_ENFORCE_GTID_CONSISTENCY_WITH_ONGOING_GTID_VIOLATING_TX = 3116;
-    exports2.ER_ENFORCE_GTID_CONSISTENCY_WARN_WITH_ONGOING_GTID_VIOLATING_TX = 3117;
-    exports2.ER_ACCOUNT_HAS_BEEN_LOCKED = 3118;
-    exports2.ER_WRONG_TABLESPACE_NAME = 3119;
-    exports2.ER_TABLESPACE_IS_NOT_EMPTY = 3120;
-    exports2.ER_WRONG_FILE_NAME = 3121;
-    exports2.ER_BOOST_GEOMETRY_INCONSISTENT_TURNS_EXCEPTION = 3122;
-    exports2.ER_WARN_OPTIMIZER_HINT_SYNTAX_ERROR = 3123;
-    exports2.ER_WARN_BAD_MAX_EXECUTION_TIME = 3124;
-    exports2.ER_WARN_UNSUPPORTED_MAX_EXECUTION_TIME = 3125;
-    exports2.ER_WARN_CONFLICTING_HINT = 3126;
-    exports2.ER_WARN_UNKNOWN_QB_NAME = 3127;
-    exports2.ER_UNRESOLVED_HINT_NAME = 3128;
-    exports2.ER_WARN_ON_MODIFYING_GTID_EXECUTED_TABLE = 3129;
-    exports2.ER_PLUGGABLE_PROTOCOL_COMMAND_NOT_SUPPORTED = 3130;
-    exports2.ER_LOCKING_SERVICE_WRONG_NAME = 3131;
-    exports2.ER_LOCKING_SERVICE_DEADLOCK = 3132;
-    exports2.ER_LOCKING_SERVICE_TIMEOUT = 3133;
-    exports2.ER_GIS_MAX_POINTS_IN_GEOMETRY_OVERFLOWED = 3134;
-    exports2.ER_SQL_MODE_MERGED = 3135;
-    exports2.ER_VTOKEN_PLUGIN_TOKEN_MISMATCH = 3136;
-    exports2.ER_VTOKEN_PLUGIN_TOKEN_NOT_FOUND = 3137;
-    exports2.ER_CANT_SET_VARIABLE_WHEN_OWNING_GTID = 3138;
-    exports2.ER_REPLICA_CHANNEL_OPERATION_NOT_ALLOWED = 3139;
-    exports2.ER_INVALID_JSON_TEXT = 3140;
-    exports2.ER_INVALID_JSON_TEXT_IN_PARAM = 3141;
-    exports2.ER_INVALID_JSON_BINARY_DATA = 3142;
-    exports2.ER_INVALID_JSON_PATH = 3143;
-    exports2.ER_INVALID_JSON_CHARSET = 3144;
-    exports2.ER_INVALID_JSON_CHARSET_IN_FUNCTION = 3145;
-    exports2.ER_INVALID_TYPE_FOR_JSON = 3146;
-    exports2.ER_INVALID_CAST_TO_JSON = 3147;
-    exports2.ER_INVALID_JSON_PATH_CHARSET = 3148;
-    exports2.ER_INVALID_JSON_PATH_WILDCARD = 3149;
-    exports2.ER_JSON_VALUE_TOO_BIG = 3150;
-    exports2.ER_JSON_KEY_TOO_BIG = 3151;
-    exports2.ER_JSON_USED_AS_KEY = 3152;
-    exports2.ER_JSON_VACUOUS_PATH = 3153;
-    exports2.ER_JSON_BAD_ONE_OR_ALL_ARG = 3154;
-    exports2.ER_NUMERIC_JSON_VALUE_OUT_OF_RANGE = 3155;
-    exports2.ER_INVALID_JSON_VALUE_FOR_CAST = 3156;
-    exports2.ER_JSON_DOCUMENT_TOO_DEEP = 3157;
-    exports2.ER_JSON_DOCUMENT_NULL_KEY = 3158;
-    exports2.ER_SECURE_TRANSPORT_REQUIRED = 3159;
-    exports2.ER_NO_SECURE_TRANSPORTS_CONFIGURED = 3160;
-    exports2.ER_DISABLED_STORAGE_ENGINE = 3161;
-    exports2.ER_USER_DOES_NOT_EXIST = 3162;
-    exports2.ER_USER_ALREADY_EXISTS = 3163;
-    exports2.ER_AUDIT_API_ABORT = 3164;
-    exports2.ER_INVALID_JSON_PATH_ARRAY_CELL = 3165;
-    exports2.ER_BUFPOOL_RESIZE_INPROGRESS = 3166;
-    exports2.ER_FEATURE_DISABLED_SEE_DOC = 3167;
-    exports2.ER_SERVER_ISNT_AVAILABLE = 3168;
-    exports2.ER_SESSION_WAS_KILLED = 3169;
-    exports2.ER_CAPACITY_EXCEEDED = 3170;
-    exports2.ER_CAPACITY_EXCEEDED_IN_RANGE_OPTIMIZER = 3171;
-    exports2.ER_TABLE_NEEDS_UPG_PART = 3172;
-    exports2.ER_CANT_WAIT_FOR_EXECUTED_GTID_SET_WHILE_OWNING_A_GTID = 3173;
-    exports2.ER_CANNOT_ADD_FOREIGN_BASE_COL_VIRTUAL = 3174;
-    exports2.ER_CANNOT_CREATE_VIRTUAL_INDEX_CONSTRAINT = 3175;
-    exports2.ER_ERROR_ON_MODIFYING_GTID_EXECUTED_TABLE = 3176;
-    exports2.ER_LOCK_REFUSED_BY_ENGINE = 3177;
-    exports2.ER_UNSUPPORTED_ALTER_ONLINE_ON_VIRTUAL_COLUMN = 3178;
-    exports2.ER_MASTER_KEY_ROTATION_NOT_SUPPORTED_BY_SE = 3179;
-    exports2.ER_MASTER_KEY_ROTATION_ERROR_BY_SE = 3180;
-    exports2.ER_MASTER_KEY_ROTATION_BINLOG_FAILED = 3181;
-    exports2.ER_MASTER_KEY_ROTATION_SE_UNAVAILABLE = 3182;
-    exports2.ER_TABLESPACE_CANNOT_ENCRYPT = 3183;
-    exports2.ER_INVALID_ENCRYPTION_OPTION = 3184;
-    exports2.ER_CANNOT_FIND_KEY_IN_KEYRING = 3185;
-    exports2.ER_CAPACITY_EXCEEDED_IN_PARSER = 3186;
-    exports2.ER_UNSUPPORTED_ALTER_ENCRYPTION_INPLACE = 3187;
-    exports2.ER_KEYRING_UDF_KEYRING_SERVICE_ERROR = 3188;
-    exports2.ER_USER_COLUMN_OLD_LENGTH = 3189;
-    exports2.ER_CANT_RESET_SOURCE = 3190;
-    exports2.ER_GROUP_REPLICATION_MAX_GROUP_SIZE = 3191;
-    exports2.ER_CANNOT_ADD_FOREIGN_BASE_COL_STORED = 3192;
-    exports2.ER_TABLE_REFERENCED = 3193;
-    exports2.ER_PARTITION_ENGINE_DEPRECATED_FOR_TABLE = 3194;
-    exports2.ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID_ZERO = 3195;
-    exports2.ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID = 3196;
-    exports2.ER_XA_RETRY = 3197;
-    exports2.ER_KEYRING_AWS_UDF_AWS_KMS_ERROR = 3198;
-    exports2.ER_BINLOG_UNSAFE_XA = 3199;
-    exports2.ER_UDF_ERROR = 3200;
-    exports2.ER_KEYRING_MIGRATION_FAILURE = 3201;
-    exports2.ER_KEYRING_ACCESS_DENIED_ERROR = 3202;
-    exports2.ER_KEYRING_MIGRATION_STATUS = 3203;
-    exports2.ER_PLUGIN_FAILED_TO_OPEN_TABLES = 3204;
-    exports2.ER_PLUGIN_FAILED_TO_OPEN_TABLE = 3205;
-    exports2.ER_AUDIT_LOG_NO_KEYRING_PLUGIN_INSTALLED = 3206;
-    exports2.ER_AUDIT_LOG_ENCRYPTION_PASSWORD_HAS_NOT_BEEN_SET = 3207;
-    exports2.ER_AUDIT_LOG_COULD_NOT_CREATE_AES_KEY = 3208;
-    exports2.ER_AUDIT_LOG_ENCRYPTION_PASSWORD_CANNOT_BE_FETCHED = 3209;
-    exports2.ER_AUDIT_LOG_JSON_FILTERING_NOT_ENABLED = 3210;
-    exports2.ER_AUDIT_LOG_UDF_INSUFFICIENT_PRIVILEGE = 3211;
-    exports2.ER_AUDIT_LOG_SUPER_PRIVILEGE_REQUIRED = 3212;
-    exports2.ER_COULD_NOT_REINITIALIZE_AUDIT_LOG_FILTERS = 3213;
-    exports2.ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_TYPE = 3214;
-    exports2.ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_COUNT = 3215;
-    exports2.ER_AUDIT_LOG_HAS_NOT_BEEN_INSTALLED = 3216;
-    exports2.ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_TYPE = 3217;
-    exports2.ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_VALUE = 3218;
-    exports2.ER_AUDIT_LOG_JSON_FILTER_PARSING_ERROR = 3219;
-    exports2.ER_AUDIT_LOG_JSON_FILTER_NAME_CANNOT_BE_EMPTY = 3220;
-    exports2.ER_AUDIT_LOG_JSON_USER_NAME_CANNOT_BE_EMPTY = 3221;
-    exports2.ER_AUDIT_LOG_JSON_FILTER_DOES_NOT_EXISTS = 3222;
-    exports2.ER_AUDIT_LOG_USER_FIRST_CHARACTER_MUST_BE_ALPHANUMERIC = 3223;
-    exports2.ER_AUDIT_LOG_USER_NAME_INVALID_CHARACTER = 3224;
-    exports2.ER_AUDIT_LOG_HOST_NAME_INVALID_CHARACTER = 3225;
-    exports2.WARN_DEPRECATED_MAXDB_SQL_MODE_FOR_TIMESTAMP = 3226;
-    exports2.ER_XA_REPLICATION_FILTERS = 3227;
-    exports2.ER_CANT_OPEN_ERROR_LOG = 3228;
-    exports2.ER_GROUPING_ON_TIMESTAMP_IN_DST = 3229;
-    exports2.ER_CANT_START_SERVER_NAMED_PIPE = 3230;
-    exports2.ER_WRITE_SET_EXCEEDS_LIMIT = 3231;
-    exports2.ER_DEPRECATED_TLS_VERSION_SESSION_57 = 3232;
-    exports2.ER_WARN_DEPRECATED_TLS_VERSION_57 = 3233;
-    exports2.ER_WARN_WRONG_NATIVE_TABLE_STRUCTURE = 3234;
-    exports2.ER_AES_INVALID_KDF_NAME = 3235;
-    exports2.ER_AES_INVALID_KDF_ITERATIONS = 3236;
-    exports2.WARN_AES_KEY_SIZE = 3237;
-    exports2.ER_AES_INVALID_KDF_OPTION_SIZE = 3238;
-    exports2.ER_UNSUPPORT_COMPRESSED_TEMPORARY_TABLE = 3500;
-    exports2.ER_ACL_OPERATION_FAILED = 3501;
-    exports2.ER_UNSUPPORTED_INDEX_ALGORITHM = 3502;
-    exports2.ER_NO_SUCH_DB = 3503;
-    exports2.ER_TOO_BIG_ENUM = 3504;
-    exports2.ER_TOO_LONG_SET_ENUM_VALUE = 3505;
-    exports2.ER_INVALID_DD_OBJECT = 3506;
-    exports2.ER_UPDATING_DD_TABLE = 3507;
-    exports2.ER_INVALID_DD_OBJECT_ID = 3508;
-    exports2.ER_INVALID_DD_OBJECT_NAME = 3509;
-    exports2.ER_TABLESPACE_MISSING_WITH_NAME = 3510;
-    exports2.ER_TOO_LONG_ROUTINE_COMMENT = 3511;
-    exports2.ER_SP_LOAD_FAILED = 3512;
-    exports2.ER_INVALID_BITWISE_OPERANDS_SIZE = 3513;
-    exports2.ER_INVALID_BITWISE_AGGREGATE_OPERANDS_SIZE = 3514;
-    exports2.ER_WARN_UNSUPPORTED_HINT = 3515;
-    exports2.ER_UNEXPECTED_GEOMETRY_TYPE = 3516;
-    exports2.ER_SRS_PARSE_ERROR = 3517;
-    exports2.ER_SRS_PROJ_PARAMETER_MISSING = 3518;
-    exports2.ER_WARN_SRS_NOT_FOUND = 3519;
-    exports2.ER_SRS_NOT_CARTESIAN = 3520;
-    exports2.ER_SRS_NOT_CARTESIAN_UNDEFINED = 3521;
-    exports2.ER_PK_INDEX_CANT_BE_INVISIBLE = 3522;
-    exports2.ER_UNKNOWN_AUTHID = 3523;
-    exports2.ER_FAILED_ROLE_GRANT = 3524;
-    exports2.ER_OPEN_ROLE_TABLES = 3525;
-    exports2.ER_FAILED_DEFAULT_ROLES = 3526;
-    exports2.ER_COMPONENTS_NO_SCHEME = 3527;
-    exports2.ER_COMPONENTS_NO_SCHEME_SERVICE = 3528;
-    exports2.ER_COMPONENTS_CANT_LOAD = 3529;
-    exports2.ER_ROLE_NOT_GRANTED = 3530;
-    exports2.ER_FAILED_REVOKE_ROLE = 3531;
-    exports2.ER_RENAME_ROLE = 3532;
-    exports2.ER_COMPONENTS_CANT_ACQUIRE_SERVICE_IMPLEMENTATION = 3533;
-    exports2.ER_COMPONENTS_CANT_SATISFY_DEPENDENCY = 3534;
-    exports2.ER_COMPONENTS_LOAD_CANT_REGISTER_SERVICE_IMPLEMENTATION = 3535;
-    exports2.ER_COMPONENTS_LOAD_CANT_INITIALIZE = 3536;
-    exports2.ER_COMPONENTS_UNLOAD_NOT_LOADED = 3537;
-    exports2.ER_COMPONENTS_UNLOAD_CANT_DEINITIALIZE = 3538;
-    exports2.ER_COMPONENTS_CANT_RELEASE_SERVICE = 3539;
-    exports2.ER_COMPONENTS_UNLOAD_CANT_UNREGISTER_SERVICE = 3540;
-    exports2.ER_COMPONENTS_CANT_UNLOAD = 3541;
-    exports2.ER_WARN_UNLOAD_THE_NOT_PERSISTED = 3542;
-    exports2.ER_COMPONENT_TABLE_INCORRECT = 3543;
-    exports2.ER_COMPONENT_MANIPULATE_ROW_FAILED = 3544;
-    exports2.ER_COMPONENTS_UNLOAD_DUPLICATE_IN_GROUP = 3545;
-    exports2.ER_CANT_SET_GTID_PURGED_DUE_SETS_CONSTRAINTS = 3546;
-    exports2.ER_CANNOT_LOCK_USER_MANAGEMENT_CACHES = 3547;
-    exports2.ER_SRS_NOT_FOUND = 3548;
-    exports2.ER_VARIABLE_NOT_PERSISTED = 3549;
-    exports2.ER_IS_QUERY_INVALID_CLAUSE = 3550;
-    exports2.ER_UNABLE_TO_STORE_STATISTICS = 3551;
-    exports2.ER_NO_SYSTEM_SCHEMA_ACCESS = 3552;
-    exports2.ER_NO_SYSTEM_TABLESPACE_ACCESS = 3553;
-    exports2.ER_NO_SYSTEM_TABLE_ACCESS = 3554;
-    exports2.ER_NO_SYSTEM_TABLE_ACCESS_FOR_DICTIONARY_TABLE = 3555;
-    exports2.ER_NO_SYSTEM_TABLE_ACCESS_FOR_SYSTEM_TABLE = 3556;
-    exports2.ER_NO_SYSTEM_TABLE_ACCESS_FOR_TABLE = 3557;
-    exports2.ER_INVALID_OPTION_KEY = 3558;
-    exports2.ER_INVALID_OPTION_VALUE = 3559;
-    exports2.ER_INVALID_OPTION_KEY_VALUE_PAIR = 3560;
-    exports2.ER_INVALID_OPTION_START_CHARACTER = 3561;
-    exports2.ER_INVALID_OPTION_END_CHARACTER = 3562;
-    exports2.ER_INVALID_OPTION_CHARACTERS = 3563;
-    exports2.ER_DUPLICATE_OPTION_KEY = 3564;
-    exports2.ER_WARN_SRS_NOT_FOUND_AXIS_ORDER = 3565;
-    exports2.ER_NO_ACCESS_TO_NATIVE_FCT = 3566;
-    exports2.ER_RESET_SOURCE_TO_VALUE_OUT_OF_RANGE = 3567;
-    exports2.ER_UNRESOLVED_TABLE_LOCK = 3568;
-    exports2.ER_DUPLICATE_TABLE_LOCK = 3569;
-    exports2.ER_BINLOG_UNSAFE_SKIP_LOCKED = 3570;
-    exports2.ER_BINLOG_UNSAFE_NOWAIT = 3571;
-    exports2.ER_LOCK_NOWAIT = 3572;
-    exports2.ER_CTE_RECURSIVE_REQUIRES_UNION = 3573;
-    exports2.ER_CTE_RECURSIVE_REQUIRES_NONRECURSIVE_FIRST = 3574;
-    exports2.ER_CTE_RECURSIVE_FORBIDS_AGGREGATION = 3575;
-    exports2.ER_CTE_RECURSIVE_FORBIDDEN_JOIN_ORDER = 3576;
-    exports2.ER_CTE_RECURSIVE_REQUIRES_SINGLE_REFERENCE = 3577;
-    exports2.ER_SWITCH_TMP_ENGINE = 3578;
-    exports2.ER_WINDOW_NO_SUCH_WINDOW = 3579;
-    exports2.ER_WINDOW_CIRCULARITY_IN_WINDOW_GRAPH = 3580;
-    exports2.ER_WINDOW_NO_CHILD_PARTITIONING = 3581;
-    exports2.ER_WINDOW_NO_INHERIT_FRAME = 3582;
-    exports2.ER_WINDOW_NO_REDEFINE_ORDER_BY = 3583;
-    exports2.ER_WINDOW_FRAME_START_ILLEGAL = 3584;
-    exports2.ER_WINDOW_FRAME_END_ILLEGAL = 3585;
-    exports2.ER_WINDOW_FRAME_ILLEGAL = 3586;
-    exports2.ER_WINDOW_RANGE_FRAME_ORDER_TYPE = 3587;
-    exports2.ER_WINDOW_RANGE_FRAME_TEMPORAL_TYPE = 3588;
-    exports2.ER_WINDOW_RANGE_FRAME_NUMERIC_TYPE = 3589;
-    exports2.ER_WINDOW_RANGE_BOUND_NOT_CONSTANT = 3590;
-    exports2.ER_WINDOW_DUPLICATE_NAME = 3591;
-    exports2.ER_WINDOW_ILLEGAL_ORDER_BY = 3592;
-    exports2.ER_WINDOW_INVALID_WINDOW_FUNC_USE = 3593;
-    exports2.ER_WINDOW_INVALID_WINDOW_FUNC_ALIAS_USE = 3594;
-    exports2.ER_WINDOW_NESTED_WINDOW_FUNC_USE_IN_WINDOW_SPEC = 3595;
-    exports2.ER_WINDOW_ROWS_INTERVAL_USE = 3596;
-    exports2.ER_WINDOW_NO_GROUP_ORDER = 3597;
-    exports2.ER_WINDOW_EXPLAIN_JSON = 3598;
-    exports2.ER_WINDOW_FUNCTION_IGNORES_FRAME = 3599;
-    exports2.ER_WL9236_NOW = 3600;
-    exports2.ER_INVALID_NO_OF_ARGS = 3601;
-    exports2.ER_FIELD_IN_GROUPING_NOT_GROUP_BY = 3602;
-    exports2.ER_TOO_LONG_TABLESPACE_COMMENT = 3603;
-    exports2.ER_ENGINE_CANT_DROP_TABLE = 3604;
-    exports2.ER_ENGINE_CANT_DROP_MISSING_TABLE = 3605;
-    exports2.ER_TABLESPACE_DUP_FILENAME = 3606;
-    exports2.ER_DB_DROP_RMDIR2 = 3607;
-    exports2.ER_IMP_NO_FILES_MATCHED = 3608;
-    exports2.ER_IMP_SCHEMA_DOES_NOT_EXIST = 3609;
-    exports2.ER_IMP_TABLE_ALREADY_EXISTS = 3610;
-    exports2.ER_IMP_INCOMPATIBLE_MYSQLD_VERSION = 3611;
-    exports2.ER_IMP_INCOMPATIBLE_DD_VERSION = 3612;
-    exports2.ER_IMP_INCOMPATIBLE_SDI_VERSION = 3613;
-    exports2.ER_WARN_INVALID_HINT = 3614;
-    exports2.ER_VAR_DOES_NOT_EXIST = 3615;
-    exports2.ER_LONGITUDE_OUT_OF_RANGE = 3616;
-    exports2.ER_LATITUDE_OUT_OF_RANGE = 3617;
-    exports2.ER_NOT_IMPLEMENTED_FOR_GEOGRAPHIC_SRS = 3618;
-    exports2.ER_ILLEGAL_PRIVILEGE_LEVEL = 3619;
-    exports2.ER_NO_SYSTEM_VIEW_ACCESS = 3620;
-    exports2.ER_COMPONENT_FILTER_FLABBERGASTED = 3621;
-    exports2.ER_PART_EXPR_TOO_LONG = 3622;
-    exports2.ER_UDF_DROP_DYNAMICALLY_REGISTERED = 3623;
-    exports2.ER_UNABLE_TO_STORE_COLUMN_STATISTICS = 3624;
-    exports2.ER_UNABLE_TO_UPDATE_COLUMN_STATISTICS = 3625;
-    exports2.ER_UNABLE_TO_DROP_COLUMN_STATISTICS = 3626;
-    exports2.ER_UNABLE_TO_BUILD_HISTOGRAM = 3627;
-    exports2.ER_MANDATORY_ROLE = 3628;
-    exports2.ER_MISSING_TABLESPACE_FILE = 3629;
-    exports2.ER_PERSIST_ONLY_ACCESS_DENIED_ERROR = 3630;
-    exports2.ER_CMD_NEED_SUPER = 3631;
-    exports2.ER_PATH_IN_DATADIR = 3632;
-    exports2.ER_CLONE_DDL_IN_PROGRESS = 3633;
-    exports2.ER_CLONE_TOO_MANY_CONCURRENT_CLONES = 3634;
-    exports2.ER_APPLIER_LOG_EVENT_VALIDATION_ERROR = 3635;
-    exports2.ER_CTE_MAX_RECURSION_DEPTH = 3636;
-    exports2.ER_NOT_HINT_UPDATABLE_VARIABLE = 3637;
-    exports2.ER_CREDENTIALS_CONTRADICT_TO_HISTORY = 3638;
-    exports2.ER_WARNING_PASSWORD_HISTORY_CLAUSES_VOID = 3639;
-    exports2.ER_CLIENT_DOES_NOT_SUPPORT = 3640;
-    exports2.ER_I_S_SKIPPED_TABLESPACE = 3641;
-    exports2.ER_TABLESPACE_ENGINE_MISMATCH = 3642;
-    exports2.ER_WRONG_SRID_FOR_COLUMN = 3643;
-    exports2.ER_CANNOT_ALTER_SRID_DUE_TO_INDEX = 3644;
-    exports2.ER_WARN_BINLOG_PARTIAL_UPDATES_DISABLED = 3645;
-    exports2.ER_WARN_BINLOG_V1_ROW_EVENTS_DISABLED = 3646;
-    exports2.ER_WARN_BINLOG_PARTIAL_UPDATES_SUGGESTS_PARTIAL_IMAGES = 3647;
-    exports2.ER_COULD_NOT_APPLY_JSON_DIFF = 3648;
-    exports2.ER_CORRUPTED_JSON_DIFF = 3649;
-    exports2.ER_RESOURCE_GROUP_EXISTS = 3650;
-    exports2.ER_RESOURCE_GROUP_NOT_EXISTS = 3651;
-    exports2.ER_INVALID_VCPU_ID = 3652;
-    exports2.ER_INVALID_VCPU_RANGE = 3653;
-    exports2.ER_INVALID_THREAD_PRIORITY = 3654;
-    exports2.ER_DISALLOWED_OPERATION = 3655;
-    exports2.ER_RESOURCE_GROUP_BUSY = 3656;
-    exports2.ER_RESOURCE_GROUP_DISABLED = 3657;
-    exports2.ER_FEATURE_UNSUPPORTED = 3658;
-    exports2.ER_ATTRIBUTE_IGNORED = 3659;
-    exports2.ER_INVALID_THREAD_ID = 3660;
-    exports2.ER_RESOURCE_GROUP_BIND_FAILED = 3661;
-    exports2.ER_INVALID_USE_OF_FORCE_OPTION = 3662;
-    exports2.ER_GROUP_REPLICATION_COMMAND_FAILURE = 3663;
-    exports2.ER_SDI_OPERATION_FAILED = 3664;
-    exports2.ER_MISSING_JSON_TABLE_VALUE = 3665;
-    exports2.ER_WRONG_JSON_TABLE_VALUE = 3666;
-    exports2.ER_TF_MUST_HAVE_ALIAS = 3667;
-    exports2.ER_TF_FORBIDDEN_JOIN_TYPE = 3668;
-    exports2.ER_JT_VALUE_OUT_OF_RANGE = 3669;
-    exports2.ER_JT_MAX_NESTED_PATH = 3670;
-    exports2.ER_PASSWORD_EXPIRATION_NOT_SUPPORTED_BY_AUTH_METHOD = 3671;
-    exports2.ER_INVALID_GEOJSON_CRS_NOT_TOP_LEVEL = 3672;
-    exports2.ER_BAD_NULL_ERROR_NOT_IGNORED = 3673;
-    exports2.WARN_USELESS_SPATIAL_INDEX = 3674;
-    exports2.ER_DISK_FULL_NOWAIT = 3675;
-    exports2.ER_PARSE_ERROR_IN_DIGEST_FN = 3676;
-    exports2.ER_UNDISCLOSED_PARSE_ERROR_IN_DIGEST_FN = 3677;
-    exports2.ER_SCHEMA_DIR_EXISTS = 3678;
-    exports2.ER_SCHEMA_DIR_MISSING = 3679;
-    exports2.ER_SCHEMA_DIR_CREATE_FAILED = 3680;
-    exports2.ER_SCHEMA_DIR_UNKNOWN = 3681;
-    exports2.ER_ONLY_IMPLEMENTED_FOR_SRID_0_AND_4326 = 3682;
-    exports2.ER_BINLOG_EXPIRE_LOG_DAYS_AND_SECS_USED_TOGETHER = 3683;
-    exports2.ER_REGEXP_BUFFER_OVERFLOW = 3684;
-    exports2.ER_REGEXP_ILLEGAL_ARGUMENT = 3685;
-    exports2.ER_REGEXP_INDEX_OUTOFBOUNDS_ERROR = 3686;
-    exports2.ER_REGEXP_INTERNAL_ERROR = 3687;
-    exports2.ER_REGEXP_RULE_SYNTAX = 3688;
-    exports2.ER_REGEXP_BAD_ESCAPE_SEQUENCE = 3689;
-    exports2.ER_REGEXP_UNIMPLEMENTED = 3690;
-    exports2.ER_REGEXP_MISMATCHED_PAREN = 3691;
-    exports2.ER_REGEXP_BAD_INTERVAL = 3692;
-    exports2.ER_REGEXP_MAX_LT_MIN = 3693;
-    exports2.ER_REGEXP_INVALID_BACK_REF = 3694;
-    exports2.ER_REGEXP_LOOK_BEHIND_LIMIT = 3695;
-    exports2.ER_REGEXP_MISSING_CLOSE_BRACKET = 3696;
-    exports2.ER_REGEXP_INVALID_RANGE = 3697;
-    exports2.ER_REGEXP_STACK_OVERFLOW = 3698;
-    exports2.ER_REGEXP_TIME_OUT = 3699;
-    exports2.ER_REGEXP_PATTERN_TOO_BIG = 3700;
-    exports2.ER_CANT_SET_ERROR_LOG_SERVICE = 3701;
-    exports2.ER_EMPTY_PIPELINE_FOR_ERROR_LOG_SERVICE = 3702;
-    exports2.ER_COMPONENT_FILTER_DIAGNOSTICS = 3703;
-    exports2.ER_NOT_IMPLEMENTED_FOR_CARTESIAN_SRS = 3704;
-    exports2.ER_NOT_IMPLEMENTED_FOR_PROJECTED_SRS = 3705;
-    exports2.ER_NONPOSITIVE_RADIUS = 3706;
-    exports2.ER_RESTART_SERVER_FAILED = 3707;
-    exports2.ER_SRS_MISSING_MANDATORY_ATTRIBUTE = 3708;
-    exports2.ER_SRS_MULTIPLE_ATTRIBUTE_DEFINITIONS = 3709;
-    exports2.ER_SRS_NAME_CANT_BE_EMPTY_OR_WHITESPACE = 3710;
-    exports2.ER_SRS_ORGANIZATION_CANT_BE_EMPTY_OR_WHITESPACE = 3711;
-    exports2.ER_SRS_ID_ALREADY_EXISTS = 3712;
-    exports2.ER_WARN_SRS_ID_ALREADY_EXISTS = 3713;
-    exports2.ER_CANT_MODIFY_SRID_0 = 3714;
-    exports2.ER_WARN_RESERVED_SRID_RANGE = 3715;
-    exports2.ER_CANT_MODIFY_SRS_USED_BY_COLUMN = 3716;
-    exports2.ER_SRS_INVALID_CHARACTER_IN_ATTRIBUTE = 3717;
-    exports2.ER_SRS_ATTRIBUTE_STRING_TOO_LONG = 3718;
-    exports2.ER_DEPRECATED_UTF8_ALIAS = 3719;
-    exports2.ER_DEPRECATED_NATIONAL = 3720;
-    exports2.ER_INVALID_DEFAULT_UTF8MB4_COLLATION = 3721;
-    exports2.ER_UNABLE_TO_COLLECT_LOG_STATUS = 3722;
-    exports2.ER_RESERVED_TABLESPACE_NAME = 3723;
-    exports2.ER_UNABLE_TO_SET_OPTION = 3724;
-    exports2.ER_REPLICA_POSSIBLY_DIVERGED_AFTER_DDL = 3725;
-    exports2.ER_SRS_NOT_GEOGRAPHIC = 3726;
-    exports2.ER_POLYGON_TOO_LARGE = 3727;
-    exports2.ER_SPATIAL_UNIQUE_INDEX = 3728;
-    exports2.ER_INDEX_TYPE_NOT_SUPPORTED_FOR_SPATIAL_INDEX = 3729;
-    exports2.ER_FK_CANNOT_DROP_PARENT = 3730;
-    exports2.ER_GEOMETRY_PARAM_LONGITUDE_OUT_OF_RANGE = 3731;
-    exports2.ER_GEOMETRY_PARAM_LATITUDE_OUT_OF_RANGE = 3732;
-    exports2.ER_FK_CANNOT_USE_VIRTUAL_COLUMN = 3733;
-    exports2.ER_FK_NO_COLUMN_PARENT = 3734;
-    exports2.ER_CANT_SET_ERROR_SUPPRESSION_LIST = 3735;
-    exports2.ER_SRS_GEOGCS_INVALID_AXES = 3736;
-    exports2.ER_SRS_INVALID_SEMI_MAJOR_AXIS = 3737;
-    exports2.ER_SRS_INVALID_INVERSE_FLATTENING = 3738;
-    exports2.ER_SRS_INVALID_ANGULAR_UNIT = 3739;
-    exports2.ER_SRS_INVALID_PRIME_MERIDIAN = 3740;
-    exports2.ER_TRANSFORM_SOURCE_SRS_NOT_SUPPORTED = 3741;
-    exports2.ER_TRANSFORM_TARGET_SRS_NOT_SUPPORTED = 3742;
-    exports2.ER_TRANSFORM_SOURCE_SRS_MISSING_TOWGS84 = 3743;
-    exports2.ER_TRANSFORM_TARGET_SRS_MISSING_TOWGS84 = 3744;
-    exports2.ER_TEMP_TABLE_PREVENTS_SWITCH_SESSION_BINLOG_FORMAT = 3745;
-    exports2.ER_TEMP_TABLE_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT = 3746;
-    exports2.ER_RUNNING_APPLIER_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT = 3747;
-    exports2.ER_CLIENT_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRX_IN_SBR = 3748;
-    exports2.ER_XA_CANT_CREATE_MDL_BACKUP = 3749;
-    exports2.ER_TABLE_WITHOUT_PK = 3750;
-    exports2.ER_WARN_DATA_TRUNCATED_FUNCTIONAL_INDEX = 3751;
-    exports2.ER_WARN_DATA_OUT_OF_RANGE_FUNCTIONAL_INDEX = 3752;
-    exports2.ER_FUNCTIONAL_INDEX_ON_JSON_OR_GEOMETRY_FUNCTION = 3753;
-    exports2.ER_FUNCTIONAL_INDEX_REF_AUTO_INCREMENT = 3754;
-    exports2.ER_CANNOT_DROP_COLUMN_FUNCTIONAL_INDEX = 3755;
-    exports2.ER_FUNCTIONAL_INDEX_PRIMARY_KEY = 3756;
-    exports2.ER_FUNCTIONAL_INDEX_ON_LOB = 3757;
-    exports2.ER_FUNCTIONAL_INDEX_FUNCTION_IS_NOT_ALLOWED = 3758;
-    exports2.ER_FULLTEXT_FUNCTIONAL_INDEX = 3759;
-    exports2.ER_SPATIAL_FUNCTIONAL_INDEX = 3760;
-    exports2.ER_WRONG_KEY_COLUMN_FUNCTIONAL_INDEX = 3761;
-    exports2.ER_FUNCTIONAL_INDEX_ON_FIELD = 3762;
-    exports2.ER_GENERATED_COLUMN_NAMED_FUNCTION_IS_NOT_ALLOWED = 3763;
-    exports2.ER_GENERATED_COLUMN_ROW_VALUE = 3764;
-    exports2.ER_GENERATED_COLUMN_VARIABLES = 3765;
-    exports2.ER_DEPENDENT_BY_DEFAULT_GENERATED_VALUE = 3766;
-    exports2.ER_DEFAULT_VAL_GENERATED_NON_PRIOR = 3767;
-    exports2.ER_DEFAULT_VAL_GENERATED_REF_AUTO_INC = 3768;
-    exports2.ER_DEFAULT_VAL_GENERATED_FUNCTION_IS_NOT_ALLOWED = 3769;
-    exports2.ER_DEFAULT_VAL_GENERATED_NAMED_FUNCTION_IS_NOT_ALLOWED = 3770;
-    exports2.ER_DEFAULT_VAL_GENERATED_ROW_VALUE = 3771;
-    exports2.ER_DEFAULT_VAL_GENERATED_VARIABLES = 3772;
-    exports2.ER_DEFAULT_AS_VAL_GENERATED = 3773;
-    exports2.ER_UNSUPPORTED_ACTION_ON_DEFAULT_VAL_GENERATED = 3774;
-    exports2.ER_GTID_UNSAFE_ALTER_ADD_COL_WITH_DEFAULT_EXPRESSION = 3775;
-    exports2.ER_FK_CANNOT_CHANGE_ENGINE = 3776;
-    exports2.ER_WARN_DEPRECATED_USER_SET_EXPR = 3777;
-    exports2.ER_WARN_DEPRECATED_UTF8MB3_COLLATION = 3778;
-    exports2.ER_WARN_DEPRECATED_NESTED_COMMENT_SYNTAX = 3779;
-    exports2.ER_FK_INCOMPATIBLE_COLUMNS = 3780;
-    exports2.ER_GR_HOLD_WAIT_TIMEOUT = 3781;
-    exports2.ER_GR_HOLD_KILLED = 3782;
-    exports2.ER_GR_HOLD_MEMBER_STATUS_ERROR = 3783;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_FETCH_KEY = 3784;
-    exports2.ER_RPL_ENCRYPTION_KEY_NOT_FOUND = 3785;
-    exports2.ER_RPL_ENCRYPTION_KEYRING_INVALID_KEY = 3786;
-    exports2.ER_RPL_ENCRYPTION_HEADER_ERROR = 3787;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_ROTATE_LOGS = 3788;
-    exports2.ER_RPL_ENCRYPTION_KEY_EXISTS_UNEXPECTED = 3789;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_GENERATE_KEY = 3790;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_STORE_KEY = 3791;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_REMOVE_KEY = 3792;
-    exports2.ER_RPL_ENCRYPTION_UNABLE_TO_CHANGE_OPTION = 3793;
-    exports2.ER_RPL_ENCRYPTION_MASTER_KEY_RECOVERY_FAILED = 3794;
-    exports2.ER_SLOW_LOG_MODE_IGNORED_WHEN_NOT_LOGGING_TO_FILE = 3795;
-    exports2.ER_GRP_TRX_CONSISTENCY_NOT_ALLOWED = 3796;
-    exports2.ER_GRP_TRX_CONSISTENCY_BEFORE = 3797;
-    exports2.ER_GRP_TRX_CONSISTENCY_AFTER_ON_TRX_BEGIN = 3798;
-    exports2.ER_GRP_TRX_CONSISTENCY_BEGIN_NOT_ALLOWED = 3799;
-    exports2.ER_FUNCTIONAL_INDEX_ROW_VALUE_IS_NOT_ALLOWED = 3800;
-    exports2.ER_RPL_ENCRYPTION_FAILED_TO_ENCRYPT = 3801;
-    exports2.ER_PAGE_TRACKING_NOT_STARTED = 3802;
-    exports2.ER_PAGE_TRACKING_RANGE_NOT_TRACKED = 3803;
-    exports2.ER_PAGE_TRACKING_CANNOT_PURGE = 3804;
-    exports2.ER_RPL_ENCRYPTION_CANNOT_ROTATE_BINLOG_MASTER_KEY = 3805;
-    exports2.ER_BINLOG_MASTER_KEY_RECOVERY_OUT_OF_COMBINATION = 3806;
-    exports2.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_OPERATE_KEY = 3807;
-    exports2.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_ROTATE_LOGS = 3808;
-    exports2.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_REENCRYPT_LOG = 3809;
-    exports2.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_UNUSED_KEYS = 3810;
-    exports2.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_AUX_KEY = 3811;
-    exports2.ER_NON_BOOLEAN_EXPR_FOR_CHECK_CONSTRAINT = 3812;
-    exports2.ER_COLUMN_CHECK_CONSTRAINT_REFERENCES_OTHER_COLUMN = 3813;
-    exports2.ER_CHECK_CONSTRAINT_NAMED_FUNCTION_IS_NOT_ALLOWED = 3814;
-    exports2.ER_CHECK_CONSTRAINT_FUNCTION_IS_NOT_ALLOWED = 3815;
-    exports2.ER_CHECK_CONSTRAINT_VARIABLES = 3816;
-    exports2.ER_CHECK_CONSTRAINT_ROW_VALUE = 3817;
-    exports2.ER_CHECK_CONSTRAINT_REFERS_AUTO_INCREMENT_COLUMN = 3818;
-    exports2.ER_CHECK_CONSTRAINT_VIOLATED = 3819;
-    exports2.ER_CHECK_CONSTRAINT_REFERS_UNKNOWN_COLUMN = 3820;
-    exports2.ER_CHECK_CONSTRAINT_NOT_FOUND = 3821;
-    exports2.ER_CHECK_CONSTRAINT_DUP_NAME = 3822;
-    exports2.ER_CHECK_CONSTRAINT_CLAUSE_USING_FK_REFER_ACTION_COLUMN = 3823;
-    exports2.WARN_UNENCRYPTED_TABLE_IN_ENCRYPTED_DB = 3824;
-    exports2.ER_INVALID_ENCRYPTION_REQUEST = 3825;
-    exports2.ER_CANNOT_SET_TABLE_ENCRYPTION = 3826;
-    exports2.ER_CANNOT_SET_DATABASE_ENCRYPTION = 3827;
-    exports2.ER_CANNOT_SET_TABLESPACE_ENCRYPTION = 3828;
-    exports2.ER_TABLESPACE_CANNOT_BE_ENCRYPTED = 3829;
-    exports2.ER_TABLESPACE_CANNOT_BE_DECRYPTED = 3830;
-    exports2.ER_TABLESPACE_TYPE_UNKNOWN = 3831;
-    exports2.ER_TARGET_TABLESPACE_UNENCRYPTED = 3832;
-    exports2.ER_CANNOT_USE_ENCRYPTION_CLAUSE = 3833;
-    exports2.ER_INVALID_MULTIPLE_CLAUSES = 3834;
-    exports2.ER_UNSUPPORTED_USE_OF_GRANT_AS = 3835;
-    exports2.ER_UKNOWN_AUTH_ID_OR_ACCESS_DENIED_FOR_GRANT_AS = 3836;
-    exports2.ER_DEPENDENT_BY_FUNCTIONAL_INDEX = 3837;
-    exports2.ER_PLUGIN_NOT_EARLY = 3838;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_START_SUBDIR_PATH = 3839;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_START_TIMEOUT = 3840;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_DIRS_INVALID = 3841;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_LABEL_NOT_FOUND = 3842;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_DIR_EMPTY = 3843;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_NO_SUCH_DIR = 3844;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_DIR_CLASH = 3845;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_DIR_PERMISSIONS = 3846;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_FILE_CREATE = 3847;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_ACTIVE = 3848;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_INACTIVE = 3849;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_FAILED = 3850;
-    exports2.ER_INNODB_REDO_LOG_ARCHIVE_SESSION = 3851;
-    exports2.ER_STD_REGEX_ERROR = 3852;
-    exports2.ER_INVALID_JSON_TYPE = 3853;
-    exports2.ER_CANNOT_CONVERT_STRING = 3854;
-    exports2.ER_DEPENDENT_BY_PARTITION_FUNC = 3855;
-    exports2.ER_WARN_DEPRECATED_FLOAT_AUTO_INCREMENT = 3856;
-    exports2.ER_RPL_CANT_STOP_REPLICA_WHILE_LOCKED_BACKUP = 3857;
-    exports2.ER_WARN_DEPRECATED_FLOAT_DIGITS = 3858;
-    exports2.ER_WARN_DEPRECATED_FLOAT_UNSIGNED = 3859;
-    exports2.ER_WARN_DEPRECATED_INTEGER_DISPLAY_WIDTH = 3860;
-    exports2.ER_WARN_DEPRECATED_ZEROFILL = 3861;
-    exports2.ER_CLONE_DONOR = 3862;
-    exports2.ER_CLONE_PROTOCOL = 3863;
-    exports2.ER_CLONE_DONOR_VERSION = 3864;
-    exports2.ER_CLONE_OS = 3865;
-    exports2.ER_CLONE_PLATFORM = 3866;
-    exports2.ER_CLONE_CHARSET = 3867;
-    exports2.ER_CLONE_CONFIG = 3868;
-    exports2.ER_CLONE_SYS_CONFIG = 3869;
-    exports2.ER_CLONE_PLUGIN_MATCH = 3870;
-    exports2.ER_CLONE_LOOPBACK = 3871;
-    exports2.ER_CLONE_ENCRYPTION = 3872;
-    exports2.ER_CLONE_DISK_SPACE = 3873;
-    exports2.ER_CLONE_IN_PROGRESS = 3874;
-    exports2.ER_CLONE_DISALLOWED = 3875;
-    exports2.ER_CANNOT_GRANT_ROLES_TO_ANONYMOUS_USER = 3876;
-    exports2.ER_SECONDARY_ENGINE_PLUGIN = 3877;
-    exports2.ER_SECOND_PASSWORD_CANNOT_BE_EMPTY = 3878;
-    exports2.ER_DB_ACCESS_DENIED = 3879;
-    exports2.ER_DA_AUTH_ID_WITH_SYSTEM_USER_PRIV_IN_MANDATORY_ROLES = 3880;
-    exports2.ER_DA_RPL_GTID_TABLE_CANNOT_OPEN = 3881;
-    exports2.ER_GEOMETRY_IN_UNKNOWN_LENGTH_UNIT = 3882;
-    exports2.ER_DA_PLUGIN_INSTALL_ERROR = 3883;
-    exports2.ER_NO_SESSION_TEMP = 3884;
-    exports2.ER_DA_UNKNOWN_ERROR_NUMBER = 3885;
-    exports2.ER_COLUMN_CHANGE_SIZE = 3886;
-    exports2.ER_REGEXP_INVALID_CAPTURE_GROUP_NAME = 3887;
-    exports2.ER_DA_SSL_LIBRARY_ERROR = 3888;
-    exports2.ER_SECONDARY_ENGINE = 3889;
-    exports2.ER_SECONDARY_ENGINE_DDL = 3890;
-    exports2.ER_INCORRECT_CURRENT_PASSWORD = 3891;
-    exports2.ER_MISSING_CURRENT_PASSWORD = 3892;
-    exports2.ER_CURRENT_PASSWORD_NOT_REQUIRED = 3893;
-    exports2.ER_PASSWORD_CANNOT_BE_RETAINED_ON_PLUGIN_CHANGE = 3894;
-    exports2.ER_CURRENT_PASSWORD_CANNOT_BE_RETAINED = 3895;
-    exports2.ER_PARTIAL_REVOKES_EXIST = 3896;
-    exports2.ER_CANNOT_GRANT_SYSTEM_PRIV_TO_MANDATORY_ROLE = 3897;
-    exports2.ER_XA_REPLICATION_FILTERS = 3898;
-    exports2.ER_UNSUPPORTED_SQL_MODE = 3899;
-    exports2.ER_REGEXP_INVALID_FLAG = 3900;
-    exports2.ER_PARTIAL_REVOKE_AND_DB_GRANT_BOTH_EXISTS = 3901;
-    exports2.ER_UNIT_NOT_FOUND = 3902;
-    exports2.ER_INVALID_JSON_VALUE_FOR_FUNC_INDEX = 3903;
-    exports2.ER_JSON_VALUE_OUT_OF_RANGE_FOR_FUNC_INDEX = 3904;
-    exports2.ER_EXCEEDED_MV_KEYS_NUM = 3905;
-    exports2.ER_EXCEEDED_MV_KEYS_SPACE = 3906;
-    exports2.ER_FUNCTIONAL_INDEX_DATA_IS_TOO_LONG = 3907;
-    exports2.ER_WRONG_MVI_VALUE = 3908;
-    exports2.ER_WARN_FUNC_INDEX_NOT_APPLICABLE = 3909;
-    exports2.ER_GRP_RPL_UDF_ERROR = 3910;
-    exports2.ER_UPDATE_GTID_PURGED_WITH_GR = 3911;
-    exports2.ER_GROUPING_ON_TIMESTAMP_IN_DST = 3912;
-    exports2.ER_TABLE_NAME_CAUSES_TOO_LONG_PATH = 3913;
-    exports2.ER_AUDIT_LOG_INSUFFICIENT_PRIVILEGE = 3914;
-    exports2.ER_AUDIT_LOG_PASSWORD_HAS_BEEN_COPIED = 3915;
-    exports2.ER_DA_GRP_RPL_STARTED_AUTO_REJOIN = 3916;
-    exports2.ER_SYSVAR_CHANGE_DURING_QUERY = 3917;
-    exports2.ER_GLOBSTAT_CHANGE_DURING_QUERY = 3918;
-    exports2.ER_GRP_RPL_MESSAGE_SERVICE_INIT_FAILURE = 3919;
-    exports2.ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_CLIENT = 3920;
-    exports2.ER_CHANGE_SOURCE_WRONG_COMPRESSION_LEVEL_CLIENT = 3921;
-    exports2.ER_WRONG_COMPRESSION_ALGORITHM_CLIENT = 3922;
-    exports2.ER_WRONG_COMPRESSION_LEVEL_CLIENT = 3923;
-    exports2.ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_LIST_CLIENT = 3924;
-    exports2.ER_CLIENT_PRIVILEGE_CHECKS_USER_CANNOT_BE_ANONYMOUS = 3925;
-    exports2.ER_CLIENT_PRIVILEGE_CHECKS_USER_DOES_NOT_EXIST = 3926;
-    exports2.ER_CLIENT_PRIVILEGE_CHECKS_USER_CORRUPT = 3927;
-    exports2.ER_CLIENT_PRIVILEGE_CHECKS_USER_NEEDS_RPL_APPLIER_PRIV = 3928;
-    exports2.ER_WARN_DA_PRIVILEGE_NOT_REGISTERED = 3929;
-    exports2.ER_CLIENT_KEYRING_UDF_KEY_INVALID = 3930;
-    exports2.ER_CLIENT_KEYRING_UDF_KEY_TYPE_INVALID = 3931;
-    exports2.ER_CLIENT_KEYRING_UDF_KEY_TOO_LONG = 3932;
-    exports2.ER_CLIENT_KEYRING_UDF_KEY_TYPE_TOO_LONG = 3933;
-    exports2.ER_JSON_SCHEMA_VALIDATION_ERROR_WITH_DETAILED_REPORT = 3934;
-    exports2.ER_DA_UDF_INVALID_CHARSET_SPECIFIED = 3935;
-    exports2.ER_DA_UDF_INVALID_CHARSET = 3936;
-    exports2.ER_DA_UDF_INVALID_COLLATION = 3937;
-    exports2.ER_DA_UDF_INVALID_EXTENSION_ARGUMENT_TYPE = 3938;
-    exports2.ER_MULTIPLE_CONSTRAINTS_WITH_SAME_NAME = 3939;
-    exports2.ER_CONSTRAINT_NOT_FOUND = 3940;
-    exports2.ER_ALTER_CONSTRAINT_ENFORCEMENT_NOT_SUPPORTED = 3941;
-    exports2.ER_TABLE_VALUE_CONSTRUCTOR_MUST_HAVE_COLUMNS = 3942;
-    exports2.ER_TABLE_VALUE_CONSTRUCTOR_CANNOT_HAVE_DEFAULT = 3943;
-    exports2.ER_CLIENT_QUERY_FAILURE_INVALID_NON_ROW_FORMAT = 3944;
-    exports2.ER_REQUIRE_ROW_FORMAT_INVALID_VALUE = 3945;
-    exports2.ER_FAILED_TO_DETERMINE_IF_ROLE_IS_MANDATORY = 3946;
-    exports2.ER_FAILED_TO_FETCH_MANDATORY_ROLE_LIST = 3947;
-    exports2.ER_CLIENT_LOCAL_FILES_DISABLED = 3948;
-    exports2.ER_IMP_INCOMPATIBLE_CFG_VERSION = 3949;
-    exports2.ER_DA_OOM = 3950;
-    exports2.ER_DA_UDF_INVALID_ARGUMENT_TO_SET_CHARSET = 3951;
-    exports2.ER_DA_UDF_INVALID_RETURN_TYPE_TO_SET_CHARSET = 3952;
-    exports2.ER_MULTIPLE_INTO_CLAUSES = 3953;
-    exports2.ER_MISPLACED_INTO = 3954;
-    exports2.ER_USER_ACCESS_DENIED_FOR_USER_ACCOUNT_BLOCKED_BY_PASSWORD_LOCK = 3955;
-    exports2.ER_WARN_DEPRECATED_YEAR_UNSIGNED = 3956;
-    exports2.ER_CLONE_NETWORK_PACKET = 3957;
-    exports2.ER_SDI_OPERATION_FAILED_MISSING_RECORD = 3958;
-    exports2.ER_DEPENDENT_BY_CHECK_CONSTRAINT = 3959;
-    exports2.ER_GRP_OPERATION_NOT_ALLOWED_GR_MUST_STOP = 3960;
-    exports2.ER_WARN_DEPRECATED_JSON_TABLE_ON_ERROR_ON_EMPTY = 3961;
-    exports2.ER_WARN_DEPRECATED_INNER_INTO = 3962;
-    exports2.ER_WARN_DEPRECATED_VALUES_FUNCTION_ALWAYS_NULL = 3963;
-    exports2.ER_WARN_DEPRECATED_SQL_CALC_FOUND_ROWS = 3964;
-    exports2.ER_WARN_DEPRECATED_FOUND_ROWS = 3965;
-    exports2.ER_MISSING_JSON_VALUE = 3966;
-    exports2.ER_MULTIPLE_JSON_VALUES = 3967;
-    exports2.ER_HOSTNAME_TOO_LONG = 3968;
-    exports2.ER_WARN_CLIENT_DEPRECATED_PARTITION_PREFIX_KEY = 3969;
-    exports2.ER_GROUP_REPLICATION_USER_EMPTY_MSG = 3970;
-    exports2.ER_GROUP_REPLICATION_USER_MANDATORY_MSG = 3971;
-    exports2.ER_GROUP_REPLICATION_PASSWORD_LENGTH = 3972;
-    exports2.ER_SUBQUERY_TRANSFORM_REJECTED = 3973;
-    exports2.ER_DA_GRP_RPL_RECOVERY_ENDPOINT_FORMAT = 3974;
-    exports2.ER_DA_GRP_RPL_RECOVERY_ENDPOINT_INVALID = 3975;
-    exports2.ER_WRONG_VALUE_FOR_VAR_PLUS_ACTIONABLE_PART = 3976;
-    exports2.ER_STATEMENT_NOT_ALLOWED_AFTER_START_TRANSACTION = 3977;
-    exports2.ER_FOREIGN_KEY_WITH_ATOMIC_CREATE_SELECT = 3978;
-    exports2.ER_NOT_ALLOWED_WITH_START_TRANSACTION = 3979;
-    exports2.ER_INVALID_JSON_ATTRIBUTE = 3980;
-    exports2.ER_ENGINE_ATTRIBUTE_NOT_SUPPORTED = 3981;
-    exports2.ER_INVALID_USER_ATTRIBUTE_JSON = 3982;
-    exports2.ER_INNODB_REDO_DISABLED = 3983;
-    exports2.ER_INNODB_REDO_ARCHIVING_ENABLED = 3984;
-    exports2.ER_MDL_OUT_OF_RESOURCES = 3985;
-    exports2.ER_IMPLICIT_COMPARISON_FOR_JSON = 3986;
-    exports2.ER_FUNCTION_DOES_NOT_SUPPORT_CHARACTER_SET = 3987;
-    exports2.ER_IMPOSSIBLE_STRING_CONVERSION = 3988;
-    exports2.ER_SCHEMA_READ_ONLY = 3989;
-    exports2.ER_RPL_ASYNC_RECONNECT_GTID_MODE_OFF = 3990;
-    exports2.ER_RPL_ASYNC_RECONNECT_AUTO_POSITION_OFF = 3991;
-    exports2.ER_DISABLE_GTID_MODE_REQUIRES_ASYNC_RECONNECT_OFF = 3992;
-    exports2.ER_DISABLE_AUTO_POSITION_REQUIRES_ASYNC_RECONNECT_OFF = 3993;
-    exports2.ER_INVALID_PARAMETER_USE = 3994;
-    exports2.ER_CHARACTER_SET_MISMATCH = 3995;
-    exports2.ER_WARN_VAR_VALUE_CHANGE_NOT_SUPPORTED = 3996;
-    exports2.ER_INVALID_TIME_ZONE_INTERVAL = 3997;
-    exports2.ER_INVALID_CAST = 3998;
-    exports2.ER_HYPERGRAPH_NOT_SUPPORTED_YET = 3999;
-    exports2.ER_WARN_HYPERGRAPH_EXPERIMENTAL = 4e3;
-    exports2.ER_DA_NO_ERROR_LOG_PARSER_CONFIGURED = 4001;
-    exports2.ER_DA_ERROR_LOG_TABLE_DISABLED = 4002;
-    exports2.ER_DA_ERROR_LOG_MULTIPLE_FILTERS = 4003;
-    exports2.ER_DA_CANT_OPEN_ERROR_LOG = 4004;
-    exports2.ER_USER_REFERENCED_AS_DEFINER = 4005;
-    exports2.ER_CANNOT_USER_REFERENCED_AS_DEFINER = 4006;
-    exports2.ER_REGEX_NUMBER_TOO_BIG = 4007;
-    exports2.ER_SPVAR_NONINTEGER_TYPE = 4008;
-    exports2.WARN_UNSUPPORTED_ACL_TABLES_READ = 4009;
-    exports2.ER_BINLOG_UNSAFE_ACL_TABLE_READ_IN_DML_DDL = 4010;
-    exports2.ER_STOP_REPLICA_MONITOR_IO_THREAD_TIMEOUT = 4011;
-    exports2.ER_STARTING_REPLICA_MONITOR_IO_THREAD = 4012;
-    exports2.ER_CANT_USE_ANONYMOUS_TO_GTID_WITH_GTID_MODE_NOT_ON = 4013;
-    exports2.ER_CANT_COMBINE_ANONYMOUS_TO_GTID_AND_AUTOPOSITION = 4014;
-    exports2.ER_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_REQUIRES_GTID_MODE_ON = 4015;
-    exports2.ER_SQL_REPLICA_SKIP_COUNTER_USED_WITH_GTID_MODE_ON = 4016;
-    exports2.ER_USING_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_AS_LOCAL_OR_UUID = 4017;
-    exports2.ER_CANT_SET_ANONYMOUS_TO_GTID_AND_WAIT_UNTIL_SQL_THD_AFTER_GTIDS = 4018;
-    exports2.ER_CANT_SET_SQL_AFTER_OR_BEFORE_GTIDS_WITH_ANONYMOUS_TO_GTID = 4019;
-    exports2.ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_GROUP_NAME = 4020;
-    exports2.ER_CANT_USE_SAME_UUID_AS_GROUP_NAME = 4021;
-    exports2.ER_GRP_RPL_RECOVERY_CHANNEL_STILL_RUNNING = 4022;
-    exports2.ER_INNODB_INVALID_AUTOEXTEND_SIZE_VALUE = 4023;
-    exports2.ER_INNODB_INCOMPATIBLE_WITH_TABLESPACE = 4024;
-    exports2.ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE = 4025;
-    exports2.ER_CANNOT_USE_AUTOEXTEND_SIZE_CLAUSE = 4026;
-    exports2.ER_ROLE_GRANTED_TO_ITSELF = 4027;
-    exports2.ER_TABLE_MUST_HAVE_A_VISIBLE_COLUMN = 4028;
-    exports2.ER_INNODB_COMPRESSION_FAILURE = 4029;
-    exports2.ER_WARN_ASYNC_CONN_FAILOVER_NETWORK_NAMESPACE = 4030;
-    exports2.ER_CLIENT_INTERACTION_TIMEOUT = 4031;
-    exports2.ER_INVALID_CAST_TO_GEOMETRY = 4032;
-    exports2.ER_INVALID_CAST_POLYGON_RING_DIRECTION = 4033;
-    exports2.ER_GIS_DIFFERENT_SRIDS_AGGREGATION = 4034;
-    exports2.ER_RELOAD_KEYRING_FAILURE = 4035;
-    exports2.ER_SDI_GET_KEYS_INVALID_TABLESPACE = 4036;
-    exports2.ER_CHANGE_RPL_SRC_WRONG_COMPRESSION_ALGORITHM_SIZE = 4037;
-    exports2.ER_WARN_DEPRECATED_TLS_VERSION_FOR_CHANNEL_CLI = 4038;
-    exports2.ER_CANT_USE_SAME_UUID_AS_VIEW_CHANGE_UUID = 4039;
-    exports2.ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_VIEW_CHANGE_UUID = 4040;
-    exports2.ER_GRP_RPL_VIEW_CHANGE_UUID_FAIL_GET_VARIABLE = 4041;
-    exports2.ER_WARN_ADUIT_LOG_MAX_SIZE_AND_PRUNE_SECONDS = 4042;
-    exports2.ER_WARN_ADUIT_LOG_MAX_SIZE_CLOSE_TO_ROTATE_ON_SIZE = 4043;
-    exports2.ER_KERBEROS_CREATE_USER = 4044;
-    exports2.ER_INSTALL_PLUGIN_CONFLICT_CLIENT = 4045;
-    exports2.ER_DA_ERROR_LOG_COMPONENT_FLUSH_FAILED = 4046;
-    exports2.ER_WARN_SQL_AFTER_MTS_GAPS_GAP_NOT_CALCULATED = 4047;
-    exports2.ER_INVALID_ASSIGNMENT_TARGET = 4048;
-    exports2.ER_OPERATION_NOT_ALLOWED_ON_GR_SECONDARY = 4049;
-    exports2.ER_GRP_RPL_FAILOVER_CHANNEL_STATUS_PROPAGATION = 4050;
-    exports2.ER_WARN_AUDIT_LOG_FORMAT_UNIX_TIMESTAMP_ONLY_WHEN_JSON = 4051;
-    exports2.ER_INVALID_MFA_PLUGIN_SPECIFIED = 4052;
-    exports2.ER_IDENTIFIED_BY_UNSUPPORTED = 4053;
-    exports2.ER_INVALID_PLUGIN_FOR_REGISTRATION = 4054;
-    exports2.ER_PLUGIN_REQUIRES_REGISTRATION = 4055;
-    exports2.ER_MFA_METHOD_EXISTS = 4056;
-    exports2.ER_MFA_METHOD_NOT_EXISTS = 4057;
-    exports2.ER_AUTHENTICATION_POLICY_MISMATCH = 4058;
-    exports2.ER_PLUGIN_REGISTRATION_DONE = 4059;
-    exports2.ER_INVALID_USER_FOR_REGISTRATION = 4060;
-    exports2.ER_USER_REGISTRATION_FAILED = 4061;
-    exports2.ER_MFA_METHODS_INVALID_ORDER = 4062;
-    exports2.ER_MFA_METHODS_IDENTICAL = 4063;
-    exports2.ER_INVALID_MFA_OPERATIONS_FOR_PASSWORDLESS_USER = 4064;
-    exports2.ER_CHANGE_REPLICATION_SOURCE_NO_OPTIONS_FOR_GTID_ONLY = 4065;
-    exports2.ER_CHANGE_REP_SOURCE_CANT_DISABLE_REQ_ROW_FORMAT_WITH_GTID_ONLY = 4066;
-    exports2.ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POSITION_WITH_GTID_ONLY = 4067;
-    exports2.ER_CHANGE_REP_SOURCE_CANT_DISABLE_GTID_ONLY_WITHOUT_POSITIONS = 4068;
-    exports2.ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POS_WITHOUT_POSITIONS = 4069;
-    exports2.ER_CHANGE_REP_SOURCE_GR_CHANNEL_WITH_GTID_MODE_NOT_ON = 4070;
-    exports2.ER_CANT_USE_GTID_ONLY_WITH_GTID_MODE_NOT_ON = 4071;
-    exports2.ER_WARN_C_DISABLE_GTID_ONLY_WITH_SOURCE_AUTO_POS_INVALID_POS = 4072;
-    exports2.ER_DA_SSL_FIPS_MODE_ERROR = 4073;
-    exports2.ER_VALUE_OUT_OF_RANGE = 4074;
-    exports2.ER_FULLTEXT_WITH_ROLLUP = 4075;
-    exports2.ER_REGEXP_MISSING_RESOURCE = 4076;
-    exports2.ER_WARN_REGEXP_USING_DEFAULT = 4077;
-    exports2.ER_REGEXP_MISSING_FILE = 4078;
-    exports2.ER_WARN_DEPRECATED_COLLATION = 4079;
-    exports2.ER_CONCURRENT_PROCEDURE_USAGE = 4080;
-    exports2.ER_DA_GLOBAL_CONN_LIMIT = 4081;
-    exports2.ER_DA_CONN_LIMIT = 4082;
-    exports2.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE_INSTANT = 4083;
-    exports2.ER_WARN_SF_UDF_NAME_COLLISION = 4084;
-    exports2.ER_CANNOT_PURGE_BINLOG_WITH_BACKUP_LOCK = 4085;
-    exports2.ER_TOO_MANY_WINDOWS = 4086;
-    exports2.ER_MYSQLBACKUP_CLIENT_MSG = 4087;
-    exports2.ER_COMMENT_CONTAINS_INVALID_STRING = 4088;
-    exports2.ER_DEFINITION_CONTAINS_INVALID_STRING = 4089;
-    exports2.ER_CANT_EXECUTE_COMMAND_WITH_ASSIGNED_GTID_NEXT = 4090;
-    exports2.ER_XA_TEMP_TABLE = 4091;
-    exports2.ER_INNODB_MAX_ROW_VERSION = 4092;
-    exports2.ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_SIZE = 4093;
-    exports2.ER_OPERATION_NOT_ALLOWED_WHILE_PRIMARY_CHANGE_IS_RUNNING = 4094;
-    exports2.ER_WARN_DEPRECATED_DATETIME_DELIMITER = 4095;
-    exports2.ER_WARN_DEPRECATED_SUPERFLUOUS_DELIMITER = 4096;
-    exports2.ER_CANNOT_PERSIST_SENSITIVE_VARIABLES = 4097;
-    exports2.ER_WARN_CANNOT_SECURELY_PERSIST_SENSITIVE_VARIABLES = 4098;
-    exports2.ER_WARN_TRG_ALREADY_EXISTS = 4099;
-    exports2.ER_IF_NOT_EXISTS_UNSUPPORTED_TRG_EXISTS_ON_DIFFERENT_TABLE = 4100;
-    exports2.ER_IF_NOT_EXISTS_UNSUPPORTED_UDF_NATIVE_FCT_NAME_COLLISION = 4101;
-    exports2.ER_SET_PASSWORD_AUTH_PLUGIN_ERROR = 4102;
-    exports2.ER_REDUCED_DBLWR_FILE_CORRUPTED = 4103;
-    exports2.ER_REDUCED_DBLWR_PAGE_FOUND = 4104;
-    exports2.ER_SRS_INVALID_LATITUDE_OF_ORIGIN = 4105;
-    exports2.ER_SRS_INVALID_LONGITUDE_OF_ORIGIN = 4106;
-    exports2.ER_SRS_UNUSED_PROJ_PARAMETER_PRESENT = 4107;
-    exports2.ER_GIPK_COLUMN_EXISTS = 4108;
-    exports2.ER_GIPK_FAILED_AUTOINC_COLUMN_EXISTS = 4109;
-    exports2.ER_GIPK_COLUMN_ALTER_NOT_ALLOWED = 4110;
-    exports2.ER_DROP_PK_COLUMN_TO_DROP_GIPK = 4111;
-    exports2.ER_CREATE_SELECT_WITH_GIPK_DISALLOWED_IN_SBR = 4112;
-    exports2.ER_DA_EXPIRE_LOGS_DAYS_IGNORED = 4113;
-    exports2.ER_CTE_RECURSIVE_NOT_UNION = 4114;
-    exports2.ER_COMMAND_BACKEND_FAILED_TO_FETCH_SECURITY_CTX = 4115;
-    exports2.ER_COMMAND_SERVICE_BACKEND_FAILED = 4116;
-    exports2.ER_CLIENT_FILE_PRIVILEGE_FOR_REPLICATION_CHECKS = 4117;
-    exports2.ER_GROUP_REPLICATION_FORCE_MEMBERS_COMMAND_FAILURE = 4118;
-    exports2.ER_WARN_DEPRECATED_IDENT = 4119;
-    exports2.ER_INTERSECT_ALL_MAX_DUPLICATES_EXCEEDED = 4120;
-    exports2.ER_TP_QUERY_THRS_PER_GRP_EXCEEDS_TXN_THR_LIMIT = 4121;
-    exports2.ER_BAD_TIMESTAMP_FORMAT = 4122;
-    exports2.ER_SHAPE_PRIDICTION_UDF = 4123;
-    exports2.ER_SRS_INVALID_HEIGHT = 4124;
-    exports2.ER_SRS_INVALID_SCALING = 4125;
-    exports2.ER_SRS_INVALID_ZONE_WIDTH = 4126;
-    exports2.ER_SRS_INVALID_LATITUDE_POLAR_STERE_VAR_A = 4127;
-    exports2.ER_WARN_DEPRECATED_CLIENT_NO_SCHEMA_OPTION = 4128;
-    exports2.ER_TABLE_NOT_EMPTY = 4129;
-    exports2.ER_TABLE_NO_PRIMARY_KEY = 4130;
-    exports2.ER_TABLE_IN_SHARED_TABLESPACE = 4131;
-    exports2.ER_INDEX_OTHER_THAN_PK = 4132;
-    exports2.ER_LOAD_BULK_DATA_UNSORTED = 4133;
-    exports2.ER_BULK_EXECUTOR_ERROR = 4134;
-    exports2.ER_BULK_READER_LIBCURL_INIT_FAILED = 4135;
-    exports2.ER_BULK_READER_LIBCURL_ERROR = 4136;
-    exports2.ER_BULK_READER_SERVER_ERROR = 4137;
-    exports2.ER_BULK_READER_COMMUNICATION_ERROR = 4138;
-    exports2.ER_BULK_LOAD_DATA_FAILED = 4139;
-    exports2.ER_BULK_LOADER_COLUMN_TOO_BIG_FOR_LEFTOVER_BUFFER = 4140;
-    exports2.ER_BULK_LOADER_COMPONENT_ERROR = 4141;
-    exports2.ER_BULK_LOADER_FILE_CONTAINS_LESS_LINES_THAN_IGNORE_CLAUSE = 4142;
-    exports2.ER_BULK_PARSER_MISSING_ENCLOSED_BY = 4143;
-    exports2.ER_BULK_PARSER_ROW_BUFFER_MAX_TOTAL_COLS_EXCEEDED = 4144;
-    exports2.ER_BULK_PARSER_COPY_BUFFER_SIZE_EXCEEDED = 4145;
-    exports2.ER_BULK_PARSER_UNEXPECTED_END_OF_INPUT = 4146;
-    exports2.ER_BULK_PARSER_UNEXPECTED_ROW_TERMINATOR = 4147;
-    exports2.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_ENDING_ENCLOSED_BY = 4148;
-    exports2.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_NULL_ESCAPE = 4149;
-    exports2.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_COLUMN_TERMINATOR = 4150;
-    exports2.ER_BULK_PARSER_INCOMPLETE_ESCAPE_SEQUENCE = 4151;
-    exports2.ER_LOAD_BULK_DATA_FAILED = 4152;
-    exports2.ER_LOAD_BULK_DATA_WRONG_VALUE_FOR_FIELD = 4153;
-    exports2.ER_LOAD_BULK_DATA_WARN_NULL_TO_NOTNULL = 4154;
-    exports2.ER_REQUIRE_TABLE_PRIMARY_KEY_CHECK_GENERATE_WITH_GR = 4155;
-    exports2.ER_CANT_CHANGE_SYS_VAR_IN_READ_ONLY_MODE = 4156;
-    exports2.ER_INNODB_INSTANT_ADD_DROP_NOT_SUPPORTED_MAX_SIZE = 4157;
-    exports2.ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_FIELDS = 4158;
-    exports2.ER_CANT_SET_PERSISTED = 4159;
-    exports2.ER_INSTALL_COMPONENT_SET_NULL_VALUE = 4160;
-    exports2.ER_INSTALL_COMPONENT_SET_UNUSED_VALUE = 4161;
-    exports2.ER_WARN_DEPRECATED_USER_DEFINED_COLLATIONS = 4162;
-    exports2[1] = "EE_CANTCREATEFILE";
-    exports2[2] = "EE_READ";
-    exports2[3] = "EE_WRITE";
-    exports2[4] = "EE_BADCLOSE";
-    exports2[5] = "EE_OUTOFMEMORY";
-    exports2[6] = "EE_DELETE";
-    exports2[7] = "EE_LINK";
-    exports2[9] = "EE_EOFERR";
-    exports2[10] = "EE_CANTLOCK";
-    exports2[11] = "EE_CANTUNLOCK";
-    exports2[12] = "EE_DIR";
-    exports2[13] = "EE_STAT";
-    exports2[14] = "EE_CANT_CHSIZE";
-    exports2[15] = "EE_CANT_OPEN_STREAM";
-    exports2[16] = "EE_GETWD";
-    exports2[17] = "EE_SETWD";
-    exports2[18] = "EE_LINK_WARNING";
-    exports2[19] = "EE_OPEN_WARNING";
-    exports2[20] = "EE_DISK_FULL";
-    exports2[21] = "EE_CANT_MKDIR";
-    exports2[22] = "EE_UNKNOWN_CHARSET";
-    exports2[23] = "EE_OUT_OF_FILERESOURCES";
-    exports2[24] = "EE_CANT_READLINK";
-    exports2[25] = "EE_CANT_SYMLINK";
-    exports2[26] = "EE_REALPATH";
-    exports2[27] = "EE_SYNC";
-    exports2[28] = "EE_UNKNOWN_COLLATION";
-    exports2[29] = "EE_FILENOTFOUND";
-    exports2[30] = "EE_FILE_NOT_CLOSED";
-    exports2[31] = "EE_CHANGE_OWNERSHIP";
-    exports2[32] = "EE_CHANGE_PERMISSIONS";
-    exports2[33] = "EE_CANT_SEEK";
-    exports2[34] = "EE_CAPACITY_EXCEEDED";
-    exports2[35] = "EE_DISK_FULL_WITH_RETRY_MSG";
-    exports2[36] = "EE_FAILED_TO_CREATE_TIMER";
-    exports2[37] = "EE_FAILED_TO_DELETE_TIMER";
-    exports2[38] = "EE_FAILED_TO_CREATE_TIMER_QUEUE";
-    exports2[39] = "EE_FAILED_TO_START_TIMER_NOTIFY_THREAD";
-    exports2[40] = "EE_FAILED_TO_CREATE_TIMER_NOTIFY_THREAD_INTERRUPT_EVENT";
-    exports2[41] = "EE_EXITING_TIMER_NOTIFY_THREAD";
-    exports2[42] = "EE_WIN_LIBRARY_LOAD_FAILED";
-    exports2[43] = "EE_WIN_RUN_TIME_ERROR_CHECK";
-    exports2[44] = "EE_FAILED_TO_DETERMINE_LARGE_PAGE_SIZE";
-    exports2[45] = "EE_FAILED_TO_KILL_ALL_THREADS";
-    exports2[46] = "EE_FAILED_TO_CREATE_IO_COMPLETION_PORT";
-    exports2[47] = "EE_FAILED_TO_OPEN_DEFAULTS_FILE";
-    exports2[48] = "EE_FAILED_TO_HANDLE_DEFAULTS_FILE";
-    exports2[49] = "EE_WRONG_DIRECTIVE_IN_CONFIG_FILE";
-    exports2[50] = "EE_SKIPPING_DIRECTIVE_DUE_TO_MAX_INCLUDE_RECURSION";
-    exports2[51] = "EE_INCORRECT_GRP_DEFINITION_IN_CONFIG_FILE";
-    exports2[52] = "EE_OPTION_WITHOUT_GRP_IN_CONFIG_FILE";
-    exports2[53] = "EE_CONFIG_FILE_PERMISSION_ERROR";
-    exports2[54] = "EE_IGNORE_WORLD_WRITABLE_CONFIG_FILE";
-    exports2[55] = "EE_USING_DISABLED_OPTION";
-    exports2[56] = "EE_USING_DISABLED_SHORT_OPTION";
-    exports2[57] = "EE_USING_PASSWORD_ON_CLI_IS_INSECURE";
-    exports2[58] = "EE_UNKNOWN_SUFFIX_FOR_VARIABLE";
-    exports2[59] = "EE_SSL_ERROR_FROM_FILE";
-    exports2[60] = "EE_SSL_ERROR";
-    exports2[61] = "EE_NET_SEND_ERROR_IN_BOOTSTRAP";
-    exports2[62] = "EE_PACKETS_OUT_OF_ORDER";
-    exports2[63] = "EE_UNKNOWN_PROTOCOL_OPTION";
-    exports2[64] = "EE_FAILED_TO_LOCATE_SERVER_PUBLIC_KEY";
-    exports2[65] = "EE_PUBLIC_KEY_NOT_IN_PEM_FORMAT";
-    exports2[66] = "EE_DEBUG_INFO";
-    exports2[67] = "EE_UNKNOWN_VARIABLE";
-    exports2[68] = "EE_UNKNOWN_OPTION";
-    exports2[69] = "EE_UNKNOWN_SHORT_OPTION";
-    exports2[70] = "EE_OPTION_WITHOUT_ARGUMENT";
-    exports2[71] = "EE_OPTION_REQUIRES_ARGUMENT";
-    exports2[72] = "EE_SHORT_OPTION_REQUIRES_ARGUMENT";
-    exports2[73] = "EE_OPTION_IGNORED_DUE_TO_INVALID_VALUE";
-    exports2[74] = "EE_OPTION_WITH_EMPTY_VALUE";
-    exports2[75] = "EE_FAILED_TO_ASSIGN_MAX_VALUE_TO_OPTION";
-    exports2[76] = "EE_INCORRECT_BOOLEAN_VALUE_FOR_OPTION";
-    exports2[77] = "EE_FAILED_TO_SET_OPTION_VALUE";
-    exports2[78] = "EE_INCORRECT_INT_VALUE_FOR_OPTION";
-    exports2[79] = "EE_INCORRECT_UINT_VALUE_FOR_OPTION";
-    exports2[80] = "EE_ADJUSTED_SIGNED_VALUE_FOR_OPTION";
-    exports2[81] = "EE_ADJUSTED_UNSIGNED_VALUE_FOR_OPTION";
-    exports2[82] = "EE_ADJUSTED_ULONGLONG_VALUE_FOR_OPTION";
-    exports2[83] = "EE_ADJUSTED_DOUBLE_VALUE_FOR_OPTION";
-    exports2[84] = "EE_INVALID_DECIMAL_VALUE_FOR_OPTION";
-    exports2[85] = "EE_COLLATION_PARSER_ERROR";
-    exports2[86] = "EE_FAILED_TO_RESET_BEFORE_PRIMARY_IGNORABLE_CHAR";
-    exports2[87] = "EE_FAILED_TO_RESET_BEFORE_TERTIARY_IGNORABLE_CHAR";
-    exports2[88] = "EE_SHIFT_CHAR_OUT_OF_RANGE";
-    exports2[89] = "EE_RESET_CHAR_OUT_OF_RANGE";
-    exports2[90] = "EE_UNKNOWN_LDML_TAG";
-    exports2[91] = "EE_FAILED_TO_RESET_BEFORE_SECONDARY_IGNORABLE_CHAR";
-    exports2[92] = "EE_FAILED_PROCESSING_DIRECTIVE";
-    exports2[93] = "EE_PTHREAD_KILL_FAILED";
-    exports2[120] = "HA_ERR_KEY_NOT_FOUND";
-    exports2[121] = "HA_ERR_FOUND_DUPP_KEY";
-    exports2[122] = "HA_ERR_INTERNAL_ERROR";
-    exports2[123] = "HA_ERR_RECORD_CHANGED";
-    exports2[124] = "HA_ERR_WRONG_INDEX";
-    exports2[125] = "HA_ERR_ROLLED_BACK";
-    exports2[126] = "HA_ERR_CRASHED";
-    exports2[127] = "HA_ERR_WRONG_IN_RECORD";
-    exports2[128] = "HA_ERR_OUT_OF_MEM";
-    exports2[130] = "HA_ERR_NOT_A_TABLE";
-    exports2[131] = "HA_ERR_WRONG_COMMAND";
-    exports2[132] = "HA_ERR_OLD_FILE";
-    exports2[133] = "HA_ERR_NO_ACTIVE_RECORD";
-    exports2[134] = "HA_ERR_RECORD_DELETED";
-    exports2[135] = "HA_ERR_RECORD_FILE_FULL";
-    exports2[136] = "HA_ERR_INDEX_FILE_FULL";
-    exports2[137] = "HA_ERR_END_OF_FILE";
-    exports2[138] = "HA_ERR_UNSUPPORTED";
-    exports2[139] = "HA_ERR_TOO_BIG_ROW";
-    exports2[140] = "HA_WRONG_CREATE_OPTION";
-    exports2[141] = "HA_ERR_FOUND_DUPP_UNIQUE";
-    exports2[142] = "HA_ERR_UNKNOWN_CHARSET";
-    exports2[143] = "HA_ERR_WRONG_MRG_TABLE_DEF";
-    exports2[144] = "HA_ERR_CRASHED_ON_REPAIR";
-    exports2[145] = "HA_ERR_CRASHED_ON_USAGE";
-    exports2[146] = "HA_ERR_LOCK_WAIT_TIMEOUT";
-    exports2[147] = "HA_ERR_LOCK_TABLE_FULL";
-    exports2[148] = "HA_ERR_READ_ONLY_TRANSACTION";
-    exports2[149] = "HA_ERR_LOCK_DEADLOCK";
-    exports2[150] = "HA_ERR_CANNOT_ADD_FOREIGN";
-    exports2[151] = "HA_ERR_NO_REFERENCED_ROW";
-    exports2[152] = "HA_ERR_ROW_IS_REFERENCED";
-    exports2[153] = "HA_ERR_NO_SAVEPOINT";
-    exports2[154] = "HA_ERR_NON_UNIQUE_BLOCK_SIZE";
-    exports2[155] = "HA_ERR_NO_SUCH_TABLE";
-    exports2[156] = "HA_ERR_TABLE_EXIST";
-    exports2[157] = "HA_ERR_NO_CONNECTION";
-    exports2[158] = "HA_ERR_NULL_IN_SPATIAL";
-    exports2[159] = "HA_ERR_TABLE_DEF_CHANGED";
-    exports2[160] = "HA_ERR_NO_PARTITION_FOUND";
-    exports2[161] = "HA_ERR_RBR_LOGGING_FAILED";
-    exports2[162] = "HA_ERR_DROP_INDEX_FK";
-    exports2[163] = "HA_ERR_FOREIGN_DUPLICATE_KEY";
-    exports2[164] = "HA_ERR_TABLE_NEEDS_UPGRADE";
-    exports2[165] = "HA_ERR_TABLE_READONLY";
-    exports2[166] = "HA_ERR_AUTOINC_READ_FAILED";
-    exports2[167] = "HA_ERR_AUTOINC_ERANGE";
-    exports2[168] = "HA_ERR_GENERIC";
-    exports2[169] = "HA_ERR_RECORD_IS_THE_SAME";
-    exports2[170] = "HA_ERR_LOGGING_IMPOSSIBLE";
-    exports2[171] = "HA_ERR_CORRUPT_EVENT";
-    exports2[172] = "HA_ERR_NEW_FILE";
-    exports2[173] = "HA_ERR_ROWS_EVENT_APPLY";
-    exports2[174] = "HA_ERR_INITIALIZATION";
-    exports2[175] = "HA_ERR_FILE_TOO_SHORT";
-    exports2[176] = "HA_ERR_WRONG_CRC";
-    exports2[177] = "HA_ERR_TOO_MANY_CONCURRENT_TRXS";
-    exports2[178] = "HA_ERR_NOT_IN_LOCK_PARTITIONS";
-    exports2[179] = "HA_ERR_INDEX_COL_TOO_LONG";
-    exports2[180] = "HA_ERR_INDEX_CORRUPT";
-    exports2[181] = "HA_ERR_UNDO_REC_TOO_BIG";
-    exports2[182] = "HA_FTS_INVALID_DOCID";
-    exports2[183] = "HA_ERR_TABLE_IN_FK_CHECK";
-    exports2[184] = "HA_ERR_TABLESPACE_EXISTS";
-    exports2[185] = "HA_ERR_TOO_MANY_FIELDS";
-    exports2[186] = "HA_ERR_ROW_IN_WRONG_PARTITION";
-    exports2[187] = "HA_ERR_INNODB_READ_ONLY";
-    exports2[188] = "HA_ERR_FTS_EXCEED_RESULT_CACHE_LIMIT";
-    exports2[189] = "HA_ERR_TEMP_FILE_WRITE_FAILURE";
-    exports2[190] = "HA_ERR_INNODB_FORCED_RECOVERY";
-    exports2[191] = "HA_ERR_FTS_TOO_MANY_WORDS_IN_PHRASE";
-    exports2[192] = "HA_ERR_FK_DEPTH_EXCEEDED";
-    exports2[193] = "HA_MISSING_CREATE_OPTION";
-    exports2[194] = "HA_ERR_SE_OUT_OF_MEMORY";
-    exports2[195] = "HA_ERR_TABLE_CORRUPT";
-    exports2[196] = "HA_ERR_QUERY_INTERRUPTED";
-    exports2[197] = "HA_ERR_TABLESPACE_MISSING";
-    exports2[198] = "HA_ERR_TABLESPACE_IS_NOT_EMPTY";
-    exports2[199] = "HA_ERR_WRONG_FILE_NAME";
-    exports2[200] = "HA_ERR_NOT_ALLOWED_COMMAND";
-    exports2[201] = "HA_ERR_COMPUTE_FAILED";
-    exports2[202] = "HA_ERR_ROW_FORMAT_CHANGED";
-    exports2[203] = "HA_ERR_NO_WAIT_LOCK";
-    exports2[204] = "HA_ERR_DISK_FULL_NOWAIT";
-    exports2[205] = "HA_ERR_NO_SESSION_TEMP";
-    exports2[206] = "HA_ERR_WRONG_TABLE_NAME";
-    exports2[207] = "HA_ERR_TOO_LONG_PATH";
-    exports2[208] = "HA_ERR_SAMPLING_INIT_FAILED";
-    exports2[209] = "HA_ERR_FTS_TOO_MANY_NESTED_EXP";
-    exports2[1e3] = "ER_HASHCHK";
-    exports2[1001] = "ER_NISAMCHK";
-    exports2[1002] = "ER_NO";
-    exports2[1003] = "ER_YES";
-    exports2[1004] = "ER_CANT_CREATE_FILE";
-    exports2[1005] = "ER_CANT_CREATE_TABLE";
-    exports2[1006] = "ER_CANT_CREATE_DB";
-    exports2[1007] = "ER_DB_CREATE_EXISTS";
-    exports2[1008] = "ER_DB_DROP_EXISTS";
-    exports2[1009] = "ER_DB_DROP_DELETE";
-    exports2[1010] = "ER_DB_DROP_RMDIR";
-    exports2[1011] = "ER_CANT_DELETE_FILE";
-    exports2[1012] = "ER_CANT_FIND_SYSTEM_REC";
-    exports2[1013] = "ER_CANT_GET_STAT";
-    exports2[1014] = "ER_CANT_GET_WD";
-    exports2[1015] = "ER_CANT_LOCK";
-    exports2[1016] = "ER_CANT_OPEN_FILE";
-    exports2[1017] = "ER_FILE_NOT_FOUND";
-    exports2[1018] = "ER_CANT_READ_DIR";
-    exports2[1019] = "ER_CANT_SET_WD";
-    exports2[1020] = "ER_CHECKREAD";
-    exports2[1021] = "ER_DISK_FULL";
-    exports2[1022] = "ER_DUP_KEY";
-    exports2[1023] = "ER_ERROR_ON_CLOSE";
-    exports2[1024] = "ER_ERROR_ON_READ";
-    exports2[1025] = "ER_ERROR_ON_RENAME";
-    exports2[1026] = "ER_ERROR_ON_WRITE";
-    exports2[1027] = "ER_FILE_USED";
-    exports2[1028] = "ER_FILSORT_ABORT";
-    exports2[1029] = "ER_FORM_NOT_FOUND";
-    exports2[1030] = "ER_GET_ERRNO";
-    exports2[1031] = "ER_ILLEGAL_HA";
-    exports2[1032] = "ER_KEY_NOT_FOUND";
-    exports2[1033] = "ER_NOT_FORM_FILE";
-    exports2[1034] = "ER_NOT_KEYFILE";
-    exports2[1035] = "ER_OLD_KEYFILE";
-    exports2[1036] = "ER_OPEN_AS_READONLY";
-    exports2[1037] = "ER_OUTOFMEMORY";
-    exports2[1038] = "ER_OUT_OF_SORTMEMORY";
-    exports2[1039] = "ER_UNEXPECTED_EOF";
-    exports2[1040] = "ER_CON_COUNT_ERROR";
-    exports2[1041] = "ER_OUT_OF_RESOURCES";
-    exports2[1042] = "ER_BAD_HOST_ERROR";
-    exports2[1043] = "ER_HANDSHAKE_ERROR";
-    exports2[1044] = "ER_DBACCESS_DENIED_ERROR";
-    exports2[1045] = "ER_ACCESS_DENIED_ERROR";
-    exports2[1046] = "ER_NO_DB_ERROR";
-    exports2[1047] = "ER_UNKNOWN_COM_ERROR";
-    exports2[1048] = "ER_BAD_NULL_ERROR";
-    exports2[1049] = "ER_BAD_DB_ERROR";
-    exports2[1050] = "ER_TABLE_EXISTS_ERROR";
-    exports2[1051] = "ER_BAD_TABLE_ERROR";
-    exports2[1052] = "ER_NON_UNIQ_ERROR";
-    exports2[1053] = "ER_SERVER_SHUTDOWN";
-    exports2[1054] = "ER_BAD_FIELD_ERROR";
-    exports2[1055] = "ER_WRONG_FIELD_WITH_GROUP";
-    exports2[1056] = "ER_WRONG_GROUP_FIELD";
-    exports2[1057] = "ER_WRONG_SUM_SELECT";
-    exports2[1058] = "ER_WRONG_VALUE_COUNT";
-    exports2[1059] = "ER_TOO_LONG_IDENT";
-    exports2[1060] = "ER_DUP_FIELDNAME";
-    exports2[1061] = "ER_DUP_KEYNAME";
-    exports2[1062] = "ER_DUP_ENTRY";
-    exports2[1063] = "ER_WRONG_FIELD_SPEC";
-    exports2[1064] = "ER_PARSE_ERROR";
-    exports2[1065] = "ER_EMPTY_QUERY";
-    exports2[1066] = "ER_NONUNIQ_TABLE";
-    exports2[1067] = "ER_INVALID_DEFAULT";
-    exports2[1068] = "ER_MULTIPLE_PRI_KEY";
-    exports2[1069] = "ER_TOO_MANY_KEYS";
-    exports2[1070] = "ER_TOO_MANY_KEY_PARTS";
-    exports2[1071] = "ER_TOO_LONG_KEY";
-    exports2[1072] = "ER_KEY_COLUMN_DOES_NOT_EXITS";
-    exports2[1073] = "ER_BLOB_USED_AS_KEY";
-    exports2[1074] = "ER_TOO_BIG_FIELDLENGTH";
-    exports2[1075] = "ER_WRONG_AUTO_KEY";
-    exports2[1076] = "ER_READY";
-    exports2[1077] = "ER_NORMAL_SHUTDOWN";
-    exports2[1078] = "ER_GOT_SIGNAL";
-    exports2[1079] = "ER_SHUTDOWN_COMPLETE";
-    exports2[1080] = "ER_FORCING_CLOSE";
-    exports2[1081] = "ER_IPSOCK_ERROR";
-    exports2[1082] = "ER_NO_SUCH_INDEX";
-    exports2[1083] = "ER_WRONG_FIELD_TERMINATORS";
-    exports2[1084] = "ER_BLOBS_AND_NO_TERMINATED";
-    exports2[1085] = "ER_TEXTFILE_NOT_READABLE";
-    exports2[1086] = "ER_FILE_EXISTS_ERROR";
-    exports2[1087] = "ER_LOAD_INFO";
-    exports2[1088] = "ER_ALTER_INFO";
-    exports2[1089] = "ER_WRONG_SUB_KEY";
-    exports2[1090] = "ER_CANT_REMOVE_ALL_FIELDS";
-    exports2[1091] = "ER_CANT_DROP_FIELD_OR_KEY";
-    exports2[1092] = "ER_INSERT_INFO";
-    exports2[1093] = "ER_UPDATE_TABLE_USED";
-    exports2[1094] = "ER_NO_SUCH_THREAD";
-    exports2[1095] = "ER_KILL_DENIED_ERROR";
-    exports2[1096] = "ER_NO_TABLES_USED";
-    exports2[1097] = "ER_TOO_BIG_SET";
-    exports2[1098] = "ER_NO_UNIQUE_LOGFILE";
-    exports2[1099] = "ER_TABLE_NOT_LOCKED_FOR_WRITE";
-    exports2[1100] = "ER_TABLE_NOT_LOCKED";
-    exports2[1101] = "ER_BLOB_CANT_HAVE_DEFAULT";
-    exports2[1102] = "ER_WRONG_DB_NAME";
-    exports2[1103] = "ER_WRONG_TABLE_NAME";
-    exports2[1104] = "ER_TOO_BIG_SELECT";
-    exports2[1105] = "ER_UNKNOWN_ERROR";
-    exports2[1106] = "ER_UNKNOWN_PROCEDURE";
-    exports2[1107] = "ER_WRONG_PARAMCOUNT_TO_PROCEDURE";
-    exports2[1108] = "ER_WRONG_PARAMETERS_TO_PROCEDURE";
-    exports2[1109] = "ER_UNKNOWN_TABLE";
-    exports2[1110] = "ER_FIELD_SPECIFIED_TWICE";
-    exports2[1111] = "ER_INVALID_GROUP_FUNC_USE";
-    exports2[1112] = "ER_UNSUPPORTED_EXTENSION";
-    exports2[1113] = "ER_TABLE_MUST_HAVE_COLUMNS";
-    exports2[1114] = "ER_RECORD_FILE_FULL";
-    exports2[1115] = "ER_UNKNOWN_CHARACTER_SET";
-    exports2[1116] = "ER_TOO_MANY_TABLES";
-    exports2[1117] = "ER_TOO_MANY_FIELDS";
-    exports2[1118] = "ER_TOO_BIG_ROWSIZE";
-    exports2[1119] = "ER_STACK_OVERRUN";
-    exports2[1120] = "ER_WRONG_OUTER_JOIN";
-    exports2[1121] = "ER_NULL_COLUMN_IN_INDEX";
-    exports2[1122] = "ER_CANT_FIND_UDF";
-    exports2[1123] = "ER_CANT_INITIALIZE_UDF";
-    exports2[1124] = "ER_UDF_NO_PATHS";
-    exports2[1125] = "ER_UDF_EXISTS";
-    exports2[1126] = "ER_CANT_OPEN_LIBRARY";
-    exports2[1127] = "ER_CANT_FIND_DL_ENTRY";
-    exports2[1128] = "ER_FUNCTION_NOT_DEFINED";
-    exports2[1129] = "ER_HOST_IS_BLOCKED";
-    exports2[1130] = "ER_HOST_NOT_PRIVILEGED";
-    exports2[1131] = "ER_PASSWORD_ANONYMOUS_USER";
-    exports2[1132] = "ER_PASSWORD_NOT_ALLOWED";
-    exports2[1133] = "ER_PASSWORD_NO_MATCH";
-    exports2[1134] = "ER_UPDATE_INFO";
-    exports2[1135] = "ER_CANT_CREATE_THREAD";
-    exports2[1136] = "ER_WRONG_VALUE_COUNT_ON_ROW";
-    exports2[1137] = "ER_CANT_REOPEN_TABLE";
-    exports2[1138] = "ER_INVALID_USE_OF_NULL";
-    exports2[1139] = "ER_REGEXP_ERROR";
-    exports2[1140] = "ER_MIX_OF_GROUP_FUNC_AND_FIELDS";
-    exports2[1141] = "ER_NONEXISTING_GRANT";
-    exports2[1142] = "ER_TABLEACCESS_DENIED_ERROR";
-    exports2[1143] = "ER_COLUMNACCESS_DENIED_ERROR";
-    exports2[1144] = "ER_ILLEGAL_GRANT_FOR_TABLE";
-    exports2[1145] = "ER_GRANT_WRONG_HOST_OR_USER";
-    exports2[1146] = "ER_NO_SUCH_TABLE";
-    exports2[1147] = "ER_NONEXISTING_TABLE_GRANT";
-    exports2[1148] = "ER_NOT_ALLOWED_COMMAND";
-    exports2[1149] = "ER_SYNTAX_ERROR";
-    exports2[1150] = "ER_UNUSED1";
-    exports2[1151] = "ER_UNUSED2";
-    exports2[1152] = "ER_ABORTING_CONNECTION";
-    exports2[1153] = "ER_NET_PACKET_TOO_LARGE";
-    exports2[1154] = "ER_NET_READ_ERROR_FROM_PIPE";
-    exports2[1155] = "ER_NET_FCNTL_ERROR";
-    exports2[1156] = "ER_NET_PACKETS_OUT_OF_ORDER";
-    exports2[1157] = "ER_NET_UNCOMPRESS_ERROR";
-    exports2[1158] = "ER_NET_READ_ERROR";
-    exports2[1159] = "ER_NET_READ_INTERRUPTED";
-    exports2[1160] = "ER_NET_ERROR_ON_WRITE";
-    exports2[1161] = "ER_NET_WRITE_INTERRUPTED";
-    exports2[1162] = "ER_TOO_LONG_STRING";
-    exports2[1163] = "ER_TABLE_CANT_HANDLE_BLOB";
-    exports2[1164] = "ER_TABLE_CANT_HANDLE_AUTO_INCREMENT";
-    exports2[1165] = "ER_UNUSED3";
-    exports2[1166] = "ER_WRONG_COLUMN_NAME";
-    exports2[1167] = "ER_WRONG_KEY_COLUMN";
-    exports2[1168] = "ER_WRONG_MRG_TABLE";
-    exports2[1169] = "ER_DUP_UNIQUE";
-    exports2[1170] = "ER_BLOB_KEY_WITHOUT_LENGTH";
-    exports2[1171] = "ER_PRIMARY_CANT_HAVE_NULL";
-    exports2[1172] = "ER_TOO_MANY_ROWS";
-    exports2[1173] = "ER_REQUIRES_PRIMARY_KEY";
-    exports2[1174] = "ER_NO_RAID_COMPILED";
-    exports2[1175] = "ER_UPDATE_WITHOUT_KEY_IN_SAFE_MODE";
-    exports2[1176] = "ER_KEY_DOES_NOT_EXITS";
-    exports2[1177] = "ER_CHECK_NO_SUCH_TABLE";
-    exports2[1178] = "ER_CHECK_NOT_IMPLEMENTED";
-    exports2[1179] = "ER_CANT_DO_THIS_DURING_AN_TRANSACTION";
-    exports2[1180] = "ER_ERROR_DURING_COMMIT";
-    exports2[1181] = "ER_ERROR_DURING_ROLLBACK";
-    exports2[1182] = "ER_ERROR_DURING_FLUSH_LOGS";
-    exports2[1183] = "ER_ERROR_DURING_CHECKPOINT";
-    exports2[1184] = "ER_NEW_ABORTING_CONNECTION";
-    exports2[1185] = "ER_DUMP_NOT_IMPLEMENTED";
-    exports2[1186] = "ER_FLUSH_MASTER_BINLOG_CLOSED";
-    exports2[1187] = "ER_INDEX_REBUILD";
-    exports2[1188] = "ER_SOURCE";
-    exports2[1189] = "ER_SOURCE_NET_READ";
-    exports2[1190] = "ER_SOURCE_NET_WRITE";
-    exports2[1191] = "ER_FT_MATCHING_KEY_NOT_FOUND";
-    exports2[1192] = "ER_LOCK_OR_ACTIVE_TRANSACTION";
-    exports2[1193] = "ER_UNKNOWN_SYSTEM_VARIABLE";
-    exports2[1194] = "ER_CRASHED_ON_USAGE";
-    exports2[1195] = "ER_CRASHED_ON_REPAIR";
-    exports2[1196] = "ER_WARNING_NOT_COMPLETE_ROLLBACK";
-    exports2[1197] = "ER_TRANS_CACHE_FULL";
-    exports2[1198] = "ER_SLAVE_MUST_STOP";
-    exports2[1199] = "ER_REPLICA_NOT_RUNNING";
-    exports2[1200] = "ER_BAD_REPLICA";
-    exports2[1201] = "ER_CONNECTION_METADATA";
-    exports2[1202] = "ER_REPLICA_THREAD";
-    exports2[1203] = "ER_TOO_MANY_USER_CONNECTIONS";
-    exports2[1204] = "ER_SET_CONSTANTS_ONLY";
-    exports2[1205] = "ER_LOCK_WAIT_TIMEOUT";
-    exports2[1206] = "ER_LOCK_TABLE_FULL";
-    exports2[1207] = "ER_READ_ONLY_TRANSACTION";
-    exports2[1208] = "ER_DROP_DB_WITH_READ_LOCK";
-    exports2[1209] = "ER_CREATE_DB_WITH_READ_LOCK";
-    exports2[1210] = "ER_WRONG_ARGUMENTS";
-    exports2[1211] = "ER_NO_PERMISSION_TO_CREATE_USER";
-    exports2[1212] = "ER_UNION_TABLES_IN_DIFFERENT_DIR";
-    exports2[1213] = "ER_LOCK_DEADLOCK";
-    exports2[1214] = "ER_TABLE_CANT_HANDLE_FT";
-    exports2[1215] = "ER_CANNOT_ADD_FOREIGN";
-    exports2[1216] = "ER_NO_REFERENCED_ROW";
-    exports2[1217] = "ER_ROW_IS_REFERENCED";
-    exports2[1218] = "ER_CONNECT_TO_SOURCE";
-    exports2[1219] = "ER_QUERY_ON_MASTER";
-    exports2[1220] = "ER_ERROR_WHEN_EXECUTING_COMMAND";
-    exports2[1221] = "ER_WRONG_USAGE";
-    exports2[1222] = "ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT";
-    exports2[1223] = "ER_CANT_UPDATE_WITH_READLOCK";
-    exports2[1224] = "ER_MIXING_NOT_ALLOWED";
-    exports2[1225] = "ER_DUP_ARGUMENT";
-    exports2[1226] = "ER_USER_LIMIT_REACHED";
-    exports2[1227] = "ER_SPECIFIC_ACCESS_DENIED_ERROR";
-    exports2[1228] = "ER_LOCAL_VARIABLE";
-    exports2[1229] = "ER_GLOBAL_VARIABLE";
-    exports2[1230] = "ER_NO_DEFAULT";
-    exports2[1231] = "ER_WRONG_VALUE_FOR_VAR";
-    exports2[1232] = "ER_WRONG_TYPE_FOR_VAR";
-    exports2[1233] = "ER_VAR_CANT_BE_READ";
-    exports2[1234] = "ER_CANT_USE_OPTION_HERE";
-    exports2[1235] = "ER_NOT_SUPPORTED_YET";
-    exports2[1236] = "ER_SOURCE_FATAL_ERROR_READING_BINLOG";
-    exports2[1237] = "ER_REPLICA_IGNORED_TABLE";
-    exports2[1238] = "ER_INCORRECT_GLOBAL_LOCAL_VAR";
-    exports2[1239] = "ER_WRONG_FK_DEF";
-    exports2[1240] = "ER_KEY_REF_DO_NOT_MATCH_TABLE_REF";
-    exports2[1241] = "ER_OPERAND_COLUMNS";
-    exports2[1242] = "ER_SUBQUERY_NO_1_ROW";
-    exports2[1243] = "ER_UNKNOWN_STMT_HANDLER";
-    exports2[1244] = "ER_CORRUPT_HELP_DB";
-    exports2[1245] = "ER_CYCLIC_REFERENCE";
-    exports2[1246] = "ER_AUTO_CONVERT";
-    exports2[1247] = "ER_ILLEGAL_REFERENCE";
-    exports2[1248] = "ER_DERIVED_MUST_HAVE_ALIAS";
-    exports2[1249] = "ER_SELECT_REDUCED";
-    exports2[1250] = "ER_TABLENAME_NOT_ALLOWED_HERE";
-    exports2[1251] = "ER_NOT_SUPPORTED_AUTH_MODE";
-    exports2[1252] = "ER_SPATIAL_CANT_HAVE_NULL";
-    exports2[1253] = "ER_COLLATION_CHARSET_MISMATCH";
-    exports2[1254] = "ER_SLAVE_WAS_RUNNING";
-    exports2[1255] = "ER_SLAVE_WAS_NOT_RUNNING";
-    exports2[1256] = "ER_TOO_BIG_FOR_UNCOMPRESS";
-    exports2[1257] = "ER_ZLIB_Z_MEM_ERROR";
-    exports2[1258] = "ER_ZLIB_Z_BUF_ERROR";
-    exports2[1259] = "ER_ZLIB_Z_DATA_ERROR";
-    exports2[1260] = "ER_CUT_VALUE_GROUP_CONCAT";
-    exports2[1261] = "ER_WARN_TOO_FEW_RECORDS";
-    exports2[1262] = "ER_WARN_TOO_MANY_RECORDS";
-    exports2[1263] = "ER_WARN_NULL_TO_NOTNULL";
-    exports2[1264] = "ER_WARN_DATA_OUT_OF_RANGE";
-    exports2[1265] = "WARN_DATA_TRUNCATED";
-    exports2[1266] = "ER_WARN_USING_OTHER_HANDLER";
-    exports2[1267] = "ER_CANT_AGGREGATE_2COLLATIONS";
-    exports2[1268] = "ER_DROP_USER";
-    exports2[1269] = "ER_REVOKE_GRANTS";
-    exports2[1270] = "ER_CANT_AGGREGATE_3COLLATIONS";
-    exports2[1271] = "ER_CANT_AGGREGATE_NCOLLATIONS";
-    exports2[1272] = "ER_VARIABLE_IS_NOT_STRUCT";
-    exports2[1273] = "ER_UNKNOWN_COLLATION";
-    exports2[1274] = "ER_REPLICA_IGNORED_SSL_PARAMS";
-    exports2[1275] = "ER_SERVER_IS_IN_SECURE_AUTH_MODE";
-    exports2[1276] = "ER_WARN_FIELD_RESOLVED";
-    exports2[1277] = "ER_BAD_REPLICA_UNTIL_COND";
-    exports2[1278] = "ER_MISSING_SKIP_REPLICA";
-    exports2[1279] = "ER_UNTIL_COND_IGNORED";
-    exports2[1280] = "ER_WRONG_NAME_FOR_INDEX";
-    exports2[1281] = "ER_WRONG_NAME_FOR_CATALOG";
-    exports2[1282] = "ER_WARN_QC_RESIZE";
-    exports2[1283] = "ER_BAD_FT_COLUMN";
-    exports2[1284] = "ER_UNKNOWN_KEY_CACHE";
-    exports2[1285] = "ER_WARN_HOSTNAME_WONT_WORK";
-    exports2[1286] = "ER_UNKNOWN_STORAGE_ENGINE";
-    exports2[1287] = "ER_WARN_DEPRECATED_SYNTAX";
-    exports2[1288] = "ER_NON_UPDATABLE_TABLE";
-    exports2[1289] = "ER_FEATURE_DISABLED";
-    exports2[1290] = "ER_OPTION_PREVENTS_STATEMENT";
-    exports2[1291] = "ER_DUPLICATED_VALUE_IN_TYPE";
-    exports2[1292] = "ER_TRUNCATED_WRONG_VALUE";
-    exports2[1293] = "ER_TOO_MUCH_AUTO_TIMESTAMP_COLS";
-    exports2[1294] = "ER_INVALID_ON_UPDATE";
-    exports2[1295] = "ER_UNSUPPORTED_PS";
-    exports2[1296] = "ER_GET_ERRMSG";
-    exports2[1297] = "ER_GET_TEMPORARY_ERRMSG";
-    exports2[1298] = "ER_UNKNOWN_TIME_ZONE";
-    exports2[1299] = "ER_WARN_INVALID_TIMESTAMP";
-    exports2[1300] = "ER_INVALID_CHARACTER_STRING";
-    exports2[1301] = "ER_WARN_ALLOWED_PACKET_OVERFLOWED";
-    exports2[1302] = "ER_CONFLICTING_DECLARATIONS";
-    exports2[1303] = "ER_SP_NO_RECURSIVE_CREATE";
-    exports2[1304] = "ER_SP_ALREADY_EXISTS";
-    exports2[1305] = "ER_SP_DOES_NOT_EXIST";
-    exports2[1306] = "ER_SP_DROP_FAILED";
-    exports2[1307] = "ER_SP_STORE_FAILED";
-    exports2[1308] = "ER_SP_LILABEL_MISMATCH";
-    exports2[1309] = "ER_SP_LABEL_REDEFINE";
-    exports2[1310] = "ER_SP_LABEL_MISMATCH";
-    exports2[1311] = "ER_SP_UNINIT_VAR";
-    exports2[1312] = "ER_SP_BADSELECT";
-    exports2[1313] = "ER_SP_BADRETURN";
-    exports2[1314] = "ER_SP_BADSTATEMENT";
-    exports2[1315] = "ER_UPDATE_LOG_DEPRECATED_IGNORED";
-    exports2[1316] = "ER_UPDATE_LOG_DEPRECATED_TRANSLATED";
-    exports2[1317] = "ER_QUERY_INTERRUPTED";
-    exports2[1318] = "ER_SP_WRONG_NO_OF_ARGS";
-    exports2[1319] = "ER_SP_COND_MISMATCH";
-    exports2[1320] = "ER_SP_NORETURN";
-    exports2[1321] = "ER_SP_NORETURNEND";
-    exports2[1322] = "ER_SP_BAD_CURSOR_QUERY";
-    exports2[1323] = "ER_SP_BAD_CURSOR_SELECT";
-    exports2[1324] = "ER_SP_CURSOR_MISMATCH";
-    exports2[1325] = "ER_SP_CURSOR_ALREADY_OPEN";
-    exports2[1326] = "ER_SP_CURSOR_NOT_OPEN";
-    exports2[1327] = "ER_SP_UNDECLARED_VAR";
-    exports2[1328] = "ER_SP_WRONG_NO_OF_FETCH_ARGS";
-    exports2[1329] = "ER_SP_FETCH_NO_DATA";
-    exports2[1330] = "ER_SP_DUP_PARAM";
-    exports2[1331] = "ER_SP_DUP_VAR";
-    exports2[1332] = "ER_SP_DUP_COND";
-    exports2[1333] = "ER_SP_DUP_CURS";
-    exports2[1334] = "ER_SP_CANT_ALTER";
-    exports2[1335] = "ER_SP_SUBSELECT_NYI";
-    exports2[1336] = "ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG";
-    exports2[1337] = "ER_SP_VARCOND_AFTER_CURSHNDLR";
-    exports2[1338] = "ER_SP_CURSOR_AFTER_HANDLER";
-    exports2[1339] = "ER_SP_CASE_NOT_FOUND";
-    exports2[1340] = "ER_FPARSER_TOO_BIG_FILE";
-    exports2[1341] = "ER_FPARSER_BAD_HEADER";
-    exports2[1342] = "ER_FPARSER_EOF_IN_COMMENT";
-    exports2[1343] = "ER_FPARSER_ERROR_IN_PARAMETER";
-    exports2[1344] = "ER_FPARSER_EOF_IN_UNKNOWN_PARAMETER";
-    exports2[1345] = "ER_VIEW_NO_EXPLAIN";
-    exports2[1346] = "ER_FRM_UNKNOWN_TYPE";
-    exports2[1347] = "ER_WRONG_OBJECT";
-    exports2[1348] = "ER_NONUPDATEABLE_COLUMN";
-    exports2[1349] = "ER_VIEW_SELECT_DERIVED";
-    exports2[1350] = "ER_VIEW_SELECT_CLAUSE";
-    exports2[1351] = "ER_VIEW_SELECT_VARIABLE";
-    exports2[1352] = "ER_VIEW_SELECT_TMPTABLE";
-    exports2[1353] = "ER_VIEW_WRONG_LIST";
-    exports2[1354] = "ER_WARN_VIEW_MERGE";
-    exports2[1355] = "ER_WARN_VIEW_WITHOUT_KEY";
-    exports2[1356] = "ER_VIEW_INVALID";
-    exports2[1357] = "ER_SP_NO_DROP_SP";
-    exports2[1358] = "ER_SP_GOTO_IN_HNDLR";
-    exports2[1359] = "ER_TRG_ALREADY_EXISTS";
-    exports2[1360] = "ER_TRG_DOES_NOT_EXIST";
-    exports2[1361] = "ER_TRG_ON_VIEW_OR_TEMP_TABLE";
-    exports2[1362] = "ER_TRG_CANT_CHANGE_ROW";
-    exports2[1363] = "ER_TRG_NO_SUCH_ROW_IN_TRG";
-    exports2[1364] = "ER_NO_DEFAULT_FOR_FIELD";
-    exports2[1365] = "ER_DIVISION_BY_ZERO";
-    exports2[1366] = "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD";
-    exports2[1367] = "ER_ILLEGAL_VALUE_FOR_TYPE";
-    exports2[1368] = "ER_VIEW_NONUPD_CHECK";
-    exports2[1369] = "ER_VIEW_CHECK_FAILED";
-    exports2[1370] = "ER_PROCACCESS_DENIED_ERROR";
-    exports2[1371] = "ER_RELAY_LOG_FAIL";
-    exports2[1372] = "ER_PASSWD_LENGTH";
-    exports2[1373] = "ER_UNKNOWN_TARGET_BINLOG";
-    exports2[1374] = "ER_IO_ERR_LOG_INDEX_READ";
-    exports2[1375] = "ER_BINLOG_PURGE_PROHIBITED";
-    exports2[1376] = "ER_FSEEK_FAIL";
-    exports2[1377] = "ER_BINLOG_PURGE_FATAL_ERR";
-    exports2[1378] = "ER_LOG_IN_USE";
-    exports2[1379] = "ER_LOG_PURGE_UNKNOWN_ERR";
-    exports2[1380] = "ER_RELAY_LOG_INIT";
-    exports2[1381] = "ER_NO_BINARY_LOGGING";
-    exports2[1382] = "ER_RESERVED_SYNTAX";
-    exports2[1383] = "ER_WSAS_FAILED";
-    exports2[1384] = "ER_DIFF_GROUPS_PROC";
-    exports2[1385] = "ER_NO_GROUP_FOR_PROC";
-    exports2[1386] = "ER_ORDER_WITH_PROC";
-    exports2[1387] = "ER_LOGGING_PROHIBIT_CHANGING_OF";
-    exports2[1388] = "ER_NO_FILE_MAPPING";
-    exports2[1389] = "ER_WRONG_MAGIC";
-    exports2[1390] = "ER_PS_MANY_PARAM";
-    exports2[1391] = "ER_KEY_PART_0";
-    exports2[1392] = "ER_VIEW_CHECKSUM";
-    exports2[1393] = "ER_VIEW_MULTIUPDATE";
-    exports2[1394] = "ER_VIEW_NO_INSERT_FIELD_LIST";
-    exports2[1395] = "ER_VIEW_DELETE_MERGE_VIEW";
-    exports2[1396] = "ER_CANNOT_USER";
-    exports2[1397] = "ER_XAER_NOTA";
-    exports2[1398] = "ER_XAER_INVAL";
-    exports2[1399] = "ER_XAER_RMFAIL";
-    exports2[1400] = "ER_XAER_OUTSIDE";
-    exports2[1401] = "ER_XAER_RMERR";
-    exports2[1402] = "ER_XA_RBROLLBACK";
-    exports2[1403] = "ER_NONEXISTING_PROC_GRANT";
-    exports2[1404] = "ER_PROC_AUTO_GRANT_FAIL";
-    exports2[1405] = "ER_PROC_AUTO_REVOKE_FAIL";
-    exports2[1406] = "ER_DATA_TOO_LONG";
-    exports2[1407] = "ER_SP_BAD_SQLSTATE";
-    exports2[1408] = "ER_STARTUP";
-    exports2[1409] = "ER_LOAD_FROM_FIXED_SIZE_ROWS_TO_VAR";
-    exports2[1410] = "ER_CANT_CREATE_USER_WITH_GRANT";
-    exports2[1411] = "ER_WRONG_VALUE_FOR_TYPE";
-    exports2[1412] = "ER_TABLE_DEF_CHANGED";
-    exports2[1413] = "ER_SP_DUP_HANDLER";
-    exports2[1414] = "ER_SP_NOT_VAR_ARG";
-    exports2[1415] = "ER_SP_NO_RETSET";
-    exports2[1416] = "ER_CANT_CREATE_GEOMETRY_OBJECT";
-    exports2[1417] = "ER_FAILED_ROUTINE_BREAK_BINLOG";
-    exports2[1418] = "ER_BINLOG_UNSAFE_ROUTINE";
-    exports2[1419] = "ER_BINLOG_CREATE_ROUTINE_NEED_SUPER";
-    exports2[1420] = "ER_EXEC_STMT_WITH_OPEN_CURSOR";
-    exports2[1421] = "ER_STMT_HAS_NO_OPEN_CURSOR";
-    exports2[1422] = "ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG";
-    exports2[1423] = "ER_NO_DEFAULT_FOR_VIEW_FIELD";
-    exports2[1424] = "ER_SP_NO_RECURSION";
-    exports2[1425] = "ER_TOO_BIG_SCALE";
-    exports2[1426] = "ER_TOO_BIG_PRECISION";
-    exports2[1427] = "ER_M_BIGGER_THAN_D";
-    exports2[1428] = "ER_WRONG_LOCK_OF_SYSTEM_TABLE";
-    exports2[1429] = "ER_CONNECT_TO_FOREIGN_DATA_SOURCE";
-    exports2[1430] = "ER_QUERY_ON_FOREIGN_DATA_SOURCE";
-    exports2[1431] = "ER_FOREIGN_DATA_SOURCE_DOESNT_EXIST";
-    exports2[1432] = "ER_FOREIGN_DATA_STRING_INVALID_CANT_CREATE";
-    exports2[1433] = "ER_FOREIGN_DATA_STRING_INVALID";
-    exports2[1434] = "ER_CANT_CREATE_FEDERATED_TABLE";
-    exports2[1435] = "ER_TRG_IN_WRONG_SCHEMA";
-    exports2[1436] = "ER_STACK_OVERRUN_NEED_MORE";
-    exports2[1437] = "ER_TOO_LONG_BODY";
-    exports2[1438] = "ER_WARN_CANT_DROP_DEFAULT_KEYCACHE";
-    exports2[1439] = "ER_TOO_BIG_DISPLAYWIDTH";
-    exports2[1440] = "ER_XAER_DUPID";
-    exports2[1441] = "ER_DATETIME_FUNCTION_OVERFLOW";
-    exports2[1442] = "ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG";
-    exports2[1443] = "ER_VIEW_PREVENT_UPDATE";
-    exports2[1444] = "ER_PS_NO_RECURSION";
-    exports2[1445] = "ER_SP_CANT_SET_AUTOCOMMIT";
-    exports2[1446] = "ER_MALFORMED_DEFINER";
-    exports2[1447] = "ER_VIEW_FRM_NO_USER";
-    exports2[1448] = "ER_VIEW_OTHER_USER";
-    exports2[1449] = "ER_NO_SUCH_USER";
-    exports2[1450] = "ER_FORBID_SCHEMA_CHANGE";
-    exports2[1451] = "ER_ROW_IS_REFERENCED_2";
-    exports2[1452] = "ER_NO_REFERENCED_ROW_2";
-    exports2[1453] = "ER_SP_BAD_VAR_SHADOW";
-    exports2[1454] = "ER_TRG_NO_DEFINER";
-    exports2[1455] = "ER_OLD_FILE_FORMAT";
-    exports2[1456] = "ER_SP_RECURSION_LIMIT";
-    exports2[1457] = "ER_SP_PROC_TABLE_CORRUPT";
-    exports2[1458] = "ER_SP_WRONG_NAME";
-    exports2[1459] = "ER_TABLE_NEEDS_UPGRADE";
-    exports2[1460] = "ER_SP_NO_AGGREGATE";
-    exports2[1461] = "ER_MAX_PREPARED_STMT_COUNT_REACHED";
-    exports2[1462] = "ER_VIEW_RECURSIVE";
-    exports2[1463] = "ER_NON_GROUPING_FIELD_USED";
-    exports2[1464] = "ER_TABLE_CANT_HANDLE_SPKEYS";
-    exports2[1465] = "ER_NO_TRIGGERS_ON_SYSTEM_SCHEMA";
-    exports2[1466] = "ER_REMOVED_SPACES";
-    exports2[1467] = "ER_AUTOINC_READ_FAILED";
-    exports2[1468] = "ER_USERNAME";
-    exports2[1469] = "ER_HOSTNAME";
-    exports2[1470] = "ER_WRONG_STRING_LENGTH";
-    exports2[1471] = "ER_NON_INSERTABLE_TABLE";
-    exports2[1472] = "ER_ADMIN_WRONG_MRG_TABLE";
-    exports2[1473] = "ER_TOO_HIGH_LEVEL_OF_NESTING_FOR_SELECT";
-    exports2[1474] = "ER_NAME_BECOMES_EMPTY";
-    exports2[1475] = "ER_AMBIGUOUS_FIELD_TERM";
-    exports2[1476] = "ER_FOREIGN_SERVER_EXISTS";
-    exports2[1477] = "ER_FOREIGN_SERVER_DOESNT_EXIST";
-    exports2[1478] = "ER_ILLEGAL_HA_CREATE_OPTION";
-    exports2[1479] = "ER_PARTITION_REQUIRES_VALUES_ERROR";
-    exports2[1480] = "ER_PARTITION_WRONG_VALUES_ERROR";
-    exports2[1481] = "ER_PARTITION_MAXVALUE_ERROR";
-    exports2[1482] = "ER_PARTITION_SUBPARTITION_ERROR";
-    exports2[1483] = "ER_PARTITION_SUBPART_MIX_ERROR";
-    exports2[1484] = "ER_PARTITION_WRONG_NO_PART_ERROR";
-    exports2[1485] = "ER_PARTITION_WRONG_NO_SUBPART_ERROR";
-    exports2[1486] = "ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR";
-    exports2[1487] = "ER_NO_CONST_EXPR_IN_RANGE_OR_LIST_ERROR";
-    exports2[1488] = "ER_FIELD_NOT_FOUND_PART_ERROR";
-    exports2[1489] = "ER_LIST_OF_FIELDS_ONLY_IN_HASH_ERROR";
-    exports2[1490] = "ER_INCONSISTENT_PARTITION_INFO_ERROR";
-    exports2[1491] = "ER_PARTITION_FUNC_NOT_ALLOWED_ERROR";
-    exports2[1492] = "ER_PARTITIONS_MUST_BE_DEFINED_ERROR";
-    exports2[1493] = "ER_RANGE_NOT_INCREASING_ERROR";
-    exports2[1494] = "ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR";
-    exports2[1495] = "ER_MULTIPLE_DEF_CONST_IN_LIST_PART_ERROR";
-    exports2[1496] = "ER_PARTITION_ENTRY_ERROR";
-    exports2[1497] = "ER_MIX_HANDLER_ERROR";
-    exports2[1498] = "ER_PARTITION_NOT_DEFINED_ERROR";
-    exports2[1499] = "ER_TOO_MANY_PARTITIONS_ERROR";
-    exports2[1500] = "ER_SUBPARTITION_ERROR";
-    exports2[1501] = "ER_CANT_CREATE_HANDLER_FILE";
-    exports2[1502] = "ER_BLOB_FIELD_IN_PART_FUNC_ERROR";
-    exports2[1503] = "ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF";
-    exports2[1504] = "ER_NO_PARTS_ERROR";
-    exports2[1505] = "ER_PARTITION_MGMT_ON_NONPARTITIONED";
-    exports2[1506] = "ER_FOREIGN_KEY_ON_PARTITIONED";
-    exports2[1507] = "ER_DROP_PARTITION_NON_EXISTENT";
-    exports2[1508] = "ER_DROP_LAST_PARTITION";
-    exports2[1509] = "ER_COALESCE_ONLY_ON_HASH_PARTITION";
-    exports2[1510] = "ER_REORG_HASH_ONLY_ON_SAME_NO";
-    exports2[1511] = "ER_REORG_NO_PARAM_ERROR";
-    exports2[1512] = "ER_ONLY_ON_RANGE_LIST_PARTITION";
-    exports2[1513] = "ER_ADD_PARTITION_SUBPART_ERROR";
-    exports2[1514] = "ER_ADD_PARTITION_NO_NEW_PARTITION";
-    exports2[1515] = "ER_COALESCE_PARTITION_NO_PARTITION";
-    exports2[1516] = "ER_REORG_PARTITION_NOT_EXIST";
-    exports2[1517] = "ER_SAME_NAME_PARTITION";
-    exports2[1518] = "ER_NO_BINLOG_ERROR";
-    exports2[1519] = "ER_CONSECUTIVE_REORG_PARTITIONS";
-    exports2[1520] = "ER_REORG_OUTSIDE_RANGE";
-    exports2[1521] = "ER_PARTITION_FUNCTION_FAILURE";
-    exports2[1522] = "ER_PART_STATE_ERROR";
-    exports2[1523] = "ER_LIMITED_PART_RANGE";
-    exports2[1524] = "ER_PLUGIN_IS_NOT_LOADED";
-    exports2[1525] = "ER_WRONG_VALUE";
-    exports2[1526] = "ER_NO_PARTITION_FOR_GIVEN_VALUE";
-    exports2[1527] = "ER_FILEGROUP_OPTION_ONLY_ONCE";
-    exports2[1528] = "ER_CREATE_FILEGROUP_FAILED";
-    exports2[1529] = "ER_DROP_FILEGROUP_FAILED";
-    exports2[1530] = "ER_TABLESPACE_AUTO_EXTEND_ERROR";
-    exports2[1531] = "ER_WRONG_SIZE_NUMBER";
-    exports2[1532] = "ER_SIZE_OVERFLOW_ERROR";
-    exports2[1533] = "ER_ALTER_FILEGROUP_FAILED";
-    exports2[1534] = "ER_BINLOG_ROW_LOGGING_FAILED";
-    exports2[1535] = "ER_BINLOG_ROW_WRONG_TABLE_DEF";
-    exports2[1536] = "ER_BINLOG_ROW_RBR_TO_SBR";
-    exports2[1537] = "ER_EVENT_ALREADY_EXISTS";
-    exports2[1538] = "ER_EVENT_STORE_FAILED";
-    exports2[1539] = "ER_EVENT_DOES_NOT_EXIST";
-    exports2[1540] = "ER_EVENT_CANT_ALTER";
-    exports2[1541] = "ER_EVENT_DROP_FAILED";
-    exports2[1542] = "ER_EVENT_INTERVAL_NOT_POSITIVE_OR_TOO_BIG";
-    exports2[1543] = "ER_EVENT_ENDS_BEFORE_STARTS";
-    exports2[1544] = "ER_EVENT_EXEC_TIME_IN_THE_PAST";
-    exports2[1545] = "ER_EVENT_OPEN_TABLE_FAILED";
-    exports2[1546] = "ER_EVENT_NEITHER_M_EXPR_NOR_M_AT";
-    exports2[1547] = "ER_COL_COUNT_DOESNT_MATCH_CORRUPTED";
-    exports2[1548] = "ER_CANNOT_LOAD_FROM_TABLE";
-    exports2[1549] = "ER_EVENT_CANNOT_DELETE";
-    exports2[1550] = "ER_EVENT_COMPILE_ERROR";
-    exports2[1551] = "ER_EVENT_SAME_NAME";
-    exports2[1552] = "ER_EVENT_DATA_TOO_LONG";
-    exports2[1553] = "ER_DROP_INDEX_FK";
-    exports2[1554] = "ER_WARN_DEPRECATED_SYNTAX_WITH_VER";
-    exports2[1555] = "ER_CANT_WRITE_LOCK_LOG_TABLE";
-    exports2[1556] = "ER_CANT_LOCK_LOG_TABLE";
-    exports2[1557] = "ER_FOREIGN_DUPLICATE_KEY";
-    exports2[1558] = "ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE";
-    exports2[1559] = "ER_TEMP_TABLE_PREVENTS_SWITCH_OUT_OF_RBR";
-    exports2[1560] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT";
-    exports2[1561] = "ER_NDB_CANT_SWITCH_BINLOG_FORMAT";
-    exports2[1562] = "ER_PARTITION_NO_TEMPORARY";
-    exports2[1563] = "ER_PARTITION_CONST_DOMAIN_ERROR";
-    exports2[1564] = "ER_PARTITION_FUNCTION_IS_NOT_ALLOWED";
-    exports2[1565] = "ER_DDL_LOG_ERROR";
-    exports2[1566] = "ER_NULL_IN_VALUES_LESS_THAN";
-    exports2[1567] = "ER_WRONG_PARTITION_NAME";
-    exports2[1568] = "ER_CANT_CHANGE_TX_CHARACTERISTICS";
-    exports2[1569] = "ER_DUP_ENTRY_AUTOINCREMENT_CASE";
-    exports2[1570] = "ER_EVENT_MODIFY_QUEUE_ERROR";
-    exports2[1571] = "ER_EVENT_SET_VAR_ERROR";
-    exports2[1572] = "ER_PARTITION_MERGE_ERROR";
-    exports2[1573] = "ER_CANT_ACTIVATE_LOG";
-    exports2[1574] = "ER_RBR_NOT_AVAILABLE";
-    exports2[1575] = "ER_BASE64_DECODE_ERROR";
-    exports2[1576] = "ER_EVENT_RECURSION_FORBIDDEN";
-    exports2[1577] = "ER_EVENTS_DB_ERROR";
-    exports2[1578] = "ER_ONLY_INTEGERS_ALLOWED";
-    exports2[1579] = "ER_UNSUPORTED_LOG_ENGINE";
-    exports2[1580] = "ER_BAD_LOG_STATEMENT";
-    exports2[1581] = "ER_CANT_RENAME_LOG_TABLE";
-    exports2[1582] = "ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT";
-    exports2[1583] = "ER_WRONG_PARAMETERS_TO_NATIVE_FCT";
-    exports2[1584] = "ER_WRONG_PARAMETERS_TO_STORED_FCT";
-    exports2[1585] = "ER_NATIVE_FCT_NAME_COLLISION";
-    exports2[1586] = "ER_DUP_ENTRY_WITH_KEY_NAME";
-    exports2[1587] = "ER_BINLOG_PURGE_EMFILE";
-    exports2[1588] = "ER_EVENT_CANNOT_CREATE_IN_THE_PAST";
-    exports2[1589] = "ER_EVENT_CANNOT_ALTER_IN_THE_PAST";
-    exports2[1590] = "ER_SLAVE_INCIDENT";
-    exports2[1591] = "ER_NO_PARTITION_FOR_GIVEN_VALUE_SILENT";
-    exports2[1592] = "ER_BINLOG_UNSAFE_STATEMENT";
-    exports2[1593] = "ER_BINLOG_FATAL_ERROR";
-    exports2[1594] = "ER_SLAVE_RELAY_LOG_READ_FAILURE";
-    exports2[1595] = "ER_SLAVE_RELAY_LOG_WRITE_FAILURE";
-    exports2[1596] = "ER_SLAVE_CREATE_EVENT_FAILURE";
-    exports2[1597] = "ER_SLAVE_MASTER_COM_FAILURE";
-    exports2[1598] = "ER_BINLOG_LOGGING_IMPOSSIBLE";
-    exports2[1599] = "ER_VIEW_NO_CREATION_CTX";
-    exports2[1600] = "ER_VIEW_INVALID_CREATION_CTX";
-    exports2[1601] = "ER_SR_INVALID_CREATION_CTX";
-    exports2[1602] = "ER_TRG_CORRUPTED_FILE";
-    exports2[1603] = "ER_TRG_NO_CREATION_CTX";
-    exports2[1604] = "ER_TRG_INVALID_CREATION_CTX";
-    exports2[1605] = "ER_EVENT_INVALID_CREATION_CTX";
-    exports2[1606] = "ER_TRG_CANT_OPEN_TABLE";
-    exports2[1607] = "ER_CANT_CREATE_SROUTINE";
-    exports2[1608] = "ER_NEVER_USED";
-    exports2[1609] = "ER_NO_FORMAT_DESCRIPTION_EVENT_BEFORE_BINLOG_STATEMENT";
-    exports2[1610] = "ER_REPLICA_CORRUPT_EVENT";
-    exports2[1611] = "ER_LOAD_DATA_INVALID_COLUMN";
-    exports2[1612] = "ER_LOG_PURGE_NO_FILE";
-    exports2[1613] = "ER_XA_RBTIMEOUT";
-    exports2[1614] = "ER_XA_RBDEADLOCK";
-    exports2[1615] = "ER_NEED_REPREPARE";
-    exports2[1616] = "ER_DELAYED_NOT_SUPPORTED";
-    exports2[1617] = "WARN_NO_CONNECTION_METADATA";
-    exports2[1618] = "WARN_OPTION_IGNORED";
-    exports2[1619] = "ER_PLUGIN_DELETE_BUILTIN";
-    exports2[1620] = "WARN_PLUGIN_BUSY";
-    exports2[1621] = "ER_VARIABLE_IS_READONLY";
-    exports2[1622] = "ER_WARN_ENGINE_TRANSACTION_ROLLBACK";
-    exports2[1623] = "ER_SLAVE_HEARTBEAT_FAILURE";
-    exports2[1624] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE";
-    exports2[1625] = "ER_NDB_REPLICATION_SCHEMA_ERROR";
-    exports2[1626] = "ER_CONFLICT_FN_PARSE_ERROR";
-    exports2[1627] = "ER_EXCEPTIONS_WRITE_ERROR";
-    exports2[1628] = "ER_TOO_LONG_TABLE_COMMENT";
-    exports2[1629] = "ER_TOO_LONG_FIELD_COMMENT";
-    exports2[1630] = "ER_FUNC_INEXISTENT_NAME_COLLISION";
-    exports2[1631] = "ER_DATABASE_NAME";
-    exports2[1632] = "ER_TABLE_NAME";
-    exports2[1633] = "ER_PARTITION_NAME";
-    exports2[1634] = "ER_SUBPARTITION_NAME";
-    exports2[1635] = "ER_TEMPORARY_NAME";
-    exports2[1636] = "ER_RENAMED_NAME";
-    exports2[1637] = "ER_TOO_MANY_CONCURRENT_TRXS";
-    exports2[1638] = "WARN_NON_ASCII_SEPARATOR_NOT_IMPLEMENTED";
-    exports2[1639] = "ER_DEBUG_SYNC_TIMEOUT";
-    exports2[1640] = "ER_DEBUG_SYNC_HIT_LIMIT";
-    exports2[1641] = "ER_DUP_SIGNAL_SET";
-    exports2[1642] = "ER_SIGNAL_WARN";
-    exports2[1643] = "ER_SIGNAL_NOT_FOUND";
-    exports2[1644] = "ER_SIGNAL_EXCEPTION";
-    exports2[1645] = "ER_RESIGNAL_WITHOUT_ACTIVE_HANDLER";
-    exports2[1646] = "ER_SIGNAL_BAD_CONDITION_TYPE";
-    exports2[1647] = "WARN_COND_ITEM_TRUNCATED";
-    exports2[1648] = "ER_COND_ITEM_TOO_LONG";
-    exports2[1649] = "ER_UNKNOWN_LOCALE";
-    exports2[1650] = "ER_REPLICA_IGNORE_SERVER_IDS";
-    exports2[1651] = "ER_QUERY_CACHE_DISABLED";
-    exports2[1652] = "ER_SAME_NAME_PARTITION_FIELD";
-    exports2[1653] = "ER_PARTITION_COLUMN_LIST_ERROR";
-    exports2[1654] = "ER_WRONG_TYPE_COLUMN_VALUE_ERROR";
-    exports2[1655] = "ER_TOO_MANY_PARTITION_FUNC_FIELDS_ERROR";
-    exports2[1656] = "ER_MAXVALUE_IN_VALUES_IN";
-    exports2[1657] = "ER_TOO_MANY_VALUES_ERROR";
-    exports2[1658] = "ER_ROW_SINGLE_PARTITION_FIELD_ERROR";
-    exports2[1659] = "ER_FIELD_TYPE_NOT_ALLOWED_AS_PARTITION_FIELD";
-    exports2[1660] = "ER_PARTITION_FIELDS_TOO_LONG";
-    exports2[1661] = "ER_BINLOG_ROW_ENGINE_AND_STMT_ENGINE";
-    exports2[1662] = "ER_BINLOG_ROW_MODE_AND_STMT_ENGINE";
-    exports2[1663] = "ER_BINLOG_UNSAFE_AND_STMT_ENGINE";
-    exports2[1664] = "ER_BINLOG_ROW_INJECTION_AND_STMT_ENGINE";
-    exports2[1665] = "ER_BINLOG_STMT_MODE_AND_ROW_ENGINE";
-    exports2[1666] = "ER_BINLOG_ROW_INJECTION_AND_STMT_MODE";
-    exports2[1667] = "ER_BINLOG_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE";
-    exports2[1668] = "ER_BINLOG_UNSAFE_LIMIT";
-    exports2[1669] = "ER_UNUSED4";
-    exports2[1670] = "ER_BINLOG_UNSAFE_SYSTEM_TABLE";
-    exports2[1671] = "ER_BINLOG_UNSAFE_AUTOINC_COLUMNS";
-    exports2[1672] = "ER_BINLOG_UNSAFE_UDF";
-    exports2[1673] = "ER_BINLOG_UNSAFE_SYSTEM_VARIABLE";
-    exports2[1674] = "ER_BINLOG_UNSAFE_SYSTEM_FUNCTION";
-    exports2[1675] = "ER_BINLOG_UNSAFE_NONTRANS_AFTER_TRANS";
-    exports2[1676] = "ER_MESSAGE_AND_STATEMENT";
-    exports2[1677] = "ER_SLAVE_CONVERSION_FAILED";
-    exports2[1678] = "ER_REPLICA_CANT_CREATE_CONVERSION";
-    exports2[1679] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_FORMAT";
-    exports2[1680] = "ER_PATH_LENGTH";
-    exports2[1681] = "ER_WARN_DEPRECATED_SYNTAX_NO_REPLACEMENT";
-    exports2[1682] = "ER_WRONG_NATIVE_TABLE_STRUCTURE";
-    exports2[1683] = "ER_WRONG_PERFSCHEMA_USAGE";
-    exports2[1684] = "ER_WARN_I_S_SKIPPED_TABLE";
-    exports2[1685] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_DIRECT";
-    exports2[1686] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT";
-    exports2[1687] = "ER_SPATIAL_MUST_HAVE_GEOM_COL";
-    exports2[1688] = "ER_TOO_LONG_INDEX_COMMENT";
-    exports2[1689] = "ER_LOCK_ABORTED";
-    exports2[1690] = "ER_DATA_OUT_OF_RANGE";
-    exports2[1691] = "ER_WRONG_SPVAR_TYPE_IN_LIMIT";
-    exports2[1692] = "ER_BINLOG_UNSAFE_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE";
-    exports2[1693] = "ER_BINLOG_UNSAFE_MIXED_STATEMENT";
-    exports2[1694] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_SQL_LOG_BIN";
-    exports2[1695] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN";
-    exports2[1696] = "ER_FAILED_READ_FROM_PAR_FILE";
-    exports2[1697] = "ER_VALUES_IS_NOT_INT_TYPE_ERROR";
-    exports2[1698] = "ER_ACCESS_DENIED_NO_PASSWORD_ERROR";
-    exports2[1699] = "ER_SET_PASSWORD_AUTH_PLUGIN";
-    exports2[1700] = "ER_GRANT_PLUGIN_USER_EXISTS";
-    exports2[1701] = "ER_TRUNCATE_ILLEGAL_FK";
-    exports2[1702] = "ER_PLUGIN_IS_PERMANENT";
-    exports2[1703] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MIN";
-    exports2[1704] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MAX";
-    exports2[1705] = "ER_STMT_CACHE_FULL";
-    exports2[1706] = "ER_MULTI_UPDATE_KEY_CONFLICT";
-    exports2[1707] = "ER_TABLE_NEEDS_REBUILD";
-    exports2[1708] = "WARN_OPTION_BELOW_LIMIT";
-    exports2[1709] = "ER_INDEX_COLUMN_TOO_LONG";
-    exports2[1710] = "ER_ERROR_IN_TRIGGER_BODY";
-    exports2[1711] = "ER_ERROR_IN_UNKNOWN_TRIGGER_BODY";
-    exports2[1712] = "ER_INDEX_CORRUPT";
-    exports2[1713] = "ER_UNDO_RECORD_TOO_BIG";
-    exports2[1714] = "ER_BINLOG_UNSAFE_INSERT_IGNORE_SELECT";
-    exports2[1715] = "ER_BINLOG_UNSAFE_INSERT_SELECT_UPDATE";
-    exports2[1716] = "ER_BINLOG_UNSAFE_REPLACE_SELECT";
-    exports2[1717] = "ER_BINLOG_UNSAFE_CREATE_IGNORE_SELECT";
-    exports2[1718] = "ER_BINLOG_UNSAFE_CREATE_REPLACE_SELECT";
-    exports2[1719] = "ER_BINLOG_UNSAFE_UPDATE_IGNORE";
-    exports2[1720] = "ER_PLUGIN_NO_UNINSTALL";
-    exports2[1721] = "ER_PLUGIN_NO_INSTALL";
-    exports2[1722] = "ER_BINLOG_UNSAFE_WRITE_AUTOINC_SELECT";
-    exports2[1723] = "ER_BINLOG_UNSAFE_CREATE_SELECT_AUTOINC";
-    exports2[1724] = "ER_BINLOG_UNSAFE_INSERT_TWO_KEYS";
-    exports2[1725] = "ER_TABLE_IN_FK_CHECK";
-    exports2[1726] = "ER_UNSUPPORTED_ENGINE";
-    exports2[1727] = "ER_BINLOG_UNSAFE_AUTOINC_NOT_FIRST";
-    exports2[1728] = "ER_CANNOT_LOAD_FROM_TABLE_V2";
-    exports2[1729] = "ER_SOURCE_DELAY_VALUE_OUT_OF_RANGE";
-    exports2[1730] = "ER_ONLY_FD_AND_RBR_EVENTS_ALLOWED_IN_BINLOG_STATEMENT";
-    exports2[1731] = "ER_PARTITION_EXCHANGE_DIFFERENT_OPTION";
-    exports2[1732] = "ER_PARTITION_EXCHANGE_PART_TABLE";
-    exports2[1733] = "ER_PARTITION_EXCHANGE_TEMP_TABLE";
-    exports2[1734] = "ER_PARTITION_INSTEAD_OF_SUBPARTITION";
-    exports2[1735] = "ER_UNKNOWN_PARTITION";
-    exports2[1736] = "ER_TABLES_DIFFERENT_METADATA";
-    exports2[1737] = "ER_ROW_DOES_NOT_MATCH_PARTITION";
-    exports2[1738] = "ER_BINLOG_CACHE_SIZE_GREATER_THAN_MAX";
-    exports2[1739] = "ER_WARN_INDEX_NOT_APPLICABLE";
-    exports2[1740] = "ER_PARTITION_EXCHANGE_FOREIGN_KEY";
-    exports2[1741] = "ER_NO_SUCH_KEY_VALUE";
-    exports2[1742] = "ER_RPL_INFO_DATA_TOO_LONG";
-    exports2[1743] = "ER_NETWORK_READ_EVENT_CHECKSUM_FAILURE";
-    exports2[1744] = "ER_BINLOG_READ_EVENT_CHECKSUM_FAILURE";
-    exports2[1745] = "ER_BINLOG_STMT_CACHE_SIZE_GREATER_THAN_MAX";
-    exports2[1746] = "ER_CANT_UPDATE_TABLE_IN_CREATE_TABLE_SELECT";
-    exports2[1747] = "ER_PARTITION_CLAUSE_ON_NONPARTITIONED";
-    exports2[1748] = "ER_ROW_DOES_NOT_MATCH_GIVEN_PARTITION_SET";
-    exports2[1749] = "ER_NO_SUCH_PARTITION";
-    exports2[1750] = "ER_CHANGE_RPL_INFO_REPOSITORY_FAILURE";
-    exports2[1751] = "ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_CREATED_TEMP_TABLE";
-    exports2[1752] = "ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_DROPPED_TEMP_TABLE";
-    exports2[1753] = "ER_MTA_FEATURE_IS_NOT_SUPPORTED";
-    exports2[1754] = "ER_MTA_UPDATED_DBS_GREATER_MAX";
-    exports2[1755] = "ER_MTA_CANT_PARALLEL";
-    exports2[1756] = "ER_MTA_INCONSISTENT_DATA";
-    exports2[1757] = "ER_FULLTEXT_NOT_SUPPORTED_WITH_PARTITIONING";
-    exports2[1758] = "ER_DA_INVALID_CONDITION_NUMBER";
-    exports2[1759] = "ER_INSECURE_PLAIN_TEXT";
-    exports2[1760] = "ER_INSECURE_CHANGE_SOURCE";
-    exports2[1761] = "ER_FOREIGN_DUPLICATE_KEY_WITH_CHILD_INFO";
-    exports2[1762] = "ER_FOREIGN_DUPLICATE_KEY_WITHOUT_CHILD_INFO";
-    exports2[1763] = "ER_SQLTHREAD_WITH_SECURE_REPLICA";
-    exports2[1764] = "ER_TABLE_HAS_NO_FT";
-    exports2[1765] = "ER_VARIABLE_NOT_SETTABLE_IN_SF_OR_TRIGGER";
-    exports2[1766] = "ER_VARIABLE_NOT_SETTABLE_IN_TRANSACTION";
-    exports2[1767] = "ER_GTID_NEXT_IS_NOT_IN_GTID_NEXT_LIST";
-    exports2[1768] = "ER_CANT_CHANGE_GTID_NEXT_IN_TRANSACTION";
-    exports2[1769] = "ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION";
-    exports2[1770] = "ER_GTID_NEXT_CANT_BE_AUTOMATIC_IF_GTID_NEXT_LIST_IS_NON_NULL";
-    exports2[1771] = "ER_SKIPPING_LOGGED_TRANSACTION";
-    exports2[1772] = "ER_MALFORMED_GTID_SET_SPECIFICATION";
-    exports2[1773] = "ER_MALFORMED_GTID_SET_ENCODING";
-    exports2[1774] = "ER_MALFORMED_GTID_SPECIFICATION";
-    exports2[1775] = "ER_GNO_EXHAUSTED";
-    exports2[1776] = "ER_BAD_REPLICA_AUTO_POSITION";
-    exports2[1777] = "ER_AUTO_POSITION_REQUIRES_GTID_MODE_NOT_OFF";
-    exports2[1778] = "ER_CANT_DO_IMPLICIT_COMMIT_IN_TRX_WHEN_GTID_NEXT_IS_SET";
-    exports2[1779] = "ER_GTID_MODE_ON_REQUIRES_ENFORCE_GTID_CONSISTENCY_ON";
-    exports2[1780] = "ER_GTID_MODE_REQUIRES_BINLOG";
-    exports2[1781] = "ER_CANT_SET_GTID_NEXT_TO_GTID_WHEN_GTID_MODE_IS_OFF";
-    exports2[1782] = "ER_CANT_SET_GTID_NEXT_TO_ANONYMOUS_WHEN_GTID_MODE_IS_ON";
-    exports2[1783] = "ER_CANT_SET_GTID_NEXT_LIST_TO_NON_NULL_WHEN_GTID_MODE_IS_OFF";
-    exports2[1784] = "ER_FOUND_GTID_EVENT_WHEN_GTID_MODE_IS_OFF";
-    exports2[1785] = "ER_GTID_UNSAFE_NON_TRANSACTIONAL_TABLE";
-    exports2[1786] = "ER_GTID_UNSAFE_CREATE_SELECT";
-    exports2[1787] = "ER_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRANSACTION";
-    exports2[1788] = "ER_GTID_MODE_CAN_ONLY_CHANGE_ONE_STEP_AT_A_TIME";
-    exports2[1789] = "ER_SOURCE_HAS_PURGED_REQUIRED_GTIDS";
-    exports2[1790] = "ER_CANT_SET_GTID_NEXT_WHEN_OWNING_GTID";
-    exports2[1791] = "ER_UNKNOWN_EXPLAIN_FORMAT";
-    exports2[1792] = "ER_CANT_EXECUTE_IN_READ_ONLY_TRANSACTION";
-    exports2[1793] = "ER_TOO_LONG_TABLE_PARTITION_COMMENT";
-    exports2[1794] = "ER_REPLICA_CONFIGURATION";
-    exports2[1795] = "ER_INNODB_FT_LIMIT";
-    exports2[1796] = "ER_INNODB_NO_FT_TEMP_TABLE";
-    exports2[1797] = "ER_INNODB_FT_WRONG_DOCID_COLUMN";
-    exports2[1798] = "ER_INNODB_FT_WRONG_DOCID_INDEX";
-    exports2[1799] = "ER_INNODB_ONLINE_LOG_TOO_BIG";
-    exports2[1800] = "ER_UNKNOWN_ALTER_ALGORITHM";
-    exports2[1801] = "ER_UNKNOWN_ALTER_LOCK";
-    exports2[1802] = "ER_MTA_CHANGE_SOURCE_CANT_RUN_WITH_GAPS";
-    exports2[1803] = "ER_MTA_RECOVERY_FAILURE";
-    exports2[1804] = "ER_MTA_RESET_WORKERS";
-    exports2[1805] = "ER_COL_COUNT_DOESNT_MATCH_CORRUPTED_V2";
-    exports2[1806] = "ER_REPLICA_SILENT_RETRY_TRANSACTION";
-    exports2[1807] = "ER_DISCARD_FK_CHECKS_RUNNING";
-    exports2[1808] = "ER_TABLE_SCHEMA_MISMATCH";
-    exports2[1809] = "ER_TABLE_IN_SYSTEM_TABLESPACE";
-    exports2[1810] = "ER_IO_READ_ERROR";
-    exports2[1811] = "ER_IO_WRITE_ERROR";
-    exports2[1812] = "ER_TABLESPACE_MISSING";
-    exports2[1813] = "ER_TABLESPACE_EXISTS";
-    exports2[1814] = "ER_TABLESPACE_DISCARDED";
-    exports2[1815] = "ER_INTERNAL_ERROR";
-    exports2[1816] = "ER_INNODB_IMPORT_ERROR";
-    exports2[1817] = "ER_INNODB_INDEX_CORRUPT";
-    exports2[1818] = "ER_INVALID_YEAR_COLUMN_LENGTH";
-    exports2[1819] = "ER_NOT_VALID_PASSWORD";
-    exports2[1820] = "ER_MUST_CHANGE_PASSWORD";
-    exports2[1821] = "ER_FK_NO_INDEX_CHILD";
-    exports2[1822] = "ER_FK_NO_INDEX_PARENT";
-    exports2[1823] = "ER_FK_FAIL_ADD_SYSTEM";
-    exports2[1824] = "ER_FK_CANNOT_OPEN_PARENT";
-    exports2[1825] = "ER_FK_INCORRECT_OPTION";
-    exports2[1826] = "ER_FK_DUP_NAME";
-    exports2[1827] = "ER_PASSWORD_FORMAT";
-    exports2[1828] = "ER_FK_COLUMN_CANNOT_DROP";
-    exports2[1829] = "ER_FK_COLUMN_CANNOT_DROP_CHILD";
-    exports2[1830] = "ER_FK_COLUMN_NOT_NULL";
-    exports2[1831] = "ER_DUP_INDEX";
-    exports2[1832] = "ER_FK_COLUMN_CANNOT_CHANGE";
-    exports2[1833] = "ER_FK_COLUMN_CANNOT_CHANGE_CHILD";
-    exports2[1834] = "ER_UNUSED5";
-    exports2[1835] = "ER_MALFORMED_PACKET";
-    exports2[1836] = "ER_READ_ONLY_MODE";
-    exports2[1837] = "ER_GTID_NEXT_TYPE_UNDEFINED_GTID";
-    exports2[1838] = "ER_VARIABLE_NOT_SETTABLE_IN_SP";
-    exports2[1839] = "ER_CANT_SET_GTID_PURGED_WHEN_GTID_MODE_IS_OFF";
-    exports2[1840] = "ER_CANT_SET_GTID_PURGED_WHEN_GTID_EXECUTED_IS_NOT_EMPTY";
-    exports2[1841] = "ER_CANT_SET_GTID_PURGED_WHEN_OWNED_GTIDS_IS_NOT_EMPTY";
-    exports2[1842] = "ER_GTID_PURGED_WAS_CHANGED";
-    exports2[1843] = "ER_GTID_EXECUTED_WAS_CHANGED";
-    exports2[1844] = "ER_BINLOG_STMT_MODE_AND_NO_REPL_TABLES";
-    exports2[1845] = "ER_ALTER_OPERATION_NOT_SUPPORTED";
-    exports2[1846] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON";
-    exports2[1847] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COPY";
-    exports2[1848] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_PARTITION";
-    exports2[1849] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_RENAME";
-    exports2[1850] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE";
-    exports2[1851] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_CHECK";
-    exports2[1852] = "ER_UNUSED6";
-    exports2[1853] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOPK";
-    exports2[1854] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_AUTOINC";
-    exports2[1855] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_HIDDEN_FTS";
-    exports2[1856] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_CHANGE_FTS";
-    exports2[1857] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FTS";
-    exports2[1858] = "ER_SQL_REPLICA_SKIP_COUNTER_NOT_SETTABLE_IN_GTID_MODE";
-    exports2[1859] = "ER_DUP_UNKNOWN_IN_INDEX";
-    exports2[1860] = "ER_IDENT_CAUSES_TOO_LONG_PATH";
-    exports2[1861] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOT_NULL";
-    exports2[1862] = "ER_MUST_CHANGE_PASSWORD_LOGIN";
-    exports2[1863] = "ER_ROW_IN_WRONG_PARTITION";
-    exports2[1864] = "ER_MTA_EVENT_BIGGER_PENDING_JOBS_SIZE_MAX";
-    exports2[1865] = "ER_INNODB_NO_FT_USES_PARSER";
-    exports2[1866] = "ER_BINLOG_LOGICAL_CORRUPTION";
-    exports2[1867] = "ER_WARN_PURGE_LOG_IN_USE";
-    exports2[1868] = "ER_WARN_PURGE_LOG_IS_ACTIVE";
-    exports2[1869] = "ER_AUTO_INCREMENT_CONFLICT";
-    exports2[1870] = "WARN_ON_BLOCKHOLE_IN_RBR";
-    exports2[1871] = "ER_REPLICA_CM_INIT_REPOSITORY";
-    exports2[1872] = "ER_REPLICA_AM_INIT_REPOSITORY";
-    exports2[1873] = "ER_ACCESS_DENIED_CHANGE_USER_ERROR";
-    exports2[1874] = "ER_INNODB_READ_ONLY";
-    exports2[1875] = "ER_STOP_REPLICA_SQL_THREAD_TIMEOUT";
-    exports2[1876] = "ER_STOP_REPLICA_IO_THREAD_TIMEOUT";
-    exports2[1877] = "ER_TABLE_CORRUPT";
-    exports2[1878] = "ER_TEMP_FILE_WRITE_FAILURE";
-    exports2[1879] = "ER_INNODB_FT_AUX_NOT_HEX_ID";
-    exports2[1880] = "ER_OLD_TEMPORALS_UPGRADED";
-    exports2[1881] = "ER_INNODB_FORCED_RECOVERY";
-    exports2[1882] = "ER_AES_INVALID_IV";
-    exports2[1883] = "ER_PLUGIN_CANNOT_BE_UNINSTALLED";
-    exports2[1884] = "ER_GTID_UNSAFE_BINLOG_SPLITTABLE_STATEMENT_AND_ASSIGNED_GTID";
-    exports2[1885] = "ER_REPLICA_HAS_MORE_GTIDS_THAN_SOURCE";
-    exports2[1886] = "ER_MISSING_KEY";
-    exports2[1887] = "WARN_NAMED_PIPE_ACCESS_EVERYONE";
-    exports2[3e3] = "ER_FILE_CORRUPT";
-    exports2[3001] = "ER_ERROR_ON_SOURCE";
-    exports2[3002] = "ER_INCONSISTENT_ERROR";
-    exports2[3003] = "ER_STORAGE_ENGINE_NOT_LOADED";
-    exports2[3004] = "ER_GET_STACKED_DA_WITHOUT_ACTIVE_HANDLER";
-    exports2[3005] = "ER_WARN_LEGACY_SYNTAX_CONVERTED";
-    exports2[3006] = "ER_BINLOG_UNSAFE_FULLTEXT_PLUGIN";
-    exports2[3007] = "ER_CANNOT_DISCARD_TEMPORARY_TABLE";
-    exports2[3008] = "ER_FK_DEPTH_EXCEEDED";
-    exports2[3009] = "ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE_V2";
-    exports2[3010] = "ER_WARN_TRIGGER_DOESNT_HAVE_CREATED";
-    exports2[3011] = "ER_REFERENCED_TRG_DOES_NOT_EXIST";
-    exports2[3012] = "ER_EXPLAIN_NOT_SUPPORTED";
-    exports2[3013] = "ER_INVALID_FIELD_SIZE";
-    exports2[3014] = "ER_MISSING_HA_CREATE_OPTION";
-    exports2[3015] = "ER_ENGINE_OUT_OF_MEMORY";
-    exports2[3016] = "ER_PASSWORD_EXPIRE_ANONYMOUS_USER";
-    exports2[3017] = "ER_REPLICA_SQL_THREAD_MUST_STOP";
-    exports2[3018] = "ER_NO_FT_MATERIALIZED_SUBQUERY";
-    exports2[3019] = "ER_INNODB_UNDO_LOG_FULL";
-    exports2[3020] = "ER_INVALID_ARGUMENT_FOR_LOGARITHM";
-    exports2[3021] = "ER_REPLICA_CHANNEL_IO_THREAD_MUST_STOP";
-    exports2[3022] = "ER_WARN_OPEN_TEMP_TABLES_MUST_BE_ZERO";
-    exports2[3023] = "ER_WARN_ONLY_SOURCE_LOG_FILE_NO_POS";
-    exports2[3024] = "ER_QUERY_TIMEOUT";
-    exports2[3025] = "ER_NON_RO_SELECT_DISABLE_TIMER";
-    exports2[3026] = "ER_DUP_LIST_ENTRY";
-    exports2[3027] = "ER_SQL_MODE_NO_EFFECT";
-    exports2[3028] = "ER_AGGREGATE_ORDER_FOR_UNION";
-    exports2[3029] = "ER_AGGREGATE_ORDER_NON_AGG_QUERY";
-    exports2[3030] = "ER_REPLICA_WORKER_STOPPED_PREVIOUS_THD_ERROR";
-    exports2[3031] = "ER_DONT_SUPPORT_REPLICA_PRESERVE_COMMIT_ORDER";
-    exports2[3032] = "ER_SERVER_OFFLINE_MODE";
-    exports2[3033] = "ER_GIS_DIFFERENT_SRIDS";
-    exports2[3034] = "ER_GIS_UNSUPPORTED_ARGUMENT";
-    exports2[3035] = "ER_GIS_UNKNOWN_ERROR";
-    exports2[3036] = "ER_GIS_UNKNOWN_EXCEPTION";
-    exports2[3037] = "ER_GIS_INVALID_DATA";
-    exports2[3038] = "ER_BOOST_GEOMETRY_EMPTY_INPUT_EXCEPTION";
-    exports2[3039] = "ER_BOOST_GEOMETRY_CENTROID_EXCEPTION";
-    exports2[3040] = "ER_BOOST_GEOMETRY_OVERLAY_INVALID_INPUT_EXCEPTION";
-    exports2[3041] = "ER_BOOST_GEOMETRY_TURN_INFO_EXCEPTION";
-    exports2[3042] = "ER_BOOST_GEOMETRY_SELF_INTERSECTION_POINT_EXCEPTION";
-    exports2[3043] = "ER_BOOST_GEOMETRY_UNKNOWN_EXCEPTION";
-    exports2[3044] = "ER_STD_BAD_ALLOC_ERROR";
-    exports2[3045] = "ER_STD_DOMAIN_ERROR";
-    exports2[3046] = "ER_STD_LENGTH_ERROR";
-    exports2[3047] = "ER_STD_INVALID_ARGUMENT";
-    exports2[3048] = "ER_STD_OUT_OF_RANGE_ERROR";
-    exports2[3049] = "ER_STD_OVERFLOW_ERROR";
-    exports2[3050] = "ER_STD_RANGE_ERROR";
-    exports2[3051] = "ER_STD_UNDERFLOW_ERROR";
-    exports2[3052] = "ER_STD_LOGIC_ERROR";
-    exports2[3053] = "ER_STD_RUNTIME_ERROR";
-    exports2[3054] = "ER_STD_UNKNOWN_EXCEPTION";
-    exports2[3055] = "ER_GIS_DATA_WRONG_ENDIANESS";
-    exports2[3056] = "ER_CHANGE_SOURCE_PASSWORD_LENGTH";
-    exports2[3057] = "ER_USER_LOCK_WRONG_NAME";
-    exports2[3058] = "ER_USER_LOCK_DEADLOCK";
-    exports2[3059] = "ER_REPLACE_INACCESSIBLE_ROWS";
-    exports2[3060] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_GIS";
-    exports2[3061] = "ER_ILLEGAL_USER_VAR";
-    exports2[3062] = "ER_GTID_MODE_OFF";
-    exports2[3063] = "ER_UNSUPPORTED_BY_REPLICATION_THREAD";
-    exports2[3064] = "ER_INCORRECT_TYPE";
-    exports2[3065] = "ER_FIELD_IN_ORDER_NOT_SELECT";
-    exports2[3066] = "ER_AGGREGATE_IN_ORDER_NOT_SELECT";
-    exports2[3067] = "ER_INVALID_RPL_WILD_TABLE_FILTER_PATTERN";
-    exports2[3068] = "ER_NET_OK_PACKET_TOO_LARGE";
-    exports2[3069] = "ER_INVALID_JSON_DATA";
-    exports2[3070] = "ER_INVALID_GEOJSON_MISSING_MEMBER";
-    exports2[3071] = "ER_INVALID_GEOJSON_WRONG_TYPE";
-    exports2[3072] = "ER_INVALID_GEOJSON_UNSPECIFIED";
-    exports2[3073] = "ER_DIMENSION_UNSUPPORTED";
-    exports2[3074] = "ER_REPLICA_CHANNEL_DOES_NOT_EXIST";
-    exports2[3075] = "ER_SLAVE_MULTIPLE_CHANNELS_HOST_PORT";
-    exports2[3076] = "ER_REPLICA_CHANNEL_NAME_INVALID_OR_TOO_LONG";
-    exports2[3077] = "ER_REPLICA_NEW_CHANNEL_WRONG_REPOSITORY";
-    exports2[3078] = "ER_SLAVE_CHANNEL_DELETE";
-    exports2[3079] = "ER_REPLICA_MULTIPLE_CHANNELS_CMD";
-    exports2[3080] = "ER_REPLICA_MAX_CHANNELS_EXCEEDED";
-    exports2[3081] = "ER_REPLICA_CHANNEL_MUST_STOP";
-    exports2[3082] = "ER_REPLICA_CHANNEL_NOT_RUNNING";
-    exports2[3083] = "ER_REPLICA_CHANNEL_WAS_RUNNING";
-    exports2[3084] = "ER_REPLICA_CHANNEL_WAS_NOT_RUNNING";
-    exports2[3085] = "ER_REPLICA_CHANNEL_SQL_THREAD_MUST_STOP";
-    exports2[3086] = "ER_REPLICA_CHANNEL_SQL_SKIP_COUNTER";
-    exports2[3087] = "ER_WRONG_FIELD_WITH_GROUP_V2";
-    exports2[3088] = "ER_MIX_OF_GROUP_FUNC_AND_FIELDS_V2";
-    exports2[3089] = "ER_WARN_DEPRECATED_SYSVAR_UPDATE";
-    exports2[3090] = "ER_WARN_DEPRECATED_SQLMODE";
-    exports2[3091] = "ER_CANNOT_LOG_PARTIAL_DROP_DATABASE_WITH_GTID";
-    exports2[3092] = "ER_GROUP_REPLICATION_CONFIGURATION";
-    exports2[3093] = "ER_GROUP_REPLICATION_RUNNING";
-    exports2[3094] = "ER_GROUP_REPLICATION_APPLIER_INIT_ERROR";
-    exports2[3095] = "ER_GROUP_REPLICATION_STOP_APPLIER_THREAD_TIMEOUT";
-    exports2[3096] = "ER_GROUP_REPLICATION_COMMUNICATION_LAYER_SESSION_ERROR";
-    exports2[3097] = "ER_GROUP_REPLICATION_COMMUNICATION_LAYER_JOIN_ERROR";
-    exports2[3098] = "ER_BEFORE_DML_VALIDATION_ERROR";
-    exports2[3099] = "ER_PREVENTS_VARIABLE_WITHOUT_RBR";
-    exports2[3100] = "ER_RUN_HOOK_ERROR";
-    exports2[3101] = "ER_TRANSACTION_ROLLBACK_DURING_COMMIT";
-    exports2[3102] = "ER_GENERATED_COLUMN_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3103] = "ER_UNSUPPORTED_ALTER_INPLACE_ON_VIRTUAL_COLUMN";
-    exports2[3104] = "ER_WRONG_FK_OPTION_FOR_GENERATED_COLUMN";
-    exports2[3105] = "ER_NON_DEFAULT_VALUE_FOR_GENERATED_COLUMN";
-    exports2[3106] = "ER_UNSUPPORTED_ACTION_ON_GENERATED_COLUMN";
-    exports2[3107] = "ER_GENERATED_COLUMN_NON_PRIOR";
-    exports2[3108] = "ER_DEPENDENT_BY_GENERATED_COLUMN";
-    exports2[3109] = "ER_GENERATED_COLUMN_REF_AUTO_INC";
-    exports2[3110] = "ER_FEATURE_NOT_AVAILABLE";
-    exports2[3111] = "ER_CANT_SET_GTID_MODE";
-    exports2[3112] = "ER_CANT_USE_AUTO_POSITION_WITH_GTID_MODE_OFF";
-    exports2[3113] = "ER_CANT_REPLICATE_ANONYMOUS_WITH_AUTO_POSITION";
-    exports2[3114] = "ER_CANT_REPLICATE_ANONYMOUS_WITH_GTID_MODE_ON";
-    exports2[3115] = "ER_CANT_REPLICATE_GTID_WITH_GTID_MODE_OFF";
-    exports2[3116] = "ER_CANT_ENFORCE_GTID_CONSISTENCY_WITH_ONGOING_GTID_VIOLATING_TX";
-    exports2[3117] = "ER_ENFORCE_GTID_CONSISTENCY_WARN_WITH_ONGOING_GTID_VIOLATING_TX";
-    exports2[3118] = "ER_ACCOUNT_HAS_BEEN_LOCKED";
-    exports2[3119] = "ER_WRONG_TABLESPACE_NAME";
-    exports2[3120] = "ER_TABLESPACE_IS_NOT_EMPTY";
-    exports2[3121] = "ER_WRONG_FILE_NAME";
-    exports2[3122] = "ER_BOOST_GEOMETRY_INCONSISTENT_TURNS_EXCEPTION";
-    exports2[3123] = "ER_WARN_OPTIMIZER_HINT_SYNTAX_ERROR";
-    exports2[3124] = "ER_WARN_BAD_MAX_EXECUTION_TIME";
-    exports2[3125] = "ER_WARN_UNSUPPORTED_MAX_EXECUTION_TIME";
-    exports2[3126] = "ER_WARN_CONFLICTING_HINT";
-    exports2[3127] = "ER_WARN_UNKNOWN_QB_NAME";
-    exports2[3128] = "ER_UNRESOLVED_HINT_NAME";
-    exports2[3129] = "ER_WARN_ON_MODIFYING_GTID_EXECUTED_TABLE";
-    exports2[3130] = "ER_PLUGGABLE_PROTOCOL_COMMAND_NOT_SUPPORTED";
-    exports2[3131] = "ER_LOCKING_SERVICE_WRONG_NAME";
-    exports2[3132] = "ER_LOCKING_SERVICE_DEADLOCK";
-    exports2[3133] = "ER_LOCKING_SERVICE_TIMEOUT";
-    exports2[3134] = "ER_GIS_MAX_POINTS_IN_GEOMETRY_OVERFLOWED";
-    exports2[3135] = "ER_SQL_MODE_MERGED";
-    exports2[3136] = "ER_VTOKEN_PLUGIN_TOKEN_MISMATCH";
-    exports2[3137] = "ER_VTOKEN_PLUGIN_TOKEN_NOT_FOUND";
-    exports2[3138] = "ER_CANT_SET_VARIABLE_WHEN_OWNING_GTID";
-    exports2[3139] = "ER_REPLICA_CHANNEL_OPERATION_NOT_ALLOWED";
-    exports2[3140] = "ER_INVALID_JSON_TEXT";
-    exports2[3141] = "ER_INVALID_JSON_TEXT_IN_PARAM";
-    exports2[3142] = "ER_INVALID_JSON_BINARY_DATA";
-    exports2[3143] = "ER_INVALID_JSON_PATH";
-    exports2[3144] = "ER_INVALID_JSON_CHARSET";
-    exports2[3145] = "ER_INVALID_JSON_CHARSET_IN_FUNCTION";
-    exports2[3146] = "ER_INVALID_TYPE_FOR_JSON";
-    exports2[3147] = "ER_INVALID_CAST_TO_JSON";
-    exports2[3148] = "ER_INVALID_JSON_PATH_CHARSET";
-    exports2[3149] = "ER_INVALID_JSON_PATH_WILDCARD";
-    exports2[3150] = "ER_JSON_VALUE_TOO_BIG";
-    exports2[3151] = "ER_JSON_KEY_TOO_BIG";
-    exports2[3152] = "ER_JSON_USED_AS_KEY";
-    exports2[3153] = "ER_JSON_VACUOUS_PATH";
-    exports2[3154] = "ER_JSON_BAD_ONE_OR_ALL_ARG";
-    exports2[3155] = "ER_NUMERIC_JSON_VALUE_OUT_OF_RANGE";
-    exports2[3156] = "ER_INVALID_JSON_VALUE_FOR_CAST";
-    exports2[3157] = "ER_JSON_DOCUMENT_TOO_DEEP";
-    exports2[3158] = "ER_JSON_DOCUMENT_NULL_KEY";
-    exports2[3159] = "ER_SECURE_TRANSPORT_REQUIRED";
-    exports2[3160] = "ER_NO_SECURE_TRANSPORTS_CONFIGURED";
-    exports2[3161] = "ER_DISABLED_STORAGE_ENGINE";
-    exports2[3162] = "ER_USER_DOES_NOT_EXIST";
-    exports2[3163] = "ER_USER_ALREADY_EXISTS";
-    exports2[3164] = "ER_AUDIT_API_ABORT";
-    exports2[3165] = "ER_INVALID_JSON_PATH_ARRAY_CELL";
-    exports2[3166] = "ER_BUFPOOL_RESIZE_INPROGRESS";
-    exports2[3167] = "ER_FEATURE_DISABLED_SEE_DOC";
-    exports2[3168] = "ER_SERVER_ISNT_AVAILABLE";
-    exports2[3169] = "ER_SESSION_WAS_KILLED";
-    exports2[3170] = "ER_CAPACITY_EXCEEDED";
-    exports2[3171] = "ER_CAPACITY_EXCEEDED_IN_RANGE_OPTIMIZER";
-    exports2[3172] = "ER_TABLE_NEEDS_UPG_PART";
-    exports2[3173] = "ER_CANT_WAIT_FOR_EXECUTED_GTID_SET_WHILE_OWNING_A_GTID";
-    exports2[3174] = "ER_CANNOT_ADD_FOREIGN_BASE_COL_VIRTUAL";
-    exports2[3175] = "ER_CANNOT_CREATE_VIRTUAL_INDEX_CONSTRAINT";
-    exports2[3176] = "ER_ERROR_ON_MODIFYING_GTID_EXECUTED_TABLE";
-    exports2[3177] = "ER_LOCK_REFUSED_BY_ENGINE";
-    exports2[3178] = "ER_UNSUPPORTED_ALTER_ONLINE_ON_VIRTUAL_COLUMN";
-    exports2[3179] = "ER_MASTER_KEY_ROTATION_NOT_SUPPORTED_BY_SE";
-    exports2[3180] = "ER_MASTER_KEY_ROTATION_ERROR_BY_SE";
-    exports2[3181] = "ER_MASTER_KEY_ROTATION_BINLOG_FAILED";
-    exports2[3182] = "ER_MASTER_KEY_ROTATION_SE_UNAVAILABLE";
-    exports2[3183] = "ER_TABLESPACE_CANNOT_ENCRYPT";
-    exports2[3184] = "ER_INVALID_ENCRYPTION_OPTION";
-    exports2[3185] = "ER_CANNOT_FIND_KEY_IN_KEYRING";
-    exports2[3186] = "ER_CAPACITY_EXCEEDED_IN_PARSER";
-    exports2[3187] = "ER_UNSUPPORTED_ALTER_ENCRYPTION_INPLACE";
-    exports2[3188] = "ER_KEYRING_UDF_KEYRING_SERVICE_ERROR";
-    exports2[3189] = "ER_USER_COLUMN_OLD_LENGTH";
-    exports2[3190] = "ER_CANT_RESET_SOURCE";
-    exports2[3191] = "ER_GROUP_REPLICATION_MAX_GROUP_SIZE";
-    exports2[3192] = "ER_CANNOT_ADD_FOREIGN_BASE_COL_STORED";
-    exports2[3193] = "ER_TABLE_REFERENCED";
-    exports2[3194] = "ER_PARTITION_ENGINE_DEPRECATED_FOR_TABLE";
-    exports2[3195] = "ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID_ZERO";
-    exports2[3196] = "ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID";
-    exports2[3197] = "ER_XA_RETRY";
-    exports2[3198] = "ER_KEYRING_AWS_UDF_AWS_KMS_ERROR";
-    exports2[3199] = "ER_BINLOG_UNSAFE_XA";
-    exports2[3200] = "ER_UDF_ERROR";
-    exports2[3201] = "ER_KEYRING_MIGRATION_FAILURE";
-    exports2[3202] = "ER_KEYRING_ACCESS_DENIED_ERROR";
-    exports2[3203] = "ER_KEYRING_MIGRATION_STATUS";
-    exports2[3204] = "ER_PLUGIN_FAILED_TO_OPEN_TABLES";
-    exports2[3205] = "ER_PLUGIN_FAILED_TO_OPEN_TABLE";
-    exports2[3206] = "ER_AUDIT_LOG_NO_KEYRING_PLUGIN_INSTALLED";
-    exports2[3207] = "ER_AUDIT_LOG_ENCRYPTION_PASSWORD_HAS_NOT_BEEN_SET";
-    exports2[3208] = "ER_AUDIT_LOG_COULD_NOT_CREATE_AES_KEY";
-    exports2[3209] = "ER_AUDIT_LOG_ENCRYPTION_PASSWORD_CANNOT_BE_FETCHED";
-    exports2[3210] = "ER_AUDIT_LOG_JSON_FILTERING_NOT_ENABLED";
-    exports2[3211] = "ER_AUDIT_LOG_UDF_INSUFFICIENT_PRIVILEGE";
-    exports2[3212] = "ER_AUDIT_LOG_SUPER_PRIVILEGE_REQUIRED";
-    exports2[3213] = "ER_COULD_NOT_REINITIALIZE_AUDIT_LOG_FILTERS";
-    exports2[3214] = "ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_TYPE";
-    exports2[3215] = "ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_COUNT";
-    exports2[3216] = "ER_AUDIT_LOG_HAS_NOT_BEEN_INSTALLED";
-    exports2[3217] = "ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_TYPE";
-    exports2[3218] = "ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_VALUE";
-    exports2[3219] = "ER_AUDIT_LOG_JSON_FILTER_PARSING_ERROR";
-    exports2[3220] = "ER_AUDIT_LOG_JSON_FILTER_NAME_CANNOT_BE_EMPTY";
-    exports2[3221] = "ER_AUDIT_LOG_JSON_USER_NAME_CANNOT_BE_EMPTY";
-    exports2[3222] = "ER_AUDIT_LOG_JSON_FILTER_DOES_NOT_EXISTS";
-    exports2[3223] = "ER_AUDIT_LOG_USER_FIRST_CHARACTER_MUST_BE_ALPHANUMERIC";
-    exports2[3224] = "ER_AUDIT_LOG_USER_NAME_INVALID_CHARACTER";
-    exports2[3225] = "ER_AUDIT_LOG_HOST_NAME_INVALID_CHARACTER";
-    exports2[3226] = "WARN_DEPRECATED_MAXDB_SQL_MODE_FOR_TIMESTAMP";
-    exports2[3227] = "ER_XA_REPLICATION_FILTERS";
-    exports2[3228] = "ER_CANT_OPEN_ERROR_LOG";
-    exports2[3229] = "ER_GROUPING_ON_TIMESTAMP_IN_DST";
-    exports2[3230] = "ER_CANT_START_SERVER_NAMED_PIPE";
-    exports2[3231] = "ER_WRITE_SET_EXCEEDS_LIMIT";
-    exports2[3232] = "ER_DEPRECATED_TLS_VERSION_SESSION_57";
-    exports2[3233] = "ER_WARN_DEPRECATED_TLS_VERSION_57";
-    exports2[3234] = "ER_WARN_WRONG_NATIVE_TABLE_STRUCTURE";
-    exports2[3235] = "ER_AES_INVALID_KDF_NAME";
-    exports2[3236] = "ER_AES_INVALID_KDF_ITERATIONS";
-    exports2[3237] = "WARN_AES_KEY_SIZE";
-    exports2[3238] = "ER_AES_INVALID_KDF_OPTION_SIZE";
-    exports2[3500] = "ER_UNSUPPORT_COMPRESSED_TEMPORARY_TABLE";
-    exports2[3501] = "ER_ACL_OPERATION_FAILED";
-    exports2[3502] = "ER_UNSUPPORTED_INDEX_ALGORITHM";
-    exports2[3503] = "ER_NO_SUCH_DB";
-    exports2[3504] = "ER_TOO_BIG_ENUM";
-    exports2[3505] = "ER_TOO_LONG_SET_ENUM_VALUE";
-    exports2[3506] = "ER_INVALID_DD_OBJECT";
-    exports2[3507] = "ER_UPDATING_DD_TABLE";
-    exports2[3508] = "ER_INVALID_DD_OBJECT_ID";
-    exports2[3509] = "ER_INVALID_DD_OBJECT_NAME";
-    exports2[3510] = "ER_TABLESPACE_MISSING_WITH_NAME";
-    exports2[3511] = "ER_TOO_LONG_ROUTINE_COMMENT";
-    exports2[3512] = "ER_SP_LOAD_FAILED";
-    exports2[3513] = "ER_INVALID_BITWISE_OPERANDS_SIZE";
-    exports2[3514] = "ER_INVALID_BITWISE_AGGREGATE_OPERANDS_SIZE";
-    exports2[3515] = "ER_WARN_UNSUPPORTED_HINT";
-    exports2[3516] = "ER_UNEXPECTED_GEOMETRY_TYPE";
-    exports2[3517] = "ER_SRS_PARSE_ERROR";
-    exports2[3518] = "ER_SRS_PROJ_PARAMETER_MISSING";
-    exports2[3519] = "ER_WARN_SRS_NOT_FOUND";
-    exports2[3520] = "ER_SRS_NOT_CARTESIAN";
-    exports2[3521] = "ER_SRS_NOT_CARTESIAN_UNDEFINED";
-    exports2[3522] = "ER_PK_INDEX_CANT_BE_INVISIBLE";
-    exports2[3523] = "ER_UNKNOWN_AUTHID";
-    exports2[3524] = "ER_FAILED_ROLE_GRANT";
-    exports2[3525] = "ER_OPEN_ROLE_TABLES";
-    exports2[3526] = "ER_FAILED_DEFAULT_ROLES";
-    exports2[3527] = "ER_COMPONENTS_NO_SCHEME";
-    exports2[3528] = "ER_COMPONENTS_NO_SCHEME_SERVICE";
-    exports2[3529] = "ER_COMPONENTS_CANT_LOAD";
-    exports2[3530] = "ER_ROLE_NOT_GRANTED";
-    exports2[3531] = "ER_FAILED_REVOKE_ROLE";
-    exports2[3532] = "ER_RENAME_ROLE";
-    exports2[3533] = "ER_COMPONENTS_CANT_ACQUIRE_SERVICE_IMPLEMENTATION";
-    exports2[3534] = "ER_COMPONENTS_CANT_SATISFY_DEPENDENCY";
-    exports2[3535] = "ER_COMPONENTS_LOAD_CANT_REGISTER_SERVICE_IMPLEMENTATION";
-    exports2[3536] = "ER_COMPONENTS_LOAD_CANT_INITIALIZE";
-    exports2[3537] = "ER_COMPONENTS_UNLOAD_NOT_LOADED";
-    exports2[3538] = "ER_COMPONENTS_UNLOAD_CANT_DEINITIALIZE";
-    exports2[3539] = "ER_COMPONENTS_CANT_RELEASE_SERVICE";
-    exports2[3540] = "ER_COMPONENTS_UNLOAD_CANT_UNREGISTER_SERVICE";
-    exports2[3541] = "ER_COMPONENTS_CANT_UNLOAD";
-    exports2[3542] = "ER_WARN_UNLOAD_THE_NOT_PERSISTED";
-    exports2[3543] = "ER_COMPONENT_TABLE_INCORRECT";
-    exports2[3544] = "ER_COMPONENT_MANIPULATE_ROW_FAILED";
-    exports2[3545] = "ER_COMPONENTS_UNLOAD_DUPLICATE_IN_GROUP";
-    exports2[3546] = "ER_CANT_SET_GTID_PURGED_DUE_SETS_CONSTRAINTS";
-    exports2[3547] = "ER_CANNOT_LOCK_USER_MANAGEMENT_CACHES";
-    exports2[3548] = "ER_SRS_NOT_FOUND";
-    exports2[3549] = "ER_VARIABLE_NOT_PERSISTED";
-    exports2[3550] = "ER_IS_QUERY_INVALID_CLAUSE";
-    exports2[3551] = "ER_UNABLE_TO_STORE_STATISTICS";
-    exports2[3552] = "ER_NO_SYSTEM_SCHEMA_ACCESS";
-    exports2[3553] = "ER_NO_SYSTEM_TABLESPACE_ACCESS";
-    exports2[3554] = "ER_NO_SYSTEM_TABLE_ACCESS";
-    exports2[3555] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_DICTIONARY_TABLE";
-    exports2[3556] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_SYSTEM_TABLE";
-    exports2[3557] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_TABLE";
-    exports2[3558] = "ER_INVALID_OPTION_KEY";
-    exports2[3559] = "ER_INVALID_OPTION_VALUE";
-    exports2[3560] = "ER_INVALID_OPTION_KEY_VALUE_PAIR";
-    exports2[3561] = "ER_INVALID_OPTION_START_CHARACTER";
-    exports2[3562] = "ER_INVALID_OPTION_END_CHARACTER";
-    exports2[3563] = "ER_INVALID_OPTION_CHARACTERS";
-    exports2[3564] = "ER_DUPLICATE_OPTION_KEY";
-    exports2[3565] = "ER_WARN_SRS_NOT_FOUND_AXIS_ORDER";
-    exports2[3566] = "ER_NO_ACCESS_TO_NATIVE_FCT";
-    exports2[3567] = "ER_RESET_SOURCE_TO_VALUE_OUT_OF_RANGE";
-    exports2[3568] = "ER_UNRESOLVED_TABLE_LOCK";
-    exports2[3569] = "ER_DUPLICATE_TABLE_LOCK";
-    exports2[3570] = "ER_BINLOG_UNSAFE_SKIP_LOCKED";
-    exports2[3571] = "ER_BINLOG_UNSAFE_NOWAIT";
-    exports2[3572] = "ER_LOCK_NOWAIT";
-    exports2[3573] = "ER_CTE_RECURSIVE_REQUIRES_UNION";
-    exports2[3574] = "ER_CTE_RECURSIVE_REQUIRES_NONRECURSIVE_FIRST";
-    exports2[3575] = "ER_CTE_RECURSIVE_FORBIDS_AGGREGATION";
-    exports2[3576] = "ER_CTE_RECURSIVE_FORBIDDEN_JOIN_ORDER";
-    exports2[3577] = "ER_CTE_RECURSIVE_REQUIRES_SINGLE_REFERENCE";
-    exports2[3578] = "ER_SWITCH_TMP_ENGINE";
-    exports2[3579] = "ER_WINDOW_NO_SUCH_WINDOW";
-    exports2[3580] = "ER_WINDOW_CIRCULARITY_IN_WINDOW_GRAPH";
-    exports2[3581] = "ER_WINDOW_NO_CHILD_PARTITIONING";
-    exports2[3582] = "ER_WINDOW_NO_INHERIT_FRAME";
-    exports2[3583] = "ER_WINDOW_NO_REDEFINE_ORDER_BY";
-    exports2[3584] = "ER_WINDOW_FRAME_START_ILLEGAL";
-    exports2[3585] = "ER_WINDOW_FRAME_END_ILLEGAL";
-    exports2[3586] = "ER_WINDOW_FRAME_ILLEGAL";
-    exports2[3587] = "ER_WINDOW_RANGE_FRAME_ORDER_TYPE";
-    exports2[3588] = "ER_WINDOW_RANGE_FRAME_TEMPORAL_TYPE";
-    exports2[3589] = "ER_WINDOW_RANGE_FRAME_NUMERIC_TYPE";
-    exports2[3590] = "ER_WINDOW_RANGE_BOUND_NOT_CONSTANT";
-    exports2[3591] = "ER_WINDOW_DUPLICATE_NAME";
-    exports2[3592] = "ER_WINDOW_ILLEGAL_ORDER_BY";
-    exports2[3593] = "ER_WINDOW_INVALID_WINDOW_FUNC_USE";
-    exports2[3594] = "ER_WINDOW_INVALID_WINDOW_FUNC_ALIAS_USE";
-    exports2[3595] = "ER_WINDOW_NESTED_WINDOW_FUNC_USE_IN_WINDOW_SPEC";
-    exports2[3596] = "ER_WINDOW_ROWS_INTERVAL_USE";
-    exports2[3597] = "ER_WINDOW_NO_GROUP_ORDER";
-    exports2[3598] = "ER_WINDOW_EXPLAIN_JSON";
-    exports2[3599] = "ER_WINDOW_FUNCTION_IGNORES_FRAME";
-    exports2[3600] = "ER_WL9236_NOW";
-    exports2[3601] = "ER_INVALID_NO_OF_ARGS";
-    exports2[3602] = "ER_FIELD_IN_GROUPING_NOT_GROUP_BY";
-    exports2[3603] = "ER_TOO_LONG_TABLESPACE_COMMENT";
-    exports2[3604] = "ER_ENGINE_CANT_DROP_TABLE";
-    exports2[3605] = "ER_ENGINE_CANT_DROP_MISSING_TABLE";
-    exports2[3606] = "ER_TABLESPACE_DUP_FILENAME";
-    exports2[3607] = "ER_DB_DROP_RMDIR2";
-    exports2[3608] = "ER_IMP_NO_FILES_MATCHED";
-    exports2[3609] = "ER_IMP_SCHEMA_DOES_NOT_EXIST";
-    exports2[3610] = "ER_IMP_TABLE_ALREADY_EXISTS";
-    exports2[3611] = "ER_IMP_INCOMPATIBLE_MYSQLD_VERSION";
-    exports2[3612] = "ER_IMP_INCOMPATIBLE_DD_VERSION";
-    exports2[3613] = "ER_IMP_INCOMPATIBLE_SDI_VERSION";
-    exports2[3614] = "ER_WARN_INVALID_HINT";
-    exports2[3615] = "ER_VAR_DOES_NOT_EXIST";
-    exports2[3616] = "ER_LONGITUDE_OUT_OF_RANGE";
-    exports2[3617] = "ER_LATITUDE_OUT_OF_RANGE";
-    exports2[3618] = "ER_NOT_IMPLEMENTED_FOR_GEOGRAPHIC_SRS";
-    exports2[3619] = "ER_ILLEGAL_PRIVILEGE_LEVEL";
-    exports2[3620] = "ER_NO_SYSTEM_VIEW_ACCESS";
-    exports2[3621] = "ER_COMPONENT_FILTER_FLABBERGASTED";
-    exports2[3622] = "ER_PART_EXPR_TOO_LONG";
-    exports2[3623] = "ER_UDF_DROP_DYNAMICALLY_REGISTERED";
-    exports2[3624] = "ER_UNABLE_TO_STORE_COLUMN_STATISTICS";
-    exports2[3625] = "ER_UNABLE_TO_UPDATE_COLUMN_STATISTICS";
-    exports2[3626] = "ER_UNABLE_TO_DROP_COLUMN_STATISTICS";
-    exports2[3627] = "ER_UNABLE_TO_BUILD_HISTOGRAM";
-    exports2[3628] = "ER_MANDATORY_ROLE";
-    exports2[3629] = "ER_MISSING_TABLESPACE_FILE";
-    exports2[3630] = "ER_PERSIST_ONLY_ACCESS_DENIED_ERROR";
-    exports2[3631] = "ER_CMD_NEED_SUPER";
-    exports2[3632] = "ER_PATH_IN_DATADIR";
-    exports2[3633] = "ER_CLONE_DDL_IN_PROGRESS";
-    exports2[3634] = "ER_CLONE_TOO_MANY_CONCURRENT_CLONES";
-    exports2[3635] = "ER_APPLIER_LOG_EVENT_VALIDATION_ERROR";
-    exports2[3636] = "ER_CTE_MAX_RECURSION_DEPTH";
-    exports2[3637] = "ER_NOT_HINT_UPDATABLE_VARIABLE";
-    exports2[3638] = "ER_CREDENTIALS_CONTRADICT_TO_HISTORY";
-    exports2[3639] = "ER_WARNING_PASSWORD_HISTORY_CLAUSES_VOID";
-    exports2[3640] = "ER_CLIENT_DOES_NOT_SUPPORT";
-    exports2[3641] = "ER_I_S_SKIPPED_TABLESPACE";
-    exports2[3642] = "ER_TABLESPACE_ENGINE_MISMATCH";
-    exports2[3643] = "ER_WRONG_SRID_FOR_COLUMN";
-    exports2[3644] = "ER_CANNOT_ALTER_SRID_DUE_TO_INDEX";
-    exports2[3645] = "ER_WARN_BINLOG_PARTIAL_UPDATES_DISABLED";
-    exports2[3646] = "ER_WARN_BINLOG_V1_ROW_EVENTS_DISABLED";
-    exports2[3647] = "ER_WARN_BINLOG_PARTIAL_UPDATES_SUGGESTS_PARTIAL_IMAGES";
-    exports2[3648] = "ER_COULD_NOT_APPLY_JSON_DIFF";
-    exports2[3649] = "ER_CORRUPTED_JSON_DIFF";
-    exports2[3650] = "ER_RESOURCE_GROUP_EXISTS";
-    exports2[3651] = "ER_RESOURCE_GROUP_NOT_EXISTS";
-    exports2[3652] = "ER_INVALID_VCPU_ID";
-    exports2[3653] = "ER_INVALID_VCPU_RANGE";
-    exports2[3654] = "ER_INVALID_THREAD_PRIORITY";
-    exports2[3655] = "ER_DISALLOWED_OPERATION";
-    exports2[3656] = "ER_RESOURCE_GROUP_BUSY";
-    exports2[3657] = "ER_RESOURCE_GROUP_DISABLED";
-    exports2[3658] = "ER_FEATURE_UNSUPPORTED";
-    exports2[3659] = "ER_ATTRIBUTE_IGNORED";
-    exports2[3660] = "ER_INVALID_THREAD_ID";
-    exports2[3661] = "ER_RESOURCE_GROUP_BIND_FAILED";
-    exports2[3662] = "ER_INVALID_USE_OF_FORCE_OPTION";
-    exports2[3663] = "ER_GROUP_REPLICATION_COMMAND_FAILURE";
-    exports2[3664] = "ER_SDI_OPERATION_FAILED";
-    exports2[3665] = "ER_MISSING_JSON_TABLE_VALUE";
-    exports2[3666] = "ER_WRONG_JSON_TABLE_VALUE";
-    exports2[3667] = "ER_TF_MUST_HAVE_ALIAS";
-    exports2[3668] = "ER_TF_FORBIDDEN_JOIN_TYPE";
-    exports2[3669] = "ER_JT_VALUE_OUT_OF_RANGE";
-    exports2[3670] = "ER_JT_MAX_NESTED_PATH";
-    exports2[3671] = "ER_PASSWORD_EXPIRATION_NOT_SUPPORTED_BY_AUTH_METHOD";
-    exports2[3672] = "ER_INVALID_GEOJSON_CRS_NOT_TOP_LEVEL";
-    exports2[3673] = "ER_BAD_NULL_ERROR_NOT_IGNORED";
-    exports2[3674] = "WARN_USELESS_SPATIAL_INDEX";
-    exports2[3675] = "ER_DISK_FULL_NOWAIT";
-    exports2[3676] = "ER_PARSE_ERROR_IN_DIGEST_FN";
-    exports2[3677] = "ER_UNDISCLOSED_PARSE_ERROR_IN_DIGEST_FN";
-    exports2[3678] = "ER_SCHEMA_DIR_EXISTS";
-    exports2[3679] = "ER_SCHEMA_DIR_MISSING";
-    exports2[3680] = "ER_SCHEMA_DIR_CREATE_FAILED";
-    exports2[3681] = "ER_SCHEMA_DIR_UNKNOWN";
-    exports2[3682] = "ER_ONLY_IMPLEMENTED_FOR_SRID_0_AND_4326";
-    exports2[3683] = "ER_BINLOG_EXPIRE_LOG_DAYS_AND_SECS_USED_TOGETHER";
-    exports2[3684] = "ER_REGEXP_BUFFER_OVERFLOW";
-    exports2[3685] = "ER_REGEXP_ILLEGAL_ARGUMENT";
-    exports2[3686] = "ER_REGEXP_INDEX_OUTOFBOUNDS_ERROR";
-    exports2[3687] = "ER_REGEXP_INTERNAL_ERROR";
-    exports2[3688] = "ER_REGEXP_RULE_SYNTAX";
-    exports2[3689] = "ER_REGEXP_BAD_ESCAPE_SEQUENCE";
-    exports2[3690] = "ER_REGEXP_UNIMPLEMENTED";
-    exports2[3691] = "ER_REGEXP_MISMATCHED_PAREN";
-    exports2[3692] = "ER_REGEXP_BAD_INTERVAL";
-    exports2[3693] = "ER_REGEXP_MAX_LT_MIN";
-    exports2[3694] = "ER_REGEXP_INVALID_BACK_REF";
-    exports2[3695] = "ER_REGEXP_LOOK_BEHIND_LIMIT";
-    exports2[3696] = "ER_REGEXP_MISSING_CLOSE_BRACKET";
-    exports2[3697] = "ER_REGEXP_INVALID_RANGE";
-    exports2[3698] = "ER_REGEXP_STACK_OVERFLOW";
-    exports2[3699] = "ER_REGEXP_TIME_OUT";
-    exports2[3700] = "ER_REGEXP_PATTERN_TOO_BIG";
-    exports2[3701] = "ER_CANT_SET_ERROR_LOG_SERVICE";
-    exports2[3702] = "ER_EMPTY_PIPELINE_FOR_ERROR_LOG_SERVICE";
-    exports2[3703] = "ER_COMPONENT_FILTER_DIAGNOSTICS";
-    exports2[3704] = "ER_NOT_IMPLEMENTED_FOR_CARTESIAN_SRS";
-    exports2[3705] = "ER_NOT_IMPLEMENTED_FOR_PROJECTED_SRS";
-    exports2[3706] = "ER_NONPOSITIVE_RADIUS";
-    exports2[3707] = "ER_RESTART_SERVER_FAILED";
-    exports2[3708] = "ER_SRS_MISSING_MANDATORY_ATTRIBUTE";
-    exports2[3709] = "ER_SRS_MULTIPLE_ATTRIBUTE_DEFINITIONS";
-    exports2[3710] = "ER_SRS_NAME_CANT_BE_EMPTY_OR_WHITESPACE";
-    exports2[3711] = "ER_SRS_ORGANIZATION_CANT_BE_EMPTY_OR_WHITESPACE";
-    exports2[3712] = "ER_SRS_ID_ALREADY_EXISTS";
-    exports2[3713] = "ER_WARN_SRS_ID_ALREADY_EXISTS";
-    exports2[3714] = "ER_CANT_MODIFY_SRID_0";
-    exports2[3715] = "ER_WARN_RESERVED_SRID_RANGE";
-    exports2[3716] = "ER_CANT_MODIFY_SRS_USED_BY_COLUMN";
-    exports2[3717] = "ER_SRS_INVALID_CHARACTER_IN_ATTRIBUTE";
-    exports2[3718] = "ER_SRS_ATTRIBUTE_STRING_TOO_LONG";
-    exports2[3719] = "ER_DEPRECATED_UTF8_ALIAS";
-    exports2[3720] = "ER_DEPRECATED_NATIONAL";
-    exports2[3721] = "ER_INVALID_DEFAULT_UTF8MB4_COLLATION";
-    exports2[3722] = "ER_UNABLE_TO_COLLECT_LOG_STATUS";
-    exports2[3723] = "ER_RESERVED_TABLESPACE_NAME";
-    exports2[3724] = "ER_UNABLE_TO_SET_OPTION";
-    exports2[3725] = "ER_REPLICA_POSSIBLY_DIVERGED_AFTER_DDL";
-    exports2[3726] = "ER_SRS_NOT_GEOGRAPHIC";
-    exports2[3727] = "ER_POLYGON_TOO_LARGE";
-    exports2[3728] = "ER_SPATIAL_UNIQUE_INDEX";
-    exports2[3729] = "ER_INDEX_TYPE_NOT_SUPPORTED_FOR_SPATIAL_INDEX";
-    exports2[3730] = "ER_FK_CANNOT_DROP_PARENT";
-    exports2[3731] = "ER_GEOMETRY_PARAM_LONGITUDE_OUT_OF_RANGE";
-    exports2[3732] = "ER_GEOMETRY_PARAM_LATITUDE_OUT_OF_RANGE";
-    exports2[3733] = "ER_FK_CANNOT_USE_VIRTUAL_COLUMN";
-    exports2[3734] = "ER_FK_NO_COLUMN_PARENT";
-    exports2[3735] = "ER_CANT_SET_ERROR_SUPPRESSION_LIST";
-    exports2[3736] = "ER_SRS_GEOGCS_INVALID_AXES";
-    exports2[3737] = "ER_SRS_INVALID_SEMI_MAJOR_AXIS";
-    exports2[3738] = "ER_SRS_INVALID_INVERSE_FLATTENING";
-    exports2[3739] = "ER_SRS_INVALID_ANGULAR_UNIT";
-    exports2[3740] = "ER_SRS_INVALID_PRIME_MERIDIAN";
-    exports2[3741] = "ER_TRANSFORM_SOURCE_SRS_NOT_SUPPORTED";
-    exports2[3742] = "ER_TRANSFORM_TARGET_SRS_NOT_SUPPORTED";
-    exports2[3743] = "ER_TRANSFORM_SOURCE_SRS_MISSING_TOWGS84";
-    exports2[3744] = "ER_TRANSFORM_TARGET_SRS_MISSING_TOWGS84";
-    exports2[3745] = "ER_TEMP_TABLE_PREVENTS_SWITCH_SESSION_BINLOG_FORMAT";
-    exports2[3746] = "ER_TEMP_TABLE_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT";
-    exports2[3747] = "ER_RUNNING_APPLIER_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT";
-    exports2[3748] = "ER_CLIENT_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRX_IN_SBR";
-    exports2[3749] = "ER_XA_CANT_CREATE_MDL_BACKUP";
-    exports2[3750] = "ER_TABLE_WITHOUT_PK";
-    exports2[3751] = "ER_WARN_DATA_TRUNCATED_FUNCTIONAL_INDEX";
-    exports2[3752] = "ER_WARN_DATA_OUT_OF_RANGE_FUNCTIONAL_INDEX";
-    exports2[3753] = "ER_FUNCTIONAL_INDEX_ON_JSON_OR_GEOMETRY_FUNCTION";
-    exports2[3754] = "ER_FUNCTIONAL_INDEX_REF_AUTO_INCREMENT";
-    exports2[3755] = "ER_CANNOT_DROP_COLUMN_FUNCTIONAL_INDEX";
-    exports2[3756] = "ER_FUNCTIONAL_INDEX_PRIMARY_KEY";
-    exports2[3757] = "ER_FUNCTIONAL_INDEX_ON_LOB";
-    exports2[3758] = "ER_FUNCTIONAL_INDEX_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3759] = "ER_FULLTEXT_FUNCTIONAL_INDEX";
-    exports2[3760] = "ER_SPATIAL_FUNCTIONAL_INDEX";
-    exports2[3761] = "ER_WRONG_KEY_COLUMN_FUNCTIONAL_INDEX";
-    exports2[3762] = "ER_FUNCTIONAL_INDEX_ON_FIELD";
-    exports2[3763] = "ER_GENERATED_COLUMN_NAMED_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3764] = "ER_GENERATED_COLUMN_ROW_VALUE";
-    exports2[3765] = "ER_GENERATED_COLUMN_VARIABLES";
-    exports2[3766] = "ER_DEPENDENT_BY_DEFAULT_GENERATED_VALUE";
-    exports2[3767] = "ER_DEFAULT_VAL_GENERATED_NON_PRIOR";
-    exports2[3768] = "ER_DEFAULT_VAL_GENERATED_REF_AUTO_INC";
-    exports2[3769] = "ER_DEFAULT_VAL_GENERATED_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3770] = "ER_DEFAULT_VAL_GENERATED_NAMED_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3771] = "ER_DEFAULT_VAL_GENERATED_ROW_VALUE";
-    exports2[3772] = "ER_DEFAULT_VAL_GENERATED_VARIABLES";
-    exports2[3773] = "ER_DEFAULT_AS_VAL_GENERATED";
-    exports2[3774] = "ER_UNSUPPORTED_ACTION_ON_DEFAULT_VAL_GENERATED";
-    exports2[3775] = "ER_GTID_UNSAFE_ALTER_ADD_COL_WITH_DEFAULT_EXPRESSION";
-    exports2[3776] = "ER_FK_CANNOT_CHANGE_ENGINE";
-    exports2[3777] = "ER_WARN_DEPRECATED_USER_SET_EXPR";
-    exports2[3778] = "ER_WARN_DEPRECATED_UTF8MB3_COLLATION";
-    exports2[3779] = "ER_WARN_DEPRECATED_NESTED_COMMENT_SYNTAX";
-    exports2[3780] = "ER_FK_INCOMPATIBLE_COLUMNS";
-    exports2[3781] = "ER_GR_HOLD_WAIT_TIMEOUT";
-    exports2[3782] = "ER_GR_HOLD_KILLED";
-    exports2[3783] = "ER_GR_HOLD_MEMBER_STATUS_ERROR";
-    exports2[3784] = "ER_RPL_ENCRYPTION_FAILED_TO_FETCH_KEY";
-    exports2[3785] = "ER_RPL_ENCRYPTION_KEY_NOT_FOUND";
-    exports2[3786] = "ER_RPL_ENCRYPTION_KEYRING_INVALID_KEY";
-    exports2[3787] = "ER_RPL_ENCRYPTION_HEADER_ERROR";
-    exports2[3788] = "ER_RPL_ENCRYPTION_FAILED_TO_ROTATE_LOGS";
-    exports2[3789] = "ER_RPL_ENCRYPTION_KEY_EXISTS_UNEXPECTED";
-    exports2[3790] = "ER_RPL_ENCRYPTION_FAILED_TO_GENERATE_KEY";
-    exports2[3791] = "ER_RPL_ENCRYPTION_FAILED_TO_STORE_KEY";
-    exports2[3792] = "ER_RPL_ENCRYPTION_FAILED_TO_REMOVE_KEY";
-    exports2[3793] = "ER_RPL_ENCRYPTION_UNABLE_TO_CHANGE_OPTION";
-    exports2[3794] = "ER_RPL_ENCRYPTION_MASTER_KEY_RECOVERY_FAILED";
-    exports2[3795] = "ER_SLOW_LOG_MODE_IGNORED_WHEN_NOT_LOGGING_TO_FILE";
-    exports2[3796] = "ER_GRP_TRX_CONSISTENCY_NOT_ALLOWED";
-    exports2[3797] = "ER_GRP_TRX_CONSISTENCY_BEFORE";
-    exports2[3798] = "ER_GRP_TRX_CONSISTENCY_AFTER_ON_TRX_BEGIN";
-    exports2[3799] = "ER_GRP_TRX_CONSISTENCY_BEGIN_NOT_ALLOWED";
-    exports2[3800] = "ER_FUNCTIONAL_INDEX_ROW_VALUE_IS_NOT_ALLOWED";
-    exports2[3801] = "ER_RPL_ENCRYPTION_FAILED_TO_ENCRYPT";
-    exports2[3802] = "ER_PAGE_TRACKING_NOT_STARTED";
-    exports2[3803] = "ER_PAGE_TRACKING_RANGE_NOT_TRACKED";
-    exports2[3804] = "ER_PAGE_TRACKING_CANNOT_PURGE";
-    exports2[3805] = "ER_RPL_ENCRYPTION_CANNOT_ROTATE_BINLOG_MASTER_KEY";
-    exports2[3806] = "ER_BINLOG_MASTER_KEY_RECOVERY_OUT_OF_COMBINATION";
-    exports2[3807] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_OPERATE_KEY";
-    exports2[3808] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_ROTATE_LOGS";
-    exports2[3809] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_REENCRYPT_LOG";
-    exports2[3810] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_UNUSED_KEYS";
-    exports2[3811] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_AUX_KEY";
-    exports2[3812] = "ER_NON_BOOLEAN_EXPR_FOR_CHECK_CONSTRAINT";
-    exports2[3813] = "ER_COLUMN_CHECK_CONSTRAINT_REFERENCES_OTHER_COLUMN";
-    exports2[3814] = "ER_CHECK_CONSTRAINT_NAMED_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3815] = "ER_CHECK_CONSTRAINT_FUNCTION_IS_NOT_ALLOWED";
-    exports2[3816] = "ER_CHECK_CONSTRAINT_VARIABLES";
-    exports2[3817] = "ER_CHECK_CONSTRAINT_ROW_VALUE";
-    exports2[3818] = "ER_CHECK_CONSTRAINT_REFERS_AUTO_INCREMENT_COLUMN";
-    exports2[3819] = "ER_CHECK_CONSTRAINT_VIOLATED";
-    exports2[3820] = "ER_CHECK_CONSTRAINT_REFERS_UNKNOWN_COLUMN";
-    exports2[3821] = "ER_CHECK_CONSTRAINT_NOT_FOUND";
-    exports2[3822] = "ER_CHECK_CONSTRAINT_DUP_NAME";
-    exports2[3823] = "ER_CHECK_CONSTRAINT_CLAUSE_USING_FK_REFER_ACTION_COLUMN";
-    exports2[3824] = "WARN_UNENCRYPTED_TABLE_IN_ENCRYPTED_DB";
-    exports2[3825] = "ER_INVALID_ENCRYPTION_REQUEST";
-    exports2[3826] = "ER_CANNOT_SET_TABLE_ENCRYPTION";
-    exports2[3827] = "ER_CANNOT_SET_DATABASE_ENCRYPTION";
-    exports2[3828] = "ER_CANNOT_SET_TABLESPACE_ENCRYPTION";
-    exports2[3829] = "ER_TABLESPACE_CANNOT_BE_ENCRYPTED";
-    exports2[3830] = "ER_TABLESPACE_CANNOT_BE_DECRYPTED";
-    exports2[3831] = "ER_TABLESPACE_TYPE_UNKNOWN";
-    exports2[3832] = "ER_TARGET_TABLESPACE_UNENCRYPTED";
-    exports2[3833] = "ER_CANNOT_USE_ENCRYPTION_CLAUSE";
-    exports2[3834] = "ER_INVALID_MULTIPLE_CLAUSES";
-    exports2[3835] = "ER_UNSUPPORTED_USE_OF_GRANT_AS";
-    exports2[3836] = "ER_UKNOWN_AUTH_ID_OR_ACCESS_DENIED_FOR_GRANT_AS";
-    exports2[3837] = "ER_DEPENDENT_BY_FUNCTIONAL_INDEX";
-    exports2[3838] = "ER_PLUGIN_NOT_EARLY";
-    exports2[3839] = "ER_INNODB_REDO_LOG_ARCHIVE_START_SUBDIR_PATH";
-    exports2[3840] = "ER_INNODB_REDO_LOG_ARCHIVE_START_TIMEOUT";
-    exports2[3841] = "ER_INNODB_REDO_LOG_ARCHIVE_DIRS_INVALID";
-    exports2[3842] = "ER_INNODB_REDO_LOG_ARCHIVE_LABEL_NOT_FOUND";
-    exports2[3843] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_EMPTY";
-    exports2[3844] = "ER_INNODB_REDO_LOG_ARCHIVE_NO_SUCH_DIR";
-    exports2[3845] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_CLASH";
-    exports2[3846] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_PERMISSIONS";
-    exports2[3847] = "ER_INNODB_REDO_LOG_ARCHIVE_FILE_CREATE";
-    exports2[3848] = "ER_INNODB_REDO_LOG_ARCHIVE_ACTIVE";
-    exports2[3849] = "ER_INNODB_REDO_LOG_ARCHIVE_INACTIVE";
-    exports2[3850] = "ER_INNODB_REDO_LOG_ARCHIVE_FAILED";
-    exports2[3851] = "ER_INNODB_REDO_LOG_ARCHIVE_SESSION";
-    exports2[3852] = "ER_STD_REGEX_ERROR";
-    exports2[3853] = "ER_INVALID_JSON_TYPE";
-    exports2[3854] = "ER_CANNOT_CONVERT_STRING";
-    exports2[3855] = "ER_DEPENDENT_BY_PARTITION_FUNC";
-    exports2[3856] = "ER_WARN_DEPRECATED_FLOAT_AUTO_INCREMENT";
-    exports2[3857] = "ER_RPL_CANT_STOP_REPLICA_WHILE_LOCKED_BACKUP";
-    exports2[3858] = "ER_WARN_DEPRECATED_FLOAT_DIGITS";
-    exports2[3859] = "ER_WARN_DEPRECATED_FLOAT_UNSIGNED";
-    exports2[3860] = "ER_WARN_DEPRECATED_INTEGER_DISPLAY_WIDTH";
-    exports2[3861] = "ER_WARN_DEPRECATED_ZEROFILL";
-    exports2[3862] = "ER_CLONE_DONOR";
-    exports2[3863] = "ER_CLONE_PROTOCOL";
-    exports2[3864] = "ER_CLONE_DONOR_VERSION";
-    exports2[3865] = "ER_CLONE_OS";
-    exports2[3866] = "ER_CLONE_PLATFORM";
-    exports2[3867] = "ER_CLONE_CHARSET";
-    exports2[3868] = "ER_CLONE_CONFIG";
-    exports2[3869] = "ER_CLONE_SYS_CONFIG";
-    exports2[3870] = "ER_CLONE_PLUGIN_MATCH";
-    exports2[3871] = "ER_CLONE_LOOPBACK";
-    exports2[3872] = "ER_CLONE_ENCRYPTION";
-    exports2[3873] = "ER_CLONE_DISK_SPACE";
-    exports2[3874] = "ER_CLONE_IN_PROGRESS";
-    exports2[3875] = "ER_CLONE_DISALLOWED";
-    exports2[3876] = "ER_CANNOT_GRANT_ROLES_TO_ANONYMOUS_USER";
-    exports2[3877] = "ER_SECONDARY_ENGINE_PLUGIN";
-    exports2[3878] = "ER_SECOND_PASSWORD_CANNOT_BE_EMPTY";
-    exports2[3879] = "ER_DB_ACCESS_DENIED";
-    exports2[3880] = "ER_DA_AUTH_ID_WITH_SYSTEM_USER_PRIV_IN_MANDATORY_ROLES";
-    exports2[3881] = "ER_DA_RPL_GTID_TABLE_CANNOT_OPEN";
-    exports2[3882] = "ER_GEOMETRY_IN_UNKNOWN_LENGTH_UNIT";
-    exports2[3883] = "ER_DA_PLUGIN_INSTALL_ERROR";
-    exports2[3884] = "ER_NO_SESSION_TEMP";
-    exports2[3885] = "ER_DA_UNKNOWN_ERROR_NUMBER";
-    exports2[3886] = "ER_COLUMN_CHANGE_SIZE";
-    exports2[3887] = "ER_REGEXP_INVALID_CAPTURE_GROUP_NAME";
-    exports2[3888] = "ER_DA_SSL_LIBRARY_ERROR";
-    exports2[3889] = "ER_SECONDARY_ENGINE";
-    exports2[3890] = "ER_SECONDARY_ENGINE_DDL";
-    exports2[3891] = "ER_INCORRECT_CURRENT_PASSWORD";
-    exports2[3892] = "ER_MISSING_CURRENT_PASSWORD";
-    exports2[3893] = "ER_CURRENT_PASSWORD_NOT_REQUIRED";
-    exports2[3894] = "ER_PASSWORD_CANNOT_BE_RETAINED_ON_PLUGIN_CHANGE";
-    exports2[3895] = "ER_CURRENT_PASSWORD_CANNOT_BE_RETAINED";
-    exports2[3896] = "ER_PARTIAL_REVOKES_EXIST";
-    exports2[3897] = "ER_CANNOT_GRANT_SYSTEM_PRIV_TO_MANDATORY_ROLE";
-    exports2[3898] = "ER_XA_REPLICATION_FILTERS";
-    exports2[3899] = "ER_UNSUPPORTED_SQL_MODE";
-    exports2[3900] = "ER_REGEXP_INVALID_FLAG";
-    exports2[3901] = "ER_PARTIAL_REVOKE_AND_DB_GRANT_BOTH_EXISTS";
-    exports2[3902] = "ER_UNIT_NOT_FOUND";
-    exports2[3903] = "ER_INVALID_JSON_VALUE_FOR_FUNC_INDEX";
-    exports2[3904] = "ER_JSON_VALUE_OUT_OF_RANGE_FOR_FUNC_INDEX";
-    exports2[3905] = "ER_EXCEEDED_MV_KEYS_NUM";
-    exports2[3906] = "ER_EXCEEDED_MV_KEYS_SPACE";
-    exports2[3907] = "ER_FUNCTIONAL_INDEX_DATA_IS_TOO_LONG";
-    exports2[3908] = "ER_WRONG_MVI_VALUE";
-    exports2[3909] = "ER_WARN_FUNC_INDEX_NOT_APPLICABLE";
-    exports2[3910] = "ER_GRP_RPL_UDF_ERROR";
-    exports2[3911] = "ER_UPDATE_GTID_PURGED_WITH_GR";
-    exports2[3912] = "ER_GROUPING_ON_TIMESTAMP_IN_DST";
-    exports2[3913] = "ER_TABLE_NAME_CAUSES_TOO_LONG_PATH";
-    exports2[3914] = "ER_AUDIT_LOG_INSUFFICIENT_PRIVILEGE";
-    exports2[3915] = "ER_AUDIT_LOG_PASSWORD_HAS_BEEN_COPIED";
-    exports2[3916] = "ER_DA_GRP_RPL_STARTED_AUTO_REJOIN";
-    exports2[3917] = "ER_SYSVAR_CHANGE_DURING_QUERY";
-    exports2[3918] = "ER_GLOBSTAT_CHANGE_DURING_QUERY";
-    exports2[3919] = "ER_GRP_RPL_MESSAGE_SERVICE_INIT_FAILURE";
-    exports2[3920] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_CLIENT";
-    exports2[3921] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_LEVEL_CLIENT";
-    exports2[3922] = "ER_WRONG_COMPRESSION_ALGORITHM_CLIENT";
-    exports2[3923] = "ER_WRONG_COMPRESSION_LEVEL_CLIENT";
-    exports2[3924] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_LIST_CLIENT";
-    exports2[3925] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_CANNOT_BE_ANONYMOUS";
-    exports2[3926] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_DOES_NOT_EXIST";
-    exports2[3927] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_CORRUPT";
-    exports2[3928] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_NEEDS_RPL_APPLIER_PRIV";
-    exports2[3929] = "ER_WARN_DA_PRIVILEGE_NOT_REGISTERED";
-    exports2[3930] = "ER_CLIENT_KEYRING_UDF_KEY_INVALID";
-    exports2[3931] = "ER_CLIENT_KEYRING_UDF_KEY_TYPE_INVALID";
-    exports2[3932] = "ER_CLIENT_KEYRING_UDF_KEY_TOO_LONG";
-    exports2[3933] = "ER_CLIENT_KEYRING_UDF_KEY_TYPE_TOO_LONG";
-    exports2[3934] = "ER_JSON_SCHEMA_VALIDATION_ERROR_WITH_DETAILED_REPORT";
-    exports2[3935] = "ER_DA_UDF_INVALID_CHARSET_SPECIFIED";
-    exports2[3936] = "ER_DA_UDF_INVALID_CHARSET";
-    exports2[3937] = "ER_DA_UDF_INVALID_COLLATION";
-    exports2[3938] = "ER_DA_UDF_INVALID_EXTENSION_ARGUMENT_TYPE";
-    exports2[3939] = "ER_MULTIPLE_CONSTRAINTS_WITH_SAME_NAME";
-    exports2[3940] = "ER_CONSTRAINT_NOT_FOUND";
-    exports2[3941] = "ER_ALTER_CONSTRAINT_ENFORCEMENT_NOT_SUPPORTED";
-    exports2[3942] = "ER_TABLE_VALUE_CONSTRUCTOR_MUST_HAVE_COLUMNS";
-    exports2[3943] = "ER_TABLE_VALUE_CONSTRUCTOR_CANNOT_HAVE_DEFAULT";
-    exports2[3944] = "ER_CLIENT_QUERY_FAILURE_INVALID_NON_ROW_FORMAT";
-    exports2[3945] = "ER_REQUIRE_ROW_FORMAT_INVALID_VALUE";
-    exports2[3946] = "ER_FAILED_TO_DETERMINE_IF_ROLE_IS_MANDATORY";
-    exports2[3947] = "ER_FAILED_TO_FETCH_MANDATORY_ROLE_LIST";
-    exports2[3948] = "ER_CLIENT_LOCAL_FILES_DISABLED";
-    exports2[3949] = "ER_IMP_INCOMPATIBLE_CFG_VERSION";
-    exports2[3950] = "ER_DA_OOM";
-    exports2[3951] = "ER_DA_UDF_INVALID_ARGUMENT_TO_SET_CHARSET";
-    exports2[3952] = "ER_DA_UDF_INVALID_RETURN_TYPE_TO_SET_CHARSET";
-    exports2[3953] = "ER_MULTIPLE_INTO_CLAUSES";
-    exports2[3954] = "ER_MISPLACED_INTO";
-    exports2[3955] = "ER_USER_ACCESS_DENIED_FOR_USER_ACCOUNT_BLOCKED_BY_PASSWORD_LOCK";
-    exports2[3956] = "ER_WARN_DEPRECATED_YEAR_UNSIGNED";
-    exports2[3957] = "ER_CLONE_NETWORK_PACKET";
-    exports2[3958] = "ER_SDI_OPERATION_FAILED_MISSING_RECORD";
-    exports2[3959] = "ER_DEPENDENT_BY_CHECK_CONSTRAINT";
-    exports2[3960] = "ER_GRP_OPERATION_NOT_ALLOWED_GR_MUST_STOP";
-    exports2[3961] = "ER_WARN_DEPRECATED_JSON_TABLE_ON_ERROR_ON_EMPTY";
-    exports2[3962] = "ER_WARN_DEPRECATED_INNER_INTO";
-    exports2[3963] = "ER_WARN_DEPRECATED_VALUES_FUNCTION_ALWAYS_NULL";
-    exports2[3964] = "ER_WARN_DEPRECATED_SQL_CALC_FOUND_ROWS";
-    exports2[3965] = "ER_WARN_DEPRECATED_FOUND_ROWS";
-    exports2[3966] = "ER_MISSING_JSON_VALUE";
-    exports2[3967] = "ER_MULTIPLE_JSON_VALUES";
-    exports2[3968] = "ER_HOSTNAME_TOO_LONG";
-    exports2[3969] = "ER_WARN_CLIENT_DEPRECATED_PARTITION_PREFIX_KEY";
-    exports2[3970] = "ER_GROUP_REPLICATION_USER_EMPTY_MSG";
-    exports2[3971] = "ER_GROUP_REPLICATION_USER_MANDATORY_MSG";
-    exports2[3972] = "ER_GROUP_REPLICATION_PASSWORD_LENGTH";
-    exports2[3973] = "ER_SUBQUERY_TRANSFORM_REJECTED";
-    exports2[3974] = "ER_DA_GRP_RPL_RECOVERY_ENDPOINT_FORMAT";
-    exports2[3975] = "ER_DA_GRP_RPL_RECOVERY_ENDPOINT_INVALID";
-    exports2[3976] = "ER_WRONG_VALUE_FOR_VAR_PLUS_ACTIONABLE_PART";
-    exports2[3977] = "ER_STATEMENT_NOT_ALLOWED_AFTER_START_TRANSACTION";
-    exports2[3978] = "ER_FOREIGN_KEY_WITH_ATOMIC_CREATE_SELECT";
-    exports2[3979] = "ER_NOT_ALLOWED_WITH_START_TRANSACTION";
-    exports2[3980] = "ER_INVALID_JSON_ATTRIBUTE";
-    exports2[3981] = "ER_ENGINE_ATTRIBUTE_NOT_SUPPORTED";
-    exports2[3982] = "ER_INVALID_USER_ATTRIBUTE_JSON";
-    exports2[3983] = "ER_INNODB_REDO_DISABLED";
-    exports2[3984] = "ER_INNODB_REDO_ARCHIVING_ENABLED";
-    exports2[3985] = "ER_MDL_OUT_OF_RESOURCES";
-    exports2[3986] = "ER_IMPLICIT_COMPARISON_FOR_JSON";
-    exports2[3987] = "ER_FUNCTION_DOES_NOT_SUPPORT_CHARACTER_SET";
-    exports2[3988] = "ER_IMPOSSIBLE_STRING_CONVERSION";
-    exports2[3989] = "ER_SCHEMA_READ_ONLY";
-    exports2[3990] = "ER_RPL_ASYNC_RECONNECT_GTID_MODE_OFF";
-    exports2[3991] = "ER_RPL_ASYNC_RECONNECT_AUTO_POSITION_OFF";
-    exports2[3992] = "ER_DISABLE_GTID_MODE_REQUIRES_ASYNC_RECONNECT_OFF";
-    exports2[3993] = "ER_DISABLE_AUTO_POSITION_REQUIRES_ASYNC_RECONNECT_OFF";
-    exports2[3994] = "ER_INVALID_PARAMETER_USE";
-    exports2[3995] = "ER_CHARACTER_SET_MISMATCH";
-    exports2[3996] = "ER_WARN_VAR_VALUE_CHANGE_NOT_SUPPORTED";
-    exports2[3997] = "ER_INVALID_TIME_ZONE_INTERVAL";
-    exports2[3998] = "ER_INVALID_CAST";
-    exports2[3999] = "ER_HYPERGRAPH_NOT_SUPPORTED_YET";
-    exports2[4e3] = "ER_WARN_HYPERGRAPH_EXPERIMENTAL";
-    exports2[4001] = "ER_DA_NO_ERROR_LOG_PARSER_CONFIGURED";
-    exports2[4002] = "ER_DA_ERROR_LOG_TABLE_DISABLED";
-    exports2[4003] = "ER_DA_ERROR_LOG_MULTIPLE_FILTERS";
-    exports2[4004] = "ER_DA_CANT_OPEN_ERROR_LOG";
-    exports2[4005] = "ER_USER_REFERENCED_AS_DEFINER";
-    exports2[4006] = "ER_CANNOT_USER_REFERENCED_AS_DEFINER";
-    exports2[4007] = "ER_REGEX_NUMBER_TOO_BIG";
-    exports2[4008] = "ER_SPVAR_NONINTEGER_TYPE";
-    exports2[4009] = "WARN_UNSUPPORTED_ACL_TABLES_READ";
-    exports2[4010] = "ER_BINLOG_UNSAFE_ACL_TABLE_READ_IN_DML_DDL";
-    exports2[4011] = "ER_STOP_REPLICA_MONITOR_IO_THREAD_TIMEOUT";
-    exports2[4012] = "ER_STARTING_REPLICA_MONITOR_IO_THREAD";
-    exports2[4013] = "ER_CANT_USE_ANONYMOUS_TO_GTID_WITH_GTID_MODE_NOT_ON";
-    exports2[4014] = "ER_CANT_COMBINE_ANONYMOUS_TO_GTID_AND_AUTOPOSITION";
-    exports2[4015] = "ER_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_REQUIRES_GTID_MODE_ON";
-    exports2[4016] = "ER_SQL_REPLICA_SKIP_COUNTER_USED_WITH_GTID_MODE_ON";
-    exports2[4017] = "ER_USING_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_AS_LOCAL_OR_UUID";
-    exports2[4018] = "ER_CANT_SET_ANONYMOUS_TO_GTID_AND_WAIT_UNTIL_SQL_THD_AFTER_GTIDS";
-    exports2[4019] = "ER_CANT_SET_SQL_AFTER_OR_BEFORE_GTIDS_WITH_ANONYMOUS_TO_GTID";
-    exports2[4020] = "ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_GROUP_NAME";
-    exports2[4021] = "ER_CANT_USE_SAME_UUID_AS_GROUP_NAME";
-    exports2[4022] = "ER_GRP_RPL_RECOVERY_CHANNEL_STILL_RUNNING";
-    exports2[4023] = "ER_INNODB_INVALID_AUTOEXTEND_SIZE_VALUE";
-    exports2[4024] = "ER_INNODB_INCOMPATIBLE_WITH_TABLESPACE";
-    exports2[4025] = "ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE";
-    exports2[4026] = "ER_CANNOT_USE_AUTOEXTEND_SIZE_CLAUSE";
-    exports2[4027] = "ER_ROLE_GRANTED_TO_ITSELF";
-    exports2[4028] = "ER_TABLE_MUST_HAVE_A_VISIBLE_COLUMN";
-    exports2[4029] = "ER_INNODB_COMPRESSION_FAILURE";
-    exports2[4030] = "ER_WARN_ASYNC_CONN_FAILOVER_NETWORK_NAMESPACE";
-    exports2[4031] = "ER_CLIENT_INTERACTION_TIMEOUT";
-    exports2[4032] = "ER_INVALID_CAST_TO_GEOMETRY";
-    exports2[4033] = "ER_INVALID_CAST_POLYGON_RING_DIRECTION";
-    exports2[4034] = "ER_GIS_DIFFERENT_SRIDS_AGGREGATION";
-    exports2[4035] = "ER_RELOAD_KEYRING_FAILURE";
-    exports2[4036] = "ER_SDI_GET_KEYS_INVALID_TABLESPACE";
-    exports2[4037] = "ER_CHANGE_RPL_SRC_WRONG_COMPRESSION_ALGORITHM_SIZE";
-    exports2[4038] = "ER_WARN_DEPRECATED_TLS_VERSION_FOR_CHANNEL_CLI";
-    exports2[4039] = "ER_CANT_USE_SAME_UUID_AS_VIEW_CHANGE_UUID";
-    exports2[4040] = "ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_VIEW_CHANGE_UUID";
-    exports2[4041] = "ER_GRP_RPL_VIEW_CHANGE_UUID_FAIL_GET_VARIABLE";
-    exports2[4042] = "ER_WARN_ADUIT_LOG_MAX_SIZE_AND_PRUNE_SECONDS";
-    exports2[4043] = "ER_WARN_ADUIT_LOG_MAX_SIZE_CLOSE_TO_ROTATE_ON_SIZE";
-    exports2[4044] = "ER_KERBEROS_CREATE_USER";
-    exports2[4045] = "ER_INSTALL_PLUGIN_CONFLICT_CLIENT";
-    exports2[4046] = "ER_DA_ERROR_LOG_COMPONENT_FLUSH_FAILED";
-    exports2[4047] = "ER_WARN_SQL_AFTER_MTS_GAPS_GAP_NOT_CALCULATED";
-    exports2[4048] = "ER_INVALID_ASSIGNMENT_TARGET";
-    exports2[4049] = "ER_OPERATION_NOT_ALLOWED_ON_GR_SECONDARY";
-    exports2[4050] = "ER_GRP_RPL_FAILOVER_CHANNEL_STATUS_PROPAGATION";
-    exports2[4051] = "ER_WARN_AUDIT_LOG_FORMAT_UNIX_TIMESTAMP_ONLY_WHEN_JSON";
-    exports2[4052] = "ER_INVALID_MFA_PLUGIN_SPECIFIED";
-    exports2[4053] = "ER_IDENTIFIED_BY_UNSUPPORTED";
-    exports2[4054] = "ER_INVALID_PLUGIN_FOR_REGISTRATION";
-    exports2[4055] = "ER_PLUGIN_REQUIRES_REGISTRATION";
-    exports2[4056] = "ER_MFA_METHOD_EXISTS";
-    exports2[4057] = "ER_MFA_METHOD_NOT_EXISTS";
-    exports2[4058] = "ER_AUTHENTICATION_POLICY_MISMATCH";
-    exports2[4059] = "ER_PLUGIN_REGISTRATION_DONE";
-    exports2[4060] = "ER_INVALID_USER_FOR_REGISTRATION";
-    exports2[4061] = "ER_USER_REGISTRATION_FAILED";
-    exports2[4062] = "ER_MFA_METHODS_INVALID_ORDER";
-    exports2[4063] = "ER_MFA_METHODS_IDENTICAL";
-    exports2[4064] = "ER_INVALID_MFA_OPERATIONS_FOR_PASSWORDLESS_USER";
-    exports2[4065] = "ER_CHANGE_REPLICATION_SOURCE_NO_OPTIONS_FOR_GTID_ONLY";
-    exports2[4066] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_REQ_ROW_FORMAT_WITH_GTID_ONLY";
-    exports2[4067] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POSITION_WITH_GTID_ONLY";
-    exports2[4068] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_GTID_ONLY_WITHOUT_POSITIONS";
-    exports2[4069] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POS_WITHOUT_POSITIONS";
-    exports2[4070] = "ER_CHANGE_REP_SOURCE_GR_CHANNEL_WITH_GTID_MODE_NOT_ON";
-    exports2[4071] = "ER_CANT_USE_GTID_ONLY_WITH_GTID_MODE_NOT_ON";
-    exports2[4072] = "ER_WARN_C_DISABLE_GTID_ONLY_WITH_SOURCE_AUTO_POS_INVALID_POS";
-    exports2[4073] = "ER_DA_SSL_FIPS_MODE_ERROR";
-    exports2[4074] = "ER_VALUE_OUT_OF_RANGE";
-    exports2[4075] = "ER_FULLTEXT_WITH_ROLLUP";
-    exports2[4076] = "ER_REGEXP_MISSING_RESOURCE";
-    exports2[4077] = "ER_WARN_REGEXP_USING_DEFAULT";
-    exports2[4078] = "ER_REGEXP_MISSING_FILE";
-    exports2[4079] = "ER_WARN_DEPRECATED_COLLATION";
-    exports2[4080] = "ER_CONCURRENT_PROCEDURE_USAGE";
-    exports2[4081] = "ER_DA_GLOBAL_CONN_LIMIT";
-    exports2[4082] = "ER_DA_CONN_LIMIT";
-    exports2[4083] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE_INSTANT";
-    exports2[4084] = "ER_WARN_SF_UDF_NAME_COLLISION";
-    exports2[4085] = "ER_CANNOT_PURGE_BINLOG_WITH_BACKUP_LOCK";
-    exports2[4086] = "ER_TOO_MANY_WINDOWS";
-    exports2[4087] = "ER_MYSQLBACKUP_CLIENT_MSG";
-    exports2[4088] = "ER_COMMENT_CONTAINS_INVALID_STRING";
-    exports2[4089] = "ER_DEFINITION_CONTAINS_INVALID_STRING";
-    exports2[4090] = "ER_CANT_EXECUTE_COMMAND_WITH_ASSIGNED_GTID_NEXT";
-    exports2[4091] = "ER_XA_TEMP_TABLE";
-    exports2[4092] = "ER_INNODB_MAX_ROW_VERSION";
-    exports2[4093] = "ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_SIZE";
-    exports2[4094] = "ER_OPERATION_NOT_ALLOWED_WHILE_PRIMARY_CHANGE_IS_RUNNING";
-    exports2[4095] = "ER_WARN_DEPRECATED_DATETIME_DELIMITER";
-    exports2[4096] = "ER_WARN_DEPRECATED_SUPERFLUOUS_DELIMITER";
-    exports2[4097] = "ER_CANNOT_PERSIST_SENSITIVE_VARIABLES";
-    exports2[4098] = "ER_WARN_CANNOT_SECURELY_PERSIST_SENSITIVE_VARIABLES";
-    exports2[4099] = "ER_WARN_TRG_ALREADY_EXISTS";
-    exports2[4100] = "ER_IF_NOT_EXISTS_UNSUPPORTED_TRG_EXISTS_ON_DIFFERENT_TABLE";
-    exports2[4101] = "ER_IF_NOT_EXISTS_UNSUPPORTED_UDF_NATIVE_FCT_NAME_COLLISION";
-    exports2[4102] = "ER_SET_PASSWORD_AUTH_PLUGIN_ERROR";
-    exports2[4103] = "ER_REDUCED_DBLWR_FILE_CORRUPTED";
-    exports2[4104] = "ER_REDUCED_DBLWR_PAGE_FOUND";
-    exports2[4105] = "ER_SRS_INVALID_LATITUDE_OF_ORIGIN";
-    exports2[4106] = "ER_SRS_INVALID_LONGITUDE_OF_ORIGIN";
-    exports2[4107] = "ER_SRS_UNUSED_PROJ_PARAMETER_PRESENT";
-    exports2[4108] = "ER_GIPK_COLUMN_EXISTS";
-    exports2[4109] = "ER_GIPK_FAILED_AUTOINC_COLUMN_EXISTS";
-    exports2[4110] = "ER_GIPK_COLUMN_ALTER_NOT_ALLOWED";
-    exports2[4111] = "ER_DROP_PK_COLUMN_TO_DROP_GIPK";
-    exports2[4112] = "ER_CREATE_SELECT_WITH_GIPK_DISALLOWED_IN_SBR";
-    exports2[4113] = "ER_DA_EXPIRE_LOGS_DAYS_IGNORED";
-    exports2[4114] = "ER_CTE_RECURSIVE_NOT_UNION";
-    exports2[4115] = "ER_COMMAND_BACKEND_FAILED_TO_FETCH_SECURITY_CTX";
-    exports2[4116] = "ER_COMMAND_SERVICE_BACKEND_FAILED";
-    exports2[4117] = "ER_CLIENT_FILE_PRIVILEGE_FOR_REPLICATION_CHECKS";
-    exports2[4118] = "ER_GROUP_REPLICATION_FORCE_MEMBERS_COMMAND_FAILURE";
-    exports2[4119] = "ER_WARN_DEPRECATED_IDENT";
-    exports2[4120] = "ER_INTERSECT_ALL_MAX_DUPLICATES_EXCEEDED";
-    exports2[4121] = "ER_TP_QUERY_THRS_PER_GRP_EXCEEDS_TXN_THR_LIMIT";
-    exports2[4122] = "ER_BAD_TIMESTAMP_FORMAT";
-    exports2[4123] = "ER_SHAPE_PRIDICTION_UDF";
-    exports2[4124] = "ER_SRS_INVALID_HEIGHT";
-    exports2[4125] = "ER_SRS_INVALID_SCALING";
-    exports2[4126] = "ER_SRS_INVALID_ZONE_WIDTH";
-    exports2[4127] = "ER_SRS_INVALID_LATITUDE_POLAR_STERE_VAR_A";
-    exports2[4128] = "ER_WARN_DEPRECATED_CLIENT_NO_SCHEMA_OPTION";
-    exports2[4129] = "ER_TABLE_NOT_EMPTY";
-    exports2[4130] = "ER_TABLE_NO_PRIMARY_KEY";
-    exports2[4131] = "ER_TABLE_IN_SHARED_TABLESPACE";
-    exports2[4132] = "ER_INDEX_OTHER_THAN_PK";
-    exports2[4133] = "ER_LOAD_BULK_DATA_UNSORTED";
-    exports2[4134] = "ER_BULK_EXECUTOR_ERROR";
-    exports2[4135] = "ER_BULK_READER_LIBCURL_INIT_FAILED";
-    exports2[4136] = "ER_BULK_READER_LIBCURL_ERROR";
-    exports2[4137] = "ER_BULK_READER_SERVER_ERROR";
-    exports2[4138] = "ER_BULK_READER_COMMUNICATION_ERROR";
-    exports2[4139] = "ER_BULK_LOAD_DATA_FAILED";
-    exports2[4140] = "ER_BULK_LOADER_COLUMN_TOO_BIG_FOR_LEFTOVER_BUFFER";
-    exports2[4141] = "ER_BULK_LOADER_COMPONENT_ERROR";
-    exports2[4142] = "ER_BULK_LOADER_FILE_CONTAINS_LESS_LINES_THAN_IGNORE_CLAUSE";
-    exports2[4143] = "ER_BULK_PARSER_MISSING_ENCLOSED_BY";
-    exports2[4144] = "ER_BULK_PARSER_ROW_BUFFER_MAX_TOTAL_COLS_EXCEEDED";
-    exports2[4145] = "ER_BULK_PARSER_COPY_BUFFER_SIZE_EXCEEDED";
-    exports2[4146] = "ER_BULK_PARSER_UNEXPECTED_END_OF_INPUT";
-    exports2[4147] = "ER_BULK_PARSER_UNEXPECTED_ROW_TERMINATOR";
-    exports2[4148] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_ENDING_ENCLOSED_BY";
-    exports2[4149] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_NULL_ESCAPE";
-    exports2[4150] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_COLUMN_TERMINATOR";
-    exports2[4151] = "ER_BULK_PARSER_INCOMPLETE_ESCAPE_SEQUENCE";
-    exports2[4152] = "ER_LOAD_BULK_DATA_FAILED";
-    exports2[4153] = "ER_LOAD_BULK_DATA_WRONG_VALUE_FOR_FIELD";
-    exports2[4154] = "ER_LOAD_BULK_DATA_WARN_NULL_TO_NOTNULL";
-    exports2[4155] = "ER_REQUIRE_TABLE_PRIMARY_KEY_CHECK_GENERATE_WITH_GR";
-    exports2[4156] = "ER_CANT_CHANGE_SYS_VAR_IN_READ_ONLY_MODE";
-    exports2[4157] = "ER_INNODB_INSTANT_ADD_DROP_NOT_SUPPORTED_MAX_SIZE";
-    exports2[4158] = "ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_FIELDS";
-    exports2[4159] = "ER_CANT_SET_PERSISTED";
-    exports2[4160] = "ER_INSTALL_COMPONENT_SET_NULL_VALUE";
-    exports2[4161] = "ER_INSTALL_COMPONENT_SET_UNUSED_VALUE";
-    exports2[4162] = "ER_WARN_DEPRECATED_USER_DEFINED_COLLATIONS";
+    exports.EE_CANTCREATEFILE = 1;
+    exports.EE_READ = 2;
+    exports.EE_WRITE = 3;
+    exports.EE_BADCLOSE = 4;
+    exports.EE_OUTOFMEMORY = 5;
+    exports.EE_DELETE = 6;
+    exports.EE_LINK = 7;
+    exports.EE_EOFERR = 9;
+    exports.EE_CANTLOCK = 10;
+    exports.EE_CANTUNLOCK = 11;
+    exports.EE_DIR = 12;
+    exports.EE_STAT = 13;
+    exports.EE_CANT_CHSIZE = 14;
+    exports.EE_CANT_OPEN_STREAM = 15;
+    exports.EE_GETWD = 16;
+    exports.EE_SETWD = 17;
+    exports.EE_LINK_WARNING = 18;
+    exports.EE_OPEN_WARNING = 19;
+    exports.EE_DISK_FULL = 20;
+    exports.EE_CANT_MKDIR = 21;
+    exports.EE_UNKNOWN_CHARSET = 22;
+    exports.EE_OUT_OF_FILERESOURCES = 23;
+    exports.EE_CANT_READLINK = 24;
+    exports.EE_CANT_SYMLINK = 25;
+    exports.EE_REALPATH = 26;
+    exports.EE_SYNC = 27;
+    exports.EE_UNKNOWN_COLLATION = 28;
+    exports.EE_FILENOTFOUND = 29;
+    exports.EE_FILE_NOT_CLOSED = 30;
+    exports.EE_CHANGE_OWNERSHIP = 31;
+    exports.EE_CHANGE_PERMISSIONS = 32;
+    exports.EE_CANT_SEEK = 33;
+    exports.EE_CAPACITY_EXCEEDED = 34;
+    exports.EE_DISK_FULL_WITH_RETRY_MSG = 35;
+    exports.EE_FAILED_TO_CREATE_TIMER = 36;
+    exports.EE_FAILED_TO_DELETE_TIMER = 37;
+    exports.EE_FAILED_TO_CREATE_TIMER_QUEUE = 38;
+    exports.EE_FAILED_TO_START_TIMER_NOTIFY_THREAD = 39;
+    exports.EE_FAILED_TO_CREATE_TIMER_NOTIFY_THREAD_INTERRUPT_EVENT = 40;
+    exports.EE_EXITING_TIMER_NOTIFY_THREAD = 41;
+    exports.EE_WIN_LIBRARY_LOAD_FAILED = 42;
+    exports.EE_WIN_RUN_TIME_ERROR_CHECK = 43;
+    exports.EE_FAILED_TO_DETERMINE_LARGE_PAGE_SIZE = 44;
+    exports.EE_FAILED_TO_KILL_ALL_THREADS = 45;
+    exports.EE_FAILED_TO_CREATE_IO_COMPLETION_PORT = 46;
+    exports.EE_FAILED_TO_OPEN_DEFAULTS_FILE = 47;
+    exports.EE_FAILED_TO_HANDLE_DEFAULTS_FILE = 48;
+    exports.EE_WRONG_DIRECTIVE_IN_CONFIG_FILE = 49;
+    exports.EE_SKIPPING_DIRECTIVE_DUE_TO_MAX_INCLUDE_RECURSION = 50;
+    exports.EE_INCORRECT_GRP_DEFINITION_IN_CONFIG_FILE = 51;
+    exports.EE_OPTION_WITHOUT_GRP_IN_CONFIG_FILE = 52;
+    exports.EE_CONFIG_FILE_PERMISSION_ERROR = 53;
+    exports.EE_IGNORE_WORLD_WRITABLE_CONFIG_FILE = 54;
+    exports.EE_USING_DISABLED_OPTION = 55;
+    exports.EE_USING_DISABLED_SHORT_OPTION = 56;
+    exports.EE_USING_PASSWORD_ON_CLI_IS_INSECURE = 57;
+    exports.EE_UNKNOWN_SUFFIX_FOR_VARIABLE = 58;
+    exports.EE_SSL_ERROR_FROM_FILE = 59;
+    exports.EE_SSL_ERROR = 60;
+    exports.EE_NET_SEND_ERROR_IN_BOOTSTRAP = 61;
+    exports.EE_PACKETS_OUT_OF_ORDER = 62;
+    exports.EE_UNKNOWN_PROTOCOL_OPTION = 63;
+    exports.EE_FAILED_TO_LOCATE_SERVER_PUBLIC_KEY = 64;
+    exports.EE_PUBLIC_KEY_NOT_IN_PEM_FORMAT = 65;
+    exports.EE_DEBUG_INFO = 66;
+    exports.EE_UNKNOWN_VARIABLE = 67;
+    exports.EE_UNKNOWN_OPTION = 68;
+    exports.EE_UNKNOWN_SHORT_OPTION = 69;
+    exports.EE_OPTION_WITHOUT_ARGUMENT = 70;
+    exports.EE_OPTION_REQUIRES_ARGUMENT = 71;
+    exports.EE_SHORT_OPTION_REQUIRES_ARGUMENT = 72;
+    exports.EE_OPTION_IGNORED_DUE_TO_INVALID_VALUE = 73;
+    exports.EE_OPTION_WITH_EMPTY_VALUE = 74;
+    exports.EE_FAILED_TO_ASSIGN_MAX_VALUE_TO_OPTION = 75;
+    exports.EE_INCORRECT_BOOLEAN_VALUE_FOR_OPTION = 76;
+    exports.EE_FAILED_TO_SET_OPTION_VALUE = 77;
+    exports.EE_INCORRECT_INT_VALUE_FOR_OPTION = 78;
+    exports.EE_INCORRECT_UINT_VALUE_FOR_OPTION = 79;
+    exports.EE_ADJUSTED_SIGNED_VALUE_FOR_OPTION = 80;
+    exports.EE_ADJUSTED_UNSIGNED_VALUE_FOR_OPTION = 81;
+    exports.EE_ADJUSTED_ULONGLONG_VALUE_FOR_OPTION = 82;
+    exports.EE_ADJUSTED_DOUBLE_VALUE_FOR_OPTION = 83;
+    exports.EE_INVALID_DECIMAL_VALUE_FOR_OPTION = 84;
+    exports.EE_COLLATION_PARSER_ERROR = 85;
+    exports.EE_FAILED_TO_RESET_BEFORE_PRIMARY_IGNORABLE_CHAR = 86;
+    exports.EE_FAILED_TO_RESET_BEFORE_TERTIARY_IGNORABLE_CHAR = 87;
+    exports.EE_SHIFT_CHAR_OUT_OF_RANGE = 88;
+    exports.EE_RESET_CHAR_OUT_OF_RANGE = 89;
+    exports.EE_UNKNOWN_LDML_TAG = 90;
+    exports.EE_FAILED_TO_RESET_BEFORE_SECONDARY_IGNORABLE_CHAR = 91;
+    exports.EE_FAILED_PROCESSING_DIRECTIVE = 92;
+    exports.EE_PTHREAD_KILL_FAILED = 93;
+    exports.HA_ERR_KEY_NOT_FOUND = 120;
+    exports.HA_ERR_FOUND_DUPP_KEY = 121;
+    exports.HA_ERR_INTERNAL_ERROR = 122;
+    exports.HA_ERR_RECORD_CHANGED = 123;
+    exports.HA_ERR_WRONG_INDEX = 124;
+    exports.HA_ERR_ROLLED_BACK = 125;
+    exports.HA_ERR_CRASHED = 126;
+    exports.HA_ERR_WRONG_IN_RECORD = 127;
+    exports.HA_ERR_OUT_OF_MEM = 128;
+    exports.HA_ERR_NOT_A_TABLE = 130;
+    exports.HA_ERR_WRONG_COMMAND = 131;
+    exports.HA_ERR_OLD_FILE = 132;
+    exports.HA_ERR_NO_ACTIVE_RECORD = 133;
+    exports.HA_ERR_RECORD_DELETED = 134;
+    exports.HA_ERR_RECORD_FILE_FULL = 135;
+    exports.HA_ERR_INDEX_FILE_FULL = 136;
+    exports.HA_ERR_END_OF_FILE = 137;
+    exports.HA_ERR_UNSUPPORTED = 138;
+    exports.HA_ERR_TOO_BIG_ROW = 139;
+    exports.HA_WRONG_CREATE_OPTION = 140;
+    exports.HA_ERR_FOUND_DUPP_UNIQUE = 141;
+    exports.HA_ERR_UNKNOWN_CHARSET = 142;
+    exports.HA_ERR_WRONG_MRG_TABLE_DEF = 143;
+    exports.HA_ERR_CRASHED_ON_REPAIR = 144;
+    exports.HA_ERR_CRASHED_ON_USAGE = 145;
+    exports.HA_ERR_LOCK_WAIT_TIMEOUT = 146;
+    exports.HA_ERR_LOCK_TABLE_FULL = 147;
+    exports.HA_ERR_READ_ONLY_TRANSACTION = 148;
+    exports.HA_ERR_LOCK_DEADLOCK = 149;
+    exports.HA_ERR_CANNOT_ADD_FOREIGN = 150;
+    exports.HA_ERR_NO_REFERENCED_ROW = 151;
+    exports.HA_ERR_ROW_IS_REFERENCED = 152;
+    exports.HA_ERR_NO_SAVEPOINT = 153;
+    exports.HA_ERR_NON_UNIQUE_BLOCK_SIZE = 154;
+    exports.HA_ERR_NO_SUCH_TABLE = 155;
+    exports.HA_ERR_TABLE_EXIST = 156;
+    exports.HA_ERR_NO_CONNECTION = 157;
+    exports.HA_ERR_NULL_IN_SPATIAL = 158;
+    exports.HA_ERR_TABLE_DEF_CHANGED = 159;
+    exports.HA_ERR_NO_PARTITION_FOUND = 160;
+    exports.HA_ERR_RBR_LOGGING_FAILED = 161;
+    exports.HA_ERR_DROP_INDEX_FK = 162;
+    exports.HA_ERR_FOREIGN_DUPLICATE_KEY = 163;
+    exports.HA_ERR_TABLE_NEEDS_UPGRADE = 164;
+    exports.HA_ERR_TABLE_READONLY = 165;
+    exports.HA_ERR_AUTOINC_READ_FAILED = 166;
+    exports.HA_ERR_AUTOINC_ERANGE = 167;
+    exports.HA_ERR_GENERIC = 168;
+    exports.HA_ERR_RECORD_IS_THE_SAME = 169;
+    exports.HA_ERR_LOGGING_IMPOSSIBLE = 170;
+    exports.HA_ERR_CORRUPT_EVENT = 171;
+    exports.HA_ERR_NEW_FILE = 172;
+    exports.HA_ERR_ROWS_EVENT_APPLY = 173;
+    exports.HA_ERR_INITIALIZATION = 174;
+    exports.HA_ERR_FILE_TOO_SHORT = 175;
+    exports.HA_ERR_WRONG_CRC = 176;
+    exports.HA_ERR_TOO_MANY_CONCURRENT_TRXS = 177;
+    exports.HA_ERR_NOT_IN_LOCK_PARTITIONS = 178;
+    exports.HA_ERR_INDEX_COL_TOO_LONG = 179;
+    exports.HA_ERR_INDEX_CORRUPT = 180;
+    exports.HA_ERR_UNDO_REC_TOO_BIG = 181;
+    exports.HA_FTS_INVALID_DOCID = 182;
+    exports.HA_ERR_TABLE_IN_FK_CHECK = 183;
+    exports.HA_ERR_TABLESPACE_EXISTS = 184;
+    exports.HA_ERR_TOO_MANY_FIELDS = 185;
+    exports.HA_ERR_ROW_IN_WRONG_PARTITION = 186;
+    exports.HA_ERR_INNODB_READ_ONLY = 187;
+    exports.HA_ERR_FTS_EXCEED_RESULT_CACHE_LIMIT = 188;
+    exports.HA_ERR_TEMP_FILE_WRITE_FAILURE = 189;
+    exports.HA_ERR_INNODB_FORCED_RECOVERY = 190;
+    exports.HA_ERR_FTS_TOO_MANY_WORDS_IN_PHRASE = 191;
+    exports.HA_ERR_FK_DEPTH_EXCEEDED = 192;
+    exports.HA_MISSING_CREATE_OPTION = 193;
+    exports.HA_ERR_SE_OUT_OF_MEMORY = 194;
+    exports.HA_ERR_TABLE_CORRUPT = 195;
+    exports.HA_ERR_QUERY_INTERRUPTED = 196;
+    exports.HA_ERR_TABLESPACE_MISSING = 197;
+    exports.HA_ERR_TABLESPACE_IS_NOT_EMPTY = 198;
+    exports.HA_ERR_WRONG_FILE_NAME = 199;
+    exports.HA_ERR_NOT_ALLOWED_COMMAND = 200;
+    exports.HA_ERR_COMPUTE_FAILED = 201;
+    exports.HA_ERR_ROW_FORMAT_CHANGED = 202;
+    exports.HA_ERR_NO_WAIT_LOCK = 203;
+    exports.HA_ERR_DISK_FULL_NOWAIT = 204;
+    exports.HA_ERR_NO_SESSION_TEMP = 205;
+    exports.HA_ERR_WRONG_TABLE_NAME = 206;
+    exports.HA_ERR_TOO_LONG_PATH = 207;
+    exports.HA_ERR_SAMPLING_INIT_FAILED = 208;
+    exports.HA_ERR_FTS_TOO_MANY_NESTED_EXP = 209;
+    exports.ER_HASHCHK = 1e3;
+    exports.ER_NISAMCHK = 1001;
+    exports.ER_NO = 1002;
+    exports.ER_YES = 1003;
+    exports.ER_CANT_CREATE_FILE = 1004;
+    exports.ER_CANT_CREATE_TABLE = 1005;
+    exports.ER_CANT_CREATE_DB = 1006;
+    exports.ER_DB_CREATE_EXISTS = 1007;
+    exports.ER_DB_DROP_EXISTS = 1008;
+    exports.ER_DB_DROP_DELETE = 1009;
+    exports.ER_DB_DROP_RMDIR = 1010;
+    exports.ER_CANT_DELETE_FILE = 1011;
+    exports.ER_CANT_FIND_SYSTEM_REC = 1012;
+    exports.ER_CANT_GET_STAT = 1013;
+    exports.ER_CANT_GET_WD = 1014;
+    exports.ER_CANT_LOCK = 1015;
+    exports.ER_CANT_OPEN_FILE = 1016;
+    exports.ER_FILE_NOT_FOUND = 1017;
+    exports.ER_CANT_READ_DIR = 1018;
+    exports.ER_CANT_SET_WD = 1019;
+    exports.ER_CHECKREAD = 1020;
+    exports.ER_DISK_FULL = 1021;
+    exports.ER_DUP_KEY = 1022;
+    exports.ER_ERROR_ON_CLOSE = 1023;
+    exports.ER_ERROR_ON_READ = 1024;
+    exports.ER_ERROR_ON_RENAME = 1025;
+    exports.ER_ERROR_ON_WRITE = 1026;
+    exports.ER_FILE_USED = 1027;
+    exports.ER_FILSORT_ABORT = 1028;
+    exports.ER_FORM_NOT_FOUND = 1029;
+    exports.ER_GET_ERRNO = 1030;
+    exports.ER_ILLEGAL_HA = 1031;
+    exports.ER_KEY_NOT_FOUND = 1032;
+    exports.ER_NOT_FORM_FILE = 1033;
+    exports.ER_NOT_KEYFILE = 1034;
+    exports.ER_OLD_KEYFILE = 1035;
+    exports.ER_OPEN_AS_READONLY = 1036;
+    exports.ER_OUTOFMEMORY = 1037;
+    exports.ER_OUT_OF_SORTMEMORY = 1038;
+    exports.ER_UNEXPECTED_EOF = 1039;
+    exports.ER_CON_COUNT_ERROR = 1040;
+    exports.ER_OUT_OF_RESOURCES = 1041;
+    exports.ER_BAD_HOST_ERROR = 1042;
+    exports.ER_HANDSHAKE_ERROR = 1043;
+    exports.ER_DBACCESS_DENIED_ERROR = 1044;
+    exports.ER_ACCESS_DENIED_ERROR = 1045;
+    exports.ER_NO_DB_ERROR = 1046;
+    exports.ER_UNKNOWN_COM_ERROR = 1047;
+    exports.ER_BAD_NULL_ERROR = 1048;
+    exports.ER_BAD_DB_ERROR = 1049;
+    exports.ER_TABLE_EXISTS_ERROR = 1050;
+    exports.ER_BAD_TABLE_ERROR = 1051;
+    exports.ER_NON_UNIQ_ERROR = 1052;
+    exports.ER_SERVER_SHUTDOWN = 1053;
+    exports.ER_BAD_FIELD_ERROR = 1054;
+    exports.ER_WRONG_FIELD_WITH_GROUP = 1055;
+    exports.ER_WRONG_GROUP_FIELD = 1056;
+    exports.ER_WRONG_SUM_SELECT = 1057;
+    exports.ER_WRONG_VALUE_COUNT = 1058;
+    exports.ER_TOO_LONG_IDENT = 1059;
+    exports.ER_DUP_FIELDNAME = 1060;
+    exports.ER_DUP_KEYNAME = 1061;
+    exports.ER_DUP_ENTRY = 1062;
+    exports.ER_WRONG_FIELD_SPEC = 1063;
+    exports.ER_PARSE_ERROR = 1064;
+    exports.ER_EMPTY_QUERY = 1065;
+    exports.ER_NONUNIQ_TABLE = 1066;
+    exports.ER_INVALID_DEFAULT = 1067;
+    exports.ER_MULTIPLE_PRI_KEY = 1068;
+    exports.ER_TOO_MANY_KEYS = 1069;
+    exports.ER_TOO_MANY_KEY_PARTS = 1070;
+    exports.ER_TOO_LONG_KEY = 1071;
+    exports.ER_KEY_COLUMN_DOES_NOT_EXITS = 1072;
+    exports.ER_BLOB_USED_AS_KEY = 1073;
+    exports.ER_TOO_BIG_FIELDLENGTH = 1074;
+    exports.ER_WRONG_AUTO_KEY = 1075;
+    exports.ER_READY = 1076;
+    exports.ER_NORMAL_SHUTDOWN = 1077;
+    exports.ER_GOT_SIGNAL = 1078;
+    exports.ER_SHUTDOWN_COMPLETE = 1079;
+    exports.ER_FORCING_CLOSE = 1080;
+    exports.ER_IPSOCK_ERROR = 1081;
+    exports.ER_NO_SUCH_INDEX = 1082;
+    exports.ER_WRONG_FIELD_TERMINATORS = 1083;
+    exports.ER_BLOBS_AND_NO_TERMINATED = 1084;
+    exports.ER_TEXTFILE_NOT_READABLE = 1085;
+    exports.ER_FILE_EXISTS_ERROR = 1086;
+    exports.ER_LOAD_INFO = 1087;
+    exports.ER_ALTER_INFO = 1088;
+    exports.ER_WRONG_SUB_KEY = 1089;
+    exports.ER_CANT_REMOVE_ALL_FIELDS = 1090;
+    exports.ER_CANT_DROP_FIELD_OR_KEY = 1091;
+    exports.ER_INSERT_INFO = 1092;
+    exports.ER_UPDATE_TABLE_USED = 1093;
+    exports.ER_NO_SUCH_THREAD = 1094;
+    exports.ER_KILL_DENIED_ERROR = 1095;
+    exports.ER_NO_TABLES_USED = 1096;
+    exports.ER_TOO_BIG_SET = 1097;
+    exports.ER_NO_UNIQUE_LOGFILE = 1098;
+    exports.ER_TABLE_NOT_LOCKED_FOR_WRITE = 1099;
+    exports.ER_TABLE_NOT_LOCKED = 1100;
+    exports.ER_BLOB_CANT_HAVE_DEFAULT = 1101;
+    exports.ER_WRONG_DB_NAME = 1102;
+    exports.ER_WRONG_TABLE_NAME = 1103;
+    exports.ER_TOO_BIG_SELECT = 1104;
+    exports.ER_UNKNOWN_ERROR = 1105;
+    exports.ER_UNKNOWN_PROCEDURE = 1106;
+    exports.ER_WRONG_PARAMCOUNT_TO_PROCEDURE = 1107;
+    exports.ER_WRONG_PARAMETERS_TO_PROCEDURE = 1108;
+    exports.ER_UNKNOWN_TABLE = 1109;
+    exports.ER_FIELD_SPECIFIED_TWICE = 1110;
+    exports.ER_INVALID_GROUP_FUNC_USE = 1111;
+    exports.ER_UNSUPPORTED_EXTENSION = 1112;
+    exports.ER_TABLE_MUST_HAVE_COLUMNS = 1113;
+    exports.ER_RECORD_FILE_FULL = 1114;
+    exports.ER_UNKNOWN_CHARACTER_SET = 1115;
+    exports.ER_TOO_MANY_TABLES = 1116;
+    exports.ER_TOO_MANY_FIELDS = 1117;
+    exports.ER_TOO_BIG_ROWSIZE = 1118;
+    exports.ER_STACK_OVERRUN = 1119;
+    exports.ER_WRONG_OUTER_JOIN = 1120;
+    exports.ER_NULL_COLUMN_IN_INDEX = 1121;
+    exports.ER_CANT_FIND_UDF = 1122;
+    exports.ER_CANT_INITIALIZE_UDF = 1123;
+    exports.ER_UDF_NO_PATHS = 1124;
+    exports.ER_UDF_EXISTS = 1125;
+    exports.ER_CANT_OPEN_LIBRARY = 1126;
+    exports.ER_CANT_FIND_DL_ENTRY = 1127;
+    exports.ER_FUNCTION_NOT_DEFINED = 1128;
+    exports.ER_HOST_IS_BLOCKED = 1129;
+    exports.ER_HOST_NOT_PRIVILEGED = 1130;
+    exports.ER_PASSWORD_ANONYMOUS_USER = 1131;
+    exports.ER_PASSWORD_NOT_ALLOWED = 1132;
+    exports.ER_PASSWORD_NO_MATCH = 1133;
+    exports.ER_UPDATE_INFO = 1134;
+    exports.ER_CANT_CREATE_THREAD = 1135;
+    exports.ER_WRONG_VALUE_COUNT_ON_ROW = 1136;
+    exports.ER_CANT_REOPEN_TABLE = 1137;
+    exports.ER_INVALID_USE_OF_NULL = 1138;
+    exports.ER_REGEXP_ERROR = 1139;
+    exports.ER_MIX_OF_GROUP_FUNC_AND_FIELDS = 1140;
+    exports.ER_NONEXISTING_GRANT = 1141;
+    exports.ER_TABLEACCESS_DENIED_ERROR = 1142;
+    exports.ER_COLUMNACCESS_DENIED_ERROR = 1143;
+    exports.ER_ILLEGAL_GRANT_FOR_TABLE = 1144;
+    exports.ER_GRANT_WRONG_HOST_OR_USER = 1145;
+    exports.ER_NO_SUCH_TABLE = 1146;
+    exports.ER_NONEXISTING_TABLE_GRANT = 1147;
+    exports.ER_NOT_ALLOWED_COMMAND = 1148;
+    exports.ER_SYNTAX_ERROR = 1149;
+    exports.ER_UNUSED1 = 1150;
+    exports.ER_UNUSED2 = 1151;
+    exports.ER_ABORTING_CONNECTION = 1152;
+    exports.ER_NET_PACKET_TOO_LARGE = 1153;
+    exports.ER_NET_READ_ERROR_FROM_PIPE = 1154;
+    exports.ER_NET_FCNTL_ERROR = 1155;
+    exports.ER_NET_PACKETS_OUT_OF_ORDER = 1156;
+    exports.ER_NET_UNCOMPRESS_ERROR = 1157;
+    exports.ER_NET_READ_ERROR = 1158;
+    exports.ER_NET_READ_INTERRUPTED = 1159;
+    exports.ER_NET_ERROR_ON_WRITE = 1160;
+    exports.ER_NET_WRITE_INTERRUPTED = 1161;
+    exports.ER_TOO_LONG_STRING = 1162;
+    exports.ER_TABLE_CANT_HANDLE_BLOB = 1163;
+    exports.ER_TABLE_CANT_HANDLE_AUTO_INCREMENT = 1164;
+    exports.ER_UNUSED3 = 1165;
+    exports.ER_WRONG_COLUMN_NAME = 1166;
+    exports.ER_WRONG_KEY_COLUMN = 1167;
+    exports.ER_WRONG_MRG_TABLE = 1168;
+    exports.ER_DUP_UNIQUE = 1169;
+    exports.ER_BLOB_KEY_WITHOUT_LENGTH = 1170;
+    exports.ER_PRIMARY_CANT_HAVE_NULL = 1171;
+    exports.ER_TOO_MANY_ROWS = 1172;
+    exports.ER_REQUIRES_PRIMARY_KEY = 1173;
+    exports.ER_NO_RAID_COMPILED = 1174;
+    exports.ER_UPDATE_WITHOUT_KEY_IN_SAFE_MODE = 1175;
+    exports.ER_KEY_DOES_NOT_EXITS = 1176;
+    exports.ER_CHECK_NO_SUCH_TABLE = 1177;
+    exports.ER_CHECK_NOT_IMPLEMENTED = 1178;
+    exports.ER_CANT_DO_THIS_DURING_AN_TRANSACTION = 1179;
+    exports.ER_ERROR_DURING_COMMIT = 1180;
+    exports.ER_ERROR_DURING_ROLLBACK = 1181;
+    exports.ER_ERROR_DURING_FLUSH_LOGS = 1182;
+    exports.ER_ERROR_DURING_CHECKPOINT = 1183;
+    exports.ER_NEW_ABORTING_CONNECTION = 1184;
+    exports.ER_DUMP_NOT_IMPLEMENTED = 1185;
+    exports.ER_FLUSH_MASTER_BINLOG_CLOSED = 1186;
+    exports.ER_INDEX_REBUILD = 1187;
+    exports.ER_SOURCE = 1188;
+    exports.ER_SOURCE_NET_READ = 1189;
+    exports.ER_SOURCE_NET_WRITE = 1190;
+    exports.ER_FT_MATCHING_KEY_NOT_FOUND = 1191;
+    exports.ER_LOCK_OR_ACTIVE_TRANSACTION = 1192;
+    exports.ER_UNKNOWN_SYSTEM_VARIABLE = 1193;
+    exports.ER_CRASHED_ON_USAGE = 1194;
+    exports.ER_CRASHED_ON_REPAIR = 1195;
+    exports.ER_WARNING_NOT_COMPLETE_ROLLBACK = 1196;
+    exports.ER_TRANS_CACHE_FULL = 1197;
+    exports.ER_SLAVE_MUST_STOP = 1198;
+    exports.ER_REPLICA_NOT_RUNNING = 1199;
+    exports.ER_BAD_REPLICA = 1200;
+    exports.ER_CONNECTION_METADATA = 1201;
+    exports.ER_REPLICA_THREAD = 1202;
+    exports.ER_TOO_MANY_USER_CONNECTIONS = 1203;
+    exports.ER_SET_CONSTANTS_ONLY = 1204;
+    exports.ER_LOCK_WAIT_TIMEOUT = 1205;
+    exports.ER_LOCK_TABLE_FULL = 1206;
+    exports.ER_READ_ONLY_TRANSACTION = 1207;
+    exports.ER_DROP_DB_WITH_READ_LOCK = 1208;
+    exports.ER_CREATE_DB_WITH_READ_LOCK = 1209;
+    exports.ER_WRONG_ARGUMENTS = 1210;
+    exports.ER_NO_PERMISSION_TO_CREATE_USER = 1211;
+    exports.ER_UNION_TABLES_IN_DIFFERENT_DIR = 1212;
+    exports.ER_LOCK_DEADLOCK = 1213;
+    exports.ER_TABLE_CANT_HANDLE_FT = 1214;
+    exports.ER_CANNOT_ADD_FOREIGN = 1215;
+    exports.ER_NO_REFERENCED_ROW = 1216;
+    exports.ER_ROW_IS_REFERENCED = 1217;
+    exports.ER_CONNECT_TO_SOURCE = 1218;
+    exports.ER_QUERY_ON_MASTER = 1219;
+    exports.ER_ERROR_WHEN_EXECUTING_COMMAND = 1220;
+    exports.ER_WRONG_USAGE = 1221;
+    exports.ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT = 1222;
+    exports.ER_CANT_UPDATE_WITH_READLOCK = 1223;
+    exports.ER_MIXING_NOT_ALLOWED = 1224;
+    exports.ER_DUP_ARGUMENT = 1225;
+    exports.ER_USER_LIMIT_REACHED = 1226;
+    exports.ER_SPECIFIC_ACCESS_DENIED_ERROR = 1227;
+    exports.ER_LOCAL_VARIABLE = 1228;
+    exports.ER_GLOBAL_VARIABLE = 1229;
+    exports.ER_NO_DEFAULT = 1230;
+    exports.ER_WRONG_VALUE_FOR_VAR = 1231;
+    exports.ER_WRONG_TYPE_FOR_VAR = 1232;
+    exports.ER_VAR_CANT_BE_READ = 1233;
+    exports.ER_CANT_USE_OPTION_HERE = 1234;
+    exports.ER_NOT_SUPPORTED_YET = 1235;
+    exports.ER_SOURCE_FATAL_ERROR_READING_BINLOG = 1236;
+    exports.ER_REPLICA_IGNORED_TABLE = 1237;
+    exports.ER_INCORRECT_GLOBAL_LOCAL_VAR = 1238;
+    exports.ER_WRONG_FK_DEF = 1239;
+    exports.ER_KEY_REF_DO_NOT_MATCH_TABLE_REF = 1240;
+    exports.ER_OPERAND_COLUMNS = 1241;
+    exports.ER_SUBQUERY_NO_1_ROW = 1242;
+    exports.ER_UNKNOWN_STMT_HANDLER = 1243;
+    exports.ER_CORRUPT_HELP_DB = 1244;
+    exports.ER_CYCLIC_REFERENCE = 1245;
+    exports.ER_AUTO_CONVERT = 1246;
+    exports.ER_ILLEGAL_REFERENCE = 1247;
+    exports.ER_DERIVED_MUST_HAVE_ALIAS = 1248;
+    exports.ER_SELECT_REDUCED = 1249;
+    exports.ER_TABLENAME_NOT_ALLOWED_HERE = 1250;
+    exports.ER_NOT_SUPPORTED_AUTH_MODE = 1251;
+    exports.ER_SPATIAL_CANT_HAVE_NULL = 1252;
+    exports.ER_COLLATION_CHARSET_MISMATCH = 1253;
+    exports.ER_SLAVE_WAS_RUNNING = 1254;
+    exports.ER_SLAVE_WAS_NOT_RUNNING = 1255;
+    exports.ER_TOO_BIG_FOR_UNCOMPRESS = 1256;
+    exports.ER_ZLIB_Z_MEM_ERROR = 1257;
+    exports.ER_ZLIB_Z_BUF_ERROR = 1258;
+    exports.ER_ZLIB_Z_DATA_ERROR = 1259;
+    exports.ER_CUT_VALUE_GROUP_CONCAT = 1260;
+    exports.ER_WARN_TOO_FEW_RECORDS = 1261;
+    exports.ER_WARN_TOO_MANY_RECORDS = 1262;
+    exports.ER_WARN_NULL_TO_NOTNULL = 1263;
+    exports.ER_WARN_DATA_OUT_OF_RANGE = 1264;
+    exports.WARN_DATA_TRUNCATED = 1265;
+    exports.ER_WARN_USING_OTHER_HANDLER = 1266;
+    exports.ER_CANT_AGGREGATE_2COLLATIONS = 1267;
+    exports.ER_DROP_USER = 1268;
+    exports.ER_REVOKE_GRANTS = 1269;
+    exports.ER_CANT_AGGREGATE_3COLLATIONS = 1270;
+    exports.ER_CANT_AGGREGATE_NCOLLATIONS = 1271;
+    exports.ER_VARIABLE_IS_NOT_STRUCT = 1272;
+    exports.ER_UNKNOWN_COLLATION = 1273;
+    exports.ER_REPLICA_IGNORED_SSL_PARAMS = 1274;
+    exports.ER_SERVER_IS_IN_SECURE_AUTH_MODE = 1275;
+    exports.ER_WARN_FIELD_RESOLVED = 1276;
+    exports.ER_BAD_REPLICA_UNTIL_COND = 1277;
+    exports.ER_MISSING_SKIP_REPLICA = 1278;
+    exports.ER_UNTIL_COND_IGNORED = 1279;
+    exports.ER_WRONG_NAME_FOR_INDEX = 1280;
+    exports.ER_WRONG_NAME_FOR_CATALOG = 1281;
+    exports.ER_WARN_QC_RESIZE = 1282;
+    exports.ER_BAD_FT_COLUMN = 1283;
+    exports.ER_UNKNOWN_KEY_CACHE = 1284;
+    exports.ER_WARN_HOSTNAME_WONT_WORK = 1285;
+    exports.ER_UNKNOWN_STORAGE_ENGINE = 1286;
+    exports.ER_WARN_DEPRECATED_SYNTAX = 1287;
+    exports.ER_NON_UPDATABLE_TABLE = 1288;
+    exports.ER_FEATURE_DISABLED = 1289;
+    exports.ER_OPTION_PREVENTS_STATEMENT = 1290;
+    exports.ER_DUPLICATED_VALUE_IN_TYPE = 1291;
+    exports.ER_TRUNCATED_WRONG_VALUE = 1292;
+    exports.ER_TOO_MUCH_AUTO_TIMESTAMP_COLS = 1293;
+    exports.ER_INVALID_ON_UPDATE = 1294;
+    exports.ER_UNSUPPORTED_PS = 1295;
+    exports.ER_GET_ERRMSG = 1296;
+    exports.ER_GET_TEMPORARY_ERRMSG = 1297;
+    exports.ER_UNKNOWN_TIME_ZONE = 1298;
+    exports.ER_WARN_INVALID_TIMESTAMP = 1299;
+    exports.ER_INVALID_CHARACTER_STRING = 1300;
+    exports.ER_WARN_ALLOWED_PACKET_OVERFLOWED = 1301;
+    exports.ER_CONFLICTING_DECLARATIONS = 1302;
+    exports.ER_SP_NO_RECURSIVE_CREATE = 1303;
+    exports.ER_SP_ALREADY_EXISTS = 1304;
+    exports.ER_SP_DOES_NOT_EXIST = 1305;
+    exports.ER_SP_DROP_FAILED = 1306;
+    exports.ER_SP_STORE_FAILED = 1307;
+    exports.ER_SP_LILABEL_MISMATCH = 1308;
+    exports.ER_SP_LABEL_REDEFINE = 1309;
+    exports.ER_SP_LABEL_MISMATCH = 1310;
+    exports.ER_SP_UNINIT_VAR = 1311;
+    exports.ER_SP_BADSELECT = 1312;
+    exports.ER_SP_BADRETURN = 1313;
+    exports.ER_SP_BADSTATEMENT = 1314;
+    exports.ER_UPDATE_LOG_DEPRECATED_IGNORED = 1315;
+    exports.ER_UPDATE_LOG_DEPRECATED_TRANSLATED = 1316;
+    exports.ER_QUERY_INTERRUPTED = 1317;
+    exports.ER_SP_WRONG_NO_OF_ARGS = 1318;
+    exports.ER_SP_COND_MISMATCH = 1319;
+    exports.ER_SP_NORETURN = 1320;
+    exports.ER_SP_NORETURNEND = 1321;
+    exports.ER_SP_BAD_CURSOR_QUERY = 1322;
+    exports.ER_SP_BAD_CURSOR_SELECT = 1323;
+    exports.ER_SP_CURSOR_MISMATCH = 1324;
+    exports.ER_SP_CURSOR_ALREADY_OPEN = 1325;
+    exports.ER_SP_CURSOR_NOT_OPEN = 1326;
+    exports.ER_SP_UNDECLARED_VAR = 1327;
+    exports.ER_SP_WRONG_NO_OF_FETCH_ARGS = 1328;
+    exports.ER_SP_FETCH_NO_DATA = 1329;
+    exports.ER_SP_DUP_PARAM = 1330;
+    exports.ER_SP_DUP_VAR = 1331;
+    exports.ER_SP_DUP_COND = 1332;
+    exports.ER_SP_DUP_CURS = 1333;
+    exports.ER_SP_CANT_ALTER = 1334;
+    exports.ER_SP_SUBSELECT_NYI = 1335;
+    exports.ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG = 1336;
+    exports.ER_SP_VARCOND_AFTER_CURSHNDLR = 1337;
+    exports.ER_SP_CURSOR_AFTER_HANDLER = 1338;
+    exports.ER_SP_CASE_NOT_FOUND = 1339;
+    exports.ER_FPARSER_TOO_BIG_FILE = 1340;
+    exports.ER_FPARSER_BAD_HEADER = 1341;
+    exports.ER_FPARSER_EOF_IN_COMMENT = 1342;
+    exports.ER_FPARSER_ERROR_IN_PARAMETER = 1343;
+    exports.ER_FPARSER_EOF_IN_UNKNOWN_PARAMETER = 1344;
+    exports.ER_VIEW_NO_EXPLAIN = 1345;
+    exports.ER_FRM_UNKNOWN_TYPE = 1346;
+    exports.ER_WRONG_OBJECT = 1347;
+    exports.ER_NONUPDATEABLE_COLUMN = 1348;
+    exports.ER_VIEW_SELECT_DERIVED = 1349;
+    exports.ER_VIEW_SELECT_CLAUSE = 1350;
+    exports.ER_VIEW_SELECT_VARIABLE = 1351;
+    exports.ER_VIEW_SELECT_TMPTABLE = 1352;
+    exports.ER_VIEW_WRONG_LIST = 1353;
+    exports.ER_WARN_VIEW_MERGE = 1354;
+    exports.ER_WARN_VIEW_WITHOUT_KEY = 1355;
+    exports.ER_VIEW_INVALID = 1356;
+    exports.ER_SP_NO_DROP_SP = 1357;
+    exports.ER_SP_GOTO_IN_HNDLR = 1358;
+    exports.ER_TRG_ALREADY_EXISTS = 1359;
+    exports.ER_TRG_DOES_NOT_EXIST = 1360;
+    exports.ER_TRG_ON_VIEW_OR_TEMP_TABLE = 1361;
+    exports.ER_TRG_CANT_CHANGE_ROW = 1362;
+    exports.ER_TRG_NO_SUCH_ROW_IN_TRG = 1363;
+    exports.ER_NO_DEFAULT_FOR_FIELD = 1364;
+    exports.ER_DIVISION_BY_ZERO = 1365;
+    exports.ER_TRUNCATED_WRONG_VALUE_FOR_FIELD = 1366;
+    exports.ER_ILLEGAL_VALUE_FOR_TYPE = 1367;
+    exports.ER_VIEW_NONUPD_CHECK = 1368;
+    exports.ER_VIEW_CHECK_FAILED = 1369;
+    exports.ER_PROCACCESS_DENIED_ERROR = 1370;
+    exports.ER_RELAY_LOG_FAIL = 1371;
+    exports.ER_PASSWD_LENGTH = 1372;
+    exports.ER_UNKNOWN_TARGET_BINLOG = 1373;
+    exports.ER_IO_ERR_LOG_INDEX_READ = 1374;
+    exports.ER_BINLOG_PURGE_PROHIBITED = 1375;
+    exports.ER_FSEEK_FAIL = 1376;
+    exports.ER_BINLOG_PURGE_FATAL_ERR = 1377;
+    exports.ER_LOG_IN_USE = 1378;
+    exports.ER_LOG_PURGE_UNKNOWN_ERR = 1379;
+    exports.ER_RELAY_LOG_INIT = 1380;
+    exports.ER_NO_BINARY_LOGGING = 1381;
+    exports.ER_RESERVED_SYNTAX = 1382;
+    exports.ER_WSAS_FAILED = 1383;
+    exports.ER_DIFF_GROUPS_PROC = 1384;
+    exports.ER_NO_GROUP_FOR_PROC = 1385;
+    exports.ER_ORDER_WITH_PROC = 1386;
+    exports.ER_LOGGING_PROHIBIT_CHANGING_OF = 1387;
+    exports.ER_NO_FILE_MAPPING = 1388;
+    exports.ER_WRONG_MAGIC = 1389;
+    exports.ER_PS_MANY_PARAM = 1390;
+    exports.ER_KEY_PART_0 = 1391;
+    exports.ER_VIEW_CHECKSUM = 1392;
+    exports.ER_VIEW_MULTIUPDATE = 1393;
+    exports.ER_VIEW_NO_INSERT_FIELD_LIST = 1394;
+    exports.ER_VIEW_DELETE_MERGE_VIEW = 1395;
+    exports.ER_CANNOT_USER = 1396;
+    exports.ER_XAER_NOTA = 1397;
+    exports.ER_XAER_INVAL = 1398;
+    exports.ER_XAER_RMFAIL = 1399;
+    exports.ER_XAER_OUTSIDE = 1400;
+    exports.ER_XAER_RMERR = 1401;
+    exports.ER_XA_RBROLLBACK = 1402;
+    exports.ER_NONEXISTING_PROC_GRANT = 1403;
+    exports.ER_PROC_AUTO_GRANT_FAIL = 1404;
+    exports.ER_PROC_AUTO_REVOKE_FAIL = 1405;
+    exports.ER_DATA_TOO_LONG = 1406;
+    exports.ER_SP_BAD_SQLSTATE = 1407;
+    exports.ER_STARTUP = 1408;
+    exports.ER_LOAD_FROM_FIXED_SIZE_ROWS_TO_VAR = 1409;
+    exports.ER_CANT_CREATE_USER_WITH_GRANT = 1410;
+    exports.ER_WRONG_VALUE_FOR_TYPE = 1411;
+    exports.ER_TABLE_DEF_CHANGED = 1412;
+    exports.ER_SP_DUP_HANDLER = 1413;
+    exports.ER_SP_NOT_VAR_ARG = 1414;
+    exports.ER_SP_NO_RETSET = 1415;
+    exports.ER_CANT_CREATE_GEOMETRY_OBJECT = 1416;
+    exports.ER_FAILED_ROUTINE_BREAK_BINLOG = 1417;
+    exports.ER_BINLOG_UNSAFE_ROUTINE = 1418;
+    exports.ER_BINLOG_CREATE_ROUTINE_NEED_SUPER = 1419;
+    exports.ER_EXEC_STMT_WITH_OPEN_CURSOR = 1420;
+    exports.ER_STMT_HAS_NO_OPEN_CURSOR = 1421;
+    exports.ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG = 1422;
+    exports.ER_NO_DEFAULT_FOR_VIEW_FIELD = 1423;
+    exports.ER_SP_NO_RECURSION = 1424;
+    exports.ER_TOO_BIG_SCALE = 1425;
+    exports.ER_TOO_BIG_PRECISION = 1426;
+    exports.ER_M_BIGGER_THAN_D = 1427;
+    exports.ER_WRONG_LOCK_OF_SYSTEM_TABLE = 1428;
+    exports.ER_CONNECT_TO_FOREIGN_DATA_SOURCE = 1429;
+    exports.ER_QUERY_ON_FOREIGN_DATA_SOURCE = 1430;
+    exports.ER_FOREIGN_DATA_SOURCE_DOESNT_EXIST = 1431;
+    exports.ER_FOREIGN_DATA_STRING_INVALID_CANT_CREATE = 1432;
+    exports.ER_FOREIGN_DATA_STRING_INVALID = 1433;
+    exports.ER_CANT_CREATE_FEDERATED_TABLE = 1434;
+    exports.ER_TRG_IN_WRONG_SCHEMA = 1435;
+    exports.ER_STACK_OVERRUN_NEED_MORE = 1436;
+    exports.ER_TOO_LONG_BODY = 1437;
+    exports.ER_WARN_CANT_DROP_DEFAULT_KEYCACHE = 1438;
+    exports.ER_TOO_BIG_DISPLAYWIDTH = 1439;
+    exports.ER_XAER_DUPID = 1440;
+    exports.ER_DATETIME_FUNCTION_OVERFLOW = 1441;
+    exports.ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG = 1442;
+    exports.ER_VIEW_PREVENT_UPDATE = 1443;
+    exports.ER_PS_NO_RECURSION = 1444;
+    exports.ER_SP_CANT_SET_AUTOCOMMIT = 1445;
+    exports.ER_MALFORMED_DEFINER = 1446;
+    exports.ER_VIEW_FRM_NO_USER = 1447;
+    exports.ER_VIEW_OTHER_USER = 1448;
+    exports.ER_NO_SUCH_USER = 1449;
+    exports.ER_FORBID_SCHEMA_CHANGE = 1450;
+    exports.ER_ROW_IS_REFERENCED_2 = 1451;
+    exports.ER_NO_REFERENCED_ROW_2 = 1452;
+    exports.ER_SP_BAD_VAR_SHADOW = 1453;
+    exports.ER_TRG_NO_DEFINER = 1454;
+    exports.ER_OLD_FILE_FORMAT = 1455;
+    exports.ER_SP_RECURSION_LIMIT = 1456;
+    exports.ER_SP_PROC_TABLE_CORRUPT = 1457;
+    exports.ER_SP_WRONG_NAME = 1458;
+    exports.ER_TABLE_NEEDS_UPGRADE = 1459;
+    exports.ER_SP_NO_AGGREGATE = 1460;
+    exports.ER_MAX_PREPARED_STMT_COUNT_REACHED = 1461;
+    exports.ER_VIEW_RECURSIVE = 1462;
+    exports.ER_NON_GROUPING_FIELD_USED = 1463;
+    exports.ER_TABLE_CANT_HANDLE_SPKEYS = 1464;
+    exports.ER_NO_TRIGGERS_ON_SYSTEM_SCHEMA = 1465;
+    exports.ER_REMOVED_SPACES = 1466;
+    exports.ER_AUTOINC_READ_FAILED = 1467;
+    exports.ER_USERNAME = 1468;
+    exports.ER_HOSTNAME = 1469;
+    exports.ER_WRONG_STRING_LENGTH = 1470;
+    exports.ER_NON_INSERTABLE_TABLE = 1471;
+    exports.ER_ADMIN_WRONG_MRG_TABLE = 1472;
+    exports.ER_TOO_HIGH_LEVEL_OF_NESTING_FOR_SELECT = 1473;
+    exports.ER_NAME_BECOMES_EMPTY = 1474;
+    exports.ER_AMBIGUOUS_FIELD_TERM = 1475;
+    exports.ER_FOREIGN_SERVER_EXISTS = 1476;
+    exports.ER_FOREIGN_SERVER_DOESNT_EXIST = 1477;
+    exports.ER_ILLEGAL_HA_CREATE_OPTION = 1478;
+    exports.ER_PARTITION_REQUIRES_VALUES_ERROR = 1479;
+    exports.ER_PARTITION_WRONG_VALUES_ERROR = 1480;
+    exports.ER_PARTITION_MAXVALUE_ERROR = 1481;
+    exports.ER_PARTITION_SUBPARTITION_ERROR = 1482;
+    exports.ER_PARTITION_SUBPART_MIX_ERROR = 1483;
+    exports.ER_PARTITION_WRONG_NO_PART_ERROR = 1484;
+    exports.ER_PARTITION_WRONG_NO_SUBPART_ERROR = 1485;
+    exports.ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR = 1486;
+    exports.ER_NO_CONST_EXPR_IN_RANGE_OR_LIST_ERROR = 1487;
+    exports.ER_FIELD_NOT_FOUND_PART_ERROR = 1488;
+    exports.ER_LIST_OF_FIELDS_ONLY_IN_HASH_ERROR = 1489;
+    exports.ER_INCONSISTENT_PARTITION_INFO_ERROR = 1490;
+    exports.ER_PARTITION_FUNC_NOT_ALLOWED_ERROR = 1491;
+    exports.ER_PARTITIONS_MUST_BE_DEFINED_ERROR = 1492;
+    exports.ER_RANGE_NOT_INCREASING_ERROR = 1493;
+    exports.ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR = 1494;
+    exports.ER_MULTIPLE_DEF_CONST_IN_LIST_PART_ERROR = 1495;
+    exports.ER_PARTITION_ENTRY_ERROR = 1496;
+    exports.ER_MIX_HANDLER_ERROR = 1497;
+    exports.ER_PARTITION_NOT_DEFINED_ERROR = 1498;
+    exports.ER_TOO_MANY_PARTITIONS_ERROR = 1499;
+    exports.ER_SUBPARTITION_ERROR = 1500;
+    exports.ER_CANT_CREATE_HANDLER_FILE = 1501;
+    exports.ER_BLOB_FIELD_IN_PART_FUNC_ERROR = 1502;
+    exports.ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF = 1503;
+    exports.ER_NO_PARTS_ERROR = 1504;
+    exports.ER_PARTITION_MGMT_ON_NONPARTITIONED = 1505;
+    exports.ER_FOREIGN_KEY_ON_PARTITIONED = 1506;
+    exports.ER_DROP_PARTITION_NON_EXISTENT = 1507;
+    exports.ER_DROP_LAST_PARTITION = 1508;
+    exports.ER_COALESCE_ONLY_ON_HASH_PARTITION = 1509;
+    exports.ER_REORG_HASH_ONLY_ON_SAME_NO = 1510;
+    exports.ER_REORG_NO_PARAM_ERROR = 1511;
+    exports.ER_ONLY_ON_RANGE_LIST_PARTITION = 1512;
+    exports.ER_ADD_PARTITION_SUBPART_ERROR = 1513;
+    exports.ER_ADD_PARTITION_NO_NEW_PARTITION = 1514;
+    exports.ER_COALESCE_PARTITION_NO_PARTITION = 1515;
+    exports.ER_REORG_PARTITION_NOT_EXIST = 1516;
+    exports.ER_SAME_NAME_PARTITION = 1517;
+    exports.ER_NO_BINLOG_ERROR = 1518;
+    exports.ER_CONSECUTIVE_REORG_PARTITIONS = 1519;
+    exports.ER_REORG_OUTSIDE_RANGE = 1520;
+    exports.ER_PARTITION_FUNCTION_FAILURE = 1521;
+    exports.ER_PART_STATE_ERROR = 1522;
+    exports.ER_LIMITED_PART_RANGE = 1523;
+    exports.ER_PLUGIN_IS_NOT_LOADED = 1524;
+    exports.ER_WRONG_VALUE = 1525;
+    exports.ER_NO_PARTITION_FOR_GIVEN_VALUE = 1526;
+    exports.ER_FILEGROUP_OPTION_ONLY_ONCE = 1527;
+    exports.ER_CREATE_FILEGROUP_FAILED = 1528;
+    exports.ER_DROP_FILEGROUP_FAILED = 1529;
+    exports.ER_TABLESPACE_AUTO_EXTEND_ERROR = 1530;
+    exports.ER_WRONG_SIZE_NUMBER = 1531;
+    exports.ER_SIZE_OVERFLOW_ERROR = 1532;
+    exports.ER_ALTER_FILEGROUP_FAILED = 1533;
+    exports.ER_BINLOG_ROW_LOGGING_FAILED = 1534;
+    exports.ER_BINLOG_ROW_WRONG_TABLE_DEF = 1535;
+    exports.ER_BINLOG_ROW_RBR_TO_SBR = 1536;
+    exports.ER_EVENT_ALREADY_EXISTS = 1537;
+    exports.ER_EVENT_STORE_FAILED = 1538;
+    exports.ER_EVENT_DOES_NOT_EXIST = 1539;
+    exports.ER_EVENT_CANT_ALTER = 1540;
+    exports.ER_EVENT_DROP_FAILED = 1541;
+    exports.ER_EVENT_INTERVAL_NOT_POSITIVE_OR_TOO_BIG = 1542;
+    exports.ER_EVENT_ENDS_BEFORE_STARTS = 1543;
+    exports.ER_EVENT_EXEC_TIME_IN_THE_PAST = 1544;
+    exports.ER_EVENT_OPEN_TABLE_FAILED = 1545;
+    exports.ER_EVENT_NEITHER_M_EXPR_NOR_M_AT = 1546;
+    exports.ER_COL_COUNT_DOESNT_MATCH_CORRUPTED = 1547;
+    exports.ER_CANNOT_LOAD_FROM_TABLE = 1548;
+    exports.ER_EVENT_CANNOT_DELETE = 1549;
+    exports.ER_EVENT_COMPILE_ERROR = 1550;
+    exports.ER_EVENT_SAME_NAME = 1551;
+    exports.ER_EVENT_DATA_TOO_LONG = 1552;
+    exports.ER_DROP_INDEX_FK = 1553;
+    exports.ER_WARN_DEPRECATED_SYNTAX_WITH_VER = 1554;
+    exports.ER_CANT_WRITE_LOCK_LOG_TABLE = 1555;
+    exports.ER_CANT_LOCK_LOG_TABLE = 1556;
+    exports.ER_FOREIGN_DUPLICATE_KEY = 1557;
+    exports.ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE = 1558;
+    exports.ER_TEMP_TABLE_PREVENTS_SWITCH_OUT_OF_RBR = 1559;
+    exports.ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1560;
+    exports.ER_NDB_CANT_SWITCH_BINLOG_FORMAT = 1561;
+    exports.ER_PARTITION_NO_TEMPORARY = 1562;
+    exports.ER_PARTITION_CONST_DOMAIN_ERROR = 1563;
+    exports.ER_PARTITION_FUNCTION_IS_NOT_ALLOWED = 1564;
+    exports.ER_DDL_LOG_ERROR = 1565;
+    exports.ER_NULL_IN_VALUES_LESS_THAN = 1566;
+    exports.ER_WRONG_PARTITION_NAME = 1567;
+    exports.ER_CANT_CHANGE_TX_CHARACTERISTICS = 1568;
+    exports.ER_DUP_ENTRY_AUTOINCREMENT_CASE = 1569;
+    exports.ER_EVENT_MODIFY_QUEUE_ERROR = 1570;
+    exports.ER_EVENT_SET_VAR_ERROR = 1571;
+    exports.ER_PARTITION_MERGE_ERROR = 1572;
+    exports.ER_CANT_ACTIVATE_LOG = 1573;
+    exports.ER_RBR_NOT_AVAILABLE = 1574;
+    exports.ER_BASE64_DECODE_ERROR = 1575;
+    exports.ER_EVENT_RECURSION_FORBIDDEN = 1576;
+    exports.ER_EVENTS_DB_ERROR = 1577;
+    exports.ER_ONLY_INTEGERS_ALLOWED = 1578;
+    exports.ER_UNSUPORTED_LOG_ENGINE = 1579;
+    exports.ER_BAD_LOG_STATEMENT = 1580;
+    exports.ER_CANT_RENAME_LOG_TABLE = 1581;
+    exports.ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT = 1582;
+    exports.ER_WRONG_PARAMETERS_TO_NATIVE_FCT = 1583;
+    exports.ER_WRONG_PARAMETERS_TO_STORED_FCT = 1584;
+    exports.ER_NATIVE_FCT_NAME_COLLISION = 1585;
+    exports.ER_DUP_ENTRY_WITH_KEY_NAME = 1586;
+    exports.ER_BINLOG_PURGE_EMFILE = 1587;
+    exports.ER_EVENT_CANNOT_CREATE_IN_THE_PAST = 1588;
+    exports.ER_EVENT_CANNOT_ALTER_IN_THE_PAST = 1589;
+    exports.ER_SLAVE_INCIDENT = 1590;
+    exports.ER_NO_PARTITION_FOR_GIVEN_VALUE_SILENT = 1591;
+    exports.ER_BINLOG_UNSAFE_STATEMENT = 1592;
+    exports.ER_BINLOG_FATAL_ERROR = 1593;
+    exports.ER_SLAVE_RELAY_LOG_READ_FAILURE = 1594;
+    exports.ER_SLAVE_RELAY_LOG_WRITE_FAILURE = 1595;
+    exports.ER_SLAVE_CREATE_EVENT_FAILURE = 1596;
+    exports.ER_SLAVE_MASTER_COM_FAILURE = 1597;
+    exports.ER_BINLOG_LOGGING_IMPOSSIBLE = 1598;
+    exports.ER_VIEW_NO_CREATION_CTX = 1599;
+    exports.ER_VIEW_INVALID_CREATION_CTX = 1600;
+    exports.ER_SR_INVALID_CREATION_CTX = 1601;
+    exports.ER_TRG_CORRUPTED_FILE = 1602;
+    exports.ER_TRG_NO_CREATION_CTX = 1603;
+    exports.ER_TRG_INVALID_CREATION_CTX = 1604;
+    exports.ER_EVENT_INVALID_CREATION_CTX = 1605;
+    exports.ER_TRG_CANT_OPEN_TABLE = 1606;
+    exports.ER_CANT_CREATE_SROUTINE = 1607;
+    exports.ER_NEVER_USED = 1608;
+    exports.ER_NO_FORMAT_DESCRIPTION_EVENT_BEFORE_BINLOG_STATEMENT = 1609;
+    exports.ER_REPLICA_CORRUPT_EVENT = 1610;
+    exports.ER_LOAD_DATA_INVALID_COLUMN = 1611;
+    exports.ER_LOG_PURGE_NO_FILE = 1612;
+    exports.ER_XA_RBTIMEOUT = 1613;
+    exports.ER_XA_RBDEADLOCK = 1614;
+    exports.ER_NEED_REPREPARE = 1615;
+    exports.ER_DELAYED_NOT_SUPPORTED = 1616;
+    exports.WARN_NO_CONNECTION_METADATA = 1617;
+    exports.WARN_OPTION_IGNORED = 1618;
+    exports.ER_PLUGIN_DELETE_BUILTIN = 1619;
+    exports.WARN_PLUGIN_BUSY = 1620;
+    exports.ER_VARIABLE_IS_READONLY = 1621;
+    exports.ER_WARN_ENGINE_TRANSACTION_ROLLBACK = 1622;
+    exports.ER_SLAVE_HEARTBEAT_FAILURE = 1623;
+    exports.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE = 1624;
+    exports.ER_NDB_REPLICATION_SCHEMA_ERROR = 1625;
+    exports.ER_CONFLICT_FN_PARSE_ERROR = 1626;
+    exports.ER_EXCEPTIONS_WRITE_ERROR = 1627;
+    exports.ER_TOO_LONG_TABLE_COMMENT = 1628;
+    exports.ER_TOO_LONG_FIELD_COMMENT = 1629;
+    exports.ER_FUNC_INEXISTENT_NAME_COLLISION = 1630;
+    exports.ER_DATABASE_NAME = 1631;
+    exports.ER_TABLE_NAME = 1632;
+    exports.ER_PARTITION_NAME = 1633;
+    exports.ER_SUBPARTITION_NAME = 1634;
+    exports.ER_TEMPORARY_NAME = 1635;
+    exports.ER_RENAMED_NAME = 1636;
+    exports.ER_TOO_MANY_CONCURRENT_TRXS = 1637;
+    exports.WARN_NON_ASCII_SEPARATOR_NOT_IMPLEMENTED = 1638;
+    exports.ER_DEBUG_SYNC_TIMEOUT = 1639;
+    exports.ER_DEBUG_SYNC_HIT_LIMIT = 1640;
+    exports.ER_DUP_SIGNAL_SET = 1641;
+    exports.ER_SIGNAL_WARN = 1642;
+    exports.ER_SIGNAL_NOT_FOUND = 1643;
+    exports.ER_SIGNAL_EXCEPTION = 1644;
+    exports.ER_RESIGNAL_WITHOUT_ACTIVE_HANDLER = 1645;
+    exports.ER_SIGNAL_BAD_CONDITION_TYPE = 1646;
+    exports.WARN_COND_ITEM_TRUNCATED = 1647;
+    exports.ER_COND_ITEM_TOO_LONG = 1648;
+    exports.ER_UNKNOWN_LOCALE = 1649;
+    exports.ER_REPLICA_IGNORE_SERVER_IDS = 1650;
+    exports.ER_QUERY_CACHE_DISABLED = 1651;
+    exports.ER_SAME_NAME_PARTITION_FIELD = 1652;
+    exports.ER_PARTITION_COLUMN_LIST_ERROR = 1653;
+    exports.ER_WRONG_TYPE_COLUMN_VALUE_ERROR = 1654;
+    exports.ER_TOO_MANY_PARTITION_FUNC_FIELDS_ERROR = 1655;
+    exports.ER_MAXVALUE_IN_VALUES_IN = 1656;
+    exports.ER_TOO_MANY_VALUES_ERROR = 1657;
+    exports.ER_ROW_SINGLE_PARTITION_FIELD_ERROR = 1658;
+    exports.ER_FIELD_TYPE_NOT_ALLOWED_AS_PARTITION_FIELD = 1659;
+    exports.ER_PARTITION_FIELDS_TOO_LONG = 1660;
+    exports.ER_BINLOG_ROW_ENGINE_AND_STMT_ENGINE = 1661;
+    exports.ER_BINLOG_ROW_MODE_AND_STMT_ENGINE = 1662;
+    exports.ER_BINLOG_UNSAFE_AND_STMT_ENGINE = 1663;
+    exports.ER_BINLOG_ROW_INJECTION_AND_STMT_ENGINE = 1664;
+    exports.ER_BINLOG_STMT_MODE_AND_ROW_ENGINE = 1665;
+    exports.ER_BINLOG_ROW_INJECTION_AND_STMT_MODE = 1666;
+    exports.ER_BINLOG_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE = 1667;
+    exports.ER_BINLOG_UNSAFE_LIMIT = 1668;
+    exports.ER_UNUSED4 = 1669;
+    exports.ER_BINLOG_UNSAFE_SYSTEM_TABLE = 1670;
+    exports.ER_BINLOG_UNSAFE_AUTOINC_COLUMNS = 1671;
+    exports.ER_BINLOG_UNSAFE_UDF = 1672;
+    exports.ER_BINLOG_UNSAFE_SYSTEM_VARIABLE = 1673;
+    exports.ER_BINLOG_UNSAFE_SYSTEM_FUNCTION = 1674;
+    exports.ER_BINLOG_UNSAFE_NONTRANS_AFTER_TRANS = 1675;
+    exports.ER_MESSAGE_AND_STATEMENT = 1676;
+    exports.ER_SLAVE_CONVERSION_FAILED = 1677;
+    exports.ER_REPLICA_CANT_CREATE_CONVERSION = 1678;
+    exports.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_FORMAT = 1679;
+    exports.ER_PATH_LENGTH = 1680;
+    exports.ER_WARN_DEPRECATED_SYNTAX_NO_REPLACEMENT = 1681;
+    exports.ER_WRONG_NATIVE_TABLE_STRUCTURE = 1682;
+    exports.ER_WRONG_PERFSCHEMA_USAGE = 1683;
+    exports.ER_WARN_I_S_SKIPPED_TABLE = 1684;
+    exports.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1685;
+    exports.ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT = 1686;
+    exports.ER_SPATIAL_MUST_HAVE_GEOM_COL = 1687;
+    exports.ER_TOO_LONG_INDEX_COMMENT = 1688;
+    exports.ER_LOCK_ABORTED = 1689;
+    exports.ER_DATA_OUT_OF_RANGE = 1690;
+    exports.ER_WRONG_SPVAR_TYPE_IN_LIMIT = 1691;
+    exports.ER_BINLOG_UNSAFE_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE = 1692;
+    exports.ER_BINLOG_UNSAFE_MIXED_STATEMENT = 1693;
+    exports.ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1694;
+    exports.ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN = 1695;
+    exports.ER_FAILED_READ_FROM_PAR_FILE = 1696;
+    exports.ER_VALUES_IS_NOT_INT_TYPE_ERROR = 1697;
+    exports.ER_ACCESS_DENIED_NO_PASSWORD_ERROR = 1698;
+    exports.ER_SET_PASSWORD_AUTH_PLUGIN = 1699;
+    exports.ER_GRANT_PLUGIN_USER_EXISTS = 1700;
+    exports.ER_TRUNCATE_ILLEGAL_FK = 1701;
+    exports.ER_PLUGIN_IS_PERMANENT = 1702;
+    exports.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MIN = 1703;
+    exports.ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MAX = 1704;
+    exports.ER_STMT_CACHE_FULL = 1705;
+    exports.ER_MULTI_UPDATE_KEY_CONFLICT = 1706;
+    exports.ER_TABLE_NEEDS_REBUILD = 1707;
+    exports.WARN_OPTION_BELOW_LIMIT = 1708;
+    exports.ER_INDEX_COLUMN_TOO_LONG = 1709;
+    exports.ER_ERROR_IN_TRIGGER_BODY = 1710;
+    exports.ER_ERROR_IN_UNKNOWN_TRIGGER_BODY = 1711;
+    exports.ER_INDEX_CORRUPT = 1712;
+    exports.ER_UNDO_RECORD_TOO_BIG = 1713;
+    exports.ER_BINLOG_UNSAFE_INSERT_IGNORE_SELECT = 1714;
+    exports.ER_BINLOG_UNSAFE_INSERT_SELECT_UPDATE = 1715;
+    exports.ER_BINLOG_UNSAFE_REPLACE_SELECT = 1716;
+    exports.ER_BINLOG_UNSAFE_CREATE_IGNORE_SELECT = 1717;
+    exports.ER_BINLOG_UNSAFE_CREATE_REPLACE_SELECT = 1718;
+    exports.ER_BINLOG_UNSAFE_UPDATE_IGNORE = 1719;
+    exports.ER_PLUGIN_NO_UNINSTALL = 1720;
+    exports.ER_PLUGIN_NO_INSTALL = 1721;
+    exports.ER_BINLOG_UNSAFE_WRITE_AUTOINC_SELECT = 1722;
+    exports.ER_BINLOG_UNSAFE_CREATE_SELECT_AUTOINC = 1723;
+    exports.ER_BINLOG_UNSAFE_INSERT_TWO_KEYS = 1724;
+    exports.ER_TABLE_IN_FK_CHECK = 1725;
+    exports.ER_UNSUPPORTED_ENGINE = 1726;
+    exports.ER_BINLOG_UNSAFE_AUTOINC_NOT_FIRST = 1727;
+    exports.ER_CANNOT_LOAD_FROM_TABLE_V2 = 1728;
+    exports.ER_SOURCE_DELAY_VALUE_OUT_OF_RANGE = 1729;
+    exports.ER_ONLY_FD_AND_RBR_EVENTS_ALLOWED_IN_BINLOG_STATEMENT = 1730;
+    exports.ER_PARTITION_EXCHANGE_DIFFERENT_OPTION = 1731;
+    exports.ER_PARTITION_EXCHANGE_PART_TABLE = 1732;
+    exports.ER_PARTITION_EXCHANGE_TEMP_TABLE = 1733;
+    exports.ER_PARTITION_INSTEAD_OF_SUBPARTITION = 1734;
+    exports.ER_UNKNOWN_PARTITION = 1735;
+    exports.ER_TABLES_DIFFERENT_METADATA = 1736;
+    exports.ER_ROW_DOES_NOT_MATCH_PARTITION = 1737;
+    exports.ER_BINLOG_CACHE_SIZE_GREATER_THAN_MAX = 1738;
+    exports.ER_WARN_INDEX_NOT_APPLICABLE = 1739;
+    exports.ER_PARTITION_EXCHANGE_FOREIGN_KEY = 1740;
+    exports.ER_NO_SUCH_KEY_VALUE = 1741;
+    exports.ER_RPL_INFO_DATA_TOO_LONG = 1742;
+    exports.ER_NETWORK_READ_EVENT_CHECKSUM_FAILURE = 1743;
+    exports.ER_BINLOG_READ_EVENT_CHECKSUM_FAILURE = 1744;
+    exports.ER_BINLOG_STMT_CACHE_SIZE_GREATER_THAN_MAX = 1745;
+    exports.ER_CANT_UPDATE_TABLE_IN_CREATE_TABLE_SELECT = 1746;
+    exports.ER_PARTITION_CLAUSE_ON_NONPARTITIONED = 1747;
+    exports.ER_ROW_DOES_NOT_MATCH_GIVEN_PARTITION_SET = 1748;
+    exports.ER_NO_SUCH_PARTITION = 1749;
+    exports.ER_CHANGE_RPL_INFO_REPOSITORY_FAILURE = 1750;
+    exports.ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_CREATED_TEMP_TABLE = 1751;
+    exports.ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_DROPPED_TEMP_TABLE = 1752;
+    exports.ER_MTA_FEATURE_IS_NOT_SUPPORTED = 1753;
+    exports.ER_MTA_UPDATED_DBS_GREATER_MAX = 1754;
+    exports.ER_MTA_CANT_PARALLEL = 1755;
+    exports.ER_MTA_INCONSISTENT_DATA = 1756;
+    exports.ER_FULLTEXT_NOT_SUPPORTED_WITH_PARTITIONING = 1757;
+    exports.ER_DA_INVALID_CONDITION_NUMBER = 1758;
+    exports.ER_INSECURE_PLAIN_TEXT = 1759;
+    exports.ER_INSECURE_CHANGE_SOURCE = 1760;
+    exports.ER_FOREIGN_DUPLICATE_KEY_WITH_CHILD_INFO = 1761;
+    exports.ER_FOREIGN_DUPLICATE_KEY_WITHOUT_CHILD_INFO = 1762;
+    exports.ER_SQLTHREAD_WITH_SECURE_REPLICA = 1763;
+    exports.ER_TABLE_HAS_NO_FT = 1764;
+    exports.ER_VARIABLE_NOT_SETTABLE_IN_SF_OR_TRIGGER = 1765;
+    exports.ER_VARIABLE_NOT_SETTABLE_IN_TRANSACTION = 1766;
+    exports.ER_GTID_NEXT_IS_NOT_IN_GTID_NEXT_LIST = 1767;
+    exports.ER_CANT_CHANGE_GTID_NEXT_IN_TRANSACTION = 1768;
+    exports.ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION = 1769;
+    exports.ER_GTID_NEXT_CANT_BE_AUTOMATIC_IF_GTID_NEXT_LIST_IS_NON_NULL = 1770;
+    exports.ER_SKIPPING_LOGGED_TRANSACTION = 1771;
+    exports.ER_MALFORMED_GTID_SET_SPECIFICATION = 1772;
+    exports.ER_MALFORMED_GTID_SET_ENCODING = 1773;
+    exports.ER_MALFORMED_GTID_SPECIFICATION = 1774;
+    exports.ER_GNO_EXHAUSTED = 1775;
+    exports.ER_BAD_REPLICA_AUTO_POSITION = 1776;
+    exports.ER_AUTO_POSITION_REQUIRES_GTID_MODE_NOT_OFF = 1777;
+    exports.ER_CANT_DO_IMPLICIT_COMMIT_IN_TRX_WHEN_GTID_NEXT_IS_SET = 1778;
+    exports.ER_GTID_MODE_ON_REQUIRES_ENFORCE_GTID_CONSISTENCY_ON = 1779;
+    exports.ER_GTID_MODE_REQUIRES_BINLOG = 1780;
+    exports.ER_CANT_SET_GTID_NEXT_TO_GTID_WHEN_GTID_MODE_IS_OFF = 1781;
+    exports.ER_CANT_SET_GTID_NEXT_TO_ANONYMOUS_WHEN_GTID_MODE_IS_ON = 1782;
+    exports.ER_CANT_SET_GTID_NEXT_LIST_TO_NON_NULL_WHEN_GTID_MODE_IS_OFF = 1783;
+    exports.ER_FOUND_GTID_EVENT_WHEN_GTID_MODE_IS_OFF = 1784;
+    exports.ER_GTID_UNSAFE_NON_TRANSACTIONAL_TABLE = 1785;
+    exports.ER_GTID_UNSAFE_CREATE_SELECT = 1786;
+    exports.ER_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRANSACTION = 1787;
+    exports.ER_GTID_MODE_CAN_ONLY_CHANGE_ONE_STEP_AT_A_TIME = 1788;
+    exports.ER_SOURCE_HAS_PURGED_REQUIRED_GTIDS = 1789;
+    exports.ER_CANT_SET_GTID_NEXT_WHEN_OWNING_GTID = 1790;
+    exports.ER_UNKNOWN_EXPLAIN_FORMAT = 1791;
+    exports.ER_CANT_EXECUTE_IN_READ_ONLY_TRANSACTION = 1792;
+    exports.ER_TOO_LONG_TABLE_PARTITION_COMMENT = 1793;
+    exports.ER_REPLICA_CONFIGURATION = 1794;
+    exports.ER_INNODB_FT_LIMIT = 1795;
+    exports.ER_INNODB_NO_FT_TEMP_TABLE = 1796;
+    exports.ER_INNODB_FT_WRONG_DOCID_COLUMN = 1797;
+    exports.ER_INNODB_FT_WRONG_DOCID_INDEX = 1798;
+    exports.ER_INNODB_ONLINE_LOG_TOO_BIG = 1799;
+    exports.ER_UNKNOWN_ALTER_ALGORITHM = 1800;
+    exports.ER_UNKNOWN_ALTER_LOCK = 1801;
+    exports.ER_MTA_CHANGE_SOURCE_CANT_RUN_WITH_GAPS = 1802;
+    exports.ER_MTA_RECOVERY_FAILURE = 1803;
+    exports.ER_MTA_RESET_WORKERS = 1804;
+    exports.ER_COL_COUNT_DOESNT_MATCH_CORRUPTED_V2 = 1805;
+    exports.ER_REPLICA_SILENT_RETRY_TRANSACTION = 1806;
+    exports.ER_DISCARD_FK_CHECKS_RUNNING = 1807;
+    exports.ER_TABLE_SCHEMA_MISMATCH = 1808;
+    exports.ER_TABLE_IN_SYSTEM_TABLESPACE = 1809;
+    exports.ER_IO_READ_ERROR = 1810;
+    exports.ER_IO_WRITE_ERROR = 1811;
+    exports.ER_TABLESPACE_MISSING = 1812;
+    exports.ER_TABLESPACE_EXISTS = 1813;
+    exports.ER_TABLESPACE_DISCARDED = 1814;
+    exports.ER_INTERNAL_ERROR = 1815;
+    exports.ER_INNODB_IMPORT_ERROR = 1816;
+    exports.ER_INNODB_INDEX_CORRUPT = 1817;
+    exports.ER_INVALID_YEAR_COLUMN_LENGTH = 1818;
+    exports.ER_NOT_VALID_PASSWORD = 1819;
+    exports.ER_MUST_CHANGE_PASSWORD = 1820;
+    exports.ER_FK_NO_INDEX_CHILD = 1821;
+    exports.ER_FK_NO_INDEX_PARENT = 1822;
+    exports.ER_FK_FAIL_ADD_SYSTEM = 1823;
+    exports.ER_FK_CANNOT_OPEN_PARENT = 1824;
+    exports.ER_FK_INCORRECT_OPTION = 1825;
+    exports.ER_FK_DUP_NAME = 1826;
+    exports.ER_PASSWORD_FORMAT = 1827;
+    exports.ER_FK_COLUMN_CANNOT_DROP = 1828;
+    exports.ER_FK_COLUMN_CANNOT_DROP_CHILD = 1829;
+    exports.ER_FK_COLUMN_NOT_NULL = 1830;
+    exports.ER_DUP_INDEX = 1831;
+    exports.ER_FK_COLUMN_CANNOT_CHANGE = 1832;
+    exports.ER_FK_COLUMN_CANNOT_CHANGE_CHILD = 1833;
+    exports.ER_UNUSED5 = 1834;
+    exports.ER_MALFORMED_PACKET = 1835;
+    exports.ER_READ_ONLY_MODE = 1836;
+    exports.ER_GTID_NEXT_TYPE_UNDEFINED_GTID = 1837;
+    exports.ER_VARIABLE_NOT_SETTABLE_IN_SP = 1838;
+    exports.ER_CANT_SET_GTID_PURGED_WHEN_GTID_MODE_IS_OFF = 1839;
+    exports.ER_CANT_SET_GTID_PURGED_WHEN_GTID_EXECUTED_IS_NOT_EMPTY = 1840;
+    exports.ER_CANT_SET_GTID_PURGED_WHEN_OWNED_GTIDS_IS_NOT_EMPTY = 1841;
+    exports.ER_GTID_PURGED_WAS_CHANGED = 1842;
+    exports.ER_GTID_EXECUTED_WAS_CHANGED = 1843;
+    exports.ER_BINLOG_STMT_MODE_AND_NO_REPL_TABLES = 1844;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED = 1845;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON = 1846;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COPY = 1847;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_PARTITION = 1848;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_RENAME = 1849;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE = 1850;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_CHECK = 1851;
+    exports.ER_UNUSED6 = 1852;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOPK = 1853;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_AUTOINC = 1854;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_HIDDEN_FTS = 1855;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_CHANGE_FTS = 1856;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FTS = 1857;
+    exports.ER_SQL_REPLICA_SKIP_COUNTER_NOT_SETTABLE_IN_GTID_MODE = 1858;
+    exports.ER_DUP_UNKNOWN_IN_INDEX = 1859;
+    exports.ER_IDENT_CAUSES_TOO_LONG_PATH = 1860;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOT_NULL = 1861;
+    exports.ER_MUST_CHANGE_PASSWORD_LOGIN = 1862;
+    exports.ER_ROW_IN_WRONG_PARTITION = 1863;
+    exports.ER_MTA_EVENT_BIGGER_PENDING_JOBS_SIZE_MAX = 1864;
+    exports.ER_INNODB_NO_FT_USES_PARSER = 1865;
+    exports.ER_BINLOG_LOGICAL_CORRUPTION = 1866;
+    exports.ER_WARN_PURGE_LOG_IN_USE = 1867;
+    exports.ER_WARN_PURGE_LOG_IS_ACTIVE = 1868;
+    exports.ER_AUTO_INCREMENT_CONFLICT = 1869;
+    exports.WARN_ON_BLOCKHOLE_IN_RBR = 1870;
+    exports.ER_REPLICA_CM_INIT_REPOSITORY = 1871;
+    exports.ER_REPLICA_AM_INIT_REPOSITORY = 1872;
+    exports.ER_ACCESS_DENIED_CHANGE_USER_ERROR = 1873;
+    exports.ER_INNODB_READ_ONLY = 1874;
+    exports.ER_STOP_REPLICA_SQL_THREAD_TIMEOUT = 1875;
+    exports.ER_STOP_REPLICA_IO_THREAD_TIMEOUT = 1876;
+    exports.ER_TABLE_CORRUPT = 1877;
+    exports.ER_TEMP_FILE_WRITE_FAILURE = 1878;
+    exports.ER_INNODB_FT_AUX_NOT_HEX_ID = 1879;
+    exports.ER_OLD_TEMPORALS_UPGRADED = 1880;
+    exports.ER_INNODB_FORCED_RECOVERY = 1881;
+    exports.ER_AES_INVALID_IV = 1882;
+    exports.ER_PLUGIN_CANNOT_BE_UNINSTALLED = 1883;
+    exports.ER_GTID_UNSAFE_BINLOG_SPLITTABLE_STATEMENT_AND_ASSIGNED_GTID = 1884;
+    exports.ER_REPLICA_HAS_MORE_GTIDS_THAN_SOURCE = 1885;
+    exports.ER_MISSING_KEY = 1886;
+    exports.WARN_NAMED_PIPE_ACCESS_EVERYONE = 1887;
+    exports.ER_FILE_CORRUPT = 3e3;
+    exports.ER_ERROR_ON_SOURCE = 3001;
+    exports.ER_INCONSISTENT_ERROR = 3002;
+    exports.ER_STORAGE_ENGINE_NOT_LOADED = 3003;
+    exports.ER_GET_STACKED_DA_WITHOUT_ACTIVE_HANDLER = 3004;
+    exports.ER_WARN_LEGACY_SYNTAX_CONVERTED = 3005;
+    exports.ER_BINLOG_UNSAFE_FULLTEXT_PLUGIN = 3006;
+    exports.ER_CANNOT_DISCARD_TEMPORARY_TABLE = 3007;
+    exports.ER_FK_DEPTH_EXCEEDED = 3008;
+    exports.ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE_V2 = 3009;
+    exports.ER_WARN_TRIGGER_DOESNT_HAVE_CREATED = 3010;
+    exports.ER_REFERENCED_TRG_DOES_NOT_EXIST = 3011;
+    exports.ER_EXPLAIN_NOT_SUPPORTED = 3012;
+    exports.ER_INVALID_FIELD_SIZE = 3013;
+    exports.ER_MISSING_HA_CREATE_OPTION = 3014;
+    exports.ER_ENGINE_OUT_OF_MEMORY = 3015;
+    exports.ER_PASSWORD_EXPIRE_ANONYMOUS_USER = 3016;
+    exports.ER_REPLICA_SQL_THREAD_MUST_STOP = 3017;
+    exports.ER_NO_FT_MATERIALIZED_SUBQUERY = 3018;
+    exports.ER_INNODB_UNDO_LOG_FULL = 3019;
+    exports.ER_INVALID_ARGUMENT_FOR_LOGARITHM = 3020;
+    exports.ER_REPLICA_CHANNEL_IO_THREAD_MUST_STOP = 3021;
+    exports.ER_WARN_OPEN_TEMP_TABLES_MUST_BE_ZERO = 3022;
+    exports.ER_WARN_ONLY_SOURCE_LOG_FILE_NO_POS = 3023;
+    exports.ER_QUERY_TIMEOUT = 3024;
+    exports.ER_NON_RO_SELECT_DISABLE_TIMER = 3025;
+    exports.ER_DUP_LIST_ENTRY = 3026;
+    exports.ER_SQL_MODE_NO_EFFECT = 3027;
+    exports.ER_AGGREGATE_ORDER_FOR_UNION = 3028;
+    exports.ER_AGGREGATE_ORDER_NON_AGG_QUERY = 3029;
+    exports.ER_REPLICA_WORKER_STOPPED_PREVIOUS_THD_ERROR = 3030;
+    exports.ER_DONT_SUPPORT_REPLICA_PRESERVE_COMMIT_ORDER = 3031;
+    exports.ER_SERVER_OFFLINE_MODE = 3032;
+    exports.ER_GIS_DIFFERENT_SRIDS = 3033;
+    exports.ER_GIS_UNSUPPORTED_ARGUMENT = 3034;
+    exports.ER_GIS_UNKNOWN_ERROR = 3035;
+    exports.ER_GIS_UNKNOWN_EXCEPTION = 3036;
+    exports.ER_GIS_INVALID_DATA = 3037;
+    exports.ER_BOOST_GEOMETRY_EMPTY_INPUT_EXCEPTION = 3038;
+    exports.ER_BOOST_GEOMETRY_CENTROID_EXCEPTION = 3039;
+    exports.ER_BOOST_GEOMETRY_OVERLAY_INVALID_INPUT_EXCEPTION = 3040;
+    exports.ER_BOOST_GEOMETRY_TURN_INFO_EXCEPTION = 3041;
+    exports.ER_BOOST_GEOMETRY_SELF_INTERSECTION_POINT_EXCEPTION = 3042;
+    exports.ER_BOOST_GEOMETRY_UNKNOWN_EXCEPTION = 3043;
+    exports.ER_STD_BAD_ALLOC_ERROR = 3044;
+    exports.ER_STD_DOMAIN_ERROR = 3045;
+    exports.ER_STD_LENGTH_ERROR = 3046;
+    exports.ER_STD_INVALID_ARGUMENT = 3047;
+    exports.ER_STD_OUT_OF_RANGE_ERROR = 3048;
+    exports.ER_STD_OVERFLOW_ERROR = 3049;
+    exports.ER_STD_RANGE_ERROR = 3050;
+    exports.ER_STD_UNDERFLOW_ERROR = 3051;
+    exports.ER_STD_LOGIC_ERROR = 3052;
+    exports.ER_STD_RUNTIME_ERROR = 3053;
+    exports.ER_STD_UNKNOWN_EXCEPTION = 3054;
+    exports.ER_GIS_DATA_WRONG_ENDIANESS = 3055;
+    exports.ER_CHANGE_SOURCE_PASSWORD_LENGTH = 3056;
+    exports.ER_USER_LOCK_WRONG_NAME = 3057;
+    exports.ER_USER_LOCK_DEADLOCK = 3058;
+    exports.ER_REPLACE_INACCESSIBLE_ROWS = 3059;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_GIS = 3060;
+    exports.ER_ILLEGAL_USER_VAR = 3061;
+    exports.ER_GTID_MODE_OFF = 3062;
+    exports.ER_UNSUPPORTED_BY_REPLICATION_THREAD = 3063;
+    exports.ER_INCORRECT_TYPE = 3064;
+    exports.ER_FIELD_IN_ORDER_NOT_SELECT = 3065;
+    exports.ER_AGGREGATE_IN_ORDER_NOT_SELECT = 3066;
+    exports.ER_INVALID_RPL_WILD_TABLE_FILTER_PATTERN = 3067;
+    exports.ER_NET_OK_PACKET_TOO_LARGE = 3068;
+    exports.ER_INVALID_JSON_DATA = 3069;
+    exports.ER_INVALID_GEOJSON_MISSING_MEMBER = 3070;
+    exports.ER_INVALID_GEOJSON_WRONG_TYPE = 3071;
+    exports.ER_INVALID_GEOJSON_UNSPECIFIED = 3072;
+    exports.ER_DIMENSION_UNSUPPORTED = 3073;
+    exports.ER_REPLICA_CHANNEL_DOES_NOT_EXIST = 3074;
+    exports.ER_SLAVE_MULTIPLE_CHANNELS_HOST_PORT = 3075;
+    exports.ER_REPLICA_CHANNEL_NAME_INVALID_OR_TOO_LONG = 3076;
+    exports.ER_REPLICA_NEW_CHANNEL_WRONG_REPOSITORY = 3077;
+    exports.ER_SLAVE_CHANNEL_DELETE = 3078;
+    exports.ER_REPLICA_MULTIPLE_CHANNELS_CMD = 3079;
+    exports.ER_REPLICA_MAX_CHANNELS_EXCEEDED = 3080;
+    exports.ER_REPLICA_CHANNEL_MUST_STOP = 3081;
+    exports.ER_REPLICA_CHANNEL_NOT_RUNNING = 3082;
+    exports.ER_REPLICA_CHANNEL_WAS_RUNNING = 3083;
+    exports.ER_REPLICA_CHANNEL_WAS_NOT_RUNNING = 3084;
+    exports.ER_REPLICA_CHANNEL_SQL_THREAD_MUST_STOP = 3085;
+    exports.ER_REPLICA_CHANNEL_SQL_SKIP_COUNTER = 3086;
+    exports.ER_WRONG_FIELD_WITH_GROUP_V2 = 3087;
+    exports.ER_MIX_OF_GROUP_FUNC_AND_FIELDS_V2 = 3088;
+    exports.ER_WARN_DEPRECATED_SYSVAR_UPDATE = 3089;
+    exports.ER_WARN_DEPRECATED_SQLMODE = 3090;
+    exports.ER_CANNOT_LOG_PARTIAL_DROP_DATABASE_WITH_GTID = 3091;
+    exports.ER_GROUP_REPLICATION_CONFIGURATION = 3092;
+    exports.ER_GROUP_REPLICATION_RUNNING = 3093;
+    exports.ER_GROUP_REPLICATION_APPLIER_INIT_ERROR = 3094;
+    exports.ER_GROUP_REPLICATION_STOP_APPLIER_THREAD_TIMEOUT = 3095;
+    exports.ER_GROUP_REPLICATION_COMMUNICATION_LAYER_SESSION_ERROR = 3096;
+    exports.ER_GROUP_REPLICATION_COMMUNICATION_LAYER_JOIN_ERROR = 3097;
+    exports.ER_BEFORE_DML_VALIDATION_ERROR = 3098;
+    exports.ER_PREVENTS_VARIABLE_WITHOUT_RBR = 3099;
+    exports.ER_RUN_HOOK_ERROR = 3100;
+    exports.ER_TRANSACTION_ROLLBACK_DURING_COMMIT = 3101;
+    exports.ER_GENERATED_COLUMN_FUNCTION_IS_NOT_ALLOWED = 3102;
+    exports.ER_UNSUPPORTED_ALTER_INPLACE_ON_VIRTUAL_COLUMN = 3103;
+    exports.ER_WRONG_FK_OPTION_FOR_GENERATED_COLUMN = 3104;
+    exports.ER_NON_DEFAULT_VALUE_FOR_GENERATED_COLUMN = 3105;
+    exports.ER_UNSUPPORTED_ACTION_ON_GENERATED_COLUMN = 3106;
+    exports.ER_GENERATED_COLUMN_NON_PRIOR = 3107;
+    exports.ER_DEPENDENT_BY_GENERATED_COLUMN = 3108;
+    exports.ER_GENERATED_COLUMN_REF_AUTO_INC = 3109;
+    exports.ER_FEATURE_NOT_AVAILABLE = 3110;
+    exports.ER_CANT_SET_GTID_MODE = 3111;
+    exports.ER_CANT_USE_AUTO_POSITION_WITH_GTID_MODE_OFF = 3112;
+    exports.ER_CANT_REPLICATE_ANONYMOUS_WITH_AUTO_POSITION = 3113;
+    exports.ER_CANT_REPLICATE_ANONYMOUS_WITH_GTID_MODE_ON = 3114;
+    exports.ER_CANT_REPLICATE_GTID_WITH_GTID_MODE_OFF = 3115;
+    exports.ER_CANT_ENFORCE_GTID_CONSISTENCY_WITH_ONGOING_GTID_VIOLATING_TX = 3116;
+    exports.ER_ENFORCE_GTID_CONSISTENCY_WARN_WITH_ONGOING_GTID_VIOLATING_TX = 3117;
+    exports.ER_ACCOUNT_HAS_BEEN_LOCKED = 3118;
+    exports.ER_WRONG_TABLESPACE_NAME = 3119;
+    exports.ER_TABLESPACE_IS_NOT_EMPTY = 3120;
+    exports.ER_WRONG_FILE_NAME = 3121;
+    exports.ER_BOOST_GEOMETRY_INCONSISTENT_TURNS_EXCEPTION = 3122;
+    exports.ER_WARN_OPTIMIZER_HINT_SYNTAX_ERROR = 3123;
+    exports.ER_WARN_BAD_MAX_EXECUTION_TIME = 3124;
+    exports.ER_WARN_UNSUPPORTED_MAX_EXECUTION_TIME = 3125;
+    exports.ER_WARN_CONFLICTING_HINT = 3126;
+    exports.ER_WARN_UNKNOWN_QB_NAME = 3127;
+    exports.ER_UNRESOLVED_HINT_NAME = 3128;
+    exports.ER_WARN_ON_MODIFYING_GTID_EXECUTED_TABLE = 3129;
+    exports.ER_PLUGGABLE_PROTOCOL_COMMAND_NOT_SUPPORTED = 3130;
+    exports.ER_LOCKING_SERVICE_WRONG_NAME = 3131;
+    exports.ER_LOCKING_SERVICE_DEADLOCK = 3132;
+    exports.ER_LOCKING_SERVICE_TIMEOUT = 3133;
+    exports.ER_GIS_MAX_POINTS_IN_GEOMETRY_OVERFLOWED = 3134;
+    exports.ER_SQL_MODE_MERGED = 3135;
+    exports.ER_VTOKEN_PLUGIN_TOKEN_MISMATCH = 3136;
+    exports.ER_VTOKEN_PLUGIN_TOKEN_NOT_FOUND = 3137;
+    exports.ER_CANT_SET_VARIABLE_WHEN_OWNING_GTID = 3138;
+    exports.ER_REPLICA_CHANNEL_OPERATION_NOT_ALLOWED = 3139;
+    exports.ER_INVALID_JSON_TEXT = 3140;
+    exports.ER_INVALID_JSON_TEXT_IN_PARAM = 3141;
+    exports.ER_INVALID_JSON_BINARY_DATA = 3142;
+    exports.ER_INVALID_JSON_PATH = 3143;
+    exports.ER_INVALID_JSON_CHARSET = 3144;
+    exports.ER_INVALID_JSON_CHARSET_IN_FUNCTION = 3145;
+    exports.ER_INVALID_TYPE_FOR_JSON = 3146;
+    exports.ER_INVALID_CAST_TO_JSON = 3147;
+    exports.ER_INVALID_JSON_PATH_CHARSET = 3148;
+    exports.ER_INVALID_JSON_PATH_WILDCARD = 3149;
+    exports.ER_JSON_VALUE_TOO_BIG = 3150;
+    exports.ER_JSON_KEY_TOO_BIG = 3151;
+    exports.ER_JSON_USED_AS_KEY = 3152;
+    exports.ER_JSON_VACUOUS_PATH = 3153;
+    exports.ER_JSON_BAD_ONE_OR_ALL_ARG = 3154;
+    exports.ER_NUMERIC_JSON_VALUE_OUT_OF_RANGE = 3155;
+    exports.ER_INVALID_JSON_VALUE_FOR_CAST = 3156;
+    exports.ER_JSON_DOCUMENT_TOO_DEEP = 3157;
+    exports.ER_JSON_DOCUMENT_NULL_KEY = 3158;
+    exports.ER_SECURE_TRANSPORT_REQUIRED = 3159;
+    exports.ER_NO_SECURE_TRANSPORTS_CONFIGURED = 3160;
+    exports.ER_DISABLED_STORAGE_ENGINE = 3161;
+    exports.ER_USER_DOES_NOT_EXIST = 3162;
+    exports.ER_USER_ALREADY_EXISTS = 3163;
+    exports.ER_AUDIT_API_ABORT = 3164;
+    exports.ER_INVALID_JSON_PATH_ARRAY_CELL = 3165;
+    exports.ER_BUFPOOL_RESIZE_INPROGRESS = 3166;
+    exports.ER_FEATURE_DISABLED_SEE_DOC = 3167;
+    exports.ER_SERVER_ISNT_AVAILABLE = 3168;
+    exports.ER_SESSION_WAS_KILLED = 3169;
+    exports.ER_CAPACITY_EXCEEDED = 3170;
+    exports.ER_CAPACITY_EXCEEDED_IN_RANGE_OPTIMIZER = 3171;
+    exports.ER_TABLE_NEEDS_UPG_PART = 3172;
+    exports.ER_CANT_WAIT_FOR_EXECUTED_GTID_SET_WHILE_OWNING_A_GTID = 3173;
+    exports.ER_CANNOT_ADD_FOREIGN_BASE_COL_VIRTUAL = 3174;
+    exports.ER_CANNOT_CREATE_VIRTUAL_INDEX_CONSTRAINT = 3175;
+    exports.ER_ERROR_ON_MODIFYING_GTID_EXECUTED_TABLE = 3176;
+    exports.ER_LOCK_REFUSED_BY_ENGINE = 3177;
+    exports.ER_UNSUPPORTED_ALTER_ONLINE_ON_VIRTUAL_COLUMN = 3178;
+    exports.ER_MASTER_KEY_ROTATION_NOT_SUPPORTED_BY_SE = 3179;
+    exports.ER_MASTER_KEY_ROTATION_ERROR_BY_SE = 3180;
+    exports.ER_MASTER_KEY_ROTATION_BINLOG_FAILED = 3181;
+    exports.ER_MASTER_KEY_ROTATION_SE_UNAVAILABLE = 3182;
+    exports.ER_TABLESPACE_CANNOT_ENCRYPT = 3183;
+    exports.ER_INVALID_ENCRYPTION_OPTION = 3184;
+    exports.ER_CANNOT_FIND_KEY_IN_KEYRING = 3185;
+    exports.ER_CAPACITY_EXCEEDED_IN_PARSER = 3186;
+    exports.ER_UNSUPPORTED_ALTER_ENCRYPTION_INPLACE = 3187;
+    exports.ER_KEYRING_UDF_KEYRING_SERVICE_ERROR = 3188;
+    exports.ER_USER_COLUMN_OLD_LENGTH = 3189;
+    exports.ER_CANT_RESET_SOURCE = 3190;
+    exports.ER_GROUP_REPLICATION_MAX_GROUP_SIZE = 3191;
+    exports.ER_CANNOT_ADD_FOREIGN_BASE_COL_STORED = 3192;
+    exports.ER_TABLE_REFERENCED = 3193;
+    exports.ER_PARTITION_ENGINE_DEPRECATED_FOR_TABLE = 3194;
+    exports.ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID_ZERO = 3195;
+    exports.ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID = 3196;
+    exports.ER_XA_RETRY = 3197;
+    exports.ER_KEYRING_AWS_UDF_AWS_KMS_ERROR = 3198;
+    exports.ER_BINLOG_UNSAFE_XA = 3199;
+    exports.ER_UDF_ERROR = 3200;
+    exports.ER_KEYRING_MIGRATION_FAILURE = 3201;
+    exports.ER_KEYRING_ACCESS_DENIED_ERROR = 3202;
+    exports.ER_KEYRING_MIGRATION_STATUS = 3203;
+    exports.ER_PLUGIN_FAILED_TO_OPEN_TABLES = 3204;
+    exports.ER_PLUGIN_FAILED_TO_OPEN_TABLE = 3205;
+    exports.ER_AUDIT_LOG_NO_KEYRING_PLUGIN_INSTALLED = 3206;
+    exports.ER_AUDIT_LOG_ENCRYPTION_PASSWORD_HAS_NOT_BEEN_SET = 3207;
+    exports.ER_AUDIT_LOG_COULD_NOT_CREATE_AES_KEY = 3208;
+    exports.ER_AUDIT_LOG_ENCRYPTION_PASSWORD_CANNOT_BE_FETCHED = 3209;
+    exports.ER_AUDIT_LOG_JSON_FILTERING_NOT_ENABLED = 3210;
+    exports.ER_AUDIT_LOG_UDF_INSUFFICIENT_PRIVILEGE = 3211;
+    exports.ER_AUDIT_LOG_SUPER_PRIVILEGE_REQUIRED = 3212;
+    exports.ER_COULD_NOT_REINITIALIZE_AUDIT_LOG_FILTERS = 3213;
+    exports.ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_TYPE = 3214;
+    exports.ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_COUNT = 3215;
+    exports.ER_AUDIT_LOG_HAS_NOT_BEEN_INSTALLED = 3216;
+    exports.ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_TYPE = 3217;
+    exports.ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_VALUE = 3218;
+    exports.ER_AUDIT_LOG_JSON_FILTER_PARSING_ERROR = 3219;
+    exports.ER_AUDIT_LOG_JSON_FILTER_NAME_CANNOT_BE_EMPTY = 3220;
+    exports.ER_AUDIT_LOG_JSON_USER_NAME_CANNOT_BE_EMPTY = 3221;
+    exports.ER_AUDIT_LOG_JSON_FILTER_DOES_NOT_EXISTS = 3222;
+    exports.ER_AUDIT_LOG_USER_FIRST_CHARACTER_MUST_BE_ALPHANUMERIC = 3223;
+    exports.ER_AUDIT_LOG_USER_NAME_INVALID_CHARACTER = 3224;
+    exports.ER_AUDIT_LOG_HOST_NAME_INVALID_CHARACTER = 3225;
+    exports.WARN_DEPRECATED_MAXDB_SQL_MODE_FOR_TIMESTAMP = 3226;
+    exports.ER_XA_REPLICATION_FILTERS = 3227;
+    exports.ER_CANT_OPEN_ERROR_LOG = 3228;
+    exports.ER_GROUPING_ON_TIMESTAMP_IN_DST = 3229;
+    exports.ER_CANT_START_SERVER_NAMED_PIPE = 3230;
+    exports.ER_WRITE_SET_EXCEEDS_LIMIT = 3231;
+    exports.ER_DEPRECATED_TLS_VERSION_SESSION_57 = 3232;
+    exports.ER_WARN_DEPRECATED_TLS_VERSION_57 = 3233;
+    exports.ER_WARN_WRONG_NATIVE_TABLE_STRUCTURE = 3234;
+    exports.ER_AES_INVALID_KDF_NAME = 3235;
+    exports.ER_AES_INVALID_KDF_ITERATIONS = 3236;
+    exports.WARN_AES_KEY_SIZE = 3237;
+    exports.ER_AES_INVALID_KDF_OPTION_SIZE = 3238;
+    exports.ER_UNSUPPORT_COMPRESSED_TEMPORARY_TABLE = 3500;
+    exports.ER_ACL_OPERATION_FAILED = 3501;
+    exports.ER_UNSUPPORTED_INDEX_ALGORITHM = 3502;
+    exports.ER_NO_SUCH_DB = 3503;
+    exports.ER_TOO_BIG_ENUM = 3504;
+    exports.ER_TOO_LONG_SET_ENUM_VALUE = 3505;
+    exports.ER_INVALID_DD_OBJECT = 3506;
+    exports.ER_UPDATING_DD_TABLE = 3507;
+    exports.ER_INVALID_DD_OBJECT_ID = 3508;
+    exports.ER_INVALID_DD_OBJECT_NAME = 3509;
+    exports.ER_TABLESPACE_MISSING_WITH_NAME = 3510;
+    exports.ER_TOO_LONG_ROUTINE_COMMENT = 3511;
+    exports.ER_SP_LOAD_FAILED = 3512;
+    exports.ER_INVALID_BITWISE_OPERANDS_SIZE = 3513;
+    exports.ER_INVALID_BITWISE_AGGREGATE_OPERANDS_SIZE = 3514;
+    exports.ER_WARN_UNSUPPORTED_HINT = 3515;
+    exports.ER_UNEXPECTED_GEOMETRY_TYPE = 3516;
+    exports.ER_SRS_PARSE_ERROR = 3517;
+    exports.ER_SRS_PROJ_PARAMETER_MISSING = 3518;
+    exports.ER_WARN_SRS_NOT_FOUND = 3519;
+    exports.ER_SRS_NOT_CARTESIAN = 3520;
+    exports.ER_SRS_NOT_CARTESIAN_UNDEFINED = 3521;
+    exports.ER_PK_INDEX_CANT_BE_INVISIBLE = 3522;
+    exports.ER_UNKNOWN_AUTHID = 3523;
+    exports.ER_FAILED_ROLE_GRANT = 3524;
+    exports.ER_OPEN_ROLE_TABLES = 3525;
+    exports.ER_FAILED_DEFAULT_ROLES = 3526;
+    exports.ER_COMPONENTS_NO_SCHEME = 3527;
+    exports.ER_COMPONENTS_NO_SCHEME_SERVICE = 3528;
+    exports.ER_COMPONENTS_CANT_LOAD = 3529;
+    exports.ER_ROLE_NOT_GRANTED = 3530;
+    exports.ER_FAILED_REVOKE_ROLE = 3531;
+    exports.ER_RENAME_ROLE = 3532;
+    exports.ER_COMPONENTS_CANT_ACQUIRE_SERVICE_IMPLEMENTATION = 3533;
+    exports.ER_COMPONENTS_CANT_SATISFY_DEPENDENCY = 3534;
+    exports.ER_COMPONENTS_LOAD_CANT_REGISTER_SERVICE_IMPLEMENTATION = 3535;
+    exports.ER_COMPONENTS_LOAD_CANT_INITIALIZE = 3536;
+    exports.ER_COMPONENTS_UNLOAD_NOT_LOADED = 3537;
+    exports.ER_COMPONENTS_UNLOAD_CANT_DEINITIALIZE = 3538;
+    exports.ER_COMPONENTS_CANT_RELEASE_SERVICE = 3539;
+    exports.ER_COMPONENTS_UNLOAD_CANT_UNREGISTER_SERVICE = 3540;
+    exports.ER_COMPONENTS_CANT_UNLOAD = 3541;
+    exports.ER_WARN_UNLOAD_THE_NOT_PERSISTED = 3542;
+    exports.ER_COMPONENT_TABLE_INCORRECT = 3543;
+    exports.ER_COMPONENT_MANIPULATE_ROW_FAILED = 3544;
+    exports.ER_COMPONENTS_UNLOAD_DUPLICATE_IN_GROUP = 3545;
+    exports.ER_CANT_SET_GTID_PURGED_DUE_SETS_CONSTRAINTS = 3546;
+    exports.ER_CANNOT_LOCK_USER_MANAGEMENT_CACHES = 3547;
+    exports.ER_SRS_NOT_FOUND = 3548;
+    exports.ER_VARIABLE_NOT_PERSISTED = 3549;
+    exports.ER_IS_QUERY_INVALID_CLAUSE = 3550;
+    exports.ER_UNABLE_TO_STORE_STATISTICS = 3551;
+    exports.ER_NO_SYSTEM_SCHEMA_ACCESS = 3552;
+    exports.ER_NO_SYSTEM_TABLESPACE_ACCESS = 3553;
+    exports.ER_NO_SYSTEM_TABLE_ACCESS = 3554;
+    exports.ER_NO_SYSTEM_TABLE_ACCESS_FOR_DICTIONARY_TABLE = 3555;
+    exports.ER_NO_SYSTEM_TABLE_ACCESS_FOR_SYSTEM_TABLE = 3556;
+    exports.ER_NO_SYSTEM_TABLE_ACCESS_FOR_TABLE = 3557;
+    exports.ER_INVALID_OPTION_KEY = 3558;
+    exports.ER_INVALID_OPTION_VALUE = 3559;
+    exports.ER_INVALID_OPTION_KEY_VALUE_PAIR = 3560;
+    exports.ER_INVALID_OPTION_START_CHARACTER = 3561;
+    exports.ER_INVALID_OPTION_END_CHARACTER = 3562;
+    exports.ER_INVALID_OPTION_CHARACTERS = 3563;
+    exports.ER_DUPLICATE_OPTION_KEY = 3564;
+    exports.ER_WARN_SRS_NOT_FOUND_AXIS_ORDER = 3565;
+    exports.ER_NO_ACCESS_TO_NATIVE_FCT = 3566;
+    exports.ER_RESET_SOURCE_TO_VALUE_OUT_OF_RANGE = 3567;
+    exports.ER_UNRESOLVED_TABLE_LOCK = 3568;
+    exports.ER_DUPLICATE_TABLE_LOCK = 3569;
+    exports.ER_BINLOG_UNSAFE_SKIP_LOCKED = 3570;
+    exports.ER_BINLOG_UNSAFE_NOWAIT = 3571;
+    exports.ER_LOCK_NOWAIT = 3572;
+    exports.ER_CTE_RECURSIVE_REQUIRES_UNION = 3573;
+    exports.ER_CTE_RECURSIVE_REQUIRES_NONRECURSIVE_FIRST = 3574;
+    exports.ER_CTE_RECURSIVE_FORBIDS_AGGREGATION = 3575;
+    exports.ER_CTE_RECURSIVE_FORBIDDEN_JOIN_ORDER = 3576;
+    exports.ER_CTE_RECURSIVE_REQUIRES_SINGLE_REFERENCE = 3577;
+    exports.ER_SWITCH_TMP_ENGINE = 3578;
+    exports.ER_WINDOW_NO_SUCH_WINDOW = 3579;
+    exports.ER_WINDOW_CIRCULARITY_IN_WINDOW_GRAPH = 3580;
+    exports.ER_WINDOW_NO_CHILD_PARTITIONING = 3581;
+    exports.ER_WINDOW_NO_INHERIT_FRAME = 3582;
+    exports.ER_WINDOW_NO_REDEFINE_ORDER_BY = 3583;
+    exports.ER_WINDOW_FRAME_START_ILLEGAL = 3584;
+    exports.ER_WINDOW_FRAME_END_ILLEGAL = 3585;
+    exports.ER_WINDOW_FRAME_ILLEGAL = 3586;
+    exports.ER_WINDOW_RANGE_FRAME_ORDER_TYPE = 3587;
+    exports.ER_WINDOW_RANGE_FRAME_TEMPORAL_TYPE = 3588;
+    exports.ER_WINDOW_RANGE_FRAME_NUMERIC_TYPE = 3589;
+    exports.ER_WINDOW_RANGE_BOUND_NOT_CONSTANT = 3590;
+    exports.ER_WINDOW_DUPLICATE_NAME = 3591;
+    exports.ER_WINDOW_ILLEGAL_ORDER_BY = 3592;
+    exports.ER_WINDOW_INVALID_WINDOW_FUNC_USE = 3593;
+    exports.ER_WINDOW_INVALID_WINDOW_FUNC_ALIAS_USE = 3594;
+    exports.ER_WINDOW_NESTED_WINDOW_FUNC_USE_IN_WINDOW_SPEC = 3595;
+    exports.ER_WINDOW_ROWS_INTERVAL_USE = 3596;
+    exports.ER_WINDOW_NO_GROUP_ORDER = 3597;
+    exports.ER_WINDOW_EXPLAIN_JSON = 3598;
+    exports.ER_WINDOW_FUNCTION_IGNORES_FRAME = 3599;
+    exports.ER_WL9236_NOW = 3600;
+    exports.ER_INVALID_NO_OF_ARGS = 3601;
+    exports.ER_FIELD_IN_GROUPING_NOT_GROUP_BY = 3602;
+    exports.ER_TOO_LONG_TABLESPACE_COMMENT = 3603;
+    exports.ER_ENGINE_CANT_DROP_TABLE = 3604;
+    exports.ER_ENGINE_CANT_DROP_MISSING_TABLE = 3605;
+    exports.ER_TABLESPACE_DUP_FILENAME = 3606;
+    exports.ER_DB_DROP_RMDIR2 = 3607;
+    exports.ER_IMP_NO_FILES_MATCHED = 3608;
+    exports.ER_IMP_SCHEMA_DOES_NOT_EXIST = 3609;
+    exports.ER_IMP_TABLE_ALREADY_EXISTS = 3610;
+    exports.ER_IMP_INCOMPATIBLE_MYSQLD_VERSION = 3611;
+    exports.ER_IMP_INCOMPATIBLE_DD_VERSION = 3612;
+    exports.ER_IMP_INCOMPATIBLE_SDI_VERSION = 3613;
+    exports.ER_WARN_INVALID_HINT = 3614;
+    exports.ER_VAR_DOES_NOT_EXIST = 3615;
+    exports.ER_LONGITUDE_OUT_OF_RANGE = 3616;
+    exports.ER_LATITUDE_OUT_OF_RANGE = 3617;
+    exports.ER_NOT_IMPLEMENTED_FOR_GEOGRAPHIC_SRS = 3618;
+    exports.ER_ILLEGAL_PRIVILEGE_LEVEL = 3619;
+    exports.ER_NO_SYSTEM_VIEW_ACCESS = 3620;
+    exports.ER_COMPONENT_FILTER_FLABBERGASTED = 3621;
+    exports.ER_PART_EXPR_TOO_LONG = 3622;
+    exports.ER_UDF_DROP_DYNAMICALLY_REGISTERED = 3623;
+    exports.ER_UNABLE_TO_STORE_COLUMN_STATISTICS = 3624;
+    exports.ER_UNABLE_TO_UPDATE_COLUMN_STATISTICS = 3625;
+    exports.ER_UNABLE_TO_DROP_COLUMN_STATISTICS = 3626;
+    exports.ER_UNABLE_TO_BUILD_HISTOGRAM = 3627;
+    exports.ER_MANDATORY_ROLE = 3628;
+    exports.ER_MISSING_TABLESPACE_FILE = 3629;
+    exports.ER_PERSIST_ONLY_ACCESS_DENIED_ERROR = 3630;
+    exports.ER_CMD_NEED_SUPER = 3631;
+    exports.ER_PATH_IN_DATADIR = 3632;
+    exports.ER_CLONE_DDL_IN_PROGRESS = 3633;
+    exports.ER_CLONE_TOO_MANY_CONCURRENT_CLONES = 3634;
+    exports.ER_APPLIER_LOG_EVENT_VALIDATION_ERROR = 3635;
+    exports.ER_CTE_MAX_RECURSION_DEPTH = 3636;
+    exports.ER_NOT_HINT_UPDATABLE_VARIABLE = 3637;
+    exports.ER_CREDENTIALS_CONTRADICT_TO_HISTORY = 3638;
+    exports.ER_WARNING_PASSWORD_HISTORY_CLAUSES_VOID = 3639;
+    exports.ER_CLIENT_DOES_NOT_SUPPORT = 3640;
+    exports.ER_I_S_SKIPPED_TABLESPACE = 3641;
+    exports.ER_TABLESPACE_ENGINE_MISMATCH = 3642;
+    exports.ER_WRONG_SRID_FOR_COLUMN = 3643;
+    exports.ER_CANNOT_ALTER_SRID_DUE_TO_INDEX = 3644;
+    exports.ER_WARN_BINLOG_PARTIAL_UPDATES_DISABLED = 3645;
+    exports.ER_WARN_BINLOG_V1_ROW_EVENTS_DISABLED = 3646;
+    exports.ER_WARN_BINLOG_PARTIAL_UPDATES_SUGGESTS_PARTIAL_IMAGES = 3647;
+    exports.ER_COULD_NOT_APPLY_JSON_DIFF = 3648;
+    exports.ER_CORRUPTED_JSON_DIFF = 3649;
+    exports.ER_RESOURCE_GROUP_EXISTS = 3650;
+    exports.ER_RESOURCE_GROUP_NOT_EXISTS = 3651;
+    exports.ER_INVALID_VCPU_ID = 3652;
+    exports.ER_INVALID_VCPU_RANGE = 3653;
+    exports.ER_INVALID_THREAD_PRIORITY = 3654;
+    exports.ER_DISALLOWED_OPERATION = 3655;
+    exports.ER_RESOURCE_GROUP_BUSY = 3656;
+    exports.ER_RESOURCE_GROUP_DISABLED = 3657;
+    exports.ER_FEATURE_UNSUPPORTED = 3658;
+    exports.ER_ATTRIBUTE_IGNORED = 3659;
+    exports.ER_INVALID_THREAD_ID = 3660;
+    exports.ER_RESOURCE_GROUP_BIND_FAILED = 3661;
+    exports.ER_INVALID_USE_OF_FORCE_OPTION = 3662;
+    exports.ER_GROUP_REPLICATION_COMMAND_FAILURE = 3663;
+    exports.ER_SDI_OPERATION_FAILED = 3664;
+    exports.ER_MISSING_JSON_TABLE_VALUE = 3665;
+    exports.ER_WRONG_JSON_TABLE_VALUE = 3666;
+    exports.ER_TF_MUST_HAVE_ALIAS = 3667;
+    exports.ER_TF_FORBIDDEN_JOIN_TYPE = 3668;
+    exports.ER_JT_VALUE_OUT_OF_RANGE = 3669;
+    exports.ER_JT_MAX_NESTED_PATH = 3670;
+    exports.ER_PASSWORD_EXPIRATION_NOT_SUPPORTED_BY_AUTH_METHOD = 3671;
+    exports.ER_INVALID_GEOJSON_CRS_NOT_TOP_LEVEL = 3672;
+    exports.ER_BAD_NULL_ERROR_NOT_IGNORED = 3673;
+    exports.WARN_USELESS_SPATIAL_INDEX = 3674;
+    exports.ER_DISK_FULL_NOWAIT = 3675;
+    exports.ER_PARSE_ERROR_IN_DIGEST_FN = 3676;
+    exports.ER_UNDISCLOSED_PARSE_ERROR_IN_DIGEST_FN = 3677;
+    exports.ER_SCHEMA_DIR_EXISTS = 3678;
+    exports.ER_SCHEMA_DIR_MISSING = 3679;
+    exports.ER_SCHEMA_DIR_CREATE_FAILED = 3680;
+    exports.ER_SCHEMA_DIR_UNKNOWN = 3681;
+    exports.ER_ONLY_IMPLEMENTED_FOR_SRID_0_AND_4326 = 3682;
+    exports.ER_BINLOG_EXPIRE_LOG_DAYS_AND_SECS_USED_TOGETHER = 3683;
+    exports.ER_REGEXP_BUFFER_OVERFLOW = 3684;
+    exports.ER_REGEXP_ILLEGAL_ARGUMENT = 3685;
+    exports.ER_REGEXP_INDEX_OUTOFBOUNDS_ERROR = 3686;
+    exports.ER_REGEXP_INTERNAL_ERROR = 3687;
+    exports.ER_REGEXP_RULE_SYNTAX = 3688;
+    exports.ER_REGEXP_BAD_ESCAPE_SEQUENCE = 3689;
+    exports.ER_REGEXP_UNIMPLEMENTED = 3690;
+    exports.ER_REGEXP_MISMATCHED_PAREN = 3691;
+    exports.ER_REGEXP_BAD_INTERVAL = 3692;
+    exports.ER_REGEXP_MAX_LT_MIN = 3693;
+    exports.ER_REGEXP_INVALID_BACK_REF = 3694;
+    exports.ER_REGEXP_LOOK_BEHIND_LIMIT = 3695;
+    exports.ER_REGEXP_MISSING_CLOSE_BRACKET = 3696;
+    exports.ER_REGEXP_INVALID_RANGE = 3697;
+    exports.ER_REGEXP_STACK_OVERFLOW = 3698;
+    exports.ER_REGEXP_TIME_OUT = 3699;
+    exports.ER_REGEXP_PATTERN_TOO_BIG = 3700;
+    exports.ER_CANT_SET_ERROR_LOG_SERVICE = 3701;
+    exports.ER_EMPTY_PIPELINE_FOR_ERROR_LOG_SERVICE = 3702;
+    exports.ER_COMPONENT_FILTER_DIAGNOSTICS = 3703;
+    exports.ER_NOT_IMPLEMENTED_FOR_CARTESIAN_SRS = 3704;
+    exports.ER_NOT_IMPLEMENTED_FOR_PROJECTED_SRS = 3705;
+    exports.ER_NONPOSITIVE_RADIUS = 3706;
+    exports.ER_RESTART_SERVER_FAILED = 3707;
+    exports.ER_SRS_MISSING_MANDATORY_ATTRIBUTE = 3708;
+    exports.ER_SRS_MULTIPLE_ATTRIBUTE_DEFINITIONS = 3709;
+    exports.ER_SRS_NAME_CANT_BE_EMPTY_OR_WHITESPACE = 3710;
+    exports.ER_SRS_ORGANIZATION_CANT_BE_EMPTY_OR_WHITESPACE = 3711;
+    exports.ER_SRS_ID_ALREADY_EXISTS = 3712;
+    exports.ER_WARN_SRS_ID_ALREADY_EXISTS = 3713;
+    exports.ER_CANT_MODIFY_SRID_0 = 3714;
+    exports.ER_WARN_RESERVED_SRID_RANGE = 3715;
+    exports.ER_CANT_MODIFY_SRS_USED_BY_COLUMN = 3716;
+    exports.ER_SRS_INVALID_CHARACTER_IN_ATTRIBUTE = 3717;
+    exports.ER_SRS_ATTRIBUTE_STRING_TOO_LONG = 3718;
+    exports.ER_DEPRECATED_UTF8_ALIAS = 3719;
+    exports.ER_DEPRECATED_NATIONAL = 3720;
+    exports.ER_INVALID_DEFAULT_UTF8MB4_COLLATION = 3721;
+    exports.ER_UNABLE_TO_COLLECT_LOG_STATUS = 3722;
+    exports.ER_RESERVED_TABLESPACE_NAME = 3723;
+    exports.ER_UNABLE_TO_SET_OPTION = 3724;
+    exports.ER_REPLICA_POSSIBLY_DIVERGED_AFTER_DDL = 3725;
+    exports.ER_SRS_NOT_GEOGRAPHIC = 3726;
+    exports.ER_POLYGON_TOO_LARGE = 3727;
+    exports.ER_SPATIAL_UNIQUE_INDEX = 3728;
+    exports.ER_INDEX_TYPE_NOT_SUPPORTED_FOR_SPATIAL_INDEX = 3729;
+    exports.ER_FK_CANNOT_DROP_PARENT = 3730;
+    exports.ER_GEOMETRY_PARAM_LONGITUDE_OUT_OF_RANGE = 3731;
+    exports.ER_GEOMETRY_PARAM_LATITUDE_OUT_OF_RANGE = 3732;
+    exports.ER_FK_CANNOT_USE_VIRTUAL_COLUMN = 3733;
+    exports.ER_FK_NO_COLUMN_PARENT = 3734;
+    exports.ER_CANT_SET_ERROR_SUPPRESSION_LIST = 3735;
+    exports.ER_SRS_GEOGCS_INVALID_AXES = 3736;
+    exports.ER_SRS_INVALID_SEMI_MAJOR_AXIS = 3737;
+    exports.ER_SRS_INVALID_INVERSE_FLATTENING = 3738;
+    exports.ER_SRS_INVALID_ANGULAR_UNIT = 3739;
+    exports.ER_SRS_INVALID_PRIME_MERIDIAN = 3740;
+    exports.ER_TRANSFORM_SOURCE_SRS_NOT_SUPPORTED = 3741;
+    exports.ER_TRANSFORM_TARGET_SRS_NOT_SUPPORTED = 3742;
+    exports.ER_TRANSFORM_SOURCE_SRS_MISSING_TOWGS84 = 3743;
+    exports.ER_TRANSFORM_TARGET_SRS_MISSING_TOWGS84 = 3744;
+    exports.ER_TEMP_TABLE_PREVENTS_SWITCH_SESSION_BINLOG_FORMAT = 3745;
+    exports.ER_TEMP_TABLE_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT = 3746;
+    exports.ER_RUNNING_APPLIER_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT = 3747;
+    exports.ER_CLIENT_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRX_IN_SBR = 3748;
+    exports.ER_XA_CANT_CREATE_MDL_BACKUP = 3749;
+    exports.ER_TABLE_WITHOUT_PK = 3750;
+    exports.ER_WARN_DATA_TRUNCATED_FUNCTIONAL_INDEX = 3751;
+    exports.ER_WARN_DATA_OUT_OF_RANGE_FUNCTIONAL_INDEX = 3752;
+    exports.ER_FUNCTIONAL_INDEX_ON_JSON_OR_GEOMETRY_FUNCTION = 3753;
+    exports.ER_FUNCTIONAL_INDEX_REF_AUTO_INCREMENT = 3754;
+    exports.ER_CANNOT_DROP_COLUMN_FUNCTIONAL_INDEX = 3755;
+    exports.ER_FUNCTIONAL_INDEX_PRIMARY_KEY = 3756;
+    exports.ER_FUNCTIONAL_INDEX_ON_LOB = 3757;
+    exports.ER_FUNCTIONAL_INDEX_FUNCTION_IS_NOT_ALLOWED = 3758;
+    exports.ER_FULLTEXT_FUNCTIONAL_INDEX = 3759;
+    exports.ER_SPATIAL_FUNCTIONAL_INDEX = 3760;
+    exports.ER_WRONG_KEY_COLUMN_FUNCTIONAL_INDEX = 3761;
+    exports.ER_FUNCTIONAL_INDEX_ON_FIELD = 3762;
+    exports.ER_GENERATED_COLUMN_NAMED_FUNCTION_IS_NOT_ALLOWED = 3763;
+    exports.ER_GENERATED_COLUMN_ROW_VALUE = 3764;
+    exports.ER_GENERATED_COLUMN_VARIABLES = 3765;
+    exports.ER_DEPENDENT_BY_DEFAULT_GENERATED_VALUE = 3766;
+    exports.ER_DEFAULT_VAL_GENERATED_NON_PRIOR = 3767;
+    exports.ER_DEFAULT_VAL_GENERATED_REF_AUTO_INC = 3768;
+    exports.ER_DEFAULT_VAL_GENERATED_FUNCTION_IS_NOT_ALLOWED = 3769;
+    exports.ER_DEFAULT_VAL_GENERATED_NAMED_FUNCTION_IS_NOT_ALLOWED = 3770;
+    exports.ER_DEFAULT_VAL_GENERATED_ROW_VALUE = 3771;
+    exports.ER_DEFAULT_VAL_GENERATED_VARIABLES = 3772;
+    exports.ER_DEFAULT_AS_VAL_GENERATED = 3773;
+    exports.ER_UNSUPPORTED_ACTION_ON_DEFAULT_VAL_GENERATED = 3774;
+    exports.ER_GTID_UNSAFE_ALTER_ADD_COL_WITH_DEFAULT_EXPRESSION = 3775;
+    exports.ER_FK_CANNOT_CHANGE_ENGINE = 3776;
+    exports.ER_WARN_DEPRECATED_USER_SET_EXPR = 3777;
+    exports.ER_WARN_DEPRECATED_UTF8MB3_COLLATION = 3778;
+    exports.ER_WARN_DEPRECATED_NESTED_COMMENT_SYNTAX = 3779;
+    exports.ER_FK_INCOMPATIBLE_COLUMNS = 3780;
+    exports.ER_GR_HOLD_WAIT_TIMEOUT = 3781;
+    exports.ER_GR_HOLD_KILLED = 3782;
+    exports.ER_GR_HOLD_MEMBER_STATUS_ERROR = 3783;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_FETCH_KEY = 3784;
+    exports.ER_RPL_ENCRYPTION_KEY_NOT_FOUND = 3785;
+    exports.ER_RPL_ENCRYPTION_KEYRING_INVALID_KEY = 3786;
+    exports.ER_RPL_ENCRYPTION_HEADER_ERROR = 3787;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_ROTATE_LOGS = 3788;
+    exports.ER_RPL_ENCRYPTION_KEY_EXISTS_UNEXPECTED = 3789;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_GENERATE_KEY = 3790;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_STORE_KEY = 3791;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_REMOVE_KEY = 3792;
+    exports.ER_RPL_ENCRYPTION_UNABLE_TO_CHANGE_OPTION = 3793;
+    exports.ER_RPL_ENCRYPTION_MASTER_KEY_RECOVERY_FAILED = 3794;
+    exports.ER_SLOW_LOG_MODE_IGNORED_WHEN_NOT_LOGGING_TO_FILE = 3795;
+    exports.ER_GRP_TRX_CONSISTENCY_NOT_ALLOWED = 3796;
+    exports.ER_GRP_TRX_CONSISTENCY_BEFORE = 3797;
+    exports.ER_GRP_TRX_CONSISTENCY_AFTER_ON_TRX_BEGIN = 3798;
+    exports.ER_GRP_TRX_CONSISTENCY_BEGIN_NOT_ALLOWED = 3799;
+    exports.ER_FUNCTIONAL_INDEX_ROW_VALUE_IS_NOT_ALLOWED = 3800;
+    exports.ER_RPL_ENCRYPTION_FAILED_TO_ENCRYPT = 3801;
+    exports.ER_PAGE_TRACKING_NOT_STARTED = 3802;
+    exports.ER_PAGE_TRACKING_RANGE_NOT_TRACKED = 3803;
+    exports.ER_PAGE_TRACKING_CANNOT_PURGE = 3804;
+    exports.ER_RPL_ENCRYPTION_CANNOT_ROTATE_BINLOG_MASTER_KEY = 3805;
+    exports.ER_BINLOG_MASTER_KEY_RECOVERY_OUT_OF_COMBINATION = 3806;
+    exports.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_OPERATE_KEY = 3807;
+    exports.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_ROTATE_LOGS = 3808;
+    exports.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_REENCRYPT_LOG = 3809;
+    exports.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_UNUSED_KEYS = 3810;
+    exports.ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_AUX_KEY = 3811;
+    exports.ER_NON_BOOLEAN_EXPR_FOR_CHECK_CONSTRAINT = 3812;
+    exports.ER_COLUMN_CHECK_CONSTRAINT_REFERENCES_OTHER_COLUMN = 3813;
+    exports.ER_CHECK_CONSTRAINT_NAMED_FUNCTION_IS_NOT_ALLOWED = 3814;
+    exports.ER_CHECK_CONSTRAINT_FUNCTION_IS_NOT_ALLOWED = 3815;
+    exports.ER_CHECK_CONSTRAINT_VARIABLES = 3816;
+    exports.ER_CHECK_CONSTRAINT_ROW_VALUE = 3817;
+    exports.ER_CHECK_CONSTRAINT_REFERS_AUTO_INCREMENT_COLUMN = 3818;
+    exports.ER_CHECK_CONSTRAINT_VIOLATED = 3819;
+    exports.ER_CHECK_CONSTRAINT_REFERS_UNKNOWN_COLUMN = 3820;
+    exports.ER_CHECK_CONSTRAINT_NOT_FOUND = 3821;
+    exports.ER_CHECK_CONSTRAINT_DUP_NAME = 3822;
+    exports.ER_CHECK_CONSTRAINT_CLAUSE_USING_FK_REFER_ACTION_COLUMN = 3823;
+    exports.WARN_UNENCRYPTED_TABLE_IN_ENCRYPTED_DB = 3824;
+    exports.ER_INVALID_ENCRYPTION_REQUEST = 3825;
+    exports.ER_CANNOT_SET_TABLE_ENCRYPTION = 3826;
+    exports.ER_CANNOT_SET_DATABASE_ENCRYPTION = 3827;
+    exports.ER_CANNOT_SET_TABLESPACE_ENCRYPTION = 3828;
+    exports.ER_TABLESPACE_CANNOT_BE_ENCRYPTED = 3829;
+    exports.ER_TABLESPACE_CANNOT_BE_DECRYPTED = 3830;
+    exports.ER_TABLESPACE_TYPE_UNKNOWN = 3831;
+    exports.ER_TARGET_TABLESPACE_UNENCRYPTED = 3832;
+    exports.ER_CANNOT_USE_ENCRYPTION_CLAUSE = 3833;
+    exports.ER_INVALID_MULTIPLE_CLAUSES = 3834;
+    exports.ER_UNSUPPORTED_USE_OF_GRANT_AS = 3835;
+    exports.ER_UKNOWN_AUTH_ID_OR_ACCESS_DENIED_FOR_GRANT_AS = 3836;
+    exports.ER_DEPENDENT_BY_FUNCTIONAL_INDEX = 3837;
+    exports.ER_PLUGIN_NOT_EARLY = 3838;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_START_SUBDIR_PATH = 3839;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_START_TIMEOUT = 3840;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_DIRS_INVALID = 3841;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_LABEL_NOT_FOUND = 3842;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_DIR_EMPTY = 3843;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_NO_SUCH_DIR = 3844;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_DIR_CLASH = 3845;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_DIR_PERMISSIONS = 3846;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_FILE_CREATE = 3847;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_ACTIVE = 3848;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_INACTIVE = 3849;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_FAILED = 3850;
+    exports.ER_INNODB_REDO_LOG_ARCHIVE_SESSION = 3851;
+    exports.ER_STD_REGEX_ERROR = 3852;
+    exports.ER_INVALID_JSON_TYPE = 3853;
+    exports.ER_CANNOT_CONVERT_STRING = 3854;
+    exports.ER_DEPENDENT_BY_PARTITION_FUNC = 3855;
+    exports.ER_WARN_DEPRECATED_FLOAT_AUTO_INCREMENT = 3856;
+    exports.ER_RPL_CANT_STOP_REPLICA_WHILE_LOCKED_BACKUP = 3857;
+    exports.ER_WARN_DEPRECATED_FLOAT_DIGITS = 3858;
+    exports.ER_WARN_DEPRECATED_FLOAT_UNSIGNED = 3859;
+    exports.ER_WARN_DEPRECATED_INTEGER_DISPLAY_WIDTH = 3860;
+    exports.ER_WARN_DEPRECATED_ZEROFILL = 3861;
+    exports.ER_CLONE_DONOR = 3862;
+    exports.ER_CLONE_PROTOCOL = 3863;
+    exports.ER_CLONE_DONOR_VERSION = 3864;
+    exports.ER_CLONE_OS = 3865;
+    exports.ER_CLONE_PLATFORM = 3866;
+    exports.ER_CLONE_CHARSET = 3867;
+    exports.ER_CLONE_CONFIG = 3868;
+    exports.ER_CLONE_SYS_CONFIG = 3869;
+    exports.ER_CLONE_PLUGIN_MATCH = 3870;
+    exports.ER_CLONE_LOOPBACK = 3871;
+    exports.ER_CLONE_ENCRYPTION = 3872;
+    exports.ER_CLONE_DISK_SPACE = 3873;
+    exports.ER_CLONE_IN_PROGRESS = 3874;
+    exports.ER_CLONE_DISALLOWED = 3875;
+    exports.ER_CANNOT_GRANT_ROLES_TO_ANONYMOUS_USER = 3876;
+    exports.ER_SECONDARY_ENGINE_PLUGIN = 3877;
+    exports.ER_SECOND_PASSWORD_CANNOT_BE_EMPTY = 3878;
+    exports.ER_DB_ACCESS_DENIED = 3879;
+    exports.ER_DA_AUTH_ID_WITH_SYSTEM_USER_PRIV_IN_MANDATORY_ROLES = 3880;
+    exports.ER_DA_RPL_GTID_TABLE_CANNOT_OPEN = 3881;
+    exports.ER_GEOMETRY_IN_UNKNOWN_LENGTH_UNIT = 3882;
+    exports.ER_DA_PLUGIN_INSTALL_ERROR = 3883;
+    exports.ER_NO_SESSION_TEMP = 3884;
+    exports.ER_DA_UNKNOWN_ERROR_NUMBER = 3885;
+    exports.ER_COLUMN_CHANGE_SIZE = 3886;
+    exports.ER_REGEXP_INVALID_CAPTURE_GROUP_NAME = 3887;
+    exports.ER_DA_SSL_LIBRARY_ERROR = 3888;
+    exports.ER_SECONDARY_ENGINE = 3889;
+    exports.ER_SECONDARY_ENGINE_DDL = 3890;
+    exports.ER_INCORRECT_CURRENT_PASSWORD = 3891;
+    exports.ER_MISSING_CURRENT_PASSWORD = 3892;
+    exports.ER_CURRENT_PASSWORD_NOT_REQUIRED = 3893;
+    exports.ER_PASSWORD_CANNOT_BE_RETAINED_ON_PLUGIN_CHANGE = 3894;
+    exports.ER_CURRENT_PASSWORD_CANNOT_BE_RETAINED = 3895;
+    exports.ER_PARTIAL_REVOKES_EXIST = 3896;
+    exports.ER_CANNOT_GRANT_SYSTEM_PRIV_TO_MANDATORY_ROLE = 3897;
+    exports.ER_XA_REPLICATION_FILTERS = 3898;
+    exports.ER_UNSUPPORTED_SQL_MODE = 3899;
+    exports.ER_REGEXP_INVALID_FLAG = 3900;
+    exports.ER_PARTIAL_REVOKE_AND_DB_GRANT_BOTH_EXISTS = 3901;
+    exports.ER_UNIT_NOT_FOUND = 3902;
+    exports.ER_INVALID_JSON_VALUE_FOR_FUNC_INDEX = 3903;
+    exports.ER_JSON_VALUE_OUT_OF_RANGE_FOR_FUNC_INDEX = 3904;
+    exports.ER_EXCEEDED_MV_KEYS_NUM = 3905;
+    exports.ER_EXCEEDED_MV_KEYS_SPACE = 3906;
+    exports.ER_FUNCTIONAL_INDEX_DATA_IS_TOO_LONG = 3907;
+    exports.ER_WRONG_MVI_VALUE = 3908;
+    exports.ER_WARN_FUNC_INDEX_NOT_APPLICABLE = 3909;
+    exports.ER_GRP_RPL_UDF_ERROR = 3910;
+    exports.ER_UPDATE_GTID_PURGED_WITH_GR = 3911;
+    exports.ER_GROUPING_ON_TIMESTAMP_IN_DST = 3912;
+    exports.ER_TABLE_NAME_CAUSES_TOO_LONG_PATH = 3913;
+    exports.ER_AUDIT_LOG_INSUFFICIENT_PRIVILEGE = 3914;
+    exports.ER_AUDIT_LOG_PASSWORD_HAS_BEEN_COPIED = 3915;
+    exports.ER_DA_GRP_RPL_STARTED_AUTO_REJOIN = 3916;
+    exports.ER_SYSVAR_CHANGE_DURING_QUERY = 3917;
+    exports.ER_GLOBSTAT_CHANGE_DURING_QUERY = 3918;
+    exports.ER_GRP_RPL_MESSAGE_SERVICE_INIT_FAILURE = 3919;
+    exports.ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_CLIENT = 3920;
+    exports.ER_CHANGE_SOURCE_WRONG_COMPRESSION_LEVEL_CLIENT = 3921;
+    exports.ER_WRONG_COMPRESSION_ALGORITHM_CLIENT = 3922;
+    exports.ER_WRONG_COMPRESSION_LEVEL_CLIENT = 3923;
+    exports.ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_LIST_CLIENT = 3924;
+    exports.ER_CLIENT_PRIVILEGE_CHECKS_USER_CANNOT_BE_ANONYMOUS = 3925;
+    exports.ER_CLIENT_PRIVILEGE_CHECKS_USER_DOES_NOT_EXIST = 3926;
+    exports.ER_CLIENT_PRIVILEGE_CHECKS_USER_CORRUPT = 3927;
+    exports.ER_CLIENT_PRIVILEGE_CHECKS_USER_NEEDS_RPL_APPLIER_PRIV = 3928;
+    exports.ER_WARN_DA_PRIVILEGE_NOT_REGISTERED = 3929;
+    exports.ER_CLIENT_KEYRING_UDF_KEY_INVALID = 3930;
+    exports.ER_CLIENT_KEYRING_UDF_KEY_TYPE_INVALID = 3931;
+    exports.ER_CLIENT_KEYRING_UDF_KEY_TOO_LONG = 3932;
+    exports.ER_CLIENT_KEYRING_UDF_KEY_TYPE_TOO_LONG = 3933;
+    exports.ER_JSON_SCHEMA_VALIDATION_ERROR_WITH_DETAILED_REPORT = 3934;
+    exports.ER_DA_UDF_INVALID_CHARSET_SPECIFIED = 3935;
+    exports.ER_DA_UDF_INVALID_CHARSET = 3936;
+    exports.ER_DA_UDF_INVALID_COLLATION = 3937;
+    exports.ER_DA_UDF_INVALID_EXTENSION_ARGUMENT_TYPE = 3938;
+    exports.ER_MULTIPLE_CONSTRAINTS_WITH_SAME_NAME = 3939;
+    exports.ER_CONSTRAINT_NOT_FOUND = 3940;
+    exports.ER_ALTER_CONSTRAINT_ENFORCEMENT_NOT_SUPPORTED = 3941;
+    exports.ER_TABLE_VALUE_CONSTRUCTOR_MUST_HAVE_COLUMNS = 3942;
+    exports.ER_TABLE_VALUE_CONSTRUCTOR_CANNOT_HAVE_DEFAULT = 3943;
+    exports.ER_CLIENT_QUERY_FAILURE_INVALID_NON_ROW_FORMAT = 3944;
+    exports.ER_REQUIRE_ROW_FORMAT_INVALID_VALUE = 3945;
+    exports.ER_FAILED_TO_DETERMINE_IF_ROLE_IS_MANDATORY = 3946;
+    exports.ER_FAILED_TO_FETCH_MANDATORY_ROLE_LIST = 3947;
+    exports.ER_CLIENT_LOCAL_FILES_DISABLED = 3948;
+    exports.ER_IMP_INCOMPATIBLE_CFG_VERSION = 3949;
+    exports.ER_DA_OOM = 3950;
+    exports.ER_DA_UDF_INVALID_ARGUMENT_TO_SET_CHARSET = 3951;
+    exports.ER_DA_UDF_INVALID_RETURN_TYPE_TO_SET_CHARSET = 3952;
+    exports.ER_MULTIPLE_INTO_CLAUSES = 3953;
+    exports.ER_MISPLACED_INTO = 3954;
+    exports.ER_USER_ACCESS_DENIED_FOR_USER_ACCOUNT_BLOCKED_BY_PASSWORD_LOCK = 3955;
+    exports.ER_WARN_DEPRECATED_YEAR_UNSIGNED = 3956;
+    exports.ER_CLONE_NETWORK_PACKET = 3957;
+    exports.ER_SDI_OPERATION_FAILED_MISSING_RECORD = 3958;
+    exports.ER_DEPENDENT_BY_CHECK_CONSTRAINT = 3959;
+    exports.ER_GRP_OPERATION_NOT_ALLOWED_GR_MUST_STOP = 3960;
+    exports.ER_WARN_DEPRECATED_JSON_TABLE_ON_ERROR_ON_EMPTY = 3961;
+    exports.ER_WARN_DEPRECATED_INNER_INTO = 3962;
+    exports.ER_WARN_DEPRECATED_VALUES_FUNCTION_ALWAYS_NULL = 3963;
+    exports.ER_WARN_DEPRECATED_SQL_CALC_FOUND_ROWS = 3964;
+    exports.ER_WARN_DEPRECATED_FOUND_ROWS = 3965;
+    exports.ER_MISSING_JSON_VALUE = 3966;
+    exports.ER_MULTIPLE_JSON_VALUES = 3967;
+    exports.ER_HOSTNAME_TOO_LONG = 3968;
+    exports.ER_WARN_CLIENT_DEPRECATED_PARTITION_PREFIX_KEY = 3969;
+    exports.ER_GROUP_REPLICATION_USER_EMPTY_MSG = 3970;
+    exports.ER_GROUP_REPLICATION_USER_MANDATORY_MSG = 3971;
+    exports.ER_GROUP_REPLICATION_PASSWORD_LENGTH = 3972;
+    exports.ER_SUBQUERY_TRANSFORM_REJECTED = 3973;
+    exports.ER_DA_GRP_RPL_RECOVERY_ENDPOINT_FORMAT = 3974;
+    exports.ER_DA_GRP_RPL_RECOVERY_ENDPOINT_INVALID = 3975;
+    exports.ER_WRONG_VALUE_FOR_VAR_PLUS_ACTIONABLE_PART = 3976;
+    exports.ER_STATEMENT_NOT_ALLOWED_AFTER_START_TRANSACTION = 3977;
+    exports.ER_FOREIGN_KEY_WITH_ATOMIC_CREATE_SELECT = 3978;
+    exports.ER_NOT_ALLOWED_WITH_START_TRANSACTION = 3979;
+    exports.ER_INVALID_JSON_ATTRIBUTE = 3980;
+    exports.ER_ENGINE_ATTRIBUTE_NOT_SUPPORTED = 3981;
+    exports.ER_INVALID_USER_ATTRIBUTE_JSON = 3982;
+    exports.ER_INNODB_REDO_DISABLED = 3983;
+    exports.ER_INNODB_REDO_ARCHIVING_ENABLED = 3984;
+    exports.ER_MDL_OUT_OF_RESOURCES = 3985;
+    exports.ER_IMPLICIT_COMPARISON_FOR_JSON = 3986;
+    exports.ER_FUNCTION_DOES_NOT_SUPPORT_CHARACTER_SET = 3987;
+    exports.ER_IMPOSSIBLE_STRING_CONVERSION = 3988;
+    exports.ER_SCHEMA_READ_ONLY = 3989;
+    exports.ER_RPL_ASYNC_RECONNECT_GTID_MODE_OFF = 3990;
+    exports.ER_RPL_ASYNC_RECONNECT_AUTO_POSITION_OFF = 3991;
+    exports.ER_DISABLE_GTID_MODE_REQUIRES_ASYNC_RECONNECT_OFF = 3992;
+    exports.ER_DISABLE_AUTO_POSITION_REQUIRES_ASYNC_RECONNECT_OFF = 3993;
+    exports.ER_INVALID_PARAMETER_USE = 3994;
+    exports.ER_CHARACTER_SET_MISMATCH = 3995;
+    exports.ER_WARN_VAR_VALUE_CHANGE_NOT_SUPPORTED = 3996;
+    exports.ER_INVALID_TIME_ZONE_INTERVAL = 3997;
+    exports.ER_INVALID_CAST = 3998;
+    exports.ER_HYPERGRAPH_NOT_SUPPORTED_YET = 3999;
+    exports.ER_WARN_HYPERGRAPH_EXPERIMENTAL = 4e3;
+    exports.ER_DA_NO_ERROR_LOG_PARSER_CONFIGURED = 4001;
+    exports.ER_DA_ERROR_LOG_TABLE_DISABLED = 4002;
+    exports.ER_DA_ERROR_LOG_MULTIPLE_FILTERS = 4003;
+    exports.ER_DA_CANT_OPEN_ERROR_LOG = 4004;
+    exports.ER_USER_REFERENCED_AS_DEFINER = 4005;
+    exports.ER_CANNOT_USER_REFERENCED_AS_DEFINER = 4006;
+    exports.ER_REGEX_NUMBER_TOO_BIG = 4007;
+    exports.ER_SPVAR_NONINTEGER_TYPE = 4008;
+    exports.WARN_UNSUPPORTED_ACL_TABLES_READ = 4009;
+    exports.ER_BINLOG_UNSAFE_ACL_TABLE_READ_IN_DML_DDL = 4010;
+    exports.ER_STOP_REPLICA_MONITOR_IO_THREAD_TIMEOUT = 4011;
+    exports.ER_STARTING_REPLICA_MONITOR_IO_THREAD = 4012;
+    exports.ER_CANT_USE_ANONYMOUS_TO_GTID_WITH_GTID_MODE_NOT_ON = 4013;
+    exports.ER_CANT_COMBINE_ANONYMOUS_TO_GTID_AND_AUTOPOSITION = 4014;
+    exports.ER_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_REQUIRES_GTID_MODE_ON = 4015;
+    exports.ER_SQL_REPLICA_SKIP_COUNTER_USED_WITH_GTID_MODE_ON = 4016;
+    exports.ER_USING_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_AS_LOCAL_OR_UUID = 4017;
+    exports.ER_CANT_SET_ANONYMOUS_TO_GTID_AND_WAIT_UNTIL_SQL_THD_AFTER_GTIDS = 4018;
+    exports.ER_CANT_SET_SQL_AFTER_OR_BEFORE_GTIDS_WITH_ANONYMOUS_TO_GTID = 4019;
+    exports.ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_GROUP_NAME = 4020;
+    exports.ER_CANT_USE_SAME_UUID_AS_GROUP_NAME = 4021;
+    exports.ER_GRP_RPL_RECOVERY_CHANNEL_STILL_RUNNING = 4022;
+    exports.ER_INNODB_INVALID_AUTOEXTEND_SIZE_VALUE = 4023;
+    exports.ER_INNODB_INCOMPATIBLE_WITH_TABLESPACE = 4024;
+    exports.ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE = 4025;
+    exports.ER_CANNOT_USE_AUTOEXTEND_SIZE_CLAUSE = 4026;
+    exports.ER_ROLE_GRANTED_TO_ITSELF = 4027;
+    exports.ER_TABLE_MUST_HAVE_A_VISIBLE_COLUMN = 4028;
+    exports.ER_INNODB_COMPRESSION_FAILURE = 4029;
+    exports.ER_WARN_ASYNC_CONN_FAILOVER_NETWORK_NAMESPACE = 4030;
+    exports.ER_CLIENT_INTERACTION_TIMEOUT = 4031;
+    exports.ER_INVALID_CAST_TO_GEOMETRY = 4032;
+    exports.ER_INVALID_CAST_POLYGON_RING_DIRECTION = 4033;
+    exports.ER_GIS_DIFFERENT_SRIDS_AGGREGATION = 4034;
+    exports.ER_RELOAD_KEYRING_FAILURE = 4035;
+    exports.ER_SDI_GET_KEYS_INVALID_TABLESPACE = 4036;
+    exports.ER_CHANGE_RPL_SRC_WRONG_COMPRESSION_ALGORITHM_SIZE = 4037;
+    exports.ER_WARN_DEPRECATED_TLS_VERSION_FOR_CHANNEL_CLI = 4038;
+    exports.ER_CANT_USE_SAME_UUID_AS_VIEW_CHANGE_UUID = 4039;
+    exports.ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_VIEW_CHANGE_UUID = 4040;
+    exports.ER_GRP_RPL_VIEW_CHANGE_UUID_FAIL_GET_VARIABLE = 4041;
+    exports.ER_WARN_ADUIT_LOG_MAX_SIZE_AND_PRUNE_SECONDS = 4042;
+    exports.ER_WARN_ADUIT_LOG_MAX_SIZE_CLOSE_TO_ROTATE_ON_SIZE = 4043;
+    exports.ER_KERBEROS_CREATE_USER = 4044;
+    exports.ER_INSTALL_PLUGIN_CONFLICT_CLIENT = 4045;
+    exports.ER_DA_ERROR_LOG_COMPONENT_FLUSH_FAILED = 4046;
+    exports.ER_WARN_SQL_AFTER_MTS_GAPS_GAP_NOT_CALCULATED = 4047;
+    exports.ER_INVALID_ASSIGNMENT_TARGET = 4048;
+    exports.ER_OPERATION_NOT_ALLOWED_ON_GR_SECONDARY = 4049;
+    exports.ER_GRP_RPL_FAILOVER_CHANNEL_STATUS_PROPAGATION = 4050;
+    exports.ER_WARN_AUDIT_LOG_FORMAT_UNIX_TIMESTAMP_ONLY_WHEN_JSON = 4051;
+    exports.ER_INVALID_MFA_PLUGIN_SPECIFIED = 4052;
+    exports.ER_IDENTIFIED_BY_UNSUPPORTED = 4053;
+    exports.ER_INVALID_PLUGIN_FOR_REGISTRATION = 4054;
+    exports.ER_PLUGIN_REQUIRES_REGISTRATION = 4055;
+    exports.ER_MFA_METHOD_EXISTS = 4056;
+    exports.ER_MFA_METHOD_NOT_EXISTS = 4057;
+    exports.ER_AUTHENTICATION_POLICY_MISMATCH = 4058;
+    exports.ER_PLUGIN_REGISTRATION_DONE = 4059;
+    exports.ER_INVALID_USER_FOR_REGISTRATION = 4060;
+    exports.ER_USER_REGISTRATION_FAILED = 4061;
+    exports.ER_MFA_METHODS_INVALID_ORDER = 4062;
+    exports.ER_MFA_METHODS_IDENTICAL = 4063;
+    exports.ER_INVALID_MFA_OPERATIONS_FOR_PASSWORDLESS_USER = 4064;
+    exports.ER_CHANGE_REPLICATION_SOURCE_NO_OPTIONS_FOR_GTID_ONLY = 4065;
+    exports.ER_CHANGE_REP_SOURCE_CANT_DISABLE_REQ_ROW_FORMAT_WITH_GTID_ONLY = 4066;
+    exports.ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POSITION_WITH_GTID_ONLY = 4067;
+    exports.ER_CHANGE_REP_SOURCE_CANT_DISABLE_GTID_ONLY_WITHOUT_POSITIONS = 4068;
+    exports.ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POS_WITHOUT_POSITIONS = 4069;
+    exports.ER_CHANGE_REP_SOURCE_GR_CHANNEL_WITH_GTID_MODE_NOT_ON = 4070;
+    exports.ER_CANT_USE_GTID_ONLY_WITH_GTID_MODE_NOT_ON = 4071;
+    exports.ER_WARN_C_DISABLE_GTID_ONLY_WITH_SOURCE_AUTO_POS_INVALID_POS = 4072;
+    exports.ER_DA_SSL_FIPS_MODE_ERROR = 4073;
+    exports.ER_VALUE_OUT_OF_RANGE = 4074;
+    exports.ER_FULLTEXT_WITH_ROLLUP = 4075;
+    exports.ER_REGEXP_MISSING_RESOURCE = 4076;
+    exports.ER_WARN_REGEXP_USING_DEFAULT = 4077;
+    exports.ER_REGEXP_MISSING_FILE = 4078;
+    exports.ER_WARN_DEPRECATED_COLLATION = 4079;
+    exports.ER_CONCURRENT_PROCEDURE_USAGE = 4080;
+    exports.ER_DA_GLOBAL_CONN_LIMIT = 4081;
+    exports.ER_DA_CONN_LIMIT = 4082;
+    exports.ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE_INSTANT = 4083;
+    exports.ER_WARN_SF_UDF_NAME_COLLISION = 4084;
+    exports.ER_CANNOT_PURGE_BINLOG_WITH_BACKUP_LOCK = 4085;
+    exports.ER_TOO_MANY_WINDOWS = 4086;
+    exports.ER_MYSQLBACKUP_CLIENT_MSG = 4087;
+    exports.ER_COMMENT_CONTAINS_INVALID_STRING = 4088;
+    exports.ER_DEFINITION_CONTAINS_INVALID_STRING = 4089;
+    exports.ER_CANT_EXECUTE_COMMAND_WITH_ASSIGNED_GTID_NEXT = 4090;
+    exports.ER_XA_TEMP_TABLE = 4091;
+    exports.ER_INNODB_MAX_ROW_VERSION = 4092;
+    exports.ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_SIZE = 4093;
+    exports.ER_OPERATION_NOT_ALLOWED_WHILE_PRIMARY_CHANGE_IS_RUNNING = 4094;
+    exports.ER_WARN_DEPRECATED_DATETIME_DELIMITER = 4095;
+    exports.ER_WARN_DEPRECATED_SUPERFLUOUS_DELIMITER = 4096;
+    exports.ER_CANNOT_PERSIST_SENSITIVE_VARIABLES = 4097;
+    exports.ER_WARN_CANNOT_SECURELY_PERSIST_SENSITIVE_VARIABLES = 4098;
+    exports.ER_WARN_TRG_ALREADY_EXISTS = 4099;
+    exports.ER_IF_NOT_EXISTS_UNSUPPORTED_TRG_EXISTS_ON_DIFFERENT_TABLE = 4100;
+    exports.ER_IF_NOT_EXISTS_UNSUPPORTED_UDF_NATIVE_FCT_NAME_COLLISION = 4101;
+    exports.ER_SET_PASSWORD_AUTH_PLUGIN_ERROR = 4102;
+    exports.ER_REDUCED_DBLWR_FILE_CORRUPTED = 4103;
+    exports.ER_REDUCED_DBLWR_PAGE_FOUND = 4104;
+    exports.ER_SRS_INVALID_LATITUDE_OF_ORIGIN = 4105;
+    exports.ER_SRS_INVALID_LONGITUDE_OF_ORIGIN = 4106;
+    exports.ER_SRS_UNUSED_PROJ_PARAMETER_PRESENT = 4107;
+    exports.ER_GIPK_COLUMN_EXISTS = 4108;
+    exports.ER_GIPK_FAILED_AUTOINC_COLUMN_EXISTS = 4109;
+    exports.ER_GIPK_COLUMN_ALTER_NOT_ALLOWED = 4110;
+    exports.ER_DROP_PK_COLUMN_TO_DROP_GIPK = 4111;
+    exports.ER_CREATE_SELECT_WITH_GIPK_DISALLOWED_IN_SBR = 4112;
+    exports.ER_DA_EXPIRE_LOGS_DAYS_IGNORED = 4113;
+    exports.ER_CTE_RECURSIVE_NOT_UNION = 4114;
+    exports.ER_COMMAND_BACKEND_FAILED_TO_FETCH_SECURITY_CTX = 4115;
+    exports.ER_COMMAND_SERVICE_BACKEND_FAILED = 4116;
+    exports.ER_CLIENT_FILE_PRIVILEGE_FOR_REPLICATION_CHECKS = 4117;
+    exports.ER_GROUP_REPLICATION_FORCE_MEMBERS_COMMAND_FAILURE = 4118;
+    exports.ER_WARN_DEPRECATED_IDENT = 4119;
+    exports.ER_INTERSECT_ALL_MAX_DUPLICATES_EXCEEDED = 4120;
+    exports.ER_TP_QUERY_THRS_PER_GRP_EXCEEDS_TXN_THR_LIMIT = 4121;
+    exports.ER_BAD_TIMESTAMP_FORMAT = 4122;
+    exports.ER_SHAPE_PRIDICTION_UDF = 4123;
+    exports.ER_SRS_INVALID_HEIGHT = 4124;
+    exports.ER_SRS_INVALID_SCALING = 4125;
+    exports.ER_SRS_INVALID_ZONE_WIDTH = 4126;
+    exports.ER_SRS_INVALID_LATITUDE_POLAR_STERE_VAR_A = 4127;
+    exports.ER_WARN_DEPRECATED_CLIENT_NO_SCHEMA_OPTION = 4128;
+    exports.ER_TABLE_NOT_EMPTY = 4129;
+    exports.ER_TABLE_NO_PRIMARY_KEY = 4130;
+    exports.ER_TABLE_IN_SHARED_TABLESPACE = 4131;
+    exports.ER_INDEX_OTHER_THAN_PK = 4132;
+    exports.ER_LOAD_BULK_DATA_UNSORTED = 4133;
+    exports.ER_BULK_EXECUTOR_ERROR = 4134;
+    exports.ER_BULK_READER_LIBCURL_INIT_FAILED = 4135;
+    exports.ER_BULK_READER_LIBCURL_ERROR = 4136;
+    exports.ER_BULK_READER_SERVER_ERROR = 4137;
+    exports.ER_BULK_READER_COMMUNICATION_ERROR = 4138;
+    exports.ER_BULK_LOAD_DATA_FAILED = 4139;
+    exports.ER_BULK_LOADER_COLUMN_TOO_BIG_FOR_LEFTOVER_BUFFER = 4140;
+    exports.ER_BULK_LOADER_COMPONENT_ERROR = 4141;
+    exports.ER_BULK_LOADER_FILE_CONTAINS_LESS_LINES_THAN_IGNORE_CLAUSE = 4142;
+    exports.ER_BULK_PARSER_MISSING_ENCLOSED_BY = 4143;
+    exports.ER_BULK_PARSER_ROW_BUFFER_MAX_TOTAL_COLS_EXCEEDED = 4144;
+    exports.ER_BULK_PARSER_COPY_BUFFER_SIZE_EXCEEDED = 4145;
+    exports.ER_BULK_PARSER_UNEXPECTED_END_OF_INPUT = 4146;
+    exports.ER_BULK_PARSER_UNEXPECTED_ROW_TERMINATOR = 4147;
+    exports.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_ENDING_ENCLOSED_BY = 4148;
+    exports.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_NULL_ESCAPE = 4149;
+    exports.ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_COLUMN_TERMINATOR = 4150;
+    exports.ER_BULK_PARSER_INCOMPLETE_ESCAPE_SEQUENCE = 4151;
+    exports.ER_LOAD_BULK_DATA_FAILED = 4152;
+    exports.ER_LOAD_BULK_DATA_WRONG_VALUE_FOR_FIELD = 4153;
+    exports.ER_LOAD_BULK_DATA_WARN_NULL_TO_NOTNULL = 4154;
+    exports.ER_REQUIRE_TABLE_PRIMARY_KEY_CHECK_GENERATE_WITH_GR = 4155;
+    exports.ER_CANT_CHANGE_SYS_VAR_IN_READ_ONLY_MODE = 4156;
+    exports.ER_INNODB_INSTANT_ADD_DROP_NOT_SUPPORTED_MAX_SIZE = 4157;
+    exports.ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_FIELDS = 4158;
+    exports.ER_CANT_SET_PERSISTED = 4159;
+    exports.ER_INSTALL_COMPONENT_SET_NULL_VALUE = 4160;
+    exports.ER_INSTALL_COMPONENT_SET_UNUSED_VALUE = 4161;
+    exports.ER_WARN_DEPRECATED_USER_DEFINED_COLLATIONS = 4162;
+    exports[1] = "EE_CANTCREATEFILE";
+    exports[2] = "EE_READ";
+    exports[3] = "EE_WRITE";
+    exports[4] = "EE_BADCLOSE";
+    exports[5] = "EE_OUTOFMEMORY";
+    exports[6] = "EE_DELETE";
+    exports[7] = "EE_LINK";
+    exports[9] = "EE_EOFERR";
+    exports[10] = "EE_CANTLOCK";
+    exports[11] = "EE_CANTUNLOCK";
+    exports[12] = "EE_DIR";
+    exports[13] = "EE_STAT";
+    exports[14] = "EE_CANT_CHSIZE";
+    exports[15] = "EE_CANT_OPEN_STREAM";
+    exports[16] = "EE_GETWD";
+    exports[17] = "EE_SETWD";
+    exports[18] = "EE_LINK_WARNING";
+    exports[19] = "EE_OPEN_WARNING";
+    exports[20] = "EE_DISK_FULL";
+    exports[21] = "EE_CANT_MKDIR";
+    exports[22] = "EE_UNKNOWN_CHARSET";
+    exports[23] = "EE_OUT_OF_FILERESOURCES";
+    exports[24] = "EE_CANT_READLINK";
+    exports[25] = "EE_CANT_SYMLINK";
+    exports[26] = "EE_REALPATH";
+    exports[27] = "EE_SYNC";
+    exports[28] = "EE_UNKNOWN_COLLATION";
+    exports[29] = "EE_FILENOTFOUND";
+    exports[30] = "EE_FILE_NOT_CLOSED";
+    exports[31] = "EE_CHANGE_OWNERSHIP";
+    exports[32] = "EE_CHANGE_PERMISSIONS";
+    exports[33] = "EE_CANT_SEEK";
+    exports[34] = "EE_CAPACITY_EXCEEDED";
+    exports[35] = "EE_DISK_FULL_WITH_RETRY_MSG";
+    exports[36] = "EE_FAILED_TO_CREATE_TIMER";
+    exports[37] = "EE_FAILED_TO_DELETE_TIMER";
+    exports[38] = "EE_FAILED_TO_CREATE_TIMER_QUEUE";
+    exports[39] = "EE_FAILED_TO_START_TIMER_NOTIFY_THREAD";
+    exports[40] = "EE_FAILED_TO_CREATE_TIMER_NOTIFY_THREAD_INTERRUPT_EVENT";
+    exports[41] = "EE_EXITING_TIMER_NOTIFY_THREAD";
+    exports[42] = "EE_WIN_LIBRARY_LOAD_FAILED";
+    exports[43] = "EE_WIN_RUN_TIME_ERROR_CHECK";
+    exports[44] = "EE_FAILED_TO_DETERMINE_LARGE_PAGE_SIZE";
+    exports[45] = "EE_FAILED_TO_KILL_ALL_THREADS";
+    exports[46] = "EE_FAILED_TO_CREATE_IO_COMPLETION_PORT";
+    exports[47] = "EE_FAILED_TO_OPEN_DEFAULTS_FILE";
+    exports[48] = "EE_FAILED_TO_HANDLE_DEFAULTS_FILE";
+    exports[49] = "EE_WRONG_DIRECTIVE_IN_CONFIG_FILE";
+    exports[50] = "EE_SKIPPING_DIRECTIVE_DUE_TO_MAX_INCLUDE_RECURSION";
+    exports[51] = "EE_INCORRECT_GRP_DEFINITION_IN_CONFIG_FILE";
+    exports[52] = "EE_OPTION_WITHOUT_GRP_IN_CONFIG_FILE";
+    exports[53] = "EE_CONFIG_FILE_PERMISSION_ERROR";
+    exports[54] = "EE_IGNORE_WORLD_WRITABLE_CONFIG_FILE";
+    exports[55] = "EE_USING_DISABLED_OPTION";
+    exports[56] = "EE_USING_DISABLED_SHORT_OPTION";
+    exports[57] = "EE_USING_PASSWORD_ON_CLI_IS_INSECURE";
+    exports[58] = "EE_UNKNOWN_SUFFIX_FOR_VARIABLE";
+    exports[59] = "EE_SSL_ERROR_FROM_FILE";
+    exports[60] = "EE_SSL_ERROR";
+    exports[61] = "EE_NET_SEND_ERROR_IN_BOOTSTRAP";
+    exports[62] = "EE_PACKETS_OUT_OF_ORDER";
+    exports[63] = "EE_UNKNOWN_PROTOCOL_OPTION";
+    exports[64] = "EE_FAILED_TO_LOCATE_SERVER_PUBLIC_KEY";
+    exports[65] = "EE_PUBLIC_KEY_NOT_IN_PEM_FORMAT";
+    exports[66] = "EE_DEBUG_INFO";
+    exports[67] = "EE_UNKNOWN_VARIABLE";
+    exports[68] = "EE_UNKNOWN_OPTION";
+    exports[69] = "EE_UNKNOWN_SHORT_OPTION";
+    exports[70] = "EE_OPTION_WITHOUT_ARGUMENT";
+    exports[71] = "EE_OPTION_REQUIRES_ARGUMENT";
+    exports[72] = "EE_SHORT_OPTION_REQUIRES_ARGUMENT";
+    exports[73] = "EE_OPTION_IGNORED_DUE_TO_INVALID_VALUE";
+    exports[74] = "EE_OPTION_WITH_EMPTY_VALUE";
+    exports[75] = "EE_FAILED_TO_ASSIGN_MAX_VALUE_TO_OPTION";
+    exports[76] = "EE_INCORRECT_BOOLEAN_VALUE_FOR_OPTION";
+    exports[77] = "EE_FAILED_TO_SET_OPTION_VALUE";
+    exports[78] = "EE_INCORRECT_INT_VALUE_FOR_OPTION";
+    exports[79] = "EE_INCORRECT_UINT_VALUE_FOR_OPTION";
+    exports[80] = "EE_ADJUSTED_SIGNED_VALUE_FOR_OPTION";
+    exports[81] = "EE_ADJUSTED_UNSIGNED_VALUE_FOR_OPTION";
+    exports[82] = "EE_ADJUSTED_ULONGLONG_VALUE_FOR_OPTION";
+    exports[83] = "EE_ADJUSTED_DOUBLE_VALUE_FOR_OPTION";
+    exports[84] = "EE_INVALID_DECIMAL_VALUE_FOR_OPTION";
+    exports[85] = "EE_COLLATION_PARSER_ERROR";
+    exports[86] = "EE_FAILED_TO_RESET_BEFORE_PRIMARY_IGNORABLE_CHAR";
+    exports[87] = "EE_FAILED_TO_RESET_BEFORE_TERTIARY_IGNORABLE_CHAR";
+    exports[88] = "EE_SHIFT_CHAR_OUT_OF_RANGE";
+    exports[89] = "EE_RESET_CHAR_OUT_OF_RANGE";
+    exports[90] = "EE_UNKNOWN_LDML_TAG";
+    exports[91] = "EE_FAILED_TO_RESET_BEFORE_SECONDARY_IGNORABLE_CHAR";
+    exports[92] = "EE_FAILED_PROCESSING_DIRECTIVE";
+    exports[93] = "EE_PTHREAD_KILL_FAILED";
+    exports[120] = "HA_ERR_KEY_NOT_FOUND";
+    exports[121] = "HA_ERR_FOUND_DUPP_KEY";
+    exports[122] = "HA_ERR_INTERNAL_ERROR";
+    exports[123] = "HA_ERR_RECORD_CHANGED";
+    exports[124] = "HA_ERR_WRONG_INDEX";
+    exports[125] = "HA_ERR_ROLLED_BACK";
+    exports[126] = "HA_ERR_CRASHED";
+    exports[127] = "HA_ERR_WRONG_IN_RECORD";
+    exports[128] = "HA_ERR_OUT_OF_MEM";
+    exports[130] = "HA_ERR_NOT_A_TABLE";
+    exports[131] = "HA_ERR_WRONG_COMMAND";
+    exports[132] = "HA_ERR_OLD_FILE";
+    exports[133] = "HA_ERR_NO_ACTIVE_RECORD";
+    exports[134] = "HA_ERR_RECORD_DELETED";
+    exports[135] = "HA_ERR_RECORD_FILE_FULL";
+    exports[136] = "HA_ERR_INDEX_FILE_FULL";
+    exports[137] = "HA_ERR_END_OF_FILE";
+    exports[138] = "HA_ERR_UNSUPPORTED";
+    exports[139] = "HA_ERR_TOO_BIG_ROW";
+    exports[140] = "HA_WRONG_CREATE_OPTION";
+    exports[141] = "HA_ERR_FOUND_DUPP_UNIQUE";
+    exports[142] = "HA_ERR_UNKNOWN_CHARSET";
+    exports[143] = "HA_ERR_WRONG_MRG_TABLE_DEF";
+    exports[144] = "HA_ERR_CRASHED_ON_REPAIR";
+    exports[145] = "HA_ERR_CRASHED_ON_USAGE";
+    exports[146] = "HA_ERR_LOCK_WAIT_TIMEOUT";
+    exports[147] = "HA_ERR_LOCK_TABLE_FULL";
+    exports[148] = "HA_ERR_READ_ONLY_TRANSACTION";
+    exports[149] = "HA_ERR_LOCK_DEADLOCK";
+    exports[150] = "HA_ERR_CANNOT_ADD_FOREIGN";
+    exports[151] = "HA_ERR_NO_REFERENCED_ROW";
+    exports[152] = "HA_ERR_ROW_IS_REFERENCED";
+    exports[153] = "HA_ERR_NO_SAVEPOINT";
+    exports[154] = "HA_ERR_NON_UNIQUE_BLOCK_SIZE";
+    exports[155] = "HA_ERR_NO_SUCH_TABLE";
+    exports[156] = "HA_ERR_TABLE_EXIST";
+    exports[157] = "HA_ERR_NO_CONNECTION";
+    exports[158] = "HA_ERR_NULL_IN_SPATIAL";
+    exports[159] = "HA_ERR_TABLE_DEF_CHANGED";
+    exports[160] = "HA_ERR_NO_PARTITION_FOUND";
+    exports[161] = "HA_ERR_RBR_LOGGING_FAILED";
+    exports[162] = "HA_ERR_DROP_INDEX_FK";
+    exports[163] = "HA_ERR_FOREIGN_DUPLICATE_KEY";
+    exports[164] = "HA_ERR_TABLE_NEEDS_UPGRADE";
+    exports[165] = "HA_ERR_TABLE_READONLY";
+    exports[166] = "HA_ERR_AUTOINC_READ_FAILED";
+    exports[167] = "HA_ERR_AUTOINC_ERANGE";
+    exports[168] = "HA_ERR_GENERIC";
+    exports[169] = "HA_ERR_RECORD_IS_THE_SAME";
+    exports[170] = "HA_ERR_LOGGING_IMPOSSIBLE";
+    exports[171] = "HA_ERR_CORRUPT_EVENT";
+    exports[172] = "HA_ERR_NEW_FILE";
+    exports[173] = "HA_ERR_ROWS_EVENT_APPLY";
+    exports[174] = "HA_ERR_INITIALIZATION";
+    exports[175] = "HA_ERR_FILE_TOO_SHORT";
+    exports[176] = "HA_ERR_WRONG_CRC";
+    exports[177] = "HA_ERR_TOO_MANY_CONCURRENT_TRXS";
+    exports[178] = "HA_ERR_NOT_IN_LOCK_PARTITIONS";
+    exports[179] = "HA_ERR_INDEX_COL_TOO_LONG";
+    exports[180] = "HA_ERR_INDEX_CORRUPT";
+    exports[181] = "HA_ERR_UNDO_REC_TOO_BIG";
+    exports[182] = "HA_FTS_INVALID_DOCID";
+    exports[183] = "HA_ERR_TABLE_IN_FK_CHECK";
+    exports[184] = "HA_ERR_TABLESPACE_EXISTS";
+    exports[185] = "HA_ERR_TOO_MANY_FIELDS";
+    exports[186] = "HA_ERR_ROW_IN_WRONG_PARTITION";
+    exports[187] = "HA_ERR_INNODB_READ_ONLY";
+    exports[188] = "HA_ERR_FTS_EXCEED_RESULT_CACHE_LIMIT";
+    exports[189] = "HA_ERR_TEMP_FILE_WRITE_FAILURE";
+    exports[190] = "HA_ERR_INNODB_FORCED_RECOVERY";
+    exports[191] = "HA_ERR_FTS_TOO_MANY_WORDS_IN_PHRASE";
+    exports[192] = "HA_ERR_FK_DEPTH_EXCEEDED";
+    exports[193] = "HA_MISSING_CREATE_OPTION";
+    exports[194] = "HA_ERR_SE_OUT_OF_MEMORY";
+    exports[195] = "HA_ERR_TABLE_CORRUPT";
+    exports[196] = "HA_ERR_QUERY_INTERRUPTED";
+    exports[197] = "HA_ERR_TABLESPACE_MISSING";
+    exports[198] = "HA_ERR_TABLESPACE_IS_NOT_EMPTY";
+    exports[199] = "HA_ERR_WRONG_FILE_NAME";
+    exports[200] = "HA_ERR_NOT_ALLOWED_COMMAND";
+    exports[201] = "HA_ERR_COMPUTE_FAILED";
+    exports[202] = "HA_ERR_ROW_FORMAT_CHANGED";
+    exports[203] = "HA_ERR_NO_WAIT_LOCK";
+    exports[204] = "HA_ERR_DISK_FULL_NOWAIT";
+    exports[205] = "HA_ERR_NO_SESSION_TEMP";
+    exports[206] = "HA_ERR_WRONG_TABLE_NAME";
+    exports[207] = "HA_ERR_TOO_LONG_PATH";
+    exports[208] = "HA_ERR_SAMPLING_INIT_FAILED";
+    exports[209] = "HA_ERR_FTS_TOO_MANY_NESTED_EXP";
+    exports[1e3] = "ER_HASHCHK";
+    exports[1001] = "ER_NISAMCHK";
+    exports[1002] = "ER_NO";
+    exports[1003] = "ER_YES";
+    exports[1004] = "ER_CANT_CREATE_FILE";
+    exports[1005] = "ER_CANT_CREATE_TABLE";
+    exports[1006] = "ER_CANT_CREATE_DB";
+    exports[1007] = "ER_DB_CREATE_EXISTS";
+    exports[1008] = "ER_DB_DROP_EXISTS";
+    exports[1009] = "ER_DB_DROP_DELETE";
+    exports[1010] = "ER_DB_DROP_RMDIR";
+    exports[1011] = "ER_CANT_DELETE_FILE";
+    exports[1012] = "ER_CANT_FIND_SYSTEM_REC";
+    exports[1013] = "ER_CANT_GET_STAT";
+    exports[1014] = "ER_CANT_GET_WD";
+    exports[1015] = "ER_CANT_LOCK";
+    exports[1016] = "ER_CANT_OPEN_FILE";
+    exports[1017] = "ER_FILE_NOT_FOUND";
+    exports[1018] = "ER_CANT_READ_DIR";
+    exports[1019] = "ER_CANT_SET_WD";
+    exports[1020] = "ER_CHECKREAD";
+    exports[1021] = "ER_DISK_FULL";
+    exports[1022] = "ER_DUP_KEY";
+    exports[1023] = "ER_ERROR_ON_CLOSE";
+    exports[1024] = "ER_ERROR_ON_READ";
+    exports[1025] = "ER_ERROR_ON_RENAME";
+    exports[1026] = "ER_ERROR_ON_WRITE";
+    exports[1027] = "ER_FILE_USED";
+    exports[1028] = "ER_FILSORT_ABORT";
+    exports[1029] = "ER_FORM_NOT_FOUND";
+    exports[1030] = "ER_GET_ERRNO";
+    exports[1031] = "ER_ILLEGAL_HA";
+    exports[1032] = "ER_KEY_NOT_FOUND";
+    exports[1033] = "ER_NOT_FORM_FILE";
+    exports[1034] = "ER_NOT_KEYFILE";
+    exports[1035] = "ER_OLD_KEYFILE";
+    exports[1036] = "ER_OPEN_AS_READONLY";
+    exports[1037] = "ER_OUTOFMEMORY";
+    exports[1038] = "ER_OUT_OF_SORTMEMORY";
+    exports[1039] = "ER_UNEXPECTED_EOF";
+    exports[1040] = "ER_CON_COUNT_ERROR";
+    exports[1041] = "ER_OUT_OF_RESOURCES";
+    exports[1042] = "ER_BAD_HOST_ERROR";
+    exports[1043] = "ER_HANDSHAKE_ERROR";
+    exports[1044] = "ER_DBACCESS_DENIED_ERROR";
+    exports[1045] = "ER_ACCESS_DENIED_ERROR";
+    exports[1046] = "ER_NO_DB_ERROR";
+    exports[1047] = "ER_UNKNOWN_COM_ERROR";
+    exports[1048] = "ER_BAD_NULL_ERROR";
+    exports[1049] = "ER_BAD_DB_ERROR";
+    exports[1050] = "ER_TABLE_EXISTS_ERROR";
+    exports[1051] = "ER_BAD_TABLE_ERROR";
+    exports[1052] = "ER_NON_UNIQ_ERROR";
+    exports[1053] = "ER_SERVER_SHUTDOWN";
+    exports[1054] = "ER_BAD_FIELD_ERROR";
+    exports[1055] = "ER_WRONG_FIELD_WITH_GROUP";
+    exports[1056] = "ER_WRONG_GROUP_FIELD";
+    exports[1057] = "ER_WRONG_SUM_SELECT";
+    exports[1058] = "ER_WRONG_VALUE_COUNT";
+    exports[1059] = "ER_TOO_LONG_IDENT";
+    exports[1060] = "ER_DUP_FIELDNAME";
+    exports[1061] = "ER_DUP_KEYNAME";
+    exports[1062] = "ER_DUP_ENTRY";
+    exports[1063] = "ER_WRONG_FIELD_SPEC";
+    exports[1064] = "ER_PARSE_ERROR";
+    exports[1065] = "ER_EMPTY_QUERY";
+    exports[1066] = "ER_NONUNIQ_TABLE";
+    exports[1067] = "ER_INVALID_DEFAULT";
+    exports[1068] = "ER_MULTIPLE_PRI_KEY";
+    exports[1069] = "ER_TOO_MANY_KEYS";
+    exports[1070] = "ER_TOO_MANY_KEY_PARTS";
+    exports[1071] = "ER_TOO_LONG_KEY";
+    exports[1072] = "ER_KEY_COLUMN_DOES_NOT_EXITS";
+    exports[1073] = "ER_BLOB_USED_AS_KEY";
+    exports[1074] = "ER_TOO_BIG_FIELDLENGTH";
+    exports[1075] = "ER_WRONG_AUTO_KEY";
+    exports[1076] = "ER_READY";
+    exports[1077] = "ER_NORMAL_SHUTDOWN";
+    exports[1078] = "ER_GOT_SIGNAL";
+    exports[1079] = "ER_SHUTDOWN_COMPLETE";
+    exports[1080] = "ER_FORCING_CLOSE";
+    exports[1081] = "ER_IPSOCK_ERROR";
+    exports[1082] = "ER_NO_SUCH_INDEX";
+    exports[1083] = "ER_WRONG_FIELD_TERMINATORS";
+    exports[1084] = "ER_BLOBS_AND_NO_TERMINATED";
+    exports[1085] = "ER_TEXTFILE_NOT_READABLE";
+    exports[1086] = "ER_FILE_EXISTS_ERROR";
+    exports[1087] = "ER_LOAD_INFO";
+    exports[1088] = "ER_ALTER_INFO";
+    exports[1089] = "ER_WRONG_SUB_KEY";
+    exports[1090] = "ER_CANT_REMOVE_ALL_FIELDS";
+    exports[1091] = "ER_CANT_DROP_FIELD_OR_KEY";
+    exports[1092] = "ER_INSERT_INFO";
+    exports[1093] = "ER_UPDATE_TABLE_USED";
+    exports[1094] = "ER_NO_SUCH_THREAD";
+    exports[1095] = "ER_KILL_DENIED_ERROR";
+    exports[1096] = "ER_NO_TABLES_USED";
+    exports[1097] = "ER_TOO_BIG_SET";
+    exports[1098] = "ER_NO_UNIQUE_LOGFILE";
+    exports[1099] = "ER_TABLE_NOT_LOCKED_FOR_WRITE";
+    exports[1100] = "ER_TABLE_NOT_LOCKED";
+    exports[1101] = "ER_BLOB_CANT_HAVE_DEFAULT";
+    exports[1102] = "ER_WRONG_DB_NAME";
+    exports[1103] = "ER_WRONG_TABLE_NAME";
+    exports[1104] = "ER_TOO_BIG_SELECT";
+    exports[1105] = "ER_UNKNOWN_ERROR";
+    exports[1106] = "ER_UNKNOWN_PROCEDURE";
+    exports[1107] = "ER_WRONG_PARAMCOUNT_TO_PROCEDURE";
+    exports[1108] = "ER_WRONG_PARAMETERS_TO_PROCEDURE";
+    exports[1109] = "ER_UNKNOWN_TABLE";
+    exports[1110] = "ER_FIELD_SPECIFIED_TWICE";
+    exports[1111] = "ER_INVALID_GROUP_FUNC_USE";
+    exports[1112] = "ER_UNSUPPORTED_EXTENSION";
+    exports[1113] = "ER_TABLE_MUST_HAVE_COLUMNS";
+    exports[1114] = "ER_RECORD_FILE_FULL";
+    exports[1115] = "ER_UNKNOWN_CHARACTER_SET";
+    exports[1116] = "ER_TOO_MANY_TABLES";
+    exports[1117] = "ER_TOO_MANY_FIELDS";
+    exports[1118] = "ER_TOO_BIG_ROWSIZE";
+    exports[1119] = "ER_STACK_OVERRUN";
+    exports[1120] = "ER_WRONG_OUTER_JOIN";
+    exports[1121] = "ER_NULL_COLUMN_IN_INDEX";
+    exports[1122] = "ER_CANT_FIND_UDF";
+    exports[1123] = "ER_CANT_INITIALIZE_UDF";
+    exports[1124] = "ER_UDF_NO_PATHS";
+    exports[1125] = "ER_UDF_EXISTS";
+    exports[1126] = "ER_CANT_OPEN_LIBRARY";
+    exports[1127] = "ER_CANT_FIND_DL_ENTRY";
+    exports[1128] = "ER_FUNCTION_NOT_DEFINED";
+    exports[1129] = "ER_HOST_IS_BLOCKED";
+    exports[1130] = "ER_HOST_NOT_PRIVILEGED";
+    exports[1131] = "ER_PASSWORD_ANONYMOUS_USER";
+    exports[1132] = "ER_PASSWORD_NOT_ALLOWED";
+    exports[1133] = "ER_PASSWORD_NO_MATCH";
+    exports[1134] = "ER_UPDATE_INFO";
+    exports[1135] = "ER_CANT_CREATE_THREAD";
+    exports[1136] = "ER_WRONG_VALUE_COUNT_ON_ROW";
+    exports[1137] = "ER_CANT_REOPEN_TABLE";
+    exports[1138] = "ER_INVALID_USE_OF_NULL";
+    exports[1139] = "ER_REGEXP_ERROR";
+    exports[1140] = "ER_MIX_OF_GROUP_FUNC_AND_FIELDS";
+    exports[1141] = "ER_NONEXISTING_GRANT";
+    exports[1142] = "ER_TABLEACCESS_DENIED_ERROR";
+    exports[1143] = "ER_COLUMNACCESS_DENIED_ERROR";
+    exports[1144] = "ER_ILLEGAL_GRANT_FOR_TABLE";
+    exports[1145] = "ER_GRANT_WRONG_HOST_OR_USER";
+    exports[1146] = "ER_NO_SUCH_TABLE";
+    exports[1147] = "ER_NONEXISTING_TABLE_GRANT";
+    exports[1148] = "ER_NOT_ALLOWED_COMMAND";
+    exports[1149] = "ER_SYNTAX_ERROR";
+    exports[1150] = "ER_UNUSED1";
+    exports[1151] = "ER_UNUSED2";
+    exports[1152] = "ER_ABORTING_CONNECTION";
+    exports[1153] = "ER_NET_PACKET_TOO_LARGE";
+    exports[1154] = "ER_NET_READ_ERROR_FROM_PIPE";
+    exports[1155] = "ER_NET_FCNTL_ERROR";
+    exports[1156] = "ER_NET_PACKETS_OUT_OF_ORDER";
+    exports[1157] = "ER_NET_UNCOMPRESS_ERROR";
+    exports[1158] = "ER_NET_READ_ERROR";
+    exports[1159] = "ER_NET_READ_INTERRUPTED";
+    exports[1160] = "ER_NET_ERROR_ON_WRITE";
+    exports[1161] = "ER_NET_WRITE_INTERRUPTED";
+    exports[1162] = "ER_TOO_LONG_STRING";
+    exports[1163] = "ER_TABLE_CANT_HANDLE_BLOB";
+    exports[1164] = "ER_TABLE_CANT_HANDLE_AUTO_INCREMENT";
+    exports[1165] = "ER_UNUSED3";
+    exports[1166] = "ER_WRONG_COLUMN_NAME";
+    exports[1167] = "ER_WRONG_KEY_COLUMN";
+    exports[1168] = "ER_WRONG_MRG_TABLE";
+    exports[1169] = "ER_DUP_UNIQUE";
+    exports[1170] = "ER_BLOB_KEY_WITHOUT_LENGTH";
+    exports[1171] = "ER_PRIMARY_CANT_HAVE_NULL";
+    exports[1172] = "ER_TOO_MANY_ROWS";
+    exports[1173] = "ER_REQUIRES_PRIMARY_KEY";
+    exports[1174] = "ER_NO_RAID_COMPILED";
+    exports[1175] = "ER_UPDATE_WITHOUT_KEY_IN_SAFE_MODE";
+    exports[1176] = "ER_KEY_DOES_NOT_EXITS";
+    exports[1177] = "ER_CHECK_NO_SUCH_TABLE";
+    exports[1178] = "ER_CHECK_NOT_IMPLEMENTED";
+    exports[1179] = "ER_CANT_DO_THIS_DURING_AN_TRANSACTION";
+    exports[1180] = "ER_ERROR_DURING_COMMIT";
+    exports[1181] = "ER_ERROR_DURING_ROLLBACK";
+    exports[1182] = "ER_ERROR_DURING_FLUSH_LOGS";
+    exports[1183] = "ER_ERROR_DURING_CHECKPOINT";
+    exports[1184] = "ER_NEW_ABORTING_CONNECTION";
+    exports[1185] = "ER_DUMP_NOT_IMPLEMENTED";
+    exports[1186] = "ER_FLUSH_MASTER_BINLOG_CLOSED";
+    exports[1187] = "ER_INDEX_REBUILD";
+    exports[1188] = "ER_SOURCE";
+    exports[1189] = "ER_SOURCE_NET_READ";
+    exports[1190] = "ER_SOURCE_NET_WRITE";
+    exports[1191] = "ER_FT_MATCHING_KEY_NOT_FOUND";
+    exports[1192] = "ER_LOCK_OR_ACTIVE_TRANSACTION";
+    exports[1193] = "ER_UNKNOWN_SYSTEM_VARIABLE";
+    exports[1194] = "ER_CRASHED_ON_USAGE";
+    exports[1195] = "ER_CRASHED_ON_REPAIR";
+    exports[1196] = "ER_WARNING_NOT_COMPLETE_ROLLBACK";
+    exports[1197] = "ER_TRANS_CACHE_FULL";
+    exports[1198] = "ER_SLAVE_MUST_STOP";
+    exports[1199] = "ER_REPLICA_NOT_RUNNING";
+    exports[1200] = "ER_BAD_REPLICA";
+    exports[1201] = "ER_CONNECTION_METADATA";
+    exports[1202] = "ER_REPLICA_THREAD";
+    exports[1203] = "ER_TOO_MANY_USER_CONNECTIONS";
+    exports[1204] = "ER_SET_CONSTANTS_ONLY";
+    exports[1205] = "ER_LOCK_WAIT_TIMEOUT";
+    exports[1206] = "ER_LOCK_TABLE_FULL";
+    exports[1207] = "ER_READ_ONLY_TRANSACTION";
+    exports[1208] = "ER_DROP_DB_WITH_READ_LOCK";
+    exports[1209] = "ER_CREATE_DB_WITH_READ_LOCK";
+    exports[1210] = "ER_WRONG_ARGUMENTS";
+    exports[1211] = "ER_NO_PERMISSION_TO_CREATE_USER";
+    exports[1212] = "ER_UNION_TABLES_IN_DIFFERENT_DIR";
+    exports[1213] = "ER_LOCK_DEADLOCK";
+    exports[1214] = "ER_TABLE_CANT_HANDLE_FT";
+    exports[1215] = "ER_CANNOT_ADD_FOREIGN";
+    exports[1216] = "ER_NO_REFERENCED_ROW";
+    exports[1217] = "ER_ROW_IS_REFERENCED";
+    exports[1218] = "ER_CONNECT_TO_SOURCE";
+    exports[1219] = "ER_QUERY_ON_MASTER";
+    exports[1220] = "ER_ERROR_WHEN_EXECUTING_COMMAND";
+    exports[1221] = "ER_WRONG_USAGE";
+    exports[1222] = "ER_WRONG_NUMBER_OF_COLUMNS_IN_SELECT";
+    exports[1223] = "ER_CANT_UPDATE_WITH_READLOCK";
+    exports[1224] = "ER_MIXING_NOT_ALLOWED";
+    exports[1225] = "ER_DUP_ARGUMENT";
+    exports[1226] = "ER_USER_LIMIT_REACHED";
+    exports[1227] = "ER_SPECIFIC_ACCESS_DENIED_ERROR";
+    exports[1228] = "ER_LOCAL_VARIABLE";
+    exports[1229] = "ER_GLOBAL_VARIABLE";
+    exports[1230] = "ER_NO_DEFAULT";
+    exports[1231] = "ER_WRONG_VALUE_FOR_VAR";
+    exports[1232] = "ER_WRONG_TYPE_FOR_VAR";
+    exports[1233] = "ER_VAR_CANT_BE_READ";
+    exports[1234] = "ER_CANT_USE_OPTION_HERE";
+    exports[1235] = "ER_NOT_SUPPORTED_YET";
+    exports[1236] = "ER_SOURCE_FATAL_ERROR_READING_BINLOG";
+    exports[1237] = "ER_REPLICA_IGNORED_TABLE";
+    exports[1238] = "ER_INCORRECT_GLOBAL_LOCAL_VAR";
+    exports[1239] = "ER_WRONG_FK_DEF";
+    exports[1240] = "ER_KEY_REF_DO_NOT_MATCH_TABLE_REF";
+    exports[1241] = "ER_OPERAND_COLUMNS";
+    exports[1242] = "ER_SUBQUERY_NO_1_ROW";
+    exports[1243] = "ER_UNKNOWN_STMT_HANDLER";
+    exports[1244] = "ER_CORRUPT_HELP_DB";
+    exports[1245] = "ER_CYCLIC_REFERENCE";
+    exports[1246] = "ER_AUTO_CONVERT";
+    exports[1247] = "ER_ILLEGAL_REFERENCE";
+    exports[1248] = "ER_DERIVED_MUST_HAVE_ALIAS";
+    exports[1249] = "ER_SELECT_REDUCED";
+    exports[1250] = "ER_TABLENAME_NOT_ALLOWED_HERE";
+    exports[1251] = "ER_NOT_SUPPORTED_AUTH_MODE";
+    exports[1252] = "ER_SPATIAL_CANT_HAVE_NULL";
+    exports[1253] = "ER_COLLATION_CHARSET_MISMATCH";
+    exports[1254] = "ER_SLAVE_WAS_RUNNING";
+    exports[1255] = "ER_SLAVE_WAS_NOT_RUNNING";
+    exports[1256] = "ER_TOO_BIG_FOR_UNCOMPRESS";
+    exports[1257] = "ER_ZLIB_Z_MEM_ERROR";
+    exports[1258] = "ER_ZLIB_Z_BUF_ERROR";
+    exports[1259] = "ER_ZLIB_Z_DATA_ERROR";
+    exports[1260] = "ER_CUT_VALUE_GROUP_CONCAT";
+    exports[1261] = "ER_WARN_TOO_FEW_RECORDS";
+    exports[1262] = "ER_WARN_TOO_MANY_RECORDS";
+    exports[1263] = "ER_WARN_NULL_TO_NOTNULL";
+    exports[1264] = "ER_WARN_DATA_OUT_OF_RANGE";
+    exports[1265] = "WARN_DATA_TRUNCATED";
+    exports[1266] = "ER_WARN_USING_OTHER_HANDLER";
+    exports[1267] = "ER_CANT_AGGREGATE_2COLLATIONS";
+    exports[1268] = "ER_DROP_USER";
+    exports[1269] = "ER_REVOKE_GRANTS";
+    exports[1270] = "ER_CANT_AGGREGATE_3COLLATIONS";
+    exports[1271] = "ER_CANT_AGGREGATE_NCOLLATIONS";
+    exports[1272] = "ER_VARIABLE_IS_NOT_STRUCT";
+    exports[1273] = "ER_UNKNOWN_COLLATION";
+    exports[1274] = "ER_REPLICA_IGNORED_SSL_PARAMS";
+    exports[1275] = "ER_SERVER_IS_IN_SECURE_AUTH_MODE";
+    exports[1276] = "ER_WARN_FIELD_RESOLVED";
+    exports[1277] = "ER_BAD_REPLICA_UNTIL_COND";
+    exports[1278] = "ER_MISSING_SKIP_REPLICA";
+    exports[1279] = "ER_UNTIL_COND_IGNORED";
+    exports[1280] = "ER_WRONG_NAME_FOR_INDEX";
+    exports[1281] = "ER_WRONG_NAME_FOR_CATALOG";
+    exports[1282] = "ER_WARN_QC_RESIZE";
+    exports[1283] = "ER_BAD_FT_COLUMN";
+    exports[1284] = "ER_UNKNOWN_KEY_CACHE";
+    exports[1285] = "ER_WARN_HOSTNAME_WONT_WORK";
+    exports[1286] = "ER_UNKNOWN_STORAGE_ENGINE";
+    exports[1287] = "ER_WARN_DEPRECATED_SYNTAX";
+    exports[1288] = "ER_NON_UPDATABLE_TABLE";
+    exports[1289] = "ER_FEATURE_DISABLED";
+    exports[1290] = "ER_OPTION_PREVENTS_STATEMENT";
+    exports[1291] = "ER_DUPLICATED_VALUE_IN_TYPE";
+    exports[1292] = "ER_TRUNCATED_WRONG_VALUE";
+    exports[1293] = "ER_TOO_MUCH_AUTO_TIMESTAMP_COLS";
+    exports[1294] = "ER_INVALID_ON_UPDATE";
+    exports[1295] = "ER_UNSUPPORTED_PS";
+    exports[1296] = "ER_GET_ERRMSG";
+    exports[1297] = "ER_GET_TEMPORARY_ERRMSG";
+    exports[1298] = "ER_UNKNOWN_TIME_ZONE";
+    exports[1299] = "ER_WARN_INVALID_TIMESTAMP";
+    exports[1300] = "ER_INVALID_CHARACTER_STRING";
+    exports[1301] = "ER_WARN_ALLOWED_PACKET_OVERFLOWED";
+    exports[1302] = "ER_CONFLICTING_DECLARATIONS";
+    exports[1303] = "ER_SP_NO_RECURSIVE_CREATE";
+    exports[1304] = "ER_SP_ALREADY_EXISTS";
+    exports[1305] = "ER_SP_DOES_NOT_EXIST";
+    exports[1306] = "ER_SP_DROP_FAILED";
+    exports[1307] = "ER_SP_STORE_FAILED";
+    exports[1308] = "ER_SP_LILABEL_MISMATCH";
+    exports[1309] = "ER_SP_LABEL_REDEFINE";
+    exports[1310] = "ER_SP_LABEL_MISMATCH";
+    exports[1311] = "ER_SP_UNINIT_VAR";
+    exports[1312] = "ER_SP_BADSELECT";
+    exports[1313] = "ER_SP_BADRETURN";
+    exports[1314] = "ER_SP_BADSTATEMENT";
+    exports[1315] = "ER_UPDATE_LOG_DEPRECATED_IGNORED";
+    exports[1316] = "ER_UPDATE_LOG_DEPRECATED_TRANSLATED";
+    exports[1317] = "ER_QUERY_INTERRUPTED";
+    exports[1318] = "ER_SP_WRONG_NO_OF_ARGS";
+    exports[1319] = "ER_SP_COND_MISMATCH";
+    exports[1320] = "ER_SP_NORETURN";
+    exports[1321] = "ER_SP_NORETURNEND";
+    exports[1322] = "ER_SP_BAD_CURSOR_QUERY";
+    exports[1323] = "ER_SP_BAD_CURSOR_SELECT";
+    exports[1324] = "ER_SP_CURSOR_MISMATCH";
+    exports[1325] = "ER_SP_CURSOR_ALREADY_OPEN";
+    exports[1326] = "ER_SP_CURSOR_NOT_OPEN";
+    exports[1327] = "ER_SP_UNDECLARED_VAR";
+    exports[1328] = "ER_SP_WRONG_NO_OF_FETCH_ARGS";
+    exports[1329] = "ER_SP_FETCH_NO_DATA";
+    exports[1330] = "ER_SP_DUP_PARAM";
+    exports[1331] = "ER_SP_DUP_VAR";
+    exports[1332] = "ER_SP_DUP_COND";
+    exports[1333] = "ER_SP_DUP_CURS";
+    exports[1334] = "ER_SP_CANT_ALTER";
+    exports[1335] = "ER_SP_SUBSELECT_NYI";
+    exports[1336] = "ER_STMT_NOT_ALLOWED_IN_SF_OR_TRG";
+    exports[1337] = "ER_SP_VARCOND_AFTER_CURSHNDLR";
+    exports[1338] = "ER_SP_CURSOR_AFTER_HANDLER";
+    exports[1339] = "ER_SP_CASE_NOT_FOUND";
+    exports[1340] = "ER_FPARSER_TOO_BIG_FILE";
+    exports[1341] = "ER_FPARSER_BAD_HEADER";
+    exports[1342] = "ER_FPARSER_EOF_IN_COMMENT";
+    exports[1343] = "ER_FPARSER_ERROR_IN_PARAMETER";
+    exports[1344] = "ER_FPARSER_EOF_IN_UNKNOWN_PARAMETER";
+    exports[1345] = "ER_VIEW_NO_EXPLAIN";
+    exports[1346] = "ER_FRM_UNKNOWN_TYPE";
+    exports[1347] = "ER_WRONG_OBJECT";
+    exports[1348] = "ER_NONUPDATEABLE_COLUMN";
+    exports[1349] = "ER_VIEW_SELECT_DERIVED";
+    exports[1350] = "ER_VIEW_SELECT_CLAUSE";
+    exports[1351] = "ER_VIEW_SELECT_VARIABLE";
+    exports[1352] = "ER_VIEW_SELECT_TMPTABLE";
+    exports[1353] = "ER_VIEW_WRONG_LIST";
+    exports[1354] = "ER_WARN_VIEW_MERGE";
+    exports[1355] = "ER_WARN_VIEW_WITHOUT_KEY";
+    exports[1356] = "ER_VIEW_INVALID";
+    exports[1357] = "ER_SP_NO_DROP_SP";
+    exports[1358] = "ER_SP_GOTO_IN_HNDLR";
+    exports[1359] = "ER_TRG_ALREADY_EXISTS";
+    exports[1360] = "ER_TRG_DOES_NOT_EXIST";
+    exports[1361] = "ER_TRG_ON_VIEW_OR_TEMP_TABLE";
+    exports[1362] = "ER_TRG_CANT_CHANGE_ROW";
+    exports[1363] = "ER_TRG_NO_SUCH_ROW_IN_TRG";
+    exports[1364] = "ER_NO_DEFAULT_FOR_FIELD";
+    exports[1365] = "ER_DIVISION_BY_ZERO";
+    exports[1366] = "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD";
+    exports[1367] = "ER_ILLEGAL_VALUE_FOR_TYPE";
+    exports[1368] = "ER_VIEW_NONUPD_CHECK";
+    exports[1369] = "ER_VIEW_CHECK_FAILED";
+    exports[1370] = "ER_PROCACCESS_DENIED_ERROR";
+    exports[1371] = "ER_RELAY_LOG_FAIL";
+    exports[1372] = "ER_PASSWD_LENGTH";
+    exports[1373] = "ER_UNKNOWN_TARGET_BINLOG";
+    exports[1374] = "ER_IO_ERR_LOG_INDEX_READ";
+    exports[1375] = "ER_BINLOG_PURGE_PROHIBITED";
+    exports[1376] = "ER_FSEEK_FAIL";
+    exports[1377] = "ER_BINLOG_PURGE_FATAL_ERR";
+    exports[1378] = "ER_LOG_IN_USE";
+    exports[1379] = "ER_LOG_PURGE_UNKNOWN_ERR";
+    exports[1380] = "ER_RELAY_LOG_INIT";
+    exports[1381] = "ER_NO_BINARY_LOGGING";
+    exports[1382] = "ER_RESERVED_SYNTAX";
+    exports[1383] = "ER_WSAS_FAILED";
+    exports[1384] = "ER_DIFF_GROUPS_PROC";
+    exports[1385] = "ER_NO_GROUP_FOR_PROC";
+    exports[1386] = "ER_ORDER_WITH_PROC";
+    exports[1387] = "ER_LOGGING_PROHIBIT_CHANGING_OF";
+    exports[1388] = "ER_NO_FILE_MAPPING";
+    exports[1389] = "ER_WRONG_MAGIC";
+    exports[1390] = "ER_PS_MANY_PARAM";
+    exports[1391] = "ER_KEY_PART_0";
+    exports[1392] = "ER_VIEW_CHECKSUM";
+    exports[1393] = "ER_VIEW_MULTIUPDATE";
+    exports[1394] = "ER_VIEW_NO_INSERT_FIELD_LIST";
+    exports[1395] = "ER_VIEW_DELETE_MERGE_VIEW";
+    exports[1396] = "ER_CANNOT_USER";
+    exports[1397] = "ER_XAER_NOTA";
+    exports[1398] = "ER_XAER_INVAL";
+    exports[1399] = "ER_XAER_RMFAIL";
+    exports[1400] = "ER_XAER_OUTSIDE";
+    exports[1401] = "ER_XAER_RMERR";
+    exports[1402] = "ER_XA_RBROLLBACK";
+    exports[1403] = "ER_NONEXISTING_PROC_GRANT";
+    exports[1404] = "ER_PROC_AUTO_GRANT_FAIL";
+    exports[1405] = "ER_PROC_AUTO_REVOKE_FAIL";
+    exports[1406] = "ER_DATA_TOO_LONG";
+    exports[1407] = "ER_SP_BAD_SQLSTATE";
+    exports[1408] = "ER_STARTUP";
+    exports[1409] = "ER_LOAD_FROM_FIXED_SIZE_ROWS_TO_VAR";
+    exports[1410] = "ER_CANT_CREATE_USER_WITH_GRANT";
+    exports[1411] = "ER_WRONG_VALUE_FOR_TYPE";
+    exports[1412] = "ER_TABLE_DEF_CHANGED";
+    exports[1413] = "ER_SP_DUP_HANDLER";
+    exports[1414] = "ER_SP_NOT_VAR_ARG";
+    exports[1415] = "ER_SP_NO_RETSET";
+    exports[1416] = "ER_CANT_CREATE_GEOMETRY_OBJECT";
+    exports[1417] = "ER_FAILED_ROUTINE_BREAK_BINLOG";
+    exports[1418] = "ER_BINLOG_UNSAFE_ROUTINE";
+    exports[1419] = "ER_BINLOG_CREATE_ROUTINE_NEED_SUPER";
+    exports[1420] = "ER_EXEC_STMT_WITH_OPEN_CURSOR";
+    exports[1421] = "ER_STMT_HAS_NO_OPEN_CURSOR";
+    exports[1422] = "ER_COMMIT_NOT_ALLOWED_IN_SF_OR_TRG";
+    exports[1423] = "ER_NO_DEFAULT_FOR_VIEW_FIELD";
+    exports[1424] = "ER_SP_NO_RECURSION";
+    exports[1425] = "ER_TOO_BIG_SCALE";
+    exports[1426] = "ER_TOO_BIG_PRECISION";
+    exports[1427] = "ER_M_BIGGER_THAN_D";
+    exports[1428] = "ER_WRONG_LOCK_OF_SYSTEM_TABLE";
+    exports[1429] = "ER_CONNECT_TO_FOREIGN_DATA_SOURCE";
+    exports[1430] = "ER_QUERY_ON_FOREIGN_DATA_SOURCE";
+    exports[1431] = "ER_FOREIGN_DATA_SOURCE_DOESNT_EXIST";
+    exports[1432] = "ER_FOREIGN_DATA_STRING_INVALID_CANT_CREATE";
+    exports[1433] = "ER_FOREIGN_DATA_STRING_INVALID";
+    exports[1434] = "ER_CANT_CREATE_FEDERATED_TABLE";
+    exports[1435] = "ER_TRG_IN_WRONG_SCHEMA";
+    exports[1436] = "ER_STACK_OVERRUN_NEED_MORE";
+    exports[1437] = "ER_TOO_LONG_BODY";
+    exports[1438] = "ER_WARN_CANT_DROP_DEFAULT_KEYCACHE";
+    exports[1439] = "ER_TOO_BIG_DISPLAYWIDTH";
+    exports[1440] = "ER_XAER_DUPID";
+    exports[1441] = "ER_DATETIME_FUNCTION_OVERFLOW";
+    exports[1442] = "ER_CANT_UPDATE_USED_TABLE_IN_SF_OR_TRG";
+    exports[1443] = "ER_VIEW_PREVENT_UPDATE";
+    exports[1444] = "ER_PS_NO_RECURSION";
+    exports[1445] = "ER_SP_CANT_SET_AUTOCOMMIT";
+    exports[1446] = "ER_MALFORMED_DEFINER";
+    exports[1447] = "ER_VIEW_FRM_NO_USER";
+    exports[1448] = "ER_VIEW_OTHER_USER";
+    exports[1449] = "ER_NO_SUCH_USER";
+    exports[1450] = "ER_FORBID_SCHEMA_CHANGE";
+    exports[1451] = "ER_ROW_IS_REFERENCED_2";
+    exports[1452] = "ER_NO_REFERENCED_ROW_2";
+    exports[1453] = "ER_SP_BAD_VAR_SHADOW";
+    exports[1454] = "ER_TRG_NO_DEFINER";
+    exports[1455] = "ER_OLD_FILE_FORMAT";
+    exports[1456] = "ER_SP_RECURSION_LIMIT";
+    exports[1457] = "ER_SP_PROC_TABLE_CORRUPT";
+    exports[1458] = "ER_SP_WRONG_NAME";
+    exports[1459] = "ER_TABLE_NEEDS_UPGRADE";
+    exports[1460] = "ER_SP_NO_AGGREGATE";
+    exports[1461] = "ER_MAX_PREPARED_STMT_COUNT_REACHED";
+    exports[1462] = "ER_VIEW_RECURSIVE";
+    exports[1463] = "ER_NON_GROUPING_FIELD_USED";
+    exports[1464] = "ER_TABLE_CANT_HANDLE_SPKEYS";
+    exports[1465] = "ER_NO_TRIGGERS_ON_SYSTEM_SCHEMA";
+    exports[1466] = "ER_REMOVED_SPACES";
+    exports[1467] = "ER_AUTOINC_READ_FAILED";
+    exports[1468] = "ER_USERNAME";
+    exports[1469] = "ER_HOSTNAME";
+    exports[1470] = "ER_WRONG_STRING_LENGTH";
+    exports[1471] = "ER_NON_INSERTABLE_TABLE";
+    exports[1472] = "ER_ADMIN_WRONG_MRG_TABLE";
+    exports[1473] = "ER_TOO_HIGH_LEVEL_OF_NESTING_FOR_SELECT";
+    exports[1474] = "ER_NAME_BECOMES_EMPTY";
+    exports[1475] = "ER_AMBIGUOUS_FIELD_TERM";
+    exports[1476] = "ER_FOREIGN_SERVER_EXISTS";
+    exports[1477] = "ER_FOREIGN_SERVER_DOESNT_EXIST";
+    exports[1478] = "ER_ILLEGAL_HA_CREATE_OPTION";
+    exports[1479] = "ER_PARTITION_REQUIRES_VALUES_ERROR";
+    exports[1480] = "ER_PARTITION_WRONG_VALUES_ERROR";
+    exports[1481] = "ER_PARTITION_MAXVALUE_ERROR";
+    exports[1482] = "ER_PARTITION_SUBPARTITION_ERROR";
+    exports[1483] = "ER_PARTITION_SUBPART_MIX_ERROR";
+    exports[1484] = "ER_PARTITION_WRONG_NO_PART_ERROR";
+    exports[1485] = "ER_PARTITION_WRONG_NO_SUBPART_ERROR";
+    exports[1486] = "ER_WRONG_EXPR_IN_PARTITION_FUNC_ERROR";
+    exports[1487] = "ER_NO_CONST_EXPR_IN_RANGE_OR_LIST_ERROR";
+    exports[1488] = "ER_FIELD_NOT_FOUND_PART_ERROR";
+    exports[1489] = "ER_LIST_OF_FIELDS_ONLY_IN_HASH_ERROR";
+    exports[1490] = "ER_INCONSISTENT_PARTITION_INFO_ERROR";
+    exports[1491] = "ER_PARTITION_FUNC_NOT_ALLOWED_ERROR";
+    exports[1492] = "ER_PARTITIONS_MUST_BE_DEFINED_ERROR";
+    exports[1493] = "ER_RANGE_NOT_INCREASING_ERROR";
+    exports[1494] = "ER_INCONSISTENT_TYPE_OF_FUNCTIONS_ERROR";
+    exports[1495] = "ER_MULTIPLE_DEF_CONST_IN_LIST_PART_ERROR";
+    exports[1496] = "ER_PARTITION_ENTRY_ERROR";
+    exports[1497] = "ER_MIX_HANDLER_ERROR";
+    exports[1498] = "ER_PARTITION_NOT_DEFINED_ERROR";
+    exports[1499] = "ER_TOO_MANY_PARTITIONS_ERROR";
+    exports[1500] = "ER_SUBPARTITION_ERROR";
+    exports[1501] = "ER_CANT_CREATE_HANDLER_FILE";
+    exports[1502] = "ER_BLOB_FIELD_IN_PART_FUNC_ERROR";
+    exports[1503] = "ER_UNIQUE_KEY_NEED_ALL_FIELDS_IN_PF";
+    exports[1504] = "ER_NO_PARTS_ERROR";
+    exports[1505] = "ER_PARTITION_MGMT_ON_NONPARTITIONED";
+    exports[1506] = "ER_FOREIGN_KEY_ON_PARTITIONED";
+    exports[1507] = "ER_DROP_PARTITION_NON_EXISTENT";
+    exports[1508] = "ER_DROP_LAST_PARTITION";
+    exports[1509] = "ER_COALESCE_ONLY_ON_HASH_PARTITION";
+    exports[1510] = "ER_REORG_HASH_ONLY_ON_SAME_NO";
+    exports[1511] = "ER_REORG_NO_PARAM_ERROR";
+    exports[1512] = "ER_ONLY_ON_RANGE_LIST_PARTITION";
+    exports[1513] = "ER_ADD_PARTITION_SUBPART_ERROR";
+    exports[1514] = "ER_ADD_PARTITION_NO_NEW_PARTITION";
+    exports[1515] = "ER_COALESCE_PARTITION_NO_PARTITION";
+    exports[1516] = "ER_REORG_PARTITION_NOT_EXIST";
+    exports[1517] = "ER_SAME_NAME_PARTITION";
+    exports[1518] = "ER_NO_BINLOG_ERROR";
+    exports[1519] = "ER_CONSECUTIVE_REORG_PARTITIONS";
+    exports[1520] = "ER_REORG_OUTSIDE_RANGE";
+    exports[1521] = "ER_PARTITION_FUNCTION_FAILURE";
+    exports[1522] = "ER_PART_STATE_ERROR";
+    exports[1523] = "ER_LIMITED_PART_RANGE";
+    exports[1524] = "ER_PLUGIN_IS_NOT_LOADED";
+    exports[1525] = "ER_WRONG_VALUE";
+    exports[1526] = "ER_NO_PARTITION_FOR_GIVEN_VALUE";
+    exports[1527] = "ER_FILEGROUP_OPTION_ONLY_ONCE";
+    exports[1528] = "ER_CREATE_FILEGROUP_FAILED";
+    exports[1529] = "ER_DROP_FILEGROUP_FAILED";
+    exports[1530] = "ER_TABLESPACE_AUTO_EXTEND_ERROR";
+    exports[1531] = "ER_WRONG_SIZE_NUMBER";
+    exports[1532] = "ER_SIZE_OVERFLOW_ERROR";
+    exports[1533] = "ER_ALTER_FILEGROUP_FAILED";
+    exports[1534] = "ER_BINLOG_ROW_LOGGING_FAILED";
+    exports[1535] = "ER_BINLOG_ROW_WRONG_TABLE_DEF";
+    exports[1536] = "ER_BINLOG_ROW_RBR_TO_SBR";
+    exports[1537] = "ER_EVENT_ALREADY_EXISTS";
+    exports[1538] = "ER_EVENT_STORE_FAILED";
+    exports[1539] = "ER_EVENT_DOES_NOT_EXIST";
+    exports[1540] = "ER_EVENT_CANT_ALTER";
+    exports[1541] = "ER_EVENT_DROP_FAILED";
+    exports[1542] = "ER_EVENT_INTERVAL_NOT_POSITIVE_OR_TOO_BIG";
+    exports[1543] = "ER_EVENT_ENDS_BEFORE_STARTS";
+    exports[1544] = "ER_EVENT_EXEC_TIME_IN_THE_PAST";
+    exports[1545] = "ER_EVENT_OPEN_TABLE_FAILED";
+    exports[1546] = "ER_EVENT_NEITHER_M_EXPR_NOR_M_AT";
+    exports[1547] = "ER_COL_COUNT_DOESNT_MATCH_CORRUPTED";
+    exports[1548] = "ER_CANNOT_LOAD_FROM_TABLE";
+    exports[1549] = "ER_EVENT_CANNOT_DELETE";
+    exports[1550] = "ER_EVENT_COMPILE_ERROR";
+    exports[1551] = "ER_EVENT_SAME_NAME";
+    exports[1552] = "ER_EVENT_DATA_TOO_LONG";
+    exports[1553] = "ER_DROP_INDEX_FK";
+    exports[1554] = "ER_WARN_DEPRECATED_SYNTAX_WITH_VER";
+    exports[1555] = "ER_CANT_WRITE_LOCK_LOG_TABLE";
+    exports[1556] = "ER_CANT_LOCK_LOG_TABLE";
+    exports[1557] = "ER_FOREIGN_DUPLICATE_KEY";
+    exports[1558] = "ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE";
+    exports[1559] = "ER_TEMP_TABLE_PREVENTS_SWITCH_OUT_OF_RBR";
+    exports[1560] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_FORMAT";
+    exports[1561] = "ER_NDB_CANT_SWITCH_BINLOG_FORMAT";
+    exports[1562] = "ER_PARTITION_NO_TEMPORARY";
+    exports[1563] = "ER_PARTITION_CONST_DOMAIN_ERROR";
+    exports[1564] = "ER_PARTITION_FUNCTION_IS_NOT_ALLOWED";
+    exports[1565] = "ER_DDL_LOG_ERROR";
+    exports[1566] = "ER_NULL_IN_VALUES_LESS_THAN";
+    exports[1567] = "ER_WRONG_PARTITION_NAME";
+    exports[1568] = "ER_CANT_CHANGE_TX_CHARACTERISTICS";
+    exports[1569] = "ER_DUP_ENTRY_AUTOINCREMENT_CASE";
+    exports[1570] = "ER_EVENT_MODIFY_QUEUE_ERROR";
+    exports[1571] = "ER_EVENT_SET_VAR_ERROR";
+    exports[1572] = "ER_PARTITION_MERGE_ERROR";
+    exports[1573] = "ER_CANT_ACTIVATE_LOG";
+    exports[1574] = "ER_RBR_NOT_AVAILABLE";
+    exports[1575] = "ER_BASE64_DECODE_ERROR";
+    exports[1576] = "ER_EVENT_RECURSION_FORBIDDEN";
+    exports[1577] = "ER_EVENTS_DB_ERROR";
+    exports[1578] = "ER_ONLY_INTEGERS_ALLOWED";
+    exports[1579] = "ER_UNSUPORTED_LOG_ENGINE";
+    exports[1580] = "ER_BAD_LOG_STATEMENT";
+    exports[1581] = "ER_CANT_RENAME_LOG_TABLE";
+    exports[1582] = "ER_WRONG_PARAMCOUNT_TO_NATIVE_FCT";
+    exports[1583] = "ER_WRONG_PARAMETERS_TO_NATIVE_FCT";
+    exports[1584] = "ER_WRONG_PARAMETERS_TO_STORED_FCT";
+    exports[1585] = "ER_NATIVE_FCT_NAME_COLLISION";
+    exports[1586] = "ER_DUP_ENTRY_WITH_KEY_NAME";
+    exports[1587] = "ER_BINLOG_PURGE_EMFILE";
+    exports[1588] = "ER_EVENT_CANNOT_CREATE_IN_THE_PAST";
+    exports[1589] = "ER_EVENT_CANNOT_ALTER_IN_THE_PAST";
+    exports[1590] = "ER_SLAVE_INCIDENT";
+    exports[1591] = "ER_NO_PARTITION_FOR_GIVEN_VALUE_SILENT";
+    exports[1592] = "ER_BINLOG_UNSAFE_STATEMENT";
+    exports[1593] = "ER_BINLOG_FATAL_ERROR";
+    exports[1594] = "ER_SLAVE_RELAY_LOG_READ_FAILURE";
+    exports[1595] = "ER_SLAVE_RELAY_LOG_WRITE_FAILURE";
+    exports[1596] = "ER_SLAVE_CREATE_EVENT_FAILURE";
+    exports[1597] = "ER_SLAVE_MASTER_COM_FAILURE";
+    exports[1598] = "ER_BINLOG_LOGGING_IMPOSSIBLE";
+    exports[1599] = "ER_VIEW_NO_CREATION_CTX";
+    exports[1600] = "ER_VIEW_INVALID_CREATION_CTX";
+    exports[1601] = "ER_SR_INVALID_CREATION_CTX";
+    exports[1602] = "ER_TRG_CORRUPTED_FILE";
+    exports[1603] = "ER_TRG_NO_CREATION_CTX";
+    exports[1604] = "ER_TRG_INVALID_CREATION_CTX";
+    exports[1605] = "ER_EVENT_INVALID_CREATION_CTX";
+    exports[1606] = "ER_TRG_CANT_OPEN_TABLE";
+    exports[1607] = "ER_CANT_CREATE_SROUTINE";
+    exports[1608] = "ER_NEVER_USED";
+    exports[1609] = "ER_NO_FORMAT_DESCRIPTION_EVENT_BEFORE_BINLOG_STATEMENT";
+    exports[1610] = "ER_REPLICA_CORRUPT_EVENT";
+    exports[1611] = "ER_LOAD_DATA_INVALID_COLUMN";
+    exports[1612] = "ER_LOG_PURGE_NO_FILE";
+    exports[1613] = "ER_XA_RBTIMEOUT";
+    exports[1614] = "ER_XA_RBDEADLOCK";
+    exports[1615] = "ER_NEED_REPREPARE";
+    exports[1616] = "ER_DELAYED_NOT_SUPPORTED";
+    exports[1617] = "WARN_NO_CONNECTION_METADATA";
+    exports[1618] = "WARN_OPTION_IGNORED";
+    exports[1619] = "ER_PLUGIN_DELETE_BUILTIN";
+    exports[1620] = "WARN_PLUGIN_BUSY";
+    exports[1621] = "ER_VARIABLE_IS_READONLY";
+    exports[1622] = "ER_WARN_ENGINE_TRANSACTION_ROLLBACK";
+    exports[1623] = "ER_SLAVE_HEARTBEAT_FAILURE";
+    exports[1624] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE";
+    exports[1625] = "ER_NDB_REPLICATION_SCHEMA_ERROR";
+    exports[1626] = "ER_CONFLICT_FN_PARSE_ERROR";
+    exports[1627] = "ER_EXCEPTIONS_WRITE_ERROR";
+    exports[1628] = "ER_TOO_LONG_TABLE_COMMENT";
+    exports[1629] = "ER_TOO_LONG_FIELD_COMMENT";
+    exports[1630] = "ER_FUNC_INEXISTENT_NAME_COLLISION";
+    exports[1631] = "ER_DATABASE_NAME";
+    exports[1632] = "ER_TABLE_NAME";
+    exports[1633] = "ER_PARTITION_NAME";
+    exports[1634] = "ER_SUBPARTITION_NAME";
+    exports[1635] = "ER_TEMPORARY_NAME";
+    exports[1636] = "ER_RENAMED_NAME";
+    exports[1637] = "ER_TOO_MANY_CONCURRENT_TRXS";
+    exports[1638] = "WARN_NON_ASCII_SEPARATOR_NOT_IMPLEMENTED";
+    exports[1639] = "ER_DEBUG_SYNC_TIMEOUT";
+    exports[1640] = "ER_DEBUG_SYNC_HIT_LIMIT";
+    exports[1641] = "ER_DUP_SIGNAL_SET";
+    exports[1642] = "ER_SIGNAL_WARN";
+    exports[1643] = "ER_SIGNAL_NOT_FOUND";
+    exports[1644] = "ER_SIGNAL_EXCEPTION";
+    exports[1645] = "ER_RESIGNAL_WITHOUT_ACTIVE_HANDLER";
+    exports[1646] = "ER_SIGNAL_BAD_CONDITION_TYPE";
+    exports[1647] = "WARN_COND_ITEM_TRUNCATED";
+    exports[1648] = "ER_COND_ITEM_TOO_LONG";
+    exports[1649] = "ER_UNKNOWN_LOCALE";
+    exports[1650] = "ER_REPLICA_IGNORE_SERVER_IDS";
+    exports[1651] = "ER_QUERY_CACHE_DISABLED";
+    exports[1652] = "ER_SAME_NAME_PARTITION_FIELD";
+    exports[1653] = "ER_PARTITION_COLUMN_LIST_ERROR";
+    exports[1654] = "ER_WRONG_TYPE_COLUMN_VALUE_ERROR";
+    exports[1655] = "ER_TOO_MANY_PARTITION_FUNC_FIELDS_ERROR";
+    exports[1656] = "ER_MAXVALUE_IN_VALUES_IN";
+    exports[1657] = "ER_TOO_MANY_VALUES_ERROR";
+    exports[1658] = "ER_ROW_SINGLE_PARTITION_FIELD_ERROR";
+    exports[1659] = "ER_FIELD_TYPE_NOT_ALLOWED_AS_PARTITION_FIELD";
+    exports[1660] = "ER_PARTITION_FIELDS_TOO_LONG";
+    exports[1661] = "ER_BINLOG_ROW_ENGINE_AND_STMT_ENGINE";
+    exports[1662] = "ER_BINLOG_ROW_MODE_AND_STMT_ENGINE";
+    exports[1663] = "ER_BINLOG_UNSAFE_AND_STMT_ENGINE";
+    exports[1664] = "ER_BINLOG_ROW_INJECTION_AND_STMT_ENGINE";
+    exports[1665] = "ER_BINLOG_STMT_MODE_AND_ROW_ENGINE";
+    exports[1666] = "ER_BINLOG_ROW_INJECTION_AND_STMT_MODE";
+    exports[1667] = "ER_BINLOG_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE";
+    exports[1668] = "ER_BINLOG_UNSAFE_LIMIT";
+    exports[1669] = "ER_UNUSED4";
+    exports[1670] = "ER_BINLOG_UNSAFE_SYSTEM_TABLE";
+    exports[1671] = "ER_BINLOG_UNSAFE_AUTOINC_COLUMNS";
+    exports[1672] = "ER_BINLOG_UNSAFE_UDF";
+    exports[1673] = "ER_BINLOG_UNSAFE_SYSTEM_VARIABLE";
+    exports[1674] = "ER_BINLOG_UNSAFE_SYSTEM_FUNCTION";
+    exports[1675] = "ER_BINLOG_UNSAFE_NONTRANS_AFTER_TRANS";
+    exports[1676] = "ER_MESSAGE_AND_STATEMENT";
+    exports[1677] = "ER_SLAVE_CONVERSION_FAILED";
+    exports[1678] = "ER_REPLICA_CANT_CREATE_CONVERSION";
+    exports[1679] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_FORMAT";
+    exports[1680] = "ER_PATH_LENGTH";
+    exports[1681] = "ER_WARN_DEPRECATED_SYNTAX_NO_REPLACEMENT";
+    exports[1682] = "ER_WRONG_NATIVE_TABLE_STRUCTURE";
+    exports[1683] = "ER_WRONG_PERFSCHEMA_USAGE";
+    exports[1684] = "ER_WARN_I_S_SKIPPED_TABLE";
+    exports[1685] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_BINLOG_DIRECT";
+    exports[1686] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_BINLOG_DIRECT";
+    exports[1687] = "ER_SPATIAL_MUST_HAVE_GEOM_COL";
+    exports[1688] = "ER_TOO_LONG_INDEX_COMMENT";
+    exports[1689] = "ER_LOCK_ABORTED";
+    exports[1690] = "ER_DATA_OUT_OF_RANGE";
+    exports[1691] = "ER_WRONG_SPVAR_TYPE_IN_LIMIT";
+    exports[1692] = "ER_BINLOG_UNSAFE_MULTIPLE_ENGINES_AND_SELF_LOGGING_ENGINE";
+    exports[1693] = "ER_BINLOG_UNSAFE_MIXED_STATEMENT";
+    exports[1694] = "ER_INSIDE_TRANSACTION_PREVENTS_SWITCH_SQL_LOG_BIN";
+    exports[1695] = "ER_STORED_FUNCTION_PREVENTS_SWITCH_SQL_LOG_BIN";
+    exports[1696] = "ER_FAILED_READ_FROM_PAR_FILE";
+    exports[1697] = "ER_VALUES_IS_NOT_INT_TYPE_ERROR";
+    exports[1698] = "ER_ACCESS_DENIED_NO_PASSWORD_ERROR";
+    exports[1699] = "ER_SET_PASSWORD_AUTH_PLUGIN";
+    exports[1700] = "ER_GRANT_PLUGIN_USER_EXISTS";
+    exports[1701] = "ER_TRUNCATE_ILLEGAL_FK";
+    exports[1702] = "ER_PLUGIN_IS_PERMANENT";
+    exports[1703] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MIN";
+    exports[1704] = "ER_REPLICA_HEARTBEAT_VALUE_OUT_OF_RANGE_MAX";
+    exports[1705] = "ER_STMT_CACHE_FULL";
+    exports[1706] = "ER_MULTI_UPDATE_KEY_CONFLICT";
+    exports[1707] = "ER_TABLE_NEEDS_REBUILD";
+    exports[1708] = "WARN_OPTION_BELOW_LIMIT";
+    exports[1709] = "ER_INDEX_COLUMN_TOO_LONG";
+    exports[1710] = "ER_ERROR_IN_TRIGGER_BODY";
+    exports[1711] = "ER_ERROR_IN_UNKNOWN_TRIGGER_BODY";
+    exports[1712] = "ER_INDEX_CORRUPT";
+    exports[1713] = "ER_UNDO_RECORD_TOO_BIG";
+    exports[1714] = "ER_BINLOG_UNSAFE_INSERT_IGNORE_SELECT";
+    exports[1715] = "ER_BINLOG_UNSAFE_INSERT_SELECT_UPDATE";
+    exports[1716] = "ER_BINLOG_UNSAFE_REPLACE_SELECT";
+    exports[1717] = "ER_BINLOG_UNSAFE_CREATE_IGNORE_SELECT";
+    exports[1718] = "ER_BINLOG_UNSAFE_CREATE_REPLACE_SELECT";
+    exports[1719] = "ER_BINLOG_UNSAFE_UPDATE_IGNORE";
+    exports[1720] = "ER_PLUGIN_NO_UNINSTALL";
+    exports[1721] = "ER_PLUGIN_NO_INSTALL";
+    exports[1722] = "ER_BINLOG_UNSAFE_WRITE_AUTOINC_SELECT";
+    exports[1723] = "ER_BINLOG_UNSAFE_CREATE_SELECT_AUTOINC";
+    exports[1724] = "ER_BINLOG_UNSAFE_INSERT_TWO_KEYS";
+    exports[1725] = "ER_TABLE_IN_FK_CHECK";
+    exports[1726] = "ER_UNSUPPORTED_ENGINE";
+    exports[1727] = "ER_BINLOG_UNSAFE_AUTOINC_NOT_FIRST";
+    exports[1728] = "ER_CANNOT_LOAD_FROM_TABLE_V2";
+    exports[1729] = "ER_SOURCE_DELAY_VALUE_OUT_OF_RANGE";
+    exports[1730] = "ER_ONLY_FD_AND_RBR_EVENTS_ALLOWED_IN_BINLOG_STATEMENT";
+    exports[1731] = "ER_PARTITION_EXCHANGE_DIFFERENT_OPTION";
+    exports[1732] = "ER_PARTITION_EXCHANGE_PART_TABLE";
+    exports[1733] = "ER_PARTITION_EXCHANGE_TEMP_TABLE";
+    exports[1734] = "ER_PARTITION_INSTEAD_OF_SUBPARTITION";
+    exports[1735] = "ER_UNKNOWN_PARTITION";
+    exports[1736] = "ER_TABLES_DIFFERENT_METADATA";
+    exports[1737] = "ER_ROW_DOES_NOT_MATCH_PARTITION";
+    exports[1738] = "ER_BINLOG_CACHE_SIZE_GREATER_THAN_MAX";
+    exports[1739] = "ER_WARN_INDEX_NOT_APPLICABLE";
+    exports[1740] = "ER_PARTITION_EXCHANGE_FOREIGN_KEY";
+    exports[1741] = "ER_NO_SUCH_KEY_VALUE";
+    exports[1742] = "ER_RPL_INFO_DATA_TOO_LONG";
+    exports[1743] = "ER_NETWORK_READ_EVENT_CHECKSUM_FAILURE";
+    exports[1744] = "ER_BINLOG_READ_EVENT_CHECKSUM_FAILURE";
+    exports[1745] = "ER_BINLOG_STMT_CACHE_SIZE_GREATER_THAN_MAX";
+    exports[1746] = "ER_CANT_UPDATE_TABLE_IN_CREATE_TABLE_SELECT";
+    exports[1747] = "ER_PARTITION_CLAUSE_ON_NONPARTITIONED";
+    exports[1748] = "ER_ROW_DOES_NOT_MATCH_GIVEN_PARTITION_SET";
+    exports[1749] = "ER_NO_SUCH_PARTITION";
+    exports[1750] = "ER_CHANGE_RPL_INFO_REPOSITORY_FAILURE";
+    exports[1751] = "ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_CREATED_TEMP_TABLE";
+    exports[1752] = "ER_WARNING_NOT_COMPLETE_ROLLBACK_WITH_DROPPED_TEMP_TABLE";
+    exports[1753] = "ER_MTA_FEATURE_IS_NOT_SUPPORTED";
+    exports[1754] = "ER_MTA_UPDATED_DBS_GREATER_MAX";
+    exports[1755] = "ER_MTA_CANT_PARALLEL";
+    exports[1756] = "ER_MTA_INCONSISTENT_DATA";
+    exports[1757] = "ER_FULLTEXT_NOT_SUPPORTED_WITH_PARTITIONING";
+    exports[1758] = "ER_DA_INVALID_CONDITION_NUMBER";
+    exports[1759] = "ER_INSECURE_PLAIN_TEXT";
+    exports[1760] = "ER_INSECURE_CHANGE_SOURCE";
+    exports[1761] = "ER_FOREIGN_DUPLICATE_KEY_WITH_CHILD_INFO";
+    exports[1762] = "ER_FOREIGN_DUPLICATE_KEY_WITHOUT_CHILD_INFO";
+    exports[1763] = "ER_SQLTHREAD_WITH_SECURE_REPLICA";
+    exports[1764] = "ER_TABLE_HAS_NO_FT";
+    exports[1765] = "ER_VARIABLE_NOT_SETTABLE_IN_SF_OR_TRIGGER";
+    exports[1766] = "ER_VARIABLE_NOT_SETTABLE_IN_TRANSACTION";
+    exports[1767] = "ER_GTID_NEXT_IS_NOT_IN_GTID_NEXT_LIST";
+    exports[1768] = "ER_CANT_CHANGE_GTID_NEXT_IN_TRANSACTION";
+    exports[1769] = "ER_SET_STATEMENT_CANNOT_INVOKE_FUNCTION";
+    exports[1770] = "ER_GTID_NEXT_CANT_BE_AUTOMATIC_IF_GTID_NEXT_LIST_IS_NON_NULL";
+    exports[1771] = "ER_SKIPPING_LOGGED_TRANSACTION";
+    exports[1772] = "ER_MALFORMED_GTID_SET_SPECIFICATION";
+    exports[1773] = "ER_MALFORMED_GTID_SET_ENCODING";
+    exports[1774] = "ER_MALFORMED_GTID_SPECIFICATION";
+    exports[1775] = "ER_GNO_EXHAUSTED";
+    exports[1776] = "ER_BAD_REPLICA_AUTO_POSITION";
+    exports[1777] = "ER_AUTO_POSITION_REQUIRES_GTID_MODE_NOT_OFF";
+    exports[1778] = "ER_CANT_DO_IMPLICIT_COMMIT_IN_TRX_WHEN_GTID_NEXT_IS_SET";
+    exports[1779] = "ER_GTID_MODE_ON_REQUIRES_ENFORCE_GTID_CONSISTENCY_ON";
+    exports[1780] = "ER_GTID_MODE_REQUIRES_BINLOG";
+    exports[1781] = "ER_CANT_SET_GTID_NEXT_TO_GTID_WHEN_GTID_MODE_IS_OFF";
+    exports[1782] = "ER_CANT_SET_GTID_NEXT_TO_ANONYMOUS_WHEN_GTID_MODE_IS_ON";
+    exports[1783] = "ER_CANT_SET_GTID_NEXT_LIST_TO_NON_NULL_WHEN_GTID_MODE_IS_OFF";
+    exports[1784] = "ER_FOUND_GTID_EVENT_WHEN_GTID_MODE_IS_OFF";
+    exports[1785] = "ER_GTID_UNSAFE_NON_TRANSACTIONAL_TABLE";
+    exports[1786] = "ER_GTID_UNSAFE_CREATE_SELECT";
+    exports[1787] = "ER_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRANSACTION";
+    exports[1788] = "ER_GTID_MODE_CAN_ONLY_CHANGE_ONE_STEP_AT_A_TIME";
+    exports[1789] = "ER_SOURCE_HAS_PURGED_REQUIRED_GTIDS";
+    exports[1790] = "ER_CANT_SET_GTID_NEXT_WHEN_OWNING_GTID";
+    exports[1791] = "ER_UNKNOWN_EXPLAIN_FORMAT";
+    exports[1792] = "ER_CANT_EXECUTE_IN_READ_ONLY_TRANSACTION";
+    exports[1793] = "ER_TOO_LONG_TABLE_PARTITION_COMMENT";
+    exports[1794] = "ER_REPLICA_CONFIGURATION";
+    exports[1795] = "ER_INNODB_FT_LIMIT";
+    exports[1796] = "ER_INNODB_NO_FT_TEMP_TABLE";
+    exports[1797] = "ER_INNODB_FT_WRONG_DOCID_COLUMN";
+    exports[1798] = "ER_INNODB_FT_WRONG_DOCID_INDEX";
+    exports[1799] = "ER_INNODB_ONLINE_LOG_TOO_BIG";
+    exports[1800] = "ER_UNKNOWN_ALTER_ALGORITHM";
+    exports[1801] = "ER_UNKNOWN_ALTER_LOCK";
+    exports[1802] = "ER_MTA_CHANGE_SOURCE_CANT_RUN_WITH_GAPS";
+    exports[1803] = "ER_MTA_RECOVERY_FAILURE";
+    exports[1804] = "ER_MTA_RESET_WORKERS";
+    exports[1805] = "ER_COL_COUNT_DOESNT_MATCH_CORRUPTED_V2";
+    exports[1806] = "ER_REPLICA_SILENT_RETRY_TRANSACTION";
+    exports[1807] = "ER_DISCARD_FK_CHECKS_RUNNING";
+    exports[1808] = "ER_TABLE_SCHEMA_MISMATCH";
+    exports[1809] = "ER_TABLE_IN_SYSTEM_TABLESPACE";
+    exports[1810] = "ER_IO_READ_ERROR";
+    exports[1811] = "ER_IO_WRITE_ERROR";
+    exports[1812] = "ER_TABLESPACE_MISSING";
+    exports[1813] = "ER_TABLESPACE_EXISTS";
+    exports[1814] = "ER_TABLESPACE_DISCARDED";
+    exports[1815] = "ER_INTERNAL_ERROR";
+    exports[1816] = "ER_INNODB_IMPORT_ERROR";
+    exports[1817] = "ER_INNODB_INDEX_CORRUPT";
+    exports[1818] = "ER_INVALID_YEAR_COLUMN_LENGTH";
+    exports[1819] = "ER_NOT_VALID_PASSWORD";
+    exports[1820] = "ER_MUST_CHANGE_PASSWORD";
+    exports[1821] = "ER_FK_NO_INDEX_CHILD";
+    exports[1822] = "ER_FK_NO_INDEX_PARENT";
+    exports[1823] = "ER_FK_FAIL_ADD_SYSTEM";
+    exports[1824] = "ER_FK_CANNOT_OPEN_PARENT";
+    exports[1825] = "ER_FK_INCORRECT_OPTION";
+    exports[1826] = "ER_FK_DUP_NAME";
+    exports[1827] = "ER_PASSWORD_FORMAT";
+    exports[1828] = "ER_FK_COLUMN_CANNOT_DROP";
+    exports[1829] = "ER_FK_COLUMN_CANNOT_DROP_CHILD";
+    exports[1830] = "ER_FK_COLUMN_NOT_NULL";
+    exports[1831] = "ER_DUP_INDEX";
+    exports[1832] = "ER_FK_COLUMN_CANNOT_CHANGE";
+    exports[1833] = "ER_FK_COLUMN_CANNOT_CHANGE_CHILD";
+    exports[1834] = "ER_UNUSED5";
+    exports[1835] = "ER_MALFORMED_PACKET";
+    exports[1836] = "ER_READ_ONLY_MODE";
+    exports[1837] = "ER_GTID_NEXT_TYPE_UNDEFINED_GTID";
+    exports[1838] = "ER_VARIABLE_NOT_SETTABLE_IN_SP";
+    exports[1839] = "ER_CANT_SET_GTID_PURGED_WHEN_GTID_MODE_IS_OFF";
+    exports[1840] = "ER_CANT_SET_GTID_PURGED_WHEN_GTID_EXECUTED_IS_NOT_EMPTY";
+    exports[1841] = "ER_CANT_SET_GTID_PURGED_WHEN_OWNED_GTIDS_IS_NOT_EMPTY";
+    exports[1842] = "ER_GTID_PURGED_WAS_CHANGED";
+    exports[1843] = "ER_GTID_EXECUTED_WAS_CHANGED";
+    exports[1844] = "ER_BINLOG_STMT_MODE_AND_NO_REPL_TABLES";
+    exports[1845] = "ER_ALTER_OPERATION_NOT_SUPPORTED";
+    exports[1846] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON";
+    exports[1847] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COPY";
+    exports[1848] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_PARTITION";
+    exports[1849] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_RENAME";
+    exports[1850] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE";
+    exports[1851] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FK_CHECK";
+    exports[1852] = "ER_UNUSED6";
+    exports[1853] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOPK";
+    exports[1854] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_AUTOINC";
+    exports[1855] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_HIDDEN_FTS";
+    exports[1856] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_CHANGE_FTS";
+    exports[1857] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_FTS";
+    exports[1858] = "ER_SQL_REPLICA_SKIP_COUNTER_NOT_SETTABLE_IN_GTID_MODE";
+    exports[1859] = "ER_DUP_UNKNOWN_IN_INDEX";
+    exports[1860] = "ER_IDENT_CAUSES_TOO_LONG_PATH";
+    exports[1861] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_NOT_NULL";
+    exports[1862] = "ER_MUST_CHANGE_PASSWORD_LOGIN";
+    exports[1863] = "ER_ROW_IN_WRONG_PARTITION";
+    exports[1864] = "ER_MTA_EVENT_BIGGER_PENDING_JOBS_SIZE_MAX";
+    exports[1865] = "ER_INNODB_NO_FT_USES_PARSER";
+    exports[1866] = "ER_BINLOG_LOGICAL_CORRUPTION";
+    exports[1867] = "ER_WARN_PURGE_LOG_IN_USE";
+    exports[1868] = "ER_WARN_PURGE_LOG_IS_ACTIVE";
+    exports[1869] = "ER_AUTO_INCREMENT_CONFLICT";
+    exports[1870] = "WARN_ON_BLOCKHOLE_IN_RBR";
+    exports[1871] = "ER_REPLICA_CM_INIT_REPOSITORY";
+    exports[1872] = "ER_REPLICA_AM_INIT_REPOSITORY";
+    exports[1873] = "ER_ACCESS_DENIED_CHANGE_USER_ERROR";
+    exports[1874] = "ER_INNODB_READ_ONLY";
+    exports[1875] = "ER_STOP_REPLICA_SQL_THREAD_TIMEOUT";
+    exports[1876] = "ER_STOP_REPLICA_IO_THREAD_TIMEOUT";
+    exports[1877] = "ER_TABLE_CORRUPT";
+    exports[1878] = "ER_TEMP_FILE_WRITE_FAILURE";
+    exports[1879] = "ER_INNODB_FT_AUX_NOT_HEX_ID";
+    exports[1880] = "ER_OLD_TEMPORALS_UPGRADED";
+    exports[1881] = "ER_INNODB_FORCED_RECOVERY";
+    exports[1882] = "ER_AES_INVALID_IV";
+    exports[1883] = "ER_PLUGIN_CANNOT_BE_UNINSTALLED";
+    exports[1884] = "ER_GTID_UNSAFE_BINLOG_SPLITTABLE_STATEMENT_AND_ASSIGNED_GTID";
+    exports[1885] = "ER_REPLICA_HAS_MORE_GTIDS_THAN_SOURCE";
+    exports[1886] = "ER_MISSING_KEY";
+    exports[1887] = "WARN_NAMED_PIPE_ACCESS_EVERYONE";
+    exports[3e3] = "ER_FILE_CORRUPT";
+    exports[3001] = "ER_ERROR_ON_SOURCE";
+    exports[3002] = "ER_INCONSISTENT_ERROR";
+    exports[3003] = "ER_STORAGE_ENGINE_NOT_LOADED";
+    exports[3004] = "ER_GET_STACKED_DA_WITHOUT_ACTIVE_HANDLER";
+    exports[3005] = "ER_WARN_LEGACY_SYNTAX_CONVERTED";
+    exports[3006] = "ER_BINLOG_UNSAFE_FULLTEXT_PLUGIN";
+    exports[3007] = "ER_CANNOT_DISCARD_TEMPORARY_TABLE";
+    exports[3008] = "ER_FK_DEPTH_EXCEEDED";
+    exports[3009] = "ER_COL_COUNT_DOESNT_MATCH_PLEASE_UPDATE_V2";
+    exports[3010] = "ER_WARN_TRIGGER_DOESNT_HAVE_CREATED";
+    exports[3011] = "ER_REFERENCED_TRG_DOES_NOT_EXIST";
+    exports[3012] = "ER_EXPLAIN_NOT_SUPPORTED";
+    exports[3013] = "ER_INVALID_FIELD_SIZE";
+    exports[3014] = "ER_MISSING_HA_CREATE_OPTION";
+    exports[3015] = "ER_ENGINE_OUT_OF_MEMORY";
+    exports[3016] = "ER_PASSWORD_EXPIRE_ANONYMOUS_USER";
+    exports[3017] = "ER_REPLICA_SQL_THREAD_MUST_STOP";
+    exports[3018] = "ER_NO_FT_MATERIALIZED_SUBQUERY";
+    exports[3019] = "ER_INNODB_UNDO_LOG_FULL";
+    exports[3020] = "ER_INVALID_ARGUMENT_FOR_LOGARITHM";
+    exports[3021] = "ER_REPLICA_CHANNEL_IO_THREAD_MUST_STOP";
+    exports[3022] = "ER_WARN_OPEN_TEMP_TABLES_MUST_BE_ZERO";
+    exports[3023] = "ER_WARN_ONLY_SOURCE_LOG_FILE_NO_POS";
+    exports[3024] = "ER_QUERY_TIMEOUT";
+    exports[3025] = "ER_NON_RO_SELECT_DISABLE_TIMER";
+    exports[3026] = "ER_DUP_LIST_ENTRY";
+    exports[3027] = "ER_SQL_MODE_NO_EFFECT";
+    exports[3028] = "ER_AGGREGATE_ORDER_FOR_UNION";
+    exports[3029] = "ER_AGGREGATE_ORDER_NON_AGG_QUERY";
+    exports[3030] = "ER_REPLICA_WORKER_STOPPED_PREVIOUS_THD_ERROR";
+    exports[3031] = "ER_DONT_SUPPORT_REPLICA_PRESERVE_COMMIT_ORDER";
+    exports[3032] = "ER_SERVER_OFFLINE_MODE";
+    exports[3033] = "ER_GIS_DIFFERENT_SRIDS";
+    exports[3034] = "ER_GIS_UNSUPPORTED_ARGUMENT";
+    exports[3035] = "ER_GIS_UNKNOWN_ERROR";
+    exports[3036] = "ER_GIS_UNKNOWN_EXCEPTION";
+    exports[3037] = "ER_GIS_INVALID_DATA";
+    exports[3038] = "ER_BOOST_GEOMETRY_EMPTY_INPUT_EXCEPTION";
+    exports[3039] = "ER_BOOST_GEOMETRY_CENTROID_EXCEPTION";
+    exports[3040] = "ER_BOOST_GEOMETRY_OVERLAY_INVALID_INPUT_EXCEPTION";
+    exports[3041] = "ER_BOOST_GEOMETRY_TURN_INFO_EXCEPTION";
+    exports[3042] = "ER_BOOST_GEOMETRY_SELF_INTERSECTION_POINT_EXCEPTION";
+    exports[3043] = "ER_BOOST_GEOMETRY_UNKNOWN_EXCEPTION";
+    exports[3044] = "ER_STD_BAD_ALLOC_ERROR";
+    exports[3045] = "ER_STD_DOMAIN_ERROR";
+    exports[3046] = "ER_STD_LENGTH_ERROR";
+    exports[3047] = "ER_STD_INVALID_ARGUMENT";
+    exports[3048] = "ER_STD_OUT_OF_RANGE_ERROR";
+    exports[3049] = "ER_STD_OVERFLOW_ERROR";
+    exports[3050] = "ER_STD_RANGE_ERROR";
+    exports[3051] = "ER_STD_UNDERFLOW_ERROR";
+    exports[3052] = "ER_STD_LOGIC_ERROR";
+    exports[3053] = "ER_STD_RUNTIME_ERROR";
+    exports[3054] = "ER_STD_UNKNOWN_EXCEPTION";
+    exports[3055] = "ER_GIS_DATA_WRONG_ENDIANESS";
+    exports[3056] = "ER_CHANGE_SOURCE_PASSWORD_LENGTH";
+    exports[3057] = "ER_USER_LOCK_WRONG_NAME";
+    exports[3058] = "ER_USER_LOCK_DEADLOCK";
+    exports[3059] = "ER_REPLACE_INACCESSIBLE_ROWS";
+    exports[3060] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_GIS";
+    exports[3061] = "ER_ILLEGAL_USER_VAR";
+    exports[3062] = "ER_GTID_MODE_OFF";
+    exports[3063] = "ER_UNSUPPORTED_BY_REPLICATION_THREAD";
+    exports[3064] = "ER_INCORRECT_TYPE";
+    exports[3065] = "ER_FIELD_IN_ORDER_NOT_SELECT";
+    exports[3066] = "ER_AGGREGATE_IN_ORDER_NOT_SELECT";
+    exports[3067] = "ER_INVALID_RPL_WILD_TABLE_FILTER_PATTERN";
+    exports[3068] = "ER_NET_OK_PACKET_TOO_LARGE";
+    exports[3069] = "ER_INVALID_JSON_DATA";
+    exports[3070] = "ER_INVALID_GEOJSON_MISSING_MEMBER";
+    exports[3071] = "ER_INVALID_GEOJSON_WRONG_TYPE";
+    exports[3072] = "ER_INVALID_GEOJSON_UNSPECIFIED";
+    exports[3073] = "ER_DIMENSION_UNSUPPORTED";
+    exports[3074] = "ER_REPLICA_CHANNEL_DOES_NOT_EXIST";
+    exports[3075] = "ER_SLAVE_MULTIPLE_CHANNELS_HOST_PORT";
+    exports[3076] = "ER_REPLICA_CHANNEL_NAME_INVALID_OR_TOO_LONG";
+    exports[3077] = "ER_REPLICA_NEW_CHANNEL_WRONG_REPOSITORY";
+    exports[3078] = "ER_SLAVE_CHANNEL_DELETE";
+    exports[3079] = "ER_REPLICA_MULTIPLE_CHANNELS_CMD";
+    exports[3080] = "ER_REPLICA_MAX_CHANNELS_EXCEEDED";
+    exports[3081] = "ER_REPLICA_CHANNEL_MUST_STOP";
+    exports[3082] = "ER_REPLICA_CHANNEL_NOT_RUNNING";
+    exports[3083] = "ER_REPLICA_CHANNEL_WAS_RUNNING";
+    exports[3084] = "ER_REPLICA_CHANNEL_WAS_NOT_RUNNING";
+    exports[3085] = "ER_REPLICA_CHANNEL_SQL_THREAD_MUST_STOP";
+    exports[3086] = "ER_REPLICA_CHANNEL_SQL_SKIP_COUNTER";
+    exports[3087] = "ER_WRONG_FIELD_WITH_GROUP_V2";
+    exports[3088] = "ER_MIX_OF_GROUP_FUNC_AND_FIELDS_V2";
+    exports[3089] = "ER_WARN_DEPRECATED_SYSVAR_UPDATE";
+    exports[3090] = "ER_WARN_DEPRECATED_SQLMODE";
+    exports[3091] = "ER_CANNOT_LOG_PARTIAL_DROP_DATABASE_WITH_GTID";
+    exports[3092] = "ER_GROUP_REPLICATION_CONFIGURATION";
+    exports[3093] = "ER_GROUP_REPLICATION_RUNNING";
+    exports[3094] = "ER_GROUP_REPLICATION_APPLIER_INIT_ERROR";
+    exports[3095] = "ER_GROUP_REPLICATION_STOP_APPLIER_THREAD_TIMEOUT";
+    exports[3096] = "ER_GROUP_REPLICATION_COMMUNICATION_LAYER_SESSION_ERROR";
+    exports[3097] = "ER_GROUP_REPLICATION_COMMUNICATION_LAYER_JOIN_ERROR";
+    exports[3098] = "ER_BEFORE_DML_VALIDATION_ERROR";
+    exports[3099] = "ER_PREVENTS_VARIABLE_WITHOUT_RBR";
+    exports[3100] = "ER_RUN_HOOK_ERROR";
+    exports[3101] = "ER_TRANSACTION_ROLLBACK_DURING_COMMIT";
+    exports[3102] = "ER_GENERATED_COLUMN_FUNCTION_IS_NOT_ALLOWED";
+    exports[3103] = "ER_UNSUPPORTED_ALTER_INPLACE_ON_VIRTUAL_COLUMN";
+    exports[3104] = "ER_WRONG_FK_OPTION_FOR_GENERATED_COLUMN";
+    exports[3105] = "ER_NON_DEFAULT_VALUE_FOR_GENERATED_COLUMN";
+    exports[3106] = "ER_UNSUPPORTED_ACTION_ON_GENERATED_COLUMN";
+    exports[3107] = "ER_GENERATED_COLUMN_NON_PRIOR";
+    exports[3108] = "ER_DEPENDENT_BY_GENERATED_COLUMN";
+    exports[3109] = "ER_GENERATED_COLUMN_REF_AUTO_INC";
+    exports[3110] = "ER_FEATURE_NOT_AVAILABLE";
+    exports[3111] = "ER_CANT_SET_GTID_MODE";
+    exports[3112] = "ER_CANT_USE_AUTO_POSITION_WITH_GTID_MODE_OFF";
+    exports[3113] = "ER_CANT_REPLICATE_ANONYMOUS_WITH_AUTO_POSITION";
+    exports[3114] = "ER_CANT_REPLICATE_ANONYMOUS_WITH_GTID_MODE_ON";
+    exports[3115] = "ER_CANT_REPLICATE_GTID_WITH_GTID_MODE_OFF";
+    exports[3116] = "ER_CANT_ENFORCE_GTID_CONSISTENCY_WITH_ONGOING_GTID_VIOLATING_TX";
+    exports[3117] = "ER_ENFORCE_GTID_CONSISTENCY_WARN_WITH_ONGOING_GTID_VIOLATING_TX";
+    exports[3118] = "ER_ACCOUNT_HAS_BEEN_LOCKED";
+    exports[3119] = "ER_WRONG_TABLESPACE_NAME";
+    exports[3120] = "ER_TABLESPACE_IS_NOT_EMPTY";
+    exports[3121] = "ER_WRONG_FILE_NAME";
+    exports[3122] = "ER_BOOST_GEOMETRY_INCONSISTENT_TURNS_EXCEPTION";
+    exports[3123] = "ER_WARN_OPTIMIZER_HINT_SYNTAX_ERROR";
+    exports[3124] = "ER_WARN_BAD_MAX_EXECUTION_TIME";
+    exports[3125] = "ER_WARN_UNSUPPORTED_MAX_EXECUTION_TIME";
+    exports[3126] = "ER_WARN_CONFLICTING_HINT";
+    exports[3127] = "ER_WARN_UNKNOWN_QB_NAME";
+    exports[3128] = "ER_UNRESOLVED_HINT_NAME";
+    exports[3129] = "ER_WARN_ON_MODIFYING_GTID_EXECUTED_TABLE";
+    exports[3130] = "ER_PLUGGABLE_PROTOCOL_COMMAND_NOT_SUPPORTED";
+    exports[3131] = "ER_LOCKING_SERVICE_WRONG_NAME";
+    exports[3132] = "ER_LOCKING_SERVICE_DEADLOCK";
+    exports[3133] = "ER_LOCKING_SERVICE_TIMEOUT";
+    exports[3134] = "ER_GIS_MAX_POINTS_IN_GEOMETRY_OVERFLOWED";
+    exports[3135] = "ER_SQL_MODE_MERGED";
+    exports[3136] = "ER_VTOKEN_PLUGIN_TOKEN_MISMATCH";
+    exports[3137] = "ER_VTOKEN_PLUGIN_TOKEN_NOT_FOUND";
+    exports[3138] = "ER_CANT_SET_VARIABLE_WHEN_OWNING_GTID";
+    exports[3139] = "ER_REPLICA_CHANNEL_OPERATION_NOT_ALLOWED";
+    exports[3140] = "ER_INVALID_JSON_TEXT";
+    exports[3141] = "ER_INVALID_JSON_TEXT_IN_PARAM";
+    exports[3142] = "ER_INVALID_JSON_BINARY_DATA";
+    exports[3143] = "ER_INVALID_JSON_PATH";
+    exports[3144] = "ER_INVALID_JSON_CHARSET";
+    exports[3145] = "ER_INVALID_JSON_CHARSET_IN_FUNCTION";
+    exports[3146] = "ER_INVALID_TYPE_FOR_JSON";
+    exports[3147] = "ER_INVALID_CAST_TO_JSON";
+    exports[3148] = "ER_INVALID_JSON_PATH_CHARSET";
+    exports[3149] = "ER_INVALID_JSON_PATH_WILDCARD";
+    exports[3150] = "ER_JSON_VALUE_TOO_BIG";
+    exports[3151] = "ER_JSON_KEY_TOO_BIG";
+    exports[3152] = "ER_JSON_USED_AS_KEY";
+    exports[3153] = "ER_JSON_VACUOUS_PATH";
+    exports[3154] = "ER_JSON_BAD_ONE_OR_ALL_ARG";
+    exports[3155] = "ER_NUMERIC_JSON_VALUE_OUT_OF_RANGE";
+    exports[3156] = "ER_INVALID_JSON_VALUE_FOR_CAST";
+    exports[3157] = "ER_JSON_DOCUMENT_TOO_DEEP";
+    exports[3158] = "ER_JSON_DOCUMENT_NULL_KEY";
+    exports[3159] = "ER_SECURE_TRANSPORT_REQUIRED";
+    exports[3160] = "ER_NO_SECURE_TRANSPORTS_CONFIGURED";
+    exports[3161] = "ER_DISABLED_STORAGE_ENGINE";
+    exports[3162] = "ER_USER_DOES_NOT_EXIST";
+    exports[3163] = "ER_USER_ALREADY_EXISTS";
+    exports[3164] = "ER_AUDIT_API_ABORT";
+    exports[3165] = "ER_INVALID_JSON_PATH_ARRAY_CELL";
+    exports[3166] = "ER_BUFPOOL_RESIZE_INPROGRESS";
+    exports[3167] = "ER_FEATURE_DISABLED_SEE_DOC";
+    exports[3168] = "ER_SERVER_ISNT_AVAILABLE";
+    exports[3169] = "ER_SESSION_WAS_KILLED";
+    exports[3170] = "ER_CAPACITY_EXCEEDED";
+    exports[3171] = "ER_CAPACITY_EXCEEDED_IN_RANGE_OPTIMIZER";
+    exports[3172] = "ER_TABLE_NEEDS_UPG_PART";
+    exports[3173] = "ER_CANT_WAIT_FOR_EXECUTED_GTID_SET_WHILE_OWNING_A_GTID";
+    exports[3174] = "ER_CANNOT_ADD_FOREIGN_BASE_COL_VIRTUAL";
+    exports[3175] = "ER_CANNOT_CREATE_VIRTUAL_INDEX_CONSTRAINT";
+    exports[3176] = "ER_ERROR_ON_MODIFYING_GTID_EXECUTED_TABLE";
+    exports[3177] = "ER_LOCK_REFUSED_BY_ENGINE";
+    exports[3178] = "ER_UNSUPPORTED_ALTER_ONLINE_ON_VIRTUAL_COLUMN";
+    exports[3179] = "ER_MASTER_KEY_ROTATION_NOT_SUPPORTED_BY_SE";
+    exports[3180] = "ER_MASTER_KEY_ROTATION_ERROR_BY_SE";
+    exports[3181] = "ER_MASTER_KEY_ROTATION_BINLOG_FAILED";
+    exports[3182] = "ER_MASTER_KEY_ROTATION_SE_UNAVAILABLE";
+    exports[3183] = "ER_TABLESPACE_CANNOT_ENCRYPT";
+    exports[3184] = "ER_INVALID_ENCRYPTION_OPTION";
+    exports[3185] = "ER_CANNOT_FIND_KEY_IN_KEYRING";
+    exports[3186] = "ER_CAPACITY_EXCEEDED_IN_PARSER";
+    exports[3187] = "ER_UNSUPPORTED_ALTER_ENCRYPTION_INPLACE";
+    exports[3188] = "ER_KEYRING_UDF_KEYRING_SERVICE_ERROR";
+    exports[3189] = "ER_USER_COLUMN_OLD_LENGTH";
+    exports[3190] = "ER_CANT_RESET_SOURCE";
+    exports[3191] = "ER_GROUP_REPLICATION_MAX_GROUP_SIZE";
+    exports[3192] = "ER_CANNOT_ADD_FOREIGN_BASE_COL_STORED";
+    exports[3193] = "ER_TABLE_REFERENCED";
+    exports[3194] = "ER_PARTITION_ENGINE_DEPRECATED_FOR_TABLE";
+    exports[3195] = "ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID_ZERO";
+    exports[3196] = "ER_WARN_USING_GEOMFROMWKB_TO_SET_SRID";
+    exports[3197] = "ER_XA_RETRY";
+    exports[3198] = "ER_KEYRING_AWS_UDF_AWS_KMS_ERROR";
+    exports[3199] = "ER_BINLOG_UNSAFE_XA";
+    exports[3200] = "ER_UDF_ERROR";
+    exports[3201] = "ER_KEYRING_MIGRATION_FAILURE";
+    exports[3202] = "ER_KEYRING_ACCESS_DENIED_ERROR";
+    exports[3203] = "ER_KEYRING_MIGRATION_STATUS";
+    exports[3204] = "ER_PLUGIN_FAILED_TO_OPEN_TABLES";
+    exports[3205] = "ER_PLUGIN_FAILED_TO_OPEN_TABLE";
+    exports[3206] = "ER_AUDIT_LOG_NO_KEYRING_PLUGIN_INSTALLED";
+    exports[3207] = "ER_AUDIT_LOG_ENCRYPTION_PASSWORD_HAS_NOT_BEEN_SET";
+    exports[3208] = "ER_AUDIT_LOG_COULD_NOT_CREATE_AES_KEY";
+    exports[3209] = "ER_AUDIT_LOG_ENCRYPTION_PASSWORD_CANNOT_BE_FETCHED";
+    exports[3210] = "ER_AUDIT_LOG_JSON_FILTERING_NOT_ENABLED";
+    exports[3211] = "ER_AUDIT_LOG_UDF_INSUFFICIENT_PRIVILEGE";
+    exports[3212] = "ER_AUDIT_LOG_SUPER_PRIVILEGE_REQUIRED";
+    exports[3213] = "ER_COULD_NOT_REINITIALIZE_AUDIT_LOG_FILTERS";
+    exports[3214] = "ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_TYPE";
+    exports[3215] = "ER_AUDIT_LOG_UDF_INVALID_ARGUMENT_COUNT";
+    exports[3216] = "ER_AUDIT_LOG_HAS_NOT_BEEN_INSTALLED";
+    exports[3217] = "ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_TYPE";
+    exports[3218] = "ER_AUDIT_LOG_UDF_READ_INVALID_MAX_ARRAY_LENGTH_ARG_VALUE";
+    exports[3219] = "ER_AUDIT_LOG_JSON_FILTER_PARSING_ERROR";
+    exports[3220] = "ER_AUDIT_LOG_JSON_FILTER_NAME_CANNOT_BE_EMPTY";
+    exports[3221] = "ER_AUDIT_LOG_JSON_USER_NAME_CANNOT_BE_EMPTY";
+    exports[3222] = "ER_AUDIT_LOG_JSON_FILTER_DOES_NOT_EXISTS";
+    exports[3223] = "ER_AUDIT_LOG_USER_FIRST_CHARACTER_MUST_BE_ALPHANUMERIC";
+    exports[3224] = "ER_AUDIT_LOG_USER_NAME_INVALID_CHARACTER";
+    exports[3225] = "ER_AUDIT_LOG_HOST_NAME_INVALID_CHARACTER";
+    exports[3226] = "WARN_DEPRECATED_MAXDB_SQL_MODE_FOR_TIMESTAMP";
+    exports[3227] = "ER_XA_REPLICATION_FILTERS";
+    exports[3228] = "ER_CANT_OPEN_ERROR_LOG";
+    exports[3229] = "ER_GROUPING_ON_TIMESTAMP_IN_DST";
+    exports[3230] = "ER_CANT_START_SERVER_NAMED_PIPE";
+    exports[3231] = "ER_WRITE_SET_EXCEEDS_LIMIT";
+    exports[3232] = "ER_DEPRECATED_TLS_VERSION_SESSION_57";
+    exports[3233] = "ER_WARN_DEPRECATED_TLS_VERSION_57";
+    exports[3234] = "ER_WARN_WRONG_NATIVE_TABLE_STRUCTURE";
+    exports[3235] = "ER_AES_INVALID_KDF_NAME";
+    exports[3236] = "ER_AES_INVALID_KDF_ITERATIONS";
+    exports[3237] = "WARN_AES_KEY_SIZE";
+    exports[3238] = "ER_AES_INVALID_KDF_OPTION_SIZE";
+    exports[3500] = "ER_UNSUPPORT_COMPRESSED_TEMPORARY_TABLE";
+    exports[3501] = "ER_ACL_OPERATION_FAILED";
+    exports[3502] = "ER_UNSUPPORTED_INDEX_ALGORITHM";
+    exports[3503] = "ER_NO_SUCH_DB";
+    exports[3504] = "ER_TOO_BIG_ENUM";
+    exports[3505] = "ER_TOO_LONG_SET_ENUM_VALUE";
+    exports[3506] = "ER_INVALID_DD_OBJECT";
+    exports[3507] = "ER_UPDATING_DD_TABLE";
+    exports[3508] = "ER_INVALID_DD_OBJECT_ID";
+    exports[3509] = "ER_INVALID_DD_OBJECT_NAME";
+    exports[3510] = "ER_TABLESPACE_MISSING_WITH_NAME";
+    exports[3511] = "ER_TOO_LONG_ROUTINE_COMMENT";
+    exports[3512] = "ER_SP_LOAD_FAILED";
+    exports[3513] = "ER_INVALID_BITWISE_OPERANDS_SIZE";
+    exports[3514] = "ER_INVALID_BITWISE_AGGREGATE_OPERANDS_SIZE";
+    exports[3515] = "ER_WARN_UNSUPPORTED_HINT";
+    exports[3516] = "ER_UNEXPECTED_GEOMETRY_TYPE";
+    exports[3517] = "ER_SRS_PARSE_ERROR";
+    exports[3518] = "ER_SRS_PROJ_PARAMETER_MISSING";
+    exports[3519] = "ER_WARN_SRS_NOT_FOUND";
+    exports[3520] = "ER_SRS_NOT_CARTESIAN";
+    exports[3521] = "ER_SRS_NOT_CARTESIAN_UNDEFINED";
+    exports[3522] = "ER_PK_INDEX_CANT_BE_INVISIBLE";
+    exports[3523] = "ER_UNKNOWN_AUTHID";
+    exports[3524] = "ER_FAILED_ROLE_GRANT";
+    exports[3525] = "ER_OPEN_ROLE_TABLES";
+    exports[3526] = "ER_FAILED_DEFAULT_ROLES";
+    exports[3527] = "ER_COMPONENTS_NO_SCHEME";
+    exports[3528] = "ER_COMPONENTS_NO_SCHEME_SERVICE";
+    exports[3529] = "ER_COMPONENTS_CANT_LOAD";
+    exports[3530] = "ER_ROLE_NOT_GRANTED";
+    exports[3531] = "ER_FAILED_REVOKE_ROLE";
+    exports[3532] = "ER_RENAME_ROLE";
+    exports[3533] = "ER_COMPONENTS_CANT_ACQUIRE_SERVICE_IMPLEMENTATION";
+    exports[3534] = "ER_COMPONENTS_CANT_SATISFY_DEPENDENCY";
+    exports[3535] = "ER_COMPONENTS_LOAD_CANT_REGISTER_SERVICE_IMPLEMENTATION";
+    exports[3536] = "ER_COMPONENTS_LOAD_CANT_INITIALIZE";
+    exports[3537] = "ER_COMPONENTS_UNLOAD_NOT_LOADED";
+    exports[3538] = "ER_COMPONENTS_UNLOAD_CANT_DEINITIALIZE";
+    exports[3539] = "ER_COMPONENTS_CANT_RELEASE_SERVICE";
+    exports[3540] = "ER_COMPONENTS_UNLOAD_CANT_UNREGISTER_SERVICE";
+    exports[3541] = "ER_COMPONENTS_CANT_UNLOAD";
+    exports[3542] = "ER_WARN_UNLOAD_THE_NOT_PERSISTED";
+    exports[3543] = "ER_COMPONENT_TABLE_INCORRECT";
+    exports[3544] = "ER_COMPONENT_MANIPULATE_ROW_FAILED";
+    exports[3545] = "ER_COMPONENTS_UNLOAD_DUPLICATE_IN_GROUP";
+    exports[3546] = "ER_CANT_SET_GTID_PURGED_DUE_SETS_CONSTRAINTS";
+    exports[3547] = "ER_CANNOT_LOCK_USER_MANAGEMENT_CACHES";
+    exports[3548] = "ER_SRS_NOT_FOUND";
+    exports[3549] = "ER_VARIABLE_NOT_PERSISTED";
+    exports[3550] = "ER_IS_QUERY_INVALID_CLAUSE";
+    exports[3551] = "ER_UNABLE_TO_STORE_STATISTICS";
+    exports[3552] = "ER_NO_SYSTEM_SCHEMA_ACCESS";
+    exports[3553] = "ER_NO_SYSTEM_TABLESPACE_ACCESS";
+    exports[3554] = "ER_NO_SYSTEM_TABLE_ACCESS";
+    exports[3555] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_DICTIONARY_TABLE";
+    exports[3556] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_SYSTEM_TABLE";
+    exports[3557] = "ER_NO_SYSTEM_TABLE_ACCESS_FOR_TABLE";
+    exports[3558] = "ER_INVALID_OPTION_KEY";
+    exports[3559] = "ER_INVALID_OPTION_VALUE";
+    exports[3560] = "ER_INVALID_OPTION_KEY_VALUE_PAIR";
+    exports[3561] = "ER_INVALID_OPTION_START_CHARACTER";
+    exports[3562] = "ER_INVALID_OPTION_END_CHARACTER";
+    exports[3563] = "ER_INVALID_OPTION_CHARACTERS";
+    exports[3564] = "ER_DUPLICATE_OPTION_KEY";
+    exports[3565] = "ER_WARN_SRS_NOT_FOUND_AXIS_ORDER";
+    exports[3566] = "ER_NO_ACCESS_TO_NATIVE_FCT";
+    exports[3567] = "ER_RESET_SOURCE_TO_VALUE_OUT_OF_RANGE";
+    exports[3568] = "ER_UNRESOLVED_TABLE_LOCK";
+    exports[3569] = "ER_DUPLICATE_TABLE_LOCK";
+    exports[3570] = "ER_BINLOG_UNSAFE_SKIP_LOCKED";
+    exports[3571] = "ER_BINLOG_UNSAFE_NOWAIT";
+    exports[3572] = "ER_LOCK_NOWAIT";
+    exports[3573] = "ER_CTE_RECURSIVE_REQUIRES_UNION";
+    exports[3574] = "ER_CTE_RECURSIVE_REQUIRES_NONRECURSIVE_FIRST";
+    exports[3575] = "ER_CTE_RECURSIVE_FORBIDS_AGGREGATION";
+    exports[3576] = "ER_CTE_RECURSIVE_FORBIDDEN_JOIN_ORDER";
+    exports[3577] = "ER_CTE_RECURSIVE_REQUIRES_SINGLE_REFERENCE";
+    exports[3578] = "ER_SWITCH_TMP_ENGINE";
+    exports[3579] = "ER_WINDOW_NO_SUCH_WINDOW";
+    exports[3580] = "ER_WINDOW_CIRCULARITY_IN_WINDOW_GRAPH";
+    exports[3581] = "ER_WINDOW_NO_CHILD_PARTITIONING";
+    exports[3582] = "ER_WINDOW_NO_INHERIT_FRAME";
+    exports[3583] = "ER_WINDOW_NO_REDEFINE_ORDER_BY";
+    exports[3584] = "ER_WINDOW_FRAME_START_ILLEGAL";
+    exports[3585] = "ER_WINDOW_FRAME_END_ILLEGAL";
+    exports[3586] = "ER_WINDOW_FRAME_ILLEGAL";
+    exports[3587] = "ER_WINDOW_RANGE_FRAME_ORDER_TYPE";
+    exports[3588] = "ER_WINDOW_RANGE_FRAME_TEMPORAL_TYPE";
+    exports[3589] = "ER_WINDOW_RANGE_FRAME_NUMERIC_TYPE";
+    exports[3590] = "ER_WINDOW_RANGE_BOUND_NOT_CONSTANT";
+    exports[3591] = "ER_WINDOW_DUPLICATE_NAME";
+    exports[3592] = "ER_WINDOW_ILLEGAL_ORDER_BY";
+    exports[3593] = "ER_WINDOW_INVALID_WINDOW_FUNC_USE";
+    exports[3594] = "ER_WINDOW_INVALID_WINDOW_FUNC_ALIAS_USE";
+    exports[3595] = "ER_WINDOW_NESTED_WINDOW_FUNC_USE_IN_WINDOW_SPEC";
+    exports[3596] = "ER_WINDOW_ROWS_INTERVAL_USE";
+    exports[3597] = "ER_WINDOW_NO_GROUP_ORDER";
+    exports[3598] = "ER_WINDOW_EXPLAIN_JSON";
+    exports[3599] = "ER_WINDOW_FUNCTION_IGNORES_FRAME";
+    exports[3600] = "ER_WL9236_NOW";
+    exports[3601] = "ER_INVALID_NO_OF_ARGS";
+    exports[3602] = "ER_FIELD_IN_GROUPING_NOT_GROUP_BY";
+    exports[3603] = "ER_TOO_LONG_TABLESPACE_COMMENT";
+    exports[3604] = "ER_ENGINE_CANT_DROP_TABLE";
+    exports[3605] = "ER_ENGINE_CANT_DROP_MISSING_TABLE";
+    exports[3606] = "ER_TABLESPACE_DUP_FILENAME";
+    exports[3607] = "ER_DB_DROP_RMDIR2";
+    exports[3608] = "ER_IMP_NO_FILES_MATCHED";
+    exports[3609] = "ER_IMP_SCHEMA_DOES_NOT_EXIST";
+    exports[3610] = "ER_IMP_TABLE_ALREADY_EXISTS";
+    exports[3611] = "ER_IMP_INCOMPATIBLE_MYSQLD_VERSION";
+    exports[3612] = "ER_IMP_INCOMPATIBLE_DD_VERSION";
+    exports[3613] = "ER_IMP_INCOMPATIBLE_SDI_VERSION";
+    exports[3614] = "ER_WARN_INVALID_HINT";
+    exports[3615] = "ER_VAR_DOES_NOT_EXIST";
+    exports[3616] = "ER_LONGITUDE_OUT_OF_RANGE";
+    exports[3617] = "ER_LATITUDE_OUT_OF_RANGE";
+    exports[3618] = "ER_NOT_IMPLEMENTED_FOR_GEOGRAPHIC_SRS";
+    exports[3619] = "ER_ILLEGAL_PRIVILEGE_LEVEL";
+    exports[3620] = "ER_NO_SYSTEM_VIEW_ACCESS";
+    exports[3621] = "ER_COMPONENT_FILTER_FLABBERGASTED";
+    exports[3622] = "ER_PART_EXPR_TOO_LONG";
+    exports[3623] = "ER_UDF_DROP_DYNAMICALLY_REGISTERED";
+    exports[3624] = "ER_UNABLE_TO_STORE_COLUMN_STATISTICS";
+    exports[3625] = "ER_UNABLE_TO_UPDATE_COLUMN_STATISTICS";
+    exports[3626] = "ER_UNABLE_TO_DROP_COLUMN_STATISTICS";
+    exports[3627] = "ER_UNABLE_TO_BUILD_HISTOGRAM";
+    exports[3628] = "ER_MANDATORY_ROLE";
+    exports[3629] = "ER_MISSING_TABLESPACE_FILE";
+    exports[3630] = "ER_PERSIST_ONLY_ACCESS_DENIED_ERROR";
+    exports[3631] = "ER_CMD_NEED_SUPER";
+    exports[3632] = "ER_PATH_IN_DATADIR";
+    exports[3633] = "ER_CLONE_DDL_IN_PROGRESS";
+    exports[3634] = "ER_CLONE_TOO_MANY_CONCURRENT_CLONES";
+    exports[3635] = "ER_APPLIER_LOG_EVENT_VALIDATION_ERROR";
+    exports[3636] = "ER_CTE_MAX_RECURSION_DEPTH";
+    exports[3637] = "ER_NOT_HINT_UPDATABLE_VARIABLE";
+    exports[3638] = "ER_CREDENTIALS_CONTRADICT_TO_HISTORY";
+    exports[3639] = "ER_WARNING_PASSWORD_HISTORY_CLAUSES_VOID";
+    exports[3640] = "ER_CLIENT_DOES_NOT_SUPPORT";
+    exports[3641] = "ER_I_S_SKIPPED_TABLESPACE";
+    exports[3642] = "ER_TABLESPACE_ENGINE_MISMATCH";
+    exports[3643] = "ER_WRONG_SRID_FOR_COLUMN";
+    exports[3644] = "ER_CANNOT_ALTER_SRID_DUE_TO_INDEX";
+    exports[3645] = "ER_WARN_BINLOG_PARTIAL_UPDATES_DISABLED";
+    exports[3646] = "ER_WARN_BINLOG_V1_ROW_EVENTS_DISABLED";
+    exports[3647] = "ER_WARN_BINLOG_PARTIAL_UPDATES_SUGGESTS_PARTIAL_IMAGES";
+    exports[3648] = "ER_COULD_NOT_APPLY_JSON_DIFF";
+    exports[3649] = "ER_CORRUPTED_JSON_DIFF";
+    exports[3650] = "ER_RESOURCE_GROUP_EXISTS";
+    exports[3651] = "ER_RESOURCE_GROUP_NOT_EXISTS";
+    exports[3652] = "ER_INVALID_VCPU_ID";
+    exports[3653] = "ER_INVALID_VCPU_RANGE";
+    exports[3654] = "ER_INVALID_THREAD_PRIORITY";
+    exports[3655] = "ER_DISALLOWED_OPERATION";
+    exports[3656] = "ER_RESOURCE_GROUP_BUSY";
+    exports[3657] = "ER_RESOURCE_GROUP_DISABLED";
+    exports[3658] = "ER_FEATURE_UNSUPPORTED";
+    exports[3659] = "ER_ATTRIBUTE_IGNORED";
+    exports[3660] = "ER_INVALID_THREAD_ID";
+    exports[3661] = "ER_RESOURCE_GROUP_BIND_FAILED";
+    exports[3662] = "ER_INVALID_USE_OF_FORCE_OPTION";
+    exports[3663] = "ER_GROUP_REPLICATION_COMMAND_FAILURE";
+    exports[3664] = "ER_SDI_OPERATION_FAILED";
+    exports[3665] = "ER_MISSING_JSON_TABLE_VALUE";
+    exports[3666] = "ER_WRONG_JSON_TABLE_VALUE";
+    exports[3667] = "ER_TF_MUST_HAVE_ALIAS";
+    exports[3668] = "ER_TF_FORBIDDEN_JOIN_TYPE";
+    exports[3669] = "ER_JT_VALUE_OUT_OF_RANGE";
+    exports[3670] = "ER_JT_MAX_NESTED_PATH";
+    exports[3671] = "ER_PASSWORD_EXPIRATION_NOT_SUPPORTED_BY_AUTH_METHOD";
+    exports[3672] = "ER_INVALID_GEOJSON_CRS_NOT_TOP_LEVEL";
+    exports[3673] = "ER_BAD_NULL_ERROR_NOT_IGNORED";
+    exports[3674] = "WARN_USELESS_SPATIAL_INDEX";
+    exports[3675] = "ER_DISK_FULL_NOWAIT";
+    exports[3676] = "ER_PARSE_ERROR_IN_DIGEST_FN";
+    exports[3677] = "ER_UNDISCLOSED_PARSE_ERROR_IN_DIGEST_FN";
+    exports[3678] = "ER_SCHEMA_DIR_EXISTS";
+    exports[3679] = "ER_SCHEMA_DIR_MISSING";
+    exports[3680] = "ER_SCHEMA_DIR_CREATE_FAILED";
+    exports[3681] = "ER_SCHEMA_DIR_UNKNOWN";
+    exports[3682] = "ER_ONLY_IMPLEMENTED_FOR_SRID_0_AND_4326";
+    exports[3683] = "ER_BINLOG_EXPIRE_LOG_DAYS_AND_SECS_USED_TOGETHER";
+    exports[3684] = "ER_REGEXP_BUFFER_OVERFLOW";
+    exports[3685] = "ER_REGEXP_ILLEGAL_ARGUMENT";
+    exports[3686] = "ER_REGEXP_INDEX_OUTOFBOUNDS_ERROR";
+    exports[3687] = "ER_REGEXP_INTERNAL_ERROR";
+    exports[3688] = "ER_REGEXP_RULE_SYNTAX";
+    exports[3689] = "ER_REGEXP_BAD_ESCAPE_SEQUENCE";
+    exports[3690] = "ER_REGEXP_UNIMPLEMENTED";
+    exports[3691] = "ER_REGEXP_MISMATCHED_PAREN";
+    exports[3692] = "ER_REGEXP_BAD_INTERVAL";
+    exports[3693] = "ER_REGEXP_MAX_LT_MIN";
+    exports[3694] = "ER_REGEXP_INVALID_BACK_REF";
+    exports[3695] = "ER_REGEXP_LOOK_BEHIND_LIMIT";
+    exports[3696] = "ER_REGEXP_MISSING_CLOSE_BRACKET";
+    exports[3697] = "ER_REGEXP_INVALID_RANGE";
+    exports[3698] = "ER_REGEXP_STACK_OVERFLOW";
+    exports[3699] = "ER_REGEXP_TIME_OUT";
+    exports[3700] = "ER_REGEXP_PATTERN_TOO_BIG";
+    exports[3701] = "ER_CANT_SET_ERROR_LOG_SERVICE";
+    exports[3702] = "ER_EMPTY_PIPELINE_FOR_ERROR_LOG_SERVICE";
+    exports[3703] = "ER_COMPONENT_FILTER_DIAGNOSTICS";
+    exports[3704] = "ER_NOT_IMPLEMENTED_FOR_CARTESIAN_SRS";
+    exports[3705] = "ER_NOT_IMPLEMENTED_FOR_PROJECTED_SRS";
+    exports[3706] = "ER_NONPOSITIVE_RADIUS";
+    exports[3707] = "ER_RESTART_SERVER_FAILED";
+    exports[3708] = "ER_SRS_MISSING_MANDATORY_ATTRIBUTE";
+    exports[3709] = "ER_SRS_MULTIPLE_ATTRIBUTE_DEFINITIONS";
+    exports[3710] = "ER_SRS_NAME_CANT_BE_EMPTY_OR_WHITESPACE";
+    exports[3711] = "ER_SRS_ORGANIZATION_CANT_BE_EMPTY_OR_WHITESPACE";
+    exports[3712] = "ER_SRS_ID_ALREADY_EXISTS";
+    exports[3713] = "ER_WARN_SRS_ID_ALREADY_EXISTS";
+    exports[3714] = "ER_CANT_MODIFY_SRID_0";
+    exports[3715] = "ER_WARN_RESERVED_SRID_RANGE";
+    exports[3716] = "ER_CANT_MODIFY_SRS_USED_BY_COLUMN";
+    exports[3717] = "ER_SRS_INVALID_CHARACTER_IN_ATTRIBUTE";
+    exports[3718] = "ER_SRS_ATTRIBUTE_STRING_TOO_LONG";
+    exports[3719] = "ER_DEPRECATED_UTF8_ALIAS";
+    exports[3720] = "ER_DEPRECATED_NATIONAL";
+    exports[3721] = "ER_INVALID_DEFAULT_UTF8MB4_COLLATION";
+    exports[3722] = "ER_UNABLE_TO_COLLECT_LOG_STATUS";
+    exports[3723] = "ER_RESERVED_TABLESPACE_NAME";
+    exports[3724] = "ER_UNABLE_TO_SET_OPTION";
+    exports[3725] = "ER_REPLICA_POSSIBLY_DIVERGED_AFTER_DDL";
+    exports[3726] = "ER_SRS_NOT_GEOGRAPHIC";
+    exports[3727] = "ER_POLYGON_TOO_LARGE";
+    exports[3728] = "ER_SPATIAL_UNIQUE_INDEX";
+    exports[3729] = "ER_INDEX_TYPE_NOT_SUPPORTED_FOR_SPATIAL_INDEX";
+    exports[3730] = "ER_FK_CANNOT_DROP_PARENT";
+    exports[3731] = "ER_GEOMETRY_PARAM_LONGITUDE_OUT_OF_RANGE";
+    exports[3732] = "ER_GEOMETRY_PARAM_LATITUDE_OUT_OF_RANGE";
+    exports[3733] = "ER_FK_CANNOT_USE_VIRTUAL_COLUMN";
+    exports[3734] = "ER_FK_NO_COLUMN_PARENT";
+    exports[3735] = "ER_CANT_SET_ERROR_SUPPRESSION_LIST";
+    exports[3736] = "ER_SRS_GEOGCS_INVALID_AXES";
+    exports[3737] = "ER_SRS_INVALID_SEMI_MAJOR_AXIS";
+    exports[3738] = "ER_SRS_INVALID_INVERSE_FLATTENING";
+    exports[3739] = "ER_SRS_INVALID_ANGULAR_UNIT";
+    exports[3740] = "ER_SRS_INVALID_PRIME_MERIDIAN";
+    exports[3741] = "ER_TRANSFORM_SOURCE_SRS_NOT_SUPPORTED";
+    exports[3742] = "ER_TRANSFORM_TARGET_SRS_NOT_SUPPORTED";
+    exports[3743] = "ER_TRANSFORM_SOURCE_SRS_MISSING_TOWGS84";
+    exports[3744] = "ER_TRANSFORM_TARGET_SRS_MISSING_TOWGS84";
+    exports[3745] = "ER_TEMP_TABLE_PREVENTS_SWITCH_SESSION_BINLOG_FORMAT";
+    exports[3746] = "ER_TEMP_TABLE_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT";
+    exports[3747] = "ER_RUNNING_APPLIER_PREVENTS_SWITCH_GLOBAL_BINLOG_FORMAT";
+    exports[3748] = "ER_CLIENT_GTID_UNSAFE_CREATE_DROP_TEMP_TABLE_IN_TRX_IN_SBR";
+    exports[3749] = "ER_XA_CANT_CREATE_MDL_BACKUP";
+    exports[3750] = "ER_TABLE_WITHOUT_PK";
+    exports[3751] = "ER_WARN_DATA_TRUNCATED_FUNCTIONAL_INDEX";
+    exports[3752] = "ER_WARN_DATA_OUT_OF_RANGE_FUNCTIONAL_INDEX";
+    exports[3753] = "ER_FUNCTIONAL_INDEX_ON_JSON_OR_GEOMETRY_FUNCTION";
+    exports[3754] = "ER_FUNCTIONAL_INDEX_REF_AUTO_INCREMENT";
+    exports[3755] = "ER_CANNOT_DROP_COLUMN_FUNCTIONAL_INDEX";
+    exports[3756] = "ER_FUNCTIONAL_INDEX_PRIMARY_KEY";
+    exports[3757] = "ER_FUNCTIONAL_INDEX_ON_LOB";
+    exports[3758] = "ER_FUNCTIONAL_INDEX_FUNCTION_IS_NOT_ALLOWED";
+    exports[3759] = "ER_FULLTEXT_FUNCTIONAL_INDEX";
+    exports[3760] = "ER_SPATIAL_FUNCTIONAL_INDEX";
+    exports[3761] = "ER_WRONG_KEY_COLUMN_FUNCTIONAL_INDEX";
+    exports[3762] = "ER_FUNCTIONAL_INDEX_ON_FIELD";
+    exports[3763] = "ER_GENERATED_COLUMN_NAMED_FUNCTION_IS_NOT_ALLOWED";
+    exports[3764] = "ER_GENERATED_COLUMN_ROW_VALUE";
+    exports[3765] = "ER_GENERATED_COLUMN_VARIABLES";
+    exports[3766] = "ER_DEPENDENT_BY_DEFAULT_GENERATED_VALUE";
+    exports[3767] = "ER_DEFAULT_VAL_GENERATED_NON_PRIOR";
+    exports[3768] = "ER_DEFAULT_VAL_GENERATED_REF_AUTO_INC";
+    exports[3769] = "ER_DEFAULT_VAL_GENERATED_FUNCTION_IS_NOT_ALLOWED";
+    exports[3770] = "ER_DEFAULT_VAL_GENERATED_NAMED_FUNCTION_IS_NOT_ALLOWED";
+    exports[3771] = "ER_DEFAULT_VAL_GENERATED_ROW_VALUE";
+    exports[3772] = "ER_DEFAULT_VAL_GENERATED_VARIABLES";
+    exports[3773] = "ER_DEFAULT_AS_VAL_GENERATED";
+    exports[3774] = "ER_UNSUPPORTED_ACTION_ON_DEFAULT_VAL_GENERATED";
+    exports[3775] = "ER_GTID_UNSAFE_ALTER_ADD_COL_WITH_DEFAULT_EXPRESSION";
+    exports[3776] = "ER_FK_CANNOT_CHANGE_ENGINE";
+    exports[3777] = "ER_WARN_DEPRECATED_USER_SET_EXPR";
+    exports[3778] = "ER_WARN_DEPRECATED_UTF8MB3_COLLATION";
+    exports[3779] = "ER_WARN_DEPRECATED_NESTED_COMMENT_SYNTAX";
+    exports[3780] = "ER_FK_INCOMPATIBLE_COLUMNS";
+    exports[3781] = "ER_GR_HOLD_WAIT_TIMEOUT";
+    exports[3782] = "ER_GR_HOLD_KILLED";
+    exports[3783] = "ER_GR_HOLD_MEMBER_STATUS_ERROR";
+    exports[3784] = "ER_RPL_ENCRYPTION_FAILED_TO_FETCH_KEY";
+    exports[3785] = "ER_RPL_ENCRYPTION_KEY_NOT_FOUND";
+    exports[3786] = "ER_RPL_ENCRYPTION_KEYRING_INVALID_KEY";
+    exports[3787] = "ER_RPL_ENCRYPTION_HEADER_ERROR";
+    exports[3788] = "ER_RPL_ENCRYPTION_FAILED_TO_ROTATE_LOGS";
+    exports[3789] = "ER_RPL_ENCRYPTION_KEY_EXISTS_UNEXPECTED";
+    exports[3790] = "ER_RPL_ENCRYPTION_FAILED_TO_GENERATE_KEY";
+    exports[3791] = "ER_RPL_ENCRYPTION_FAILED_TO_STORE_KEY";
+    exports[3792] = "ER_RPL_ENCRYPTION_FAILED_TO_REMOVE_KEY";
+    exports[3793] = "ER_RPL_ENCRYPTION_UNABLE_TO_CHANGE_OPTION";
+    exports[3794] = "ER_RPL_ENCRYPTION_MASTER_KEY_RECOVERY_FAILED";
+    exports[3795] = "ER_SLOW_LOG_MODE_IGNORED_WHEN_NOT_LOGGING_TO_FILE";
+    exports[3796] = "ER_GRP_TRX_CONSISTENCY_NOT_ALLOWED";
+    exports[3797] = "ER_GRP_TRX_CONSISTENCY_BEFORE";
+    exports[3798] = "ER_GRP_TRX_CONSISTENCY_AFTER_ON_TRX_BEGIN";
+    exports[3799] = "ER_GRP_TRX_CONSISTENCY_BEGIN_NOT_ALLOWED";
+    exports[3800] = "ER_FUNCTIONAL_INDEX_ROW_VALUE_IS_NOT_ALLOWED";
+    exports[3801] = "ER_RPL_ENCRYPTION_FAILED_TO_ENCRYPT";
+    exports[3802] = "ER_PAGE_TRACKING_NOT_STARTED";
+    exports[3803] = "ER_PAGE_TRACKING_RANGE_NOT_TRACKED";
+    exports[3804] = "ER_PAGE_TRACKING_CANNOT_PURGE";
+    exports[3805] = "ER_RPL_ENCRYPTION_CANNOT_ROTATE_BINLOG_MASTER_KEY";
+    exports[3806] = "ER_BINLOG_MASTER_KEY_RECOVERY_OUT_OF_COMBINATION";
+    exports[3807] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_OPERATE_KEY";
+    exports[3808] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_ROTATE_LOGS";
+    exports[3809] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_REENCRYPT_LOG";
+    exports[3810] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_UNUSED_KEYS";
+    exports[3811] = "ER_BINLOG_MASTER_KEY_ROTATION_FAIL_TO_CLEANUP_AUX_KEY";
+    exports[3812] = "ER_NON_BOOLEAN_EXPR_FOR_CHECK_CONSTRAINT";
+    exports[3813] = "ER_COLUMN_CHECK_CONSTRAINT_REFERENCES_OTHER_COLUMN";
+    exports[3814] = "ER_CHECK_CONSTRAINT_NAMED_FUNCTION_IS_NOT_ALLOWED";
+    exports[3815] = "ER_CHECK_CONSTRAINT_FUNCTION_IS_NOT_ALLOWED";
+    exports[3816] = "ER_CHECK_CONSTRAINT_VARIABLES";
+    exports[3817] = "ER_CHECK_CONSTRAINT_ROW_VALUE";
+    exports[3818] = "ER_CHECK_CONSTRAINT_REFERS_AUTO_INCREMENT_COLUMN";
+    exports[3819] = "ER_CHECK_CONSTRAINT_VIOLATED";
+    exports[3820] = "ER_CHECK_CONSTRAINT_REFERS_UNKNOWN_COLUMN";
+    exports[3821] = "ER_CHECK_CONSTRAINT_NOT_FOUND";
+    exports[3822] = "ER_CHECK_CONSTRAINT_DUP_NAME";
+    exports[3823] = "ER_CHECK_CONSTRAINT_CLAUSE_USING_FK_REFER_ACTION_COLUMN";
+    exports[3824] = "WARN_UNENCRYPTED_TABLE_IN_ENCRYPTED_DB";
+    exports[3825] = "ER_INVALID_ENCRYPTION_REQUEST";
+    exports[3826] = "ER_CANNOT_SET_TABLE_ENCRYPTION";
+    exports[3827] = "ER_CANNOT_SET_DATABASE_ENCRYPTION";
+    exports[3828] = "ER_CANNOT_SET_TABLESPACE_ENCRYPTION";
+    exports[3829] = "ER_TABLESPACE_CANNOT_BE_ENCRYPTED";
+    exports[3830] = "ER_TABLESPACE_CANNOT_BE_DECRYPTED";
+    exports[3831] = "ER_TABLESPACE_TYPE_UNKNOWN";
+    exports[3832] = "ER_TARGET_TABLESPACE_UNENCRYPTED";
+    exports[3833] = "ER_CANNOT_USE_ENCRYPTION_CLAUSE";
+    exports[3834] = "ER_INVALID_MULTIPLE_CLAUSES";
+    exports[3835] = "ER_UNSUPPORTED_USE_OF_GRANT_AS";
+    exports[3836] = "ER_UKNOWN_AUTH_ID_OR_ACCESS_DENIED_FOR_GRANT_AS";
+    exports[3837] = "ER_DEPENDENT_BY_FUNCTIONAL_INDEX";
+    exports[3838] = "ER_PLUGIN_NOT_EARLY";
+    exports[3839] = "ER_INNODB_REDO_LOG_ARCHIVE_START_SUBDIR_PATH";
+    exports[3840] = "ER_INNODB_REDO_LOG_ARCHIVE_START_TIMEOUT";
+    exports[3841] = "ER_INNODB_REDO_LOG_ARCHIVE_DIRS_INVALID";
+    exports[3842] = "ER_INNODB_REDO_LOG_ARCHIVE_LABEL_NOT_FOUND";
+    exports[3843] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_EMPTY";
+    exports[3844] = "ER_INNODB_REDO_LOG_ARCHIVE_NO_SUCH_DIR";
+    exports[3845] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_CLASH";
+    exports[3846] = "ER_INNODB_REDO_LOG_ARCHIVE_DIR_PERMISSIONS";
+    exports[3847] = "ER_INNODB_REDO_LOG_ARCHIVE_FILE_CREATE";
+    exports[3848] = "ER_INNODB_REDO_LOG_ARCHIVE_ACTIVE";
+    exports[3849] = "ER_INNODB_REDO_LOG_ARCHIVE_INACTIVE";
+    exports[3850] = "ER_INNODB_REDO_LOG_ARCHIVE_FAILED";
+    exports[3851] = "ER_INNODB_REDO_LOG_ARCHIVE_SESSION";
+    exports[3852] = "ER_STD_REGEX_ERROR";
+    exports[3853] = "ER_INVALID_JSON_TYPE";
+    exports[3854] = "ER_CANNOT_CONVERT_STRING";
+    exports[3855] = "ER_DEPENDENT_BY_PARTITION_FUNC";
+    exports[3856] = "ER_WARN_DEPRECATED_FLOAT_AUTO_INCREMENT";
+    exports[3857] = "ER_RPL_CANT_STOP_REPLICA_WHILE_LOCKED_BACKUP";
+    exports[3858] = "ER_WARN_DEPRECATED_FLOAT_DIGITS";
+    exports[3859] = "ER_WARN_DEPRECATED_FLOAT_UNSIGNED";
+    exports[3860] = "ER_WARN_DEPRECATED_INTEGER_DISPLAY_WIDTH";
+    exports[3861] = "ER_WARN_DEPRECATED_ZEROFILL";
+    exports[3862] = "ER_CLONE_DONOR";
+    exports[3863] = "ER_CLONE_PROTOCOL";
+    exports[3864] = "ER_CLONE_DONOR_VERSION";
+    exports[3865] = "ER_CLONE_OS";
+    exports[3866] = "ER_CLONE_PLATFORM";
+    exports[3867] = "ER_CLONE_CHARSET";
+    exports[3868] = "ER_CLONE_CONFIG";
+    exports[3869] = "ER_CLONE_SYS_CONFIG";
+    exports[3870] = "ER_CLONE_PLUGIN_MATCH";
+    exports[3871] = "ER_CLONE_LOOPBACK";
+    exports[3872] = "ER_CLONE_ENCRYPTION";
+    exports[3873] = "ER_CLONE_DISK_SPACE";
+    exports[3874] = "ER_CLONE_IN_PROGRESS";
+    exports[3875] = "ER_CLONE_DISALLOWED";
+    exports[3876] = "ER_CANNOT_GRANT_ROLES_TO_ANONYMOUS_USER";
+    exports[3877] = "ER_SECONDARY_ENGINE_PLUGIN";
+    exports[3878] = "ER_SECOND_PASSWORD_CANNOT_BE_EMPTY";
+    exports[3879] = "ER_DB_ACCESS_DENIED";
+    exports[3880] = "ER_DA_AUTH_ID_WITH_SYSTEM_USER_PRIV_IN_MANDATORY_ROLES";
+    exports[3881] = "ER_DA_RPL_GTID_TABLE_CANNOT_OPEN";
+    exports[3882] = "ER_GEOMETRY_IN_UNKNOWN_LENGTH_UNIT";
+    exports[3883] = "ER_DA_PLUGIN_INSTALL_ERROR";
+    exports[3884] = "ER_NO_SESSION_TEMP";
+    exports[3885] = "ER_DA_UNKNOWN_ERROR_NUMBER";
+    exports[3886] = "ER_COLUMN_CHANGE_SIZE";
+    exports[3887] = "ER_REGEXP_INVALID_CAPTURE_GROUP_NAME";
+    exports[3888] = "ER_DA_SSL_LIBRARY_ERROR";
+    exports[3889] = "ER_SECONDARY_ENGINE";
+    exports[3890] = "ER_SECONDARY_ENGINE_DDL";
+    exports[3891] = "ER_INCORRECT_CURRENT_PASSWORD";
+    exports[3892] = "ER_MISSING_CURRENT_PASSWORD";
+    exports[3893] = "ER_CURRENT_PASSWORD_NOT_REQUIRED";
+    exports[3894] = "ER_PASSWORD_CANNOT_BE_RETAINED_ON_PLUGIN_CHANGE";
+    exports[3895] = "ER_CURRENT_PASSWORD_CANNOT_BE_RETAINED";
+    exports[3896] = "ER_PARTIAL_REVOKES_EXIST";
+    exports[3897] = "ER_CANNOT_GRANT_SYSTEM_PRIV_TO_MANDATORY_ROLE";
+    exports[3898] = "ER_XA_REPLICATION_FILTERS";
+    exports[3899] = "ER_UNSUPPORTED_SQL_MODE";
+    exports[3900] = "ER_REGEXP_INVALID_FLAG";
+    exports[3901] = "ER_PARTIAL_REVOKE_AND_DB_GRANT_BOTH_EXISTS";
+    exports[3902] = "ER_UNIT_NOT_FOUND";
+    exports[3903] = "ER_INVALID_JSON_VALUE_FOR_FUNC_INDEX";
+    exports[3904] = "ER_JSON_VALUE_OUT_OF_RANGE_FOR_FUNC_INDEX";
+    exports[3905] = "ER_EXCEEDED_MV_KEYS_NUM";
+    exports[3906] = "ER_EXCEEDED_MV_KEYS_SPACE";
+    exports[3907] = "ER_FUNCTIONAL_INDEX_DATA_IS_TOO_LONG";
+    exports[3908] = "ER_WRONG_MVI_VALUE";
+    exports[3909] = "ER_WARN_FUNC_INDEX_NOT_APPLICABLE";
+    exports[3910] = "ER_GRP_RPL_UDF_ERROR";
+    exports[3911] = "ER_UPDATE_GTID_PURGED_WITH_GR";
+    exports[3912] = "ER_GROUPING_ON_TIMESTAMP_IN_DST";
+    exports[3913] = "ER_TABLE_NAME_CAUSES_TOO_LONG_PATH";
+    exports[3914] = "ER_AUDIT_LOG_INSUFFICIENT_PRIVILEGE";
+    exports[3915] = "ER_AUDIT_LOG_PASSWORD_HAS_BEEN_COPIED";
+    exports[3916] = "ER_DA_GRP_RPL_STARTED_AUTO_REJOIN";
+    exports[3917] = "ER_SYSVAR_CHANGE_DURING_QUERY";
+    exports[3918] = "ER_GLOBSTAT_CHANGE_DURING_QUERY";
+    exports[3919] = "ER_GRP_RPL_MESSAGE_SERVICE_INIT_FAILURE";
+    exports[3920] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_CLIENT";
+    exports[3921] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_LEVEL_CLIENT";
+    exports[3922] = "ER_WRONG_COMPRESSION_ALGORITHM_CLIENT";
+    exports[3923] = "ER_WRONG_COMPRESSION_LEVEL_CLIENT";
+    exports[3924] = "ER_CHANGE_SOURCE_WRONG_COMPRESSION_ALGORITHM_LIST_CLIENT";
+    exports[3925] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_CANNOT_BE_ANONYMOUS";
+    exports[3926] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_DOES_NOT_EXIST";
+    exports[3927] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_CORRUPT";
+    exports[3928] = "ER_CLIENT_PRIVILEGE_CHECKS_USER_NEEDS_RPL_APPLIER_PRIV";
+    exports[3929] = "ER_WARN_DA_PRIVILEGE_NOT_REGISTERED";
+    exports[3930] = "ER_CLIENT_KEYRING_UDF_KEY_INVALID";
+    exports[3931] = "ER_CLIENT_KEYRING_UDF_KEY_TYPE_INVALID";
+    exports[3932] = "ER_CLIENT_KEYRING_UDF_KEY_TOO_LONG";
+    exports[3933] = "ER_CLIENT_KEYRING_UDF_KEY_TYPE_TOO_LONG";
+    exports[3934] = "ER_JSON_SCHEMA_VALIDATION_ERROR_WITH_DETAILED_REPORT";
+    exports[3935] = "ER_DA_UDF_INVALID_CHARSET_SPECIFIED";
+    exports[3936] = "ER_DA_UDF_INVALID_CHARSET";
+    exports[3937] = "ER_DA_UDF_INVALID_COLLATION";
+    exports[3938] = "ER_DA_UDF_INVALID_EXTENSION_ARGUMENT_TYPE";
+    exports[3939] = "ER_MULTIPLE_CONSTRAINTS_WITH_SAME_NAME";
+    exports[3940] = "ER_CONSTRAINT_NOT_FOUND";
+    exports[3941] = "ER_ALTER_CONSTRAINT_ENFORCEMENT_NOT_SUPPORTED";
+    exports[3942] = "ER_TABLE_VALUE_CONSTRUCTOR_MUST_HAVE_COLUMNS";
+    exports[3943] = "ER_TABLE_VALUE_CONSTRUCTOR_CANNOT_HAVE_DEFAULT";
+    exports[3944] = "ER_CLIENT_QUERY_FAILURE_INVALID_NON_ROW_FORMAT";
+    exports[3945] = "ER_REQUIRE_ROW_FORMAT_INVALID_VALUE";
+    exports[3946] = "ER_FAILED_TO_DETERMINE_IF_ROLE_IS_MANDATORY";
+    exports[3947] = "ER_FAILED_TO_FETCH_MANDATORY_ROLE_LIST";
+    exports[3948] = "ER_CLIENT_LOCAL_FILES_DISABLED";
+    exports[3949] = "ER_IMP_INCOMPATIBLE_CFG_VERSION";
+    exports[3950] = "ER_DA_OOM";
+    exports[3951] = "ER_DA_UDF_INVALID_ARGUMENT_TO_SET_CHARSET";
+    exports[3952] = "ER_DA_UDF_INVALID_RETURN_TYPE_TO_SET_CHARSET";
+    exports[3953] = "ER_MULTIPLE_INTO_CLAUSES";
+    exports[3954] = "ER_MISPLACED_INTO";
+    exports[3955] = "ER_USER_ACCESS_DENIED_FOR_USER_ACCOUNT_BLOCKED_BY_PASSWORD_LOCK";
+    exports[3956] = "ER_WARN_DEPRECATED_YEAR_UNSIGNED";
+    exports[3957] = "ER_CLONE_NETWORK_PACKET";
+    exports[3958] = "ER_SDI_OPERATION_FAILED_MISSING_RECORD";
+    exports[3959] = "ER_DEPENDENT_BY_CHECK_CONSTRAINT";
+    exports[3960] = "ER_GRP_OPERATION_NOT_ALLOWED_GR_MUST_STOP";
+    exports[3961] = "ER_WARN_DEPRECATED_JSON_TABLE_ON_ERROR_ON_EMPTY";
+    exports[3962] = "ER_WARN_DEPRECATED_INNER_INTO";
+    exports[3963] = "ER_WARN_DEPRECATED_VALUES_FUNCTION_ALWAYS_NULL";
+    exports[3964] = "ER_WARN_DEPRECATED_SQL_CALC_FOUND_ROWS";
+    exports[3965] = "ER_WARN_DEPRECATED_FOUND_ROWS";
+    exports[3966] = "ER_MISSING_JSON_VALUE";
+    exports[3967] = "ER_MULTIPLE_JSON_VALUES";
+    exports[3968] = "ER_HOSTNAME_TOO_LONG";
+    exports[3969] = "ER_WARN_CLIENT_DEPRECATED_PARTITION_PREFIX_KEY";
+    exports[3970] = "ER_GROUP_REPLICATION_USER_EMPTY_MSG";
+    exports[3971] = "ER_GROUP_REPLICATION_USER_MANDATORY_MSG";
+    exports[3972] = "ER_GROUP_REPLICATION_PASSWORD_LENGTH";
+    exports[3973] = "ER_SUBQUERY_TRANSFORM_REJECTED";
+    exports[3974] = "ER_DA_GRP_RPL_RECOVERY_ENDPOINT_FORMAT";
+    exports[3975] = "ER_DA_GRP_RPL_RECOVERY_ENDPOINT_INVALID";
+    exports[3976] = "ER_WRONG_VALUE_FOR_VAR_PLUS_ACTIONABLE_PART";
+    exports[3977] = "ER_STATEMENT_NOT_ALLOWED_AFTER_START_TRANSACTION";
+    exports[3978] = "ER_FOREIGN_KEY_WITH_ATOMIC_CREATE_SELECT";
+    exports[3979] = "ER_NOT_ALLOWED_WITH_START_TRANSACTION";
+    exports[3980] = "ER_INVALID_JSON_ATTRIBUTE";
+    exports[3981] = "ER_ENGINE_ATTRIBUTE_NOT_SUPPORTED";
+    exports[3982] = "ER_INVALID_USER_ATTRIBUTE_JSON";
+    exports[3983] = "ER_INNODB_REDO_DISABLED";
+    exports[3984] = "ER_INNODB_REDO_ARCHIVING_ENABLED";
+    exports[3985] = "ER_MDL_OUT_OF_RESOURCES";
+    exports[3986] = "ER_IMPLICIT_COMPARISON_FOR_JSON";
+    exports[3987] = "ER_FUNCTION_DOES_NOT_SUPPORT_CHARACTER_SET";
+    exports[3988] = "ER_IMPOSSIBLE_STRING_CONVERSION";
+    exports[3989] = "ER_SCHEMA_READ_ONLY";
+    exports[3990] = "ER_RPL_ASYNC_RECONNECT_GTID_MODE_OFF";
+    exports[3991] = "ER_RPL_ASYNC_RECONNECT_AUTO_POSITION_OFF";
+    exports[3992] = "ER_DISABLE_GTID_MODE_REQUIRES_ASYNC_RECONNECT_OFF";
+    exports[3993] = "ER_DISABLE_AUTO_POSITION_REQUIRES_ASYNC_RECONNECT_OFF";
+    exports[3994] = "ER_INVALID_PARAMETER_USE";
+    exports[3995] = "ER_CHARACTER_SET_MISMATCH";
+    exports[3996] = "ER_WARN_VAR_VALUE_CHANGE_NOT_SUPPORTED";
+    exports[3997] = "ER_INVALID_TIME_ZONE_INTERVAL";
+    exports[3998] = "ER_INVALID_CAST";
+    exports[3999] = "ER_HYPERGRAPH_NOT_SUPPORTED_YET";
+    exports[4e3] = "ER_WARN_HYPERGRAPH_EXPERIMENTAL";
+    exports[4001] = "ER_DA_NO_ERROR_LOG_PARSER_CONFIGURED";
+    exports[4002] = "ER_DA_ERROR_LOG_TABLE_DISABLED";
+    exports[4003] = "ER_DA_ERROR_LOG_MULTIPLE_FILTERS";
+    exports[4004] = "ER_DA_CANT_OPEN_ERROR_LOG";
+    exports[4005] = "ER_USER_REFERENCED_AS_DEFINER";
+    exports[4006] = "ER_CANNOT_USER_REFERENCED_AS_DEFINER";
+    exports[4007] = "ER_REGEX_NUMBER_TOO_BIG";
+    exports[4008] = "ER_SPVAR_NONINTEGER_TYPE";
+    exports[4009] = "WARN_UNSUPPORTED_ACL_TABLES_READ";
+    exports[4010] = "ER_BINLOG_UNSAFE_ACL_TABLE_READ_IN_DML_DDL";
+    exports[4011] = "ER_STOP_REPLICA_MONITOR_IO_THREAD_TIMEOUT";
+    exports[4012] = "ER_STARTING_REPLICA_MONITOR_IO_THREAD";
+    exports[4013] = "ER_CANT_USE_ANONYMOUS_TO_GTID_WITH_GTID_MODE_NOT_ON";
+    exports[4014] = "ER_CANT_COMBINE_ANONYMOUS_TO_GTID_AND_AUTOPOSITION";
+    exports[4015] = "ER_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_REQUIRES_GTID_MODE_ON";
+    exports[4016] = "ER_SQL_REPLICA_SKIP_COUNTER_USED_WITH_GTID_MODE_ON";
+    exports[4017] = "ER_USING_ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS_AS_LOCAL_OR_UUID";
+    exports[4018] = "ER_CANT_SET_ANONYMOUS_TO_GTID_AND_WAIT_UNTIL_SQL_THD_AFTER_GTIDS";
+    exports[4019] = "ER_CANT_SET_SQL_AFTER_OR_BEFORE_GTIDS_WITH_ANONYMOUS_TO_GTID";
+    exports[4020] = "ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_GROUP_NAME";
+    exports[4021] = "ER_CANT_USE_SAME_UUID_AS_GROUP_NAME";
+    exports[4022] = "ER_GRP_RPL_RECOVERY_CHANNEL_STILL_RUNNING";
+    exports[4023] = "ER_INNODB_INVALID_AUTOEXTEND_SIZE_VALUE";
+    exports[4024] = "ER_INNODB_INCOMPATIBLE_WITH_TABLESPACE";
+    exports[4025] = "ER_INNODB_AUTOEXTEND_SIZE_OUT_OF_RANGE";
+    exports[4026] = "ER_CANNOT_USE_AUTOEXTEND_SIZE_CLAUSE";
+    exports[4027] = "ER_ROLE_GRANTED_TO_ITSELF";
+    exports[4028] = "ER_TABLE_MUST_HAVE_A_VISIBLE_COLUMN";
+    exports[4029] = "ER_INNODB_COMPRESSION_FAILURE";
+    exports[4030] = "ER_WARN_ASYNC_CONN_FAILOVER_NETWORK_NAMESPACE";
+    exports[4031] = "ER_CLIENT_INTERACTION_TIMEOUT";
+    exports[4032] = "ER_INVALID_CAST_TO_GEOMETRY";
+    exports[4033] = "ER_INVALID_CAST_POLYGON_RING_DIRECTION";
+    exports[4034] = "ER_GIS_DIFFERENT_SRIDS_AGGREGATION";
+    exports[4035] = "ER_RELOAD_KEYRING_FAILURE";
+    exports[4036] = "ER_SDI_GET_KEYS_INVALID_TABLESPACE";
+    exports[4037] = "ER_CHANGE_RPL_SRC_WRONG_COMPRESSION_ALGORITHM_SIZE";
+    exports[4038] = "ER_WARN_DEPRECATED_TLS_VERSION_FOR_CHANNEL_CLI";
+    exports[4039] = "ER_CANT_USE_SAME_UUID_AS_VIEW_CHANGE_UUID";
+    exports[4040] = "ER_ANONYMOUS_TO_GTID_UUID_SAME_AS_VIEW_CHANGE_UUID";
+    exports[4041] = "ER_GRP_RPL_VIEW_CHANGE_UUID_FAIL_GET_VARIABLE";
+    exports[4042] = "ER_WARN_ADUIT_LOG_MAX_SIZE_AND_PRUNE_SECONDS";
+    exports[4043] = "ER_WARN_ADUIT_LOG_MAX_SIZE_CLOSE_TO_ROTATE_ON_SIZE";
+    exports[4044] = "ER_KERBEROS_CREATE_USER";
+    exports[4045] = "ER_INSTALL_PLUGIN_CONFLICT_CLIENT";
+    exports[4046] = "ER_DA_ERROR_LOG_COMPONENT_FLUSH_FAILED";
+    exports[4047] = "ER_WARN_SQL_AFTER_MTS_GAPS_GAP_NOT_CALCULATED";
+    exports[4048] = "ER_INVALID_ASSIGNMENT_TARGET";
+    exports[4049] = "ER_OPERATION_NOT_ALLOWED_ON_GR_SECONDARY";
+    exports[4050] = "ER_GRP_RPL_FAILOVER_CHANNEL_STATUS_PROPAGATION";
+    exports[4051] = "ER_WARN_AUDIT_LOG_FORMAT_UNIX_TIMESTAMP_ONLY_WHEN_JSON";
+    exports[4052] = "ER_INVALID_MFA_PLUGIN_SPECIFIED";
+    exports[4053] = "ER_IDENTIFIED_BY_UNSUPPORTED";
+    exports[4054] = "ER_INVALID_PLUGIN_FOR_REGISTRATION";
+    exports[4055] = "ER_PLUGIN_REQUIRES_REGISTRATION";
+    exports[4056] = "ER_MFA_METHOD_EXISTS";
+    exports[4057] = "ER_MFA_METHOD_NOT_EXISTS";
+    exports[4058] = "ER_AUTHENTICATION_POLICY_MISMATCH";
+    exports[4059] = "ER_PLUGIN_REGISTRATION_DONE";
+    exports[4060] = "ER_INVALID_USER_FOR_REGISTRATION";
+    exports[4061] = "ER_USER_REGISTRATION_FAILED";
+    exports[4062] = "ER_MFA_METHODS_INVALID_ORDER";
+    exports[4063] = "ER_MFA_METHODS_IDENTICAL";
+    exports[4064] = "ER_INVALID_MFA_OPERATIONS_FOR_PASSWORDLESS_USER";
+    exports[4065] = "ER_CHANGE_REPLICATION_SOURCE_NO_OPTIONS_FOR_GTID_ONLY";
+    exports[4066] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_REQ_ROW_FORMAT_WITH_GTID_ONLY";
+    exports[4067] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POSITION_WITH_GTID_ONLY";
+    exports[4068] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_GTID_ONLY_WITHOUT_POSITIONS";
+    exports[4069] = "ER_CHANGE_REP_SOURCE_CANT_DISABLE_AUTO_POS_WITHOUT_POSITIONS";
+    exports[4070] = "ER_CHANGE_REP_SOURCE_GR_CHANNEL_WITH_GTID_MODE_NOT_ON";
+    exports[4071] = "ER_CANT_USE_GTID_ONLY_WITH_GTID_MODE_NOT_ON";
+    exports[4072] = "ER_WARN_C_DISABLE_GTID_ONLY_WITH_SOURCE_AUTO_POS_INVALID_POS";
+    exports[4073] = "ER_DA_SSL_FIPS_MODE_ERROR";
+    exports[4074] = "ER_VALUE_OUT_OF_RANGE";
+    exports[4075] = "ER_FULLTEXT_WITH_ROLLUP";
+    exports[4076] = "ER_REGEXP_MISSING_RESOURCE";
+    exports[4077] = "ER_WARN_REGEXP_USING_DEFAULT";
+    exports[4078] = "ER_REGEXP_MISSING_FILE";
+    exports[4079] = "ER_WARN_DEPRECATED_COLLATION";
+    exports[4080] = "ER_CONCURRENT_PROCEDURE_USAGE";
+    exports[4081] = "ER_DA_GLOBAL_CONN_LIMIT";
+    exports[4082] = "ER_DA_CONN_LIMIT";
+    exports[4083] = "ER_ALTER_OPERATION_NOT_SUPPORTED_REASON_COLUMN_TYPE_INSTANT";
+    exports[4084] = "ER_WARN_SF_UDF_NAME_COLLISION";
+    exports[4085] = "ER_CANNOT_PURGE_BINLOG_WITH_BACKUP_LOCK";
+    exports[4086] = "ER_TOO_MANY_WINDOWS";
+    exports[4087] = "ER_MYSQLBACKUP_CLIENT_MSG";
+    exports[4088] = "ER_COMMENT_CONTAINS_INVALID_STRING";
+    exports[4089] = "ER_DEFINITION_CONTAINS_INVALID_STRING";
+    exports[4090] = "ER_CANT_EXECUTE_COMMAND_WITH_ASSIGNED_GTID_NEXT";
+    exports[4091] = "ER_XA_TEMP_TABLE";
+    exports[4092] = "ER_INNODB_MAX_ROW_VERSION";
+    exports[4093] = "ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_SIZE";
+    exports[4094] = "ER_OPERATION_NOT_ALLOWED_WHILE_PRIMARY_CHANGE_IS_RUNNING";
+    exports[4095] = "ER_WARN_DEPRECATED_DATETIME_DELIMITER";
+    exports[4096] = "ER_WARN_DEPRECATED_SUPERFLUOUS_DELIMITER";
+    exports[4097] = "ER_CANNOT_PERSIST_SENSITIVE_VARIABLES";
+    exports[4098] = "ER_WARN_CANNOT_SECURELY_PERSIST_SENSITIVE_VARIABLES";
+    exports[4099] = "ER_WARN_TRG_ALREADY_EXISTS";
+    exports[4100] = "ER_IF_NOT_EXISTS_UNSUPPORTED_TRG_EXISTS_ON_DIFFERENT_TABLE";
+    exports[4101] = "ER_IF_NOT_EXISTS_UNSUPPORTED_UDF_NATIVE_FCT_NAME_COLLISION";
+    exports[4102] = "ER_SET_PASSWORD_AUTH_PLUGIN_ERROR";
+    exports[4103] = "ER_REDUCED_DBLWR_FILE_CORRUPTED";
+    exports[4104] = "ER_REDUCED_DBLWR_PAGE_FOUND";
+    exports[4105] = "ER_SRS_INVALID_LATITUDE_OF_ORIGIN";
+    exports[4106] = "ER_SRS_INVALID_LONGITUDE_OF_ORIGIN";
+    exports[4107] = "ER_SRS_UNUSED_PROJ_PARAMETER_PRESENT";
+    exports[4108] = "ER_GIPK_COLUMN_EXISTS";
+    exports[4109] = "ER_GIPK_FAILED_AUTOINC_COLUMN_EXISTS";
+    exports[4110] = "ER_GIPK_COLUMN_ALTER_NOT_ALLOWED";
+    exports[4111] = "ER_DROP_PK_COLUMN_TO_DROP_GIPK";
+    exports[4112] = "ER_CREATE_SELECT_WITH_GIPK_DISALLOWED_IN_SBR";
+    exports[4113] = "ER_DA_EXPIRE_LOGS_DAYS_IGNORED";
+    exports[4114] = "ER_CTE_RECURSIVE_NOT_UNION";
+    exports[4115] = "ER_COMMAND_BACKEND_FAILED_TO_FETCH_SECURITY_CTX";
+    exports[4116] = "ER_COMMAND_SERVICE_BACKEND_FAILED";
+    exports[4117] = "ER_CLIENT_FILE_PRIVILEGE_FOR_REPLICATION_CHECKS";
+    exports[4118] = "ER_GROUP_REPLICATION_FORCE_MEMBERS_COMMAND_FAILURE";
+    exports[4119] = "ER_WARN_DEPRECATED_IDENT";
+    exports[4120] = "ER_INTERSECT_ALL_MAX_DUPLICATES_EXCEEDED";
+    exports[4121] = "ER_TP_QUERY_THRS_PER_GRP_EXCEEDS_TXN_THR_LIMIT";
+    exports[4122] = "ER_BAD_TIMESTAMP_FORMAT";
+    exports[4123] = "ER_SHAPE_PRIDICTION_UDF";
+    exports[4124] = "ER_SRS_INVALID_HEIGHT";
+    exports[4125] = "ER_SRS_INVALID_SCALING";
+    exports[4126] = "ER_SRS_INVALID_ZONE_WIDTH";
+    exports[4127] = "ER_SRS_INVALID_LATITUDE_POLAR_STERE_VAR_A";
+    exports[4128] = "ER_WARN_DEPRECATED_CLIENT_NO_SCHEMA_OPTION";
+    exports[4129] = "ER_TABLE_NOT_EMPTY";
+    exports[4130] = "ER_TABLE_NO_PRIMARY_KEY";
+    exports[4131] = "ER_TABLE_IN_SHARED_TABLESPACE";
+    exports[4132] = "ER_INDEX_OTHER_THAN_PK";
+    exports[4133] = "ER_LOAD_BULK_DATA_UNSORTED";
+    exports[4134] = "ER_BULK_EXECUTOR_ERROR";
+    exports[4135] = "ER_BULK_READER_LIBCURL_INIT_FAILED";
+    exports[4136] = "ER_BULK_READER_LIBCURL_ERROR";
+    exports[4137] = "ER_BULK_READER_SERVER_ERROR";
+    exports[4138] = "ER_BULK_READER_COMMUNICATION_ERROR";
+    exports[4139] = "ER_BULK_LOAD_DATA_FAILED";
+    exports[4140] = "ER_BULK_LOADER_COLUMN_TOO_BIG_FOR_LEFTOVER_BUFFER";
+    exports[4141] = "ER_BULK_LOADER_COMPONENT_ERROR";
+    exports[4142] = "ER_BULK_LOADER_FILE_CONTAINS_LESS_LINES_THAN_IGNORE_CLAUSE";
+    exports[4143] = "ER_BULK_PARSER_MISSING_ENCLOSED_BY";
+    exports[4144] = "ER_BULK_PARSER_ROW_BUFFER_MAX_TOTAL_COLS_EXCEEDED";
+    exports[4145] = "ER_BULK_PARSER_COPY_BUFFER_SIZE_EXCEEDED";
+    exports[4146] = "ER_BULK_PARSER_UNEXPECTED_END_OF_INPUT";
+    exports[4147] = "ER_BULK_PARSER_UNEXPECTED_ROW_TERMINATOR";
+    exports[4148] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_ENDING_ENCLOSED_BY";
+    exports[4149] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_NULL_ESCAPE";
+    exports[4150] = "ER_BULK_PARSER_UNEXPECTED_CHAR_AFTER_COLUMN_TERMINATOR";
+    exports[4151] = "ER_BULK_PARSER_INCOMPLETE_ESCAPE_SEQUENCE";
+    exports[4152] = "ER_LOAD_BULK_DATA_FAILED";
+    exports[4153] = "ER_LOAD_BULK_DATA_WRONG_VALUE_FOR_FIELD";
+    exports[4154] = "ER_LOAD_BULK_DATA_WARN_NULL_TO_NOTNULL";
+    exports[4155] = "ER_REQUIRE_TABLE_PRIMARY_KEY_CHECK_GENERATE_WITH_GR";
+    exports[4156] = "ER_CANT_CHANGE_SYS_VAR_IN_READ_ONLY_MODE";
+    exports[4157] = "ER_INNODB_INSTANT_ADD_DROP_NOT_SUPPORTED_MAX_SIZE";
+    exports[4158] = "ER_INNODB_INSTANT_ADD_NOT_SUPPORTED_MAX_FIELDS";
+    exports[4159] = "ER_CANT_SET_PERSISTED";
+    exports[4160] = "ER_INSTALL_COMPONENT_SET_NULL_VALUE";
+    exports[4161] = "ER_INSTALL_COMPONENT_SET_UNUSED_VALUE";
+    exports[4162] = "ER_WARN_DEPRECATED_USER_DEFINED_COLLATIONS";
   }
 });
 
 // node_modules/.pnpm/long@5.3.2/node_modules/long/umd/index.js
 var require_umd = __commonJS({
-  "node_modules/.pnpm/long@5.3.2/node_modules/long/umd/index.js"(exports2, module2) {
+  "node_modules/.pnpm/long@5.3.2/node_modules/long/umd/index.js"(exports, module) {
     (function(global2, factory2) {
-      function preferDefault(exports3) {
-        return exports3.default || exports3;
+      function preferDefault(exports2) {
+        return exports2.default || exports2;
       }
       if (typeof define === "function" && define.amd) {
         define([], function() {
-          var exports3 = {};
-          factory2(exports3);
-          return preferDefault(exports3);
+          var exports2 = {};
+          factory2(exports2);
+          return preferDefault(exports2);
         });
-      } else if (typeof exports2 === "object") {
-        factory2(exports2);
-        if (typeof module2 === "object") module2.exports = preferDefault(exports2);
+      } else if (typeof exports === "object") {
+        factory2(exports);
+        if (typeof module === "object") module.exports = preferDefault(exports);
       } else {
         (function() {
-          var exports3 = {};
-          factory2(exports3);
-          global2.Long = preferDefault(exports3);
+          var exports2 = {};
+          factory2(exports2);
+          global2.Long = preferDefault(exports2);
         })();
       }
     })(
-      typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : exports2,
+      typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : exports,
       function(_exports) {
         "use strict";
         Object.defineProperty(_exports, "__esModule", {
@@ -29509,10 +29514,10 @@ var require_umd = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/bom-handling.js
 var require_bom_handling2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/bom-handling.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/bom-handling.js"(exports) {
     "use strict";
     var BOMChar = "\uFEFF";
-    exports2.PrependBOM = PrependBOMWrapper;
+    exports.PrependBOM = PrependBOMWrapper;
     function PrependBOMWrapper(encoder2, options) {
       this.encoder = encoder2;
       this.addBOM = true;
@@ -29527,7 +29532,7 @@ var require_bom_handling2 = __commonJS({
     PrependBOMWrapper.prototype.end = function() {
       return this.encoder.end();
     };
-    exports2.StripBOM = StripBOMWrapper;
+    exports.StripBOM = StripBOMWrapper;
     function StripBOMWrapper(decoder2, options) {
       this.decoder = decoder2;
       this.pass = false;
@@ -29555,26 +29560,26 @@ var require_bom_handling2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/helpers/merge-exports.js
 var require_merge_exports = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/helpers/merge-exports.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/helpers/merge-exports.js"(exports, module) {
     "use strict";
     var hasOwn = typeof Object.hasOwn === "undefined" ? Function.call.bind(Object.prototype.hasOwnProperty) : Object.hasOwn;
-    function mergeModules(target, module3) {
-      for (var key in module3) {
-        if (hasOwn(module3, key)) {
-          target[key] = module3[key];
+    function mergeModules(target, module2) {
+      for (var key in module2) {
+        if (hasOwn(module2, key)) {
+          target[key] = module2[key];
         }
       }
     }
-    module2.exports = mergeModules;
+    module.exports = mergeModules;
   }
 });
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/internal.js
 var require_internal2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/internal.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/internal.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    module2.exports = {
+    module.exports = {
       // Encodings
       utf8: { type: "_internal", bomAware: true },
       cesu8: { type: "_internal", bomAware: true },
@@ -29605,7 +29610,7 @@ var require_internal2 = __commonJS({
     }
     InternalCodec.prototype.encoder = InternalEncoder;
     InternalCodec.prototype.decoder = InternalDecoder;
-    var StringDecoder = require("string_decoder").StringDecoder;
+    var StringDecoder = __require("string_decoder").StringDecoder;
     function InternalDecoder(options, codec2) {
       this.decoder = new StringDecoder(codec2.enc);
     }
@@ -29752,19 +29757,19 @@ var require_internal2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf32.js
 var require_utf32 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf32.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf32.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2._utf32 = Utf32Codec;
+    exports._utf32 = Utf32Codec;
     function Utf32Codec(codecOptions, iconv) {
       this.iconv = iconv;
       this.bomAware = true;
       this.isLE = codecOptions.isLE;
     }
-    exports2.utf32le = { type: "_utf32", isLE: true };
-    exports2.utf32be = { type: "_utf32", isLE: false };
-    exports2.ucs4le = "utf32le";
-    exports2.ucs4be = "utf32be";
+    exports.utf32le = { type: "_utf32", isLE: true };
+    exports.utf32be = { type: "_utf32", isLE: false };
+    exports.ucs4le = "utf32le";
+    exports.ucs4be = "utf32be";
     Utf32Codec.prototype.encoder = Utf32Encoder;
     Utf32Codec.prototype.decoder = Utf32Decoder;
     function Utf32Encoder(options, codec2) {
@@ -29879,8 +29884,8 @@ var require_utf32 = __commonJS({
     Utf32Decoder.prototype.end = function() {
       this.overflow.length = 0;
     };
-    exports2.utf32 = Utf32AutoCodec;
-    exports2.ucs4 = "utf32";
+    exports.utf32 = Utf32AutoCodec;
+    exports.ucs4 = "utf32";
     function Utf32AutoCodec(options, iconv) {
       this.iconv = iconv;
     }
@@ -29983,10 +29988,10 @@ var require_utf32 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf16.js
 var require_utf162 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf16.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf16.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2.utf16be = Utf16BECodec;
+    exports.utf16be = Utf16BECodec;
     function Utf16BECodec() {
     }
     Utf16BECodec.prototype.encoder = Utf16BEEncoder;
@@ -30031,7 +30036,7 @@ var require_utf162 = __commonJS({
     Utf16BEDecoder.prototype.end = function() {
       this.overflowByte = -1;
     };
-    exports2.utf16 = Utf16Codec;
+    exports.utf16 = Utf16Codec;
     function Utf16Codec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -30126,11 +30131,11 @@ var require_utf162 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf7.js
 var require_utf72 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf7.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/utf7.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2.utf7 = Utf7Codec;
-    exports2.unicode11utf7 = "utf7";
+    exports.utf7 = Utf7Codec;
+    exports.unicode11utf7 = "utf7";
     function Utf7Codec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -30213,7 +30218,7 @@ var require_utf72 = __commonJS({
       this.base64Accum = "";
       return res;
     };
-    exports2.utf7imap = Utf7IMAPCodec;
+    exports.utf7imap = Utf7IMAPCodec;
     function Utf7IMAPCodec(codecOptions, iconv) {
       this.iconv = iconv;
     }
@@ -30344,10 +30349,10 @@ var require_utf72 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-codec.js
 var require_sbcs_codec2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-codec.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-codec.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2._sbcs = SBCSCodec;
+    exports._sbcs = SBCSCodec;
     function SBCSCodec(codecOptions, iconv) {
       if (!codecOptions) {
         throw new Error("SBCS codec is called without the data.");
@@ -30406,9 +30411,9 @@ var require_sbcs_codec2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data.js
 var require_sbcs_data2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       // Not supported by iconv, not sure why.
       10029: "maccenteuro",
       maccenteuro: {
@@ -30559,9 +30564,9 @@ var require_sbcs_data2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data-generated.js
 var require_sbcs_data_generated2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data-generated.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/sbcs-data-generated.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       "437": "cp437",
       "737": "cp737",
       "775": "cp775",
@@ -31014,10 +31019,10 @@ var require_sbcs_data_generated2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-codec.js
 var require_dbcs_codec2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-codec.js"(exports2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-codec.js"(exports) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    exports2._dbcs = DBCSCodec;
+    exports._dbcs = DBCSCodec;
     var UNASSIGNED = -1;
     var GB18030_CODE = -2;
     var SEQ_START = -10;
@@ -31474,8 +31479,8 @@ var require_dbcs_codec2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/shiftjis.json
 var require_shiftjis2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/shiftjis.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/shiftjis.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 128],
       ["a1", "\uFF61", 62],
       ["8140", "\u3000\u3001\u3002\uFF0C\uFF0E\u30FB\uFF1A\uFF1B\uFF1F\uFF01\u309B\u309C\xB4\uFF40\xA8\uFF3E\uFFE3\uFF3F\u30FD\u30FE\u309D\u309E\u3003\u4EDD\u3005\u3006\u3007\u30FC\u2015\u2010\uFF0F\uFF3C\uFF5E\u2225\uFF5C\u2026\u2025\u2018\u2019\u201C\u201D\uFF08\uFF09\u3014\u3015\uFF3B\uFF3D\uFF5B\uFF5D\u3008", 9, "\uFF0B\uFF0D\xB1\xD7"],
@@ -31605,8 +31610,8 @@ var require_shiftjis2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/eucjp.json
 var require_eucjp2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/eucjp.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/eucjp.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["8ea1", "\uFF61", 62],
       ["a1a1", "\u3000\u3001\u3002\uFF0C\uFF0E\u30FB\uFF1A\uFF1B\uFF1F\uFF01\u309B\u309C\xB4\uFF40\xA8\uFF3E\uFFE3\uFF3F\u30FD\u30FE\u309D\u309E\u3003\u4EDD\u3005\u3006\u3007\u30FC\u2015\u2010\uFF0F\uFF3C\uFF5E\u2225\uFF5C\u2026\u2025\u2018\u2019\u201C\u201D\uFF08\uFF09\u3014\u3015\uFF3B\uFF3D\uFF5B\uFF5D\u3008", 9, "\uFF0B\uFF0D\xB1\xD7\xF7\uFF1D\u2260\uFF1C\uFF1E\u2266\u2267\u221E\u2234\u2642\u2640\xB0\u2032\u2033\u2103\uFFE5\uFF04\uFFE0\uFFE1\uFF05\uFF03\uFF06\uFF0A\uFF20\xA7\u2606\u2605\u25CB\u25CF\u25CE\u25C7"],
@@ -31793,8 +31798,8 @@ var require_eucjp2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp936.json
 var require_cp9362 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp936.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp936.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127, "\u20AC"],
       ["8140", "\u4E02\u4E04\u4E05\u4E06\u4E0F\u4E12\u4E17\u4E1F\u4E20\u4E21\u4E23\u4E26\u4E29\u4E2E\u4E2F\u4E31\u4E33\u4E35\u4E37\u4E3C\u4E40\u4E41\u4E42\u4E44\u4E46\u4E4A\u4E51\u4E55\u4E57\u4E5A\u4E5B\u4E62\u4E63\u4E64\u4E65\u4E67\u4E68\u4E6A", 5, "\u4E72\u4E74", 9, "\u4E7F", 6, "\u4E87\u4E8A"],
       ["8180", "\u4E90\u4E96\u4E97\u4E99\u4E9C\u4E9D\u4E9E\u4EA3\u4EAA\u4EAF\u4EB0\u4EB1\u4EB4\u4EB6\u4EB7\u4EB8\u4EB9\u4EBC\u4EBD\u4EBE\u4EC8\u4ECC\u4ECF\u4ED0\u4ED2\u4EDA\u4EDB\u4EDC\u4EE0\u4EE2\u4EE6\u4EE7\u4EE9\u4EED\u4EEE\u4EEF\u4EF1\u4EF4\u4EF8\u4EF9\u4EFA\u4EFC\u4EFE\u4F00\u4F02", 6, "\u4F0B\u4F0C\u4F12", 4, "\u4F1C\u4F1D\u4F21\u4F23\u4F28\u4F29\u4F2C\u4F2D\u4F2E\u4F31\u4F33\u4F35\u4F37\u4F39\u4F3B\u4F3E", 4, "\u4F44\u4F45\u4F47", 5, "\u4F52\u4F54\u4F56\u4F61\u4F62\u4F66\u4F68\u4F6A\u4F6B\u4F6D\u4F6E\u4F71\u4F72\u4F75\u4F77\u4F78\u4F79\u4F7A\u4F7D\u4F80\u4F81\u4F82\u4F85\u4F86\u4F87\u4F8A\u4F8C\u4F8E\u4F90\u4F92\u4F93\u4F95\u4F96\u4F98\u4F99\u4F9A\u4F9C\u4F9E\u4F9F\u4FA1\u4FA2"],
@@ -32063,8 +32068,8 @@ var require_cp9362 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gbk-added.json
 var require_gbk_added2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gbk-added.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gbk-added.json"(exports, module) {
+    module.exports = [
       ["a140", "\uE4C6", 62],
       ["a180", "\uE505", 32],
       ["a240", "\uE526", 62],
@@ -32125,15 +32130,15 @@ var require_gbk_added2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json
 var require_gb18030_ranges2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json"(exports2, module2) {
-    module2.exports = { uChars: [128, 165, 169, 178, 184, 216, 226, 235, 238, 244, 248, 251, 253, 258, 276, 284, 300, 325, 329, 334, 364, 463, 465, 467, 469, 471, 473, 475, 477, 506, 594, 610, 712, 716, 730, 930, 938, 962, 970, 1026, 1104, 1106, 8209, 8215, 8218, 8222, 8231, 8241, 8244, 8246, 8252, 8365, 8452, 8454, 8458, 8471, 8482, 8556, 8570, 8596, 8602, 8713, 8720, 8722, 8726, 8731, 8737, 8740, 8742, 8748, 8751, 8760, 8766, 8777, 8781, 8787, 8802, 8808, 8816, 8854, 8858, 8870, 8896, 8979, 9322, 9372, 9548, 9588, 9616, 9622, 9634, 9652, 9662, 9672, 9676, 9680, 9702, 9735, 9738, 9793, 9795, 11906, 11909, 11913, 11917, 11928, 11944, 11947, 11951, 11956, 11960, 11964, 11979, 12284, 12292, 12312, 12319, 12330, 12351, 12436, 12447, 12535, 12543, 12586, 12842, 12850, 12964, 13200, 13215, 13218, 13253, 13263, 13267, 13270, 13384, 13428, 13727, 13839, 13851, 14617, 14703, 14801, 14816, 14964, 15183, 15471, 15585, 16471, 16736, 17208, 17325, 17330, 17374, 17623, 17997, 18018, 18212, 18218, 18301, 18318, 18760, 18811, 18814, 18820, 18823, 18844, 18848, 18872, 19576, 19620, 19738, 19887, 40870, 59244, 59336, 59367, 59413, 59417, 59423, 59431, 59437, 59443, 59452, 59460, 59478, 59493, 63789, 63866, 63894, 63976, 63986, 64016, 64018, 64021, 64025, 64034, 64037, 64042, 65074, 65093, 65107, 65112, 65127, 65132, 65375, 65510, 65536], gbChars: [0, 36, 38, 45, 50, 81, 89, 95, 96, 100, 103, 104, 105, 109, 126, 133, 148, 172, 175, 179, 208, 306, 307, 308, 309, 310, 311, 312, 313, 341, 428, 443, 544, 545, 558, 741, 742, 749, 750, 805, 819, 820, 7922, 7924, 7925, 7927, 7934, 7943, 7944, 7945, 7950, 8062, 8148, 8149, 8152, 8164, 8174, 8236, 8240, 8262, 8264, 8374, 8380, 8381, 8384, 8388, 8390, 8392, 8393, 8394, 8396, 8401, 8406, 8416, 8419, 8424, 8437, 8439, 8445, 8482, 8485, 8496, 8521, 8603, 8936, 8946, 9046, 9050, 9063, 9066, 9076, 9092, 9100, 9108, 9111, 9113, 9131, 9162, 9164, 9218, 9219, 11329, 11331, 11334, 11336, 11346, 11361, 11363, 11366, 11370, 11372, 11375, 11389, 11682, 11686, 11687, 11692, 11694, 11714, 11716, 11723, 11725, 11730, 11736, 11982, 11989, 12102, 12336, 12348, 12350, 12384, 12393, 12395, 12397, 12510, 12553, 12851, 12962, 12973, 13738, 13823, 13919, 13933, 14080, 14298, 14585, 14698, 15583, 15847, 16318, 16434, 16438, 16481, 16729, 17102, 17122, 17315, 17320, 17402, 17418, 17859, 17909, 17911, 17915, 17916, 17936, 17939, 17961, 18664, 18703, 18814, 18962, 19043, 33469, 33470, 33471, 33484, 33485, 33490, 33497, 33501, 33505, 33513, 33520, 33536, 33550, 37845, 37921, 37948, 38029, 38038, 38064, 38065, 38066, 38069, 38075, 38076, 38078, 39108, 39109, 39113, 39114, 39115, 39116, 39265, 39394, 189e3] };
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/gb18030-ranges.json"(exports, module) {
+    module.exports = { uChars: [128, 165, 169, 178, 184, 216, 226, 235, 238, 244, 248, 251, 253, 258, 276, 284, 300, 325, 329, 334, 364, 463, 465, 467, 469, 471, 473, 475, 477, 506, 594, 610, 712, 716, 730, 930, 938, 962, 970, 1026, 1104, 1106, 8209, 8215, 8218, 8222, 8231, 8241, 8244, 8246, 8252, 8365, 8452, 8454, 8458, 8471, 8482, 8556, 8570, 8596, 8602, 8713, 8720, 8722, 8726, 8731, 8737, 8740, 8742, 8748, 8751, 8760, 8766, 8777, 8781, 8787, 8802, 8808, 8816, 8854, 8858, 8870, 8896, 8979, 9322, 9372, 9548, 9588, 9616, 9622, 9634, 9652, 9662, 9672, 9676, 9680, 9702, 9735, 9738, 9793, 9795, 11906, 11909, 11913, 11917, 11928, 11944, 11947, 11951, 11956, 11960, 11964, 11979, 12284, 12292, 12312, 12319, 12330, 12351, 12436, 12447, 12535, 12543, 12586, 12842, 12850, 12964, 13200, 13215, 13218, 13253, 13263, 13267, 13270, 13384, 13428, 13727, 13839, 13851, 14617, 14703, 14801, 14816, 14964, 15183, 15471, 15585, 16471, 16736, 17208, 17325, 17330, 17374, 17623, 17997, 18018, 18212, 18218, 18301, 18318, 18760, 18811, 18814, 18820, 18823, 18844, 18848, 18872, 19576, 19620, 19738, 19887, 40870, 59244, 59336, 59367, 59413, 59417, 59423, 59431, 59437, 59443, 59452, 59460, 59478, 59493, 63789, 63866, 63894, 63976, 63986, 64016, 64018, 64021, 64025, 64034, 64037, 64042, 65074, 65093, 65107, 65112, 65127, 65132, 65375, 65510, 65536], gbChars: [0, 36, 38, 45, 50, 81, 89, 95, 96, 100, 103, 104, 105, 109, 126, 133, 148, 172, 175, 179, 208, 306, 307, 308, 309, 310, 311, 312, 313, 341, 428, 443, 544, 545, 558, 741, 742, 749, 750, 805, 819, 820, 7922, 7924, 7925, 7927, 7934, 7943, 7944, 7945, 7950, 8062, 8148, 8149, 8152, 8164, 8174, 8236, 8240, 8262, 8264, 8374, 8380, 8381, 8384, 8388, 8390, 8392, 8393, 8394, 8396, 8401, 8406, 8416, 8419, 8424, 8437, 8439, 8445, 8482, 8485, 8496, 8521, 8603, 8936, 8946, 9046, 9050, 9063, 9066, 9076, 9092, 9100, 9108, 9111, 9113, 9131, 9162, 9164, 9218, 9219, 11329, 11331, 11334, 11336, 11346, 11361, 11363, 11366, 11370, 11372, 11375, 11389, 11682, 11686, 11687, 11692, 11694, 11714, 11716, 11723, 11725, 11730, 11736, 11982, 11989, 12102, 12336, 12348, 12350, 12384, 12393, 12395, 12397, 12510, 12553, 12851, 12962, 12973, 13738, 13823, 13919, 13933, 14080, 14298, 14585, 14698, 15583, 15847, 16318, 16434, 16438, 16481, 16729, 17102, 17122, 17315, 17320, 17402, 17418, 17859, 17909, 17911, 17915, 17916, 17936, 17939, 17961, 18664, 18703, 18814, 18962, 19043, 33469, 33470, 33471, 33484, 33485, 33490, 33497, 33501, 33505, 33513, 33520, 33536, 33550, 37845, 37921, 37948, 38029, 38038, 38064, 38065, 38066, 38069, 38075, 38076, 38078, 39108, 39109, 39113, 39114, 39115, 39116, 39265, 39394, 189e3] };
   }
 });
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp949.json
 var require_cp9492 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp949.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp949.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["8141", "\uAC02\uAC03\uAC05\uAC06\uAC0B", 4, "\uAC18\uAC1E\uAC1F\uAC21\uAC22\uAC23\uAC25", 6, "\uAC2E\uAC32\uAC33\uAC34"],
       ["8161", "\uAC35\uAC36\uAC37\uAC3A\uAC3B\uAC3D\uAC3E\uAC3F\uAC41", 9, "\uAC4C\uAC4E", 5, "\uAC55"],
@@ -32411,8 +32416,8 @@ var require_cp9492 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp950.json
 var require_cp9502 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp950.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/cp950.json"(exports, module) {
+    module.exports = [
       ["0", "\0", 127],
       ["a140", "\u3000\uFF0C\u3001\u3002\uFF0E\u2027\uFF1B\uFF1A\uFF1F\uFF01\uFE30\u2026\u2025\uFE50\uFE51\uFE52\xB7\uFE54\uFE55\uFE56\uFE57\uFF5C\u2013\uFE31\u2014\uFE33\u2574\uFE34\uFE4F\uFF08\uFF09\uFE35\uFE36\uFF5B\uFF5D\uFE37\uFE38\u3014\u3015\uFE39\uFE3A\u3010\u3011\uFE3B\uFE3C\u300A\u300B\uFE3D\uFE3E\u3008\u3009\uFE3F\uFE40\u300C\u300D\uFE41\uFE42\u300E\u300F\uFE43\uFE44\uFE59\uFE5A"],
       ["a1a1", "\uFE5B\uFE5C\uFE5D\uFE5E\u2018\u2019\u201C\u201D\u301D\u301E\u2035\u2032\uFF03\uFF06\uFF0A\u203B\xA7\u3003\u25CB\u25CF\u25B3\u25B2\u25CE\u2606\u2605\u25C7\u25C6\u25A1\u25A0\u25BD\u25BC\u32A3\u2105\xAF\uFFE3\uFF3F\u02CD\uFE49\uFE4A\uFE4D\uFE4E\uFE4B\uFE4C\uFE5F\uFE60\uFE61\uFF0B\uFF0D\xD7\xF7\xB1\u221A\uFF1C\uFF1E\uFF1D\u2266\u2267\u2260\u221E\u2252\u2261\uFE62", 4, "\uFF5E\u2229\u222A\u22A5\u2220\u221F\u22BF\u33D2\u33D1\u222B\u222E\u2235\u2234\u2640\u2642\u2295\u2299\u2191\u2193\u2190\u2192\u2196\u2197\u2199\u2198\u2225\u2223\uFF0F"],
@@ -32594,8 +32599,8 @@ var require_cp9502 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/big5-added.json
 var require_big5_added2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/big5-added.json"(exports2, module2) {
-    module2.exports = [
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/tables/big5-added.json"(exports, module) {
+    module.exports = [
       ["8740", "\u43F0\u4C32\u4603\u45A6\u4578\u{27267}\u4D77\u45B3\u{27CB1}\u4CE2\u{27CC5}\u3B95\u4736\u4744\u4C47\u4C40\u{242BF}\u{23617}\u{27352}\u{26E8B}\u{270D2}\u4C57\u{2A351}\u474F\u45DA\u4C85\u{27C6C}\u4D07\u4AA4\u46A1\u{26B23}\u7225\u{25A54}\u{21A63}\u{23E06}\u{23F61}\u664D\u56FB"],
       ["8767", "\u7D95\u591D\u{28BB9}\u3DF4\u9734\u{27BEF}\u5BDB\u{21D5E}\u5AA4\u3625\u{29EB0}\u5AD1\u5BB7\u5CFC\u676E\u8593\u{29945}\u7461\u749D\u3875\u{21D53}\u{2369E}\u{26021}\u3EEC"],
       ["87a1", "\u{258DE}\u3AF5\u7AFC\u9F97\u{24161}\u{2890D}\u{231EA}\u{20A8A}\u{2325E}\u430A\u8484\u9F96\u942F\u4930\u8613\u5896\u974A\u9218\u79D0\u7A32\u6660\u6A29\u889D\u744C\u7BC5\u6782\u7A2C\u524F\u9046\u34E6\u73C4\u{25DB9}\u74C6\u9FC7\u57B3\u492F\u544C\u4131\u{2368E}\u5818\u7A72\u{27B65}\u8B8F\u46AE\u{26E88}\u4181\u{25D99}\u7BAE\u{224BC}\u9FC8\u{224C1}\u{224C9}\u{224CC}\u9FC9\u8504\u{235BB}\u40B4\u9FCA\u44E1\u{2ADFF}\u62C1\u706E\u9FCB"],
@@ -32722,9 +32727,9 @@ var require_big5_added2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-data.js
 var require_dbcs_data2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-data.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/dbcs-data.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       // == Japanese/ShiftJIS ====================================================
       // All japanese encodings are based on JIS X set of standards:
       // JIS X 0201 - Single-byte encoding of ASCII + ¥ + Kana chars at 0xA1-0xDF.
@@ -32969,7 +32974,7 @@ var require_dbcs_data2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/index.js
 var require_encodings2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/index.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/encodings/index.js"(exports, module) {
     "use strict";
     var mergeModules = require_merge_exports();
     var modules = [
@@ -32984,20 +32989,20 @@ var require_encodings2 = __commonJS({
       require_dbcs_data2()
     ];
     for (i = 0; i < modules.length; i++) {
-      module2 = modules[i];
-      mergeModules(exports2, module2);
+      module = modules[i];
+      mergeModules(exports, module);
     }
-    var module2;
+    var module;
     var i;
   }
 });
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/streams.js
 var require_streams2 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/streams.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/streams.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
-    module2.exports = function(streamModule) {
+    module.exports = function(streamModule) {
       var Transform = streamModule.Transform;
       function IconvLiteEncoderStream(conv, options) {
         this.conv = conv;
@@ -33091,12 +33096,12 @@ var require_streams2 = __commonJS({
 
 // node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/index.js
 var require_lib5 = __commonJS({
-  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/index.js"(exports2, module2) {
+  "node_modules/.pnpm/iconv-lite@0.7.0/node_modules/iconv-lite/lib/index.js"(exports, module) {
     "use strict";
     var Buffer2 = require_safer().Buffer;
     var bomHandling = require_bom_handling2();
     var mergeModules = require_merge_exports();
-    var iconv = module2.exports;
+    var iconv = module.exports;
     iconv.encodings = null;
     iconv.defaultCharUnicode = "\uFFFD";
     iconv.defaultCharSingleByte = "?";
@@ -33206,7 +33211,7 @@ var require_lib5 = __commonJS({
     };
     var streamModule;
     try {
-      streamModule = require("stream");
+      streamModule = __require("stream");
     } catch (e) {
     }
     if (streamModule && streamModule.Transform) {
@@ -33224,14 +33229,14 @@ var require_lib5 = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/string.js
 var require_string = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/string.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/string.js"(exports) {
     "use strict";
     var Iconv = require_lib5();
     var { createLRU } = require_lib4();
     var decoderCache = createLRU({
       max: 500
     });
-    exports2.decode = function(buffer, encoding, start, end, options) {
+    exports.decode = function(buffer, encoding, start, end, options) {
       if (Buffer.isEncoding(encoding)) {
         return buffer.toString(encoding, start, end);
       }
@@ -33255,7 +33260,7 @@ var require_string = __commonJS({
       const trail = decoder2.end();
       return trail ? res + trail : res;
     };
-    exports2.encode = function(string4, encoding, options) {
+    exports.encode = function(string4, encoding, options) {
       if (Buffer.isEncoding(encoding)) {
         return Buffer.from(string4, encoding);
       }
@@ -33269,9 +33274,9 @@ var require_string = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/types.js
 var require_types2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/types.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/types.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       0: "DECIMAL",
       // aka DECIMAL
       1: "TINY",
@@ -33328,44 +33333,44 @@ var require_types2 = __commonJS({
       255: "GEOMETRY"
       // aka GEOMETRY
     };
-    module2.exports.DECIMAL = 0;
-    module2.exports.TINY = 1;
-    module2.exports.SHORT = 2;
-    module2.exports.LONG = 3;
-    module2.exports.FLOAT = 4;
-    module2.exports.DOUBLE = 5;
-    module2.exports.NULL = 6;
-    module2.exports.TIMESTAMP = 7;
-    module2.exports.LONGLONG = 8;
-    module2.exports.INT24 = 9;
-    module2.exports.DATE = 10;
-    module2.exports.TIME = 11;
-    module2.exports.DATETIME = 12;
-    module2.exports.YEAR = 13;
-    module2.exports.NEWDATE = 14;
-    module2.exports.VARCHAR = 15;
-    module2.exports.BIT = 16;
-    module2.exports.VECTOR = 242;
-    module2.exports.JSON = 245;
-    module2.exports.NEWDECIMAL = 246;
-    module2.exports.ENUM = 247;
-    module2.exports.SET = 248;
-    module2.exports.TINY_BLOB = 249;
-    module2.exports.MEDIUM_BLOB = 250;
-    module2.exports.LONG_BLOB = 251;
-    module2.exports.BLOB = 252;
-    module2.exports.VAR_STRING = 253;
-    module2.exports.STRING = 254;
-    module2.exports.GEOMETRY = 255;
+    module.exports.DECIMAL = 0;
+    module.exports.TINY = 1;
+    module.exports.SHORT = 2;
+    module.exports.LONG = 3;
+    module.exports.FLOAT = 4;
+    module.exports.DOUBLE = 5;
+    module.exports.NULL = 6;
+    module.exports.TIMESTAMP = 7;
+    module.exports.LONGLONG = 8;
+    module.exports.INT24 = 9;
+    module.exports.DATE = 10;
+    module.exports.TIME = 11;
+    module.exports.DATETIME = 12;
+    module.exports.YEAR = 13;
+    module.exports.NEWDATE = 14;
+    module.exports.VARCHAR = 15;
+    module.exports.BIT = 16;
+    module.exports.VECTOR = 242;
+    module.exports.JSON = 245;
+    module.exports.NEWDECIMAL = 246;
+    module.exports.ENUM = 247;
+    module.exports.SET = 248;
+    module.exports.TINY_BLOB = 249;
+    module.exports.MEDIUM_BLOB = 250;
+    module.exports.LONG_BLOB = 251;
+    module.exports.BLOB = 252;
+    module.exports.VAR_STRING = 253;
+    module.exports.STRING = 254;
+    module.exports.GEOMETRY = 255;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/packet.js
 var require_packet = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/packet.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/packet.js"(exports, module) {
     "use strict";
     var ErrorCodeToName = require_errors();
-    var NativeBuffer = require("buffer").Buffer;
+    var NativeBuffer = __require("buffer").Buffer;
     var Long = require_umd();
     var StringParser = require_string();
     var Types = require_types2();
@@ -34145,13 +34150,13 @@ var require_packet = __commonJS({
         return res;
       }
     };
-    module2.exports = Packet;
+    module.exports = Packet;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packet_parser.js
 var require_packet_parser = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packet_parser.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packet_parser.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var MAX_PACKET_LENGTH = 16777215;
@@ -34312,13 +34317,13 @@ var require_packet_parser = __commonJS({
         return this.executePayload(chunk.slice(1));
       }
     };
-    module2.exports = PacketParser;
+    module.exports = PacketParser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_next_factor.js
 var require_auth_next_factor = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_next_factor.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_next_factor.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var AuthNextFactor = class _AuthNextFactor {
@@ -34346,13 +34351,13 @@ var require_auth_next_factor = __commonJS({
         });
       }
     };
-    module2.exports = AuthNextFactor;
+    module.exports = AuthNextFactor;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request.js
 var require_auth_switch_request = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var AuthSwitchRequest = class _AuthSwitchRequest {
@@ -34380,13 +34385,13 @@ var require_auth_switch_request = __commonJS({
         });
       }
     };
-    module2.exports = AuthSwitchRequest;
+    module.exports = AuthSwitchRequest;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request_more_data.js
 var require_auth_switch_request_more_data = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request_more_data.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_request_more_data.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var AuthSwitchRequestMoreData = class _AuthSwitchRequestMoreData {
@@ -34411,13 +34416,13 @@ var require_auth_switch_request_more_data = __commonJS({
         return packet.peekByte() === 1;
       }
     };
-    module2.exports = AuthSwitchRequestMoreData;
+    module.exports = AuthSwitchRequestMoreData;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_response.js
 var require_auth_switch_response = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_response.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/auth_switch_response.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var AuthSwitchResponse = class _AuthSwitchResponse {
@@ -34440,13 +34445,13 @@ var require_auth_switch_response = __commonJS({
         return new _AuthSwitchResponse(data);
       }
     };
-    module2.exports = AuthSwitchResponse;
+    module.exports = AuthSwitchResponse;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binary_row.js
 var require_binary_row = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binary_row.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binary_row.js"(exports, module) {
     "use strict";
     var Types = require_types2();
     var Packet = require_packet();
@@ -34526,15 +34531,15 @@ var require_binary_row = __commonJS({
     binaryReader[12] = Packet.prototype.readDateTime;
     binaryReader[13] = Packet.prototype.readInt16;
     binaryReader[Types.VAR_STRING] = Packet.prototype.readLengthCodedString;
-    module2.exports = BinaryRow;
+    module.exports = BinaryRow;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/commands.js
 var require_commands = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/commands.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/commands.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       SLEEP: 0,
       // deprecated
       QUIT: 1,
@@ -34580,7 +34585,7 @@ var require_commands = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_dump.js
 var require_binlog_dump = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_dump.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_dump.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var CommandCodes = require_commands();
@@ -34604,15 +34609,15 @@ var require_binlog_dump = __commonJS({
         return packet;
       }
     };
-    module2.exports = BinlogDump;
+    module.exports = BinlogDump;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_41.js
 var require_auth_41 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_41.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_41.js"(exports) {
     "use strict";
-    var crypto3 = require("crypto");
+    var crypto3 = __require("crypto");
     function sha1(msg, msg1, msg2) {
       const hash2 = crypto3.createHash("sha1");
       hash2.update(msg);
@@ -34631,28 +34636,28 @@ var require_auth_41 = __commonJS({
       }
       return result;
     }
-    exports2.xor = xor;
+    exports.xor = xor;
     function token(password, scramble1, scramble2) {
       if (!password) {
         return Buffer.alloc(0);
       }
       const stage1 = sha1(password);
-      return exports2.calculateTokenFromPasswordSha(stage1, scramble1, scramble2);
+      return exports.calculateTokenFromPasswordSha(stage1, scramble1, scramble2);
     }
-    exports2.calculateTokenFromPasswordSha = function(passwordSha, scramble1, scramble2) {
+    exports.calculateTokenFromPasswordSha = function(passwordSha, scramble1, scramble2) {
       const authPluginData1 = scramble1.slice(0, 8);
       const authPluginData2 = scramble2.slice(0, 12);
       const stage2 = sha1(passwordSha);
       const stage3 = sha1(authPluginData1, authPluginData2, stage2);
       return xor(stage3, passwordSha);
     };
-    exports2.calculateToken = token;
-    exports2.verifyToken = function(publicSeed1, publicSeed2, token2, doubleSha) {
+    exports.calculateToken = token;
+    exports.verifyToken = function(publicSeed1, publicSeed2, token2, doubleSha) {
       const hashStage1 = xor(token2, sha1(publicSeed1, publicSeed2, doubleSha));
       const candidateHash2 = sha1(hashStage1);
       return candidateHash2.compare(doubleSha) === 0;
     };
-    exports2.doubleSha1 = function(password) {
+    exports.doubleSha1 = function(password) {
       return sha1(sha1(password));
     };
     function xorRotating(a, seed) {
@@ -34663,15 +34668,15 @@ var require_auth_41 = __commonJS({
       }
       return result;
     }
-    exports2.xorRotating = xorRotating;
+    exports.xorRotating = xorRotating;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charset_encodings.js
 var require_charset_encodings = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charset_encodings.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/charset_encodings.js"(exports, module) {
     "use strict";
-    module2.exports = [
+    module.exports = [
       "utf8",
       "big5",
       "latin2",
@@ -34987,7 +34992,7 @@ var require_charset_encodings = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/change_user.js
 var require_change_user = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/change_user.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/change_user.js"(exports, module) {
     "use strict";
     var CommandCode = require_commands();
     var ClientConstants = require_client();
@@ -35076,13 +35081,13 @@ var require_change_user = __commonJS({
         return this.serializeToBuffer(Buffer.allocUnsafe(p.offset));
       }
     };
-    module2.exports = ChangeUser;
+    module.exports = ChangeUser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/close_statement.js
 var require_close_statement = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/close_statement.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/close_statement.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var CommandCodes = require_commands();
@@ -35099,35 +35104,35 @@ var require_close_statement = __commonJS({
         return packet;
       }
     };
-    module2.exports = CloseStatement;
+    module.exports = CloseStatement;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/field_flags.js
 var require_field_flags = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/field_flags.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/field_flags.js"(exports) {
     "use strict";
-    exports2.NOT_NULL = 1;
-    exports2.PRI_KEY = 2;
-    exports2.UNIQUE_KEY = 4;
-    exports2.MULTIPLE_KEY = 8;
-    exports2.BLOB = 16;
-    exports2.UNSIGNED = 32;
-    exports2.ZEROFILL = 64;
-    exports2.BINARY = 128;
-    exports2.ENUM = 256;
-    exports2.AUTO_INCREMENT = 512;
-    exports2.TIMESTAMP = 1024;
-    exports2.SET = 2048;
-    exports2.NO_DEFAULT_VALUE = 4096;
-    exports2.ON_UPDATE_NOW = 8192;
-    exports2.NUM = 32768;
+    exports.NOT_NULL = 1;
+    exports.PRI_KEY = 2;
+    exports.UNIQUE_KEY = 4;
+    exports.MULTIPLE_KEY = 8;
+    exports.BLOB = 16;
+    exports.UNSIGNED = 32;
+    exports.ZEROFILL = 64;
+    exports.BINARY = 128;
+    exports.ENUM = 256;
+    exports.AUTO_INCREMENT = 512;
+    exports.TIMESTAMP = 1024;
+    exports.SET = 2048;
+    exports.NO_DEFAULT_VALUE = 4096;
+    exports.ON_UPDATE_NOW = 8192;
+    exports.NUM = 32768;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/column_definition.js
 var require_column_definition = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/column_definition.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/column_definition.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var StringParser = require_string();
@@ -35363,15 +35368,15 @@ var require_column_definition = __commonJS({
     addString("table");
     addString("orgTable");
     addString("orgName");
-    module2.exports = ColumnDefinition;
+    module.exports = ColumnDefinition;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/cursor.js
 var require_cursor = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/cursor.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/cursor.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       NO_CURSOR: 0,
       READ_ONLY: 1,
       FOR_UPDATE: 2,
@@ -35382,7 +35387,7 @@ var require_cursor = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/execute.js
 var require_execute = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/execute.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/execute.js"(exports, module) {
     "use strict";
     var CursorType = require_cursor();
     var CommandCodes = require_commands();
@@ -35540,13 +35545,13 @@ var require_execute = __commonJS({
         return packet;
       }
     };
-    module2.exports = Execute;
+    module.exports = Execute;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake.js
 var require_handshake = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var ClientConstants = require_client();
@@ -35563,7 +35568,7 @@ var require_handshake = __commonJS({
         this.authPluginName = args.authPluginName;
       }
       setScrambleData(cb) {
-        require("crypto").randomBytes(20, (err, data) => {
+        __require("crypto").randomBytes(20, (err, data) => {
           if (err) {
             cb(err);
             return;
@@ -35642,13 +35647,13 @@ var require_handshake = __commonJS({
         return new _Handshake(args);
       }
     };
-    module2.exports = Handshake;
+    module.exports = Handshake;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake_response.js
 var require_handshake_response = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake_response.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/handshake_response.js"(exports, module) {
     "use strict";
     var ClientConstants = require_client();
     var CharsetToEncoding = require_charset_encodings();
@@ -35782,13 +35787,13 @@ var require_handshake_response = __commonJS({
         return args;
       }
     };
-    module2.exports = HandshakeResponse;
+    module.exports = HandshakeResponse;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepare_statement.js
 var require_prepare_statement = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepare_statement.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepare_statement.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var CommandCodes = require_commands();
@@ -35811,13 +35816,13 @@ var require_prepare_statement = __commonJS({
         return packet;
       }
     };
-    module2.exports = PrepareStatement;
+    module.exports = PrepareStatement;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepared_statement_header.js
 var require_prepared_statement_header = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepared_statement_header.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/prepared_statement_header.js"(exports, module) {
     "use strict";
     var PreparedStatementHeader = class {
       constructor(packet) {
@@ -35829,13 +35834,13 @@ var require_prepared_statement_header = __commonJS({
         this.warningCount = packet.readInt16();
       }
     };
-    module2.exports = PreparedStatementHeader;
+    module.exports = PreparedStatementHeader;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/query.js
 var require_query2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/query.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/query.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var CommandCode = require_commands();
@@ -35858,13 +35863,13 @@ var require_query2 = __commonJS({
         return packet;
       }
     };
-    module2.exports = Query;
+    module.exports = Query;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/register_slave.js
 var require_register_slave = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/register_slave.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/register_slave.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var CommandCodes = require_commands();
@@ -35898,36 +35903,36 @@ var require_register_slave = __commonJS({
         return packet;
       }
     };
-    module2.exports = RegisterSlave;
+    module.exports = RegisterSlave;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/server_status.js
 var require_server_status = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/server_status.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/server_status.js"(exports) {
     "use strict";
-    exports2.SERVER_STATUS_IN_TRANS = 1;
-    exports2.SERVER_STATUS_AUTOCOMMIT = 2;
-    exports2.SERVER_MORE_RESULTS_EXISTS = 8;
-    exports2.SERVER_QUERY_NO_GOOD_INDEX_USED = 16;
-    exports2.SERVER_QUERY_NO_INDEX_USED = 32;
-    exports2.SERVER_STATUS_CURSOR_EXISTS = 64;
-    exports2.SERVER_STATUS_LAST_ROW_SENT = 128;
-    exports2.SERVER_STATUS_DB_DROPPED = 256;
-    exports2.SERVER_STATUS_NO_BACKSLASH_ESCAPES = 512;
-    exports2.SERVER_STATUS_METADATA_CHANGED = 1024;
-    exports2.SERVER_QUERY_WAS_SLOW = 2048;
-    exports2.SERVER_PS_OUT_PARAMS = 4096;
-    exports2.SERVER_STATUS_IN_TRANS_READONLY = 8192;
-    exports2.SERVER_SESSION_STATE_CHANGED = 16384;
+    exports.SERVER_STATUS_IN_TRANS = 1;
+    exports.SERVER_STATUS_AUTOCOMMIT = 2;
+    exports.SERVER_MORE_RESULTS_EXISTS = 8;
+    exports.SERVER_QUERY_NO_GOOD_INDEX_USED = 16;
+    exports.SERVER_QUERY_NO_INDEX_USED = 32;
+    exports.SERVER_STATUS_CURSOR_EXISTS = 64;
+    exports.SERVER_STATUS_LAST_ROW_SENT = 128;
+    exports.SERVER_STATUS_DB_DROPPED = 256;
+    exports.SERVER_STATUS_NO_BACKSLASH_ESCAPES = 512;
+    exports.SERVER_STATUS_METADATA_CHANGED = 1024;
+    exports.SERVER_QUERY_WAS_SLOW = 2048;
+    exports.SERVER_PS_OUT_PARAMS = 4096;
+    exports.SERVER_STATUS_IN_TRANS_READONLY = 8192;
+    exports.SERVER_SESSION_STATE_CHANGED = 16384;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/encoding_charset.js
 var require_encoding_charset = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/encoding_charset.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/encoding_charset.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       big5: 1,
       latin2: 2,
       dec8: 3,
@@ -35977,22 +35982,22 @@ var require_encoding_charset = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/session_track.js
 var require_session_track = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/session_track.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/constants/session_track.js"(exports) {
     "use strict";
-    exports2.SYSTEM_VARIABLES = 0;
-    exports2.SCHEMA = 1;
-    exports2.STATE_CHANGE = 2;
-    exports2.STATE_GTIDS = 3;
-    exports2.TRANSACTION_CHARACTERISTICS = 4;
-    exports2.TRANSACTION_STATE = 5;
-    exports2.FIRST_KEY = exports2.SYSTEM_VARIABLES;
-    exports2.LAST_KEY = exports2.TRANSACTION_STATE;
+    exports.SYSTEM_VARIABLES = 0;
+    exports.SCHEMA = 1;
+    exports.STATE_CHANGE = 2;
+    exports.STATE_GTIDS = 3;
+    exports.TRANSACTION_CHARACTERISTICS = 4;
+    exports.TRANSACTION_STATE = 5;
+    exports.FIRST_KEY = exports.SYSTEM_VARIABLES;
+    exports.LAST_KEY = exports.TRANSACTION_STATE;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/resultset_header.js
 var require_resultset_header = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/resultset_header.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/resultset_header.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var ClientConstants = require_client();
@@ -36096,13 +36101,13 @@ var require_resultset_header = __commonJS({
         return packet;
       }
     };
-    module2.exports = ResultSetHeader;
+    module.exports = ResultSetHeader;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/ssl_request.js
 var require_ssl_request = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/ssl_request.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/ssl_request.js"(exports, module) {
     "use strict";
     var ClientConstants = require_client();
     var Packet = require_packet();
@@ -36123,13 +36128,13 @@ var require_ssl_request = __commonJS({
         return packet;
       }
     };
-    module2.exports = SSLRequest;
+    module.exports = SSLRequest;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/text_row.js
 var require_text_row = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/text_row.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/text_row.js"(exports, module) {
     "use strict";
     var Packet = require_packet();
     var TextRow = class _TextRow {
@@ -36170,15 +36175,15 @@ var require_text_row = __commonJS({
         return packet;
       }
     };
-    module2.exports = TextRow;
+    module.exports = TextRow;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/index.js
 var require_packets = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/index.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/index.js"(exports, module) {
     "use strict";
-    var process2 = require("process");
+    var process2 = __require("process");
     var AuthNextFactor = require_auth_next_factor();
     var AuthSwitchRequest = require_auth_switch_request();
     var AuthSwitchRequestMoreData = require_auth_switch_request_more_data();
@@ -36220,7 +36225,7 @@ var require_packets = __commonJS({
       TextRow
     };
     Object.entries(ctorMap).forEach(([name, ctor]) => {
-      module2.exports[name] = ctor;
+      module.exports[name] = ctor;
       if (process2.env.NODE_DEBUG) {
         if (ctor.prototype.toPacket) {
           const old = ctor.prototype.toPacket;
@@ -36233,7 +36238,7 @@ var require_packets = __commonJS({
       }
     });
     var Packet = require_packet();
-    exports2.Packet = Packet;
+    exports.Packet = Packet;
     var OK = class {
       static toPacket(args, encoding) {
         args = args || {};
@@ -36257,7 +36262,7 @@ var require_packets = __commonJS({
         return packet;
       }
     };
-    exports2.OK = OK;
+    exports.OK = OK;
     var EOF = class {
       static toPacket(warnings, statusFlags) {
         if (typeof warnings === "undefined") {
@@ -36275,7 +36280,7 @@ var require_packets = __commonJS({
         return packet;
       }
     };
-    exports2.EOF = EOF;
+    exports.EOF = EOF;
     var Error2 = class _Error {
       static toPacket(args, encoding) {
         const length = 13 + Buffer.byteLength(args.message, "utf8");
@@ -36300,16 +36305,16 @@ var require_packets = __commonJS({
         return error46;
       }
     };
-    exports2.Error = Error2;
+    exports.Error = Error2;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/command.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/command.js"(exports, module) {
     "use strict";
-    var EventEmitter2 = require("events").EventEmitter;
-    var Timers = require("timers");
+    var EventEmitter2 = __require("events").EventEmitter;
+    var Timers = __require("timers");
     var Command = class extends EventEmitter2 {
       constructor() {
         super();
@@ -36354,16 +36359,16 @@ var require_command = __commonJS({
         return true;
       }
     };
-    module2.exports = Command;
+    module.exports = Command;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/sha256_password.js
 var require_sha256_password = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/sha256_password.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/sha256_password.js"(exports, module) {
     "use strict";
     var PLUGIN_NAME = "sha256_password";
-    var crypto3 = require("crypto");
+    var crypto3 = __require("crypto");
     var { xorRotating } = require_auth_41();
     var REQUEST_SERVER_KEY_PACKET = Buffer.from([1]);
     var STATE_INITIAL = 0;
@@ -36373,7 +36378,7 @@ var require_sha256_password = __commonJS({
       const stage1 = xorRotating(Buffer.from(`${password}\0`, "utf8"), scramble);
       return crypto3.publicEncrypt(key, stage1);
     }
-    module2.exports = (pluginOptions = {}) => ({ connection }) => {
+    module.exports = (pluginOptions = {}) => ({ connection }) => {
       let state = 0;
       let scramble = null;
       const password = connection.config.password;
@@ -36411,10 +36416,10 @@ var require_sha256_password = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js
 var require_caching_sha2_password = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/caching_sha2_password.js"(exports, module) {
     "use strict";
     var PLUGIN_NAME = "caching_sha2_password";
-    var crypto3 = require("crypto");
+    var crypto3 = __require("crypto");
     var { xor, xorRotating } = require_auth_41();
     var REQUEST_SERVER_KEY_PACKET = Buffer.from([2]);
     var FAST_AUTH_SUCCESS_PACKET = Buffer.from([3]);
@@ -36447,7 +36452,7 @@ var require_caching_sha2_password = __commonJS({
         stage1
       );
     }
-    module2.exports = (pluginOptions = {}) => ({ connection }) => {
+    module.exports = (pluginOptions = {}) => ({ connection }) => {
       let state = 0;
       let scramble = null;
       const password = connection.config.password;
@@ -36502,10 +36507,10 @@ var require_caching_sha2_password = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_native_password.js
 var require_mysql_native_password = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_native_password.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_native_password.js"(exports, module) {
     "use strict";
     var auth41 = require_auth_41();
-    module2.exports = (pluginOptions) => ({ connection, command }) => {
+    module.exports = (pluginOptions) => ({ connection, command }) => {
       const password = command.password || pluginOptions.password || connection.config.password;
       const passwordSha1 = command.passwordSha1 || pluginOptions.passwordSha1 || connection.config.passwordSha1;
       return (data) => {
@@ -36533,7 +36538,7 @@ var require_mysql_native_password = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_clear_password.js
 var require_mysql_clear_password = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_clear_password.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/mysql_clear_password.js"(exports, module) {
     "use strict";
     function bufferFromStr(str) {
       return Buffer.from(`${str}\0`);
@@ -36544,13 +36549,13 @@ var require_mysql_clear_password = __commonJS({
         return bufferFromStr(password);
       };
     };
-    module2.exports = create_mysql_clear_password_plugin;
+    module.exports = create_mysql_clear_password_plugin;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/auth_switch.js
 var require_auth_switch = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/auth_switch.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/auth_switch.js"(exports, module) {
     "use strict";
     var Packets = require_packets();
     var sha256_password = require_sha256_password();
@@ -36630,7 +36635,7 @@ var require_auth_switch = __commonJS({
         authSwitchPluginError(err, command);
       });
     }
-    module2.exports = {
+    module.exports = {
       authSwitchRequest,
       authSwitchRequestMoreData
     };
@@ -36639,9 +36644,9 @@ var require_auth_switch = __commonJS({
 
 // node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/lib/seq-queue.js
 var require_seq_queue = __commonJS({
-  "node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/lib/seq-queue.js"(exports2, module2) {
-    var EventEmitter2 = require("events").EventEmitter;
-    var util3 = require("util");
+  "node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/lib/seq-queue.js"(exports, module) {
+    var EventEmitter2 = __require("events").EventEmitter;
+    var util3 = __require("util");
     var DEFAULT_TIMEOUT = 3e3;
     var INIT_ID = 0;
     var EVENT_CLOSED = "closed";
@@ -36740,7 +36745,7 @@ var require_seq_queue = __commonJS({
         });
       }
     };
-    var SeqQueueManager = module2.exports;
+    var SeqQueueManager = module.exports;
     SeqQueueManager.STATUS_IDLE = 0;
     SeqQueueManager.STATUS_BUSY = 1;
     SeqQueueManager.STATUS_CLOSED = 2;
@@ -36753,16 +36758,16 @@ var require_seq_queue = __commonJS({
 
 // node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/index.js
 var require_seq_queue2 = __commonJS({
-  "node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/index.js"(exports2, module2) {
-    module2.exports = require_seq_queue();
+  "node_modules/.pnpm/seq-queue@0.0.5/node_modules/seq-queue/index.js"(exports, module) {
+    module.exports = require_seq_queue();
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/compressed_protocol.js
 var require_compressed_protocol = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/compressed_protocol.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/compressed_protocol.js"(exports, module) {
     "use strict";
-    var zlib2 = require("zlib");
+    var zlib2 = __require("zlib");
     var PacketParser = require_packet_parser();
     function handleCompressedPacket(packet) {
       const connection = this;
@@ -36854,7 +36859,7 @@ var require_compressed_protocol = __commonJS({
       connection.inflateQueue = seqqueue.createQueue();
       connection.deflateQueue = seqqueue.createQueue();
     }
-    module2.exports = {
+    module.exports = {
       enableCompression
     };
   }
@@ -36862,7 +36867,7 @@ var require_compressed_protocol = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/client_handshake.js
 var require_client_handshake = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/client_handshake.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/client_handshake.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Packets = require_packets();
@@ -37042,13 +37047,13 @@ var require_client_handshake = __commonJS({
         return null;
       }
     };
-    module2.exports = ClientHandshake;
+    module.exports = ClientHandshake;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/server_handshake.js
 var require_server_handshake = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/server_handshake.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/server_handshake.js"(exports, module) {
     "use strict";
     var CommandCode = require_commands();
     var Errors = require_errors();
@@ -37198,25 +37203,25 @@ var require_server_handshake = __commonJS({
         return _ServerHandshake.prototype.dispatchCommands;
       }
     };
-    module2.exports = ServerHandshake;
+    module.exports = ServerHandshake;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/helpers.js
 var require_helpers = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/helpers.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/helpers.js"(exports) {
     "use strict";
     function srcEscape(str) {
       return JSON.stringify({
         [str]: 1
       }).slice(1, -3);
     }
-    exports2.srcEscape = srcEscape;
+    exports.srcEscape = srcEscape;
     var highlightFn;
     var cardinalRecommended = false;
     try {
       const REQUIRE_TERMINATOR = "";
-      highlightFn = require(`cardinal${REQUIRE_TERMINATOR}`).highlight;
+      highlightFn = __require(`cardinal${REQUIRE_TERMINATOR}`).highlight;
     } catch (err) {
       highlightFn = (text2) => {
         if (!cardinalRecommended) {
@@ -37234,14 +37239,14 @@ ${msg}:
       console.log(`${highlightFn(code)}
 `);
     }
-    exports2.printDebugWithCode = printDebugWithCode;
+    exports.printDebugWithCode = printDebugWithCode;
     function typeMatch(type, list, Types) {
       if (Array.isArray(list)) {
         return list.some((t2) => type === Types[t2]);
       }
       return !!list;
     }
-    exports2.typeMatch = typeMatch;
+    exports.typeMatch = typeMatch;
     var privateObjectProps = /* @__PURE__ */ new Set([
       "__defineGetter__",
       "__defineSetter__",
@@ -37249,7 +37254,7 @@ ${msg}:
       "__lookupSetter__",
       "__proto__"
     ]);
-    exports2.privateObjectProps = privateObjectProps;
+    exports.privateObjectProps = privateObjectProps;
     var fieldEscape = (field, isEval = true) => {
       if (privateObjectProps.has(field)) {
         throw new Error(
@@ -37258,25 +37263,25 @@ ${msg}:
       }
       return isEval ? srcEscape(field) : field;
     };
-    exports2.fieldEscape = fieldEscape;
+    exports.fieldEscape = fieldEscape;
   }
 });
 
 // node_modules/.pnpm/is-property@1.0.2/node_modules/is-property/is-property.js
 var require_is_property = __commonJS({
-  "node_modules/.pnpm/is-property@1.0.2/node_modules/is-property/is-property.js"(exports2, module2) {
+  "node_modules/.pnpm/is-property@1.0.2/node_modules/is-property/is-property.js"(exports, module) {
     "use strict";
     function isProperty(str) {
       return /^[$A-Z\_a-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc][$A-Z\_a-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc0-9\u0300-\u036f\u0483-\u0487\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u0669\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u06f0-\u06f9\u0711\u0730-\u074a\u07a6-\u07b0\u07c0-\u07c9\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u08e4-\u08fe\u0900-\u0903\u093a-\u093c\u093e-\u094f\u0951-\u0957\u0962\u0963\u0966-\u096f\u0981-\u0983\u09bc\u09be-\u09c4\u09c7\u09c8\u09cb-\u09cd\u09d7\u09e2\u09e3\u09e6-\u09ef\u0a01-\u0a03\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a66-\u0a71\u0a75\u0a81-\u0a83\u0abc\u0abe-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ae2\u0ae3\u0ae6-\u0aef\u0b01-\u0b03\u0b3c\u0b3e-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b66-\u0b6f\u0b82\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd7\u0be6-\u0bef\u0c01-\u0c03\u0c3e-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0c66-\u0c6f\u0c82\u0c83\u0cbc\u0cbe-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0ce6-\u0cef\u0d02\u0d03\u0d3e-\u0d44\u0d46-\u0d48\u0d4a-\u0d4d\u0d57\u0d62\u0d63\u0d66-\u0d6f\u0d82\u0d83\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0e50-\u0e59\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0ed0-\u0ed9\u0f18\u0f19\u0f20-\u0f29\u0f35\u0f37\u0f39\u0f3e\u0f3f\u0f71-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102b-\u103e\u1040-\u1049\u1056-\u1059\u105e-\u1060\u1062-\u1064\u1067-\u106d\u1071-\u1074\u1082-\u108d\u108f-\u109d\u135d-\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4-\u17d3\u17dd\u17e0-\u17e9\u180b-\u180d\u1810-\u1819\u18a9\u1920-\u192b\u1930-\u193b\u1946-\u194f\u19b0-\u19c0\u19c8\u19c9\u19d0-\u19d9\u1a17-\u1a1b\u1a55-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1b00-\u1b04\u1b34-\u1b44\u1b50-\u1b59\u1b6b-\u1b73\u1b80-\u1b82\u1ba1-\u1bad\u1bb0-\u1bb9\u1be6-\u1bf3\u1c24-\u1c37\u1c40-\u1c49\u1c50-\u1c59\u1cd0-\u1cd2\u1cd4-\u1ce8\u1ced\u1cf2-\u1cf4\u1dc0-\u1de6\u1dfc-\u1dff\u200c\u200d\u203f\u2040\u2054\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua620-\ua629\ua66f\ua674-\ua67d\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua823-\ua827\ua880\ua881\ua8b4-\ua8c4\ua8d0-\ua8d9\ua8e0-\ua8f1\ua900-\ua909\ua926-\ua92d\ua947-\ua953\ua980-\ua983\ua9b3-\ua9c0\ua9d0-\ua9d9\uaa29-\uaa36\uaa43\uaa4c\uaa4d\uaa50-\uaa59\uaa7b\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaeb-\uaaef\uaaf5\uaaf6\uabe3-\uabea\uabec\uabed\uabf0-\uabf9\ufb1e\ufe00-\ufe0f\ufe20-\ufe26\ufe33\ufe34\ufe4d-\ufe4f\uff10-\uff19\uff3f]*$/.test(str);
     }
-    module2.exports = isProperty;
+    module.exports = isProperty;
   }
 });
 
 // node_modules/.pnpm/generate-function@2.3.1/node_modules/generate-function/index.js
 var require_generate_function = __commonJS({
-  "node_modules/.pnpm/generate-function@2.3.1/node_modules/generate-function/index.js"(exports2, module2) {
-    var util3 = require("util");
+  "node_modules/.pnpm/generate-function@2.3.1/node_modules/generate-function/index.js"(exports, module) {
+    var util3 = __require("util");
     var isProperty = require_is_property();
     var INDENT_START = /[\{\[]/;
     var INDENT_END = /[\}\]]/;
@@ -37428,13 +37433,13 @@ var require_generate_function = __commonJS({
       return line;
     };
     genfun.formats = formats;
-    module2.exports = genfun;
+    module.exports = genfun;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/text_parser.js
 var require_text_parser = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/text_parser.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/text_parser.js"(exports, module) {
     "use strict";
     var Types = require_types2();
     var Charsets = require_charsets();
@@ -37611,13 +37616,13 @@ var require_text_parser = __commonJS({
     function getTextParser(fields, options, config2) {
       return parserCache.getParser("text", fields, options, config2, compile);
     }
-    module2.exports = getTextParser;
+    module.exports = getTextParser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_text_parser.js
 var require_static_text_parser = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_text_parser.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_text_parser.js"(exports, module) {
     "use strict";
     var Types = require_types2();
     var Charsets = require_charsets();
@@ -37747,17 +37752,17 @@ var require_static_text_parser = __commonJS({
         }
       };
     }
-    module2.exports = getTextParser;
+    module.exports = getTextParser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/query.js
 var require_query3 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/query.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/query.js"(exports, module) {
     "use strict";
-    var process2 = require("process");
-    var Timers = require("timers");
-    var Readable2 = require("stream").Readable;
+    var process2 = __require("process");
+    var Timers = __require("timers");
+    var Readable2 = __require("stream").Readable;
     var Command = require_command();
     var Packets = require_packets();
     var getTextParser = require_text_parser();
@@ -38065,13 +38070,13 @@ var require_query3 = __commonJS({
       }
     };
     Query.prototype.catch = Query.prototype.then;
-    module2.exports = Query;
+    module.exports = Query;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/close_statement.js
 var require_close_statement2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/close_statement.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/close_statement.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Packets = require_packets();
@@ -38085,13 +38090,13 @@ var require_close_statement2 = __commonJS({
         return null;
       }
     };
-    module2.exports = CloseStatement;
+    module.exports = CloseStatement;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/binary_parser.js
 var require_binary_parser = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/binary_parser.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/binary_parser.js"(exports, module) {
     "use strict";
     var FieldFlags = require_field_flags();
     var Charsets = require_charsets();
@@ -38281,13 +38286,13 @@ var require_binary_parser = __commonJS({
     function getBinaryParser(fields, options, config2) {
       return parserCache.getParser("binary", fields, options, config2, compile);
     }
-    module2.exports = getBinaryParser;
+    module.exports = getBinaryParser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_binary_parser.js
 var require_static_binary_parser = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_binary_parser.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/parsers/static_binary_parser.js"(exports, module) {
     "use strict";
     var FieldFlags = require_field_flags();
     var Charsets = require_charsets();
@@ -38450,13 +38455,13 @@ var require_static_binary_parser = __commonJS({
         }
       };
     }
-    module2.exports = getBinaryParser;
+    module.exports = getBinaryParser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/execute.js
 var require_execute2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/execute.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/execute.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Query = require_query3();
@@ -38545,13 +38550,13 @@ var require_execute2 = __commonJS({
     Execute.prototype._handleTimeoutError = Query.prototype._handleTimeoutError;
     Execute.prototype.row = Query.prototype.row;
     Execute.prototype.stream = Query.prototype.stream;
-    module2.exports = Execute;
+    module.exports = Execute;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/prepare.js
 var require_prepare = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/prepare.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/prepare.js"(exports, module) {
     "use strict";
     var Packets = require_packets();
     var Command = require_command();
@@ -38677,13 +38682,13 @@ var require_prepare = __commonJS({
         return null;
       }
     };
-    module2.exports = Prepare;
+    module.exports = Prepare;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/ping.js
 var require_ping = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/ping.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/ping.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var CommandCode = require_commands();
@@ -38710,13 +38715,13 @@ var require_ping = __commonJS({
         return null;
       }
     };
-    module2.exports = Ping;
+    module.exports = Ping;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/register_slave.js
 var require_register_slave2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/register_slave.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/register_slave.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Packets = require_packets();
@@ -38738,13 +38743,13 @@ var require_register_slave2 = __commonJS({
         return null;
       }
     };
-    module2.exports = RegisterSlave;
+    module.exports = RegisterSlave;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_query_statusvars.js
 var require_binlog_query_statusvars = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_query_statusvars.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/packets/binlog_query_statusvars.js"(exports, module) {
     "use strict";
     var keys = {
       FLAGS2: 0,
@@ -38762,7 +38767,7 @@ var require_binlog_query_statusvars = __commonJS({
       UPDATED_DB_NAMES: 12,
       MICROSECONDS: 3
     };
-    module2.exports = function parseStatusVars(buffer) {
+    module.exports = function parseStatusVars(buffer) {
       const result = {};
       let offset = 0;
       let key, length, prevOffset;
@@ -38856,7 +38861,7 @@ var require_binlog_query_statusvars = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/binlog_dump.js
 var require_binlog_dump2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/binlog_dump.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/binlog_dump.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Packets = require_packets();
@@ -38947,13 +38952,13 @@ var require_binlog_dump2 = __commonJS({
     eventParsers[4] = RotateEvent;
     eventParsers[15] = FormatDescriptionEvent;
     eventParsers[16] = XidEvent;
-    module2.exports = BinlogDump;
+    module.exports = BinlogDump;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/change_user.js
 var require_change_user2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/change_user.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/change_user.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var Packets = require_packets();
@@ -39002,13 +39007,13 @@ var require_change_user2 = __commonJS({
     };
     ChangeUser.prototype.handshakeResult = ClientHandshake.prototype.handshakeResult;
     ChangeUser.prototype.calculateNativePasswordAuthToken = ClientHandshake.prototype.calculateNativePasswordAuthToken;
-    module2.exports = ChangeUser;
+    module.exports = ChangeUser;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/quit.js
 var require_quit = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/quit.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/quit.js"(exports, module) {
     "use strict";
     var Command = require_command();
     var CommandCode = require_commands();
@@ -39033,13 +39038,13 @@ var require_quit = __commonJS({
         return null;
       }
     };
-    module2.exports = Quit;
+    module.exports = Quit;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/index.js
 var require_commands2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/index.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/commands/index.js"(exports, module) {
     "use strict";
     var ClientHandshake = require_client_handshake();
     var ServerHandshake = require_server_handshake();
@@ -39052,7 +39057,7 @@ var require_commands2 = __commonJS({
     var BinlogDump = require_binlog_dump2();
     var ChangeUser = require_change_user2();
     var Quit = require_quit();
-    module2.exports = {
+    module.exports = {
       ClientHandshake,
       ServerHandshake,
       Query,
@@ -39070,7 +39075,7 @@ var require_commands2 = __commonJS({
 
 // node_modules/.pnpm/lru-cache@7.18.3/node_modules/lru-cache/index.js
 var require_lru_cache = __commonJS({
-  "node_modules/.pnpm/lru-cache@7.18.3/node_modules/lru-cache/index.js"(exports2, module2) {
+  "node_modules/.pnpm/lru-cache@7.18.3/node_modules/lru-cache/index.js"(exports, module) {
     var perf = typeof performance === "object" && performance && typeof performance.now === "function" ? performance : Date;
     var hasAbortController = typeof AbortController === "function";
     var AC = hasAbortController ? AbortController : class AbortController {
@@ -40064,13 +40069,13 @@ var require_lru_cache = __commonJS({
         return AS;
       }
     };
-    module2.exports = LRUCache;
+    module.exports = LRUCache;
   }
 });
 
 // node_modules/.pnpm/named-placeholders@1.1.3/node_modules/named-placeholders/index.js
 var require_named_placeholders = __commonJS({
-  "node_modules/.pnpm/named-placeholders@1.1.3/node_modules/named-placeholders/index.js"(exports2, module2) {
+  "node_modules/.pnpm/named-placeholders@1.1.3/node_modules/named-placeholders/index.js"(exports, module) {
     "use strict";
     var RE_PARAM = /(?:\?)|(?::(\d+|(?:[a-zA-Z][a-zA-Z0-9_]*)))/g;
     var DQUOTE = 34;
@@ -40226,20 +40231,20 @@ var require_named_placeholders = __commonJS({
       }
       return [qs, varNames.map((n) => params[n])];
     }
-    module2.exports = createCompiler;
-    module2.exports.toNumbered = toNumbered;
+    module.exports = createCompiler;
+    module.exports.toNumbered = toNumbered;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/connection.js
 var require_connection = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/connection.js"(exports, module) {
     "use strict";
-    var Net = require("net");
-    var Tls = require("tls");
-    var Timers = require("timers");
-    var EventEmitter2 = require("events").EventEmitter;
-    var Readable2 = require("stream").Readable;
+    var Net = __require("net");
+    var Tls = __require("tls");
+    var Timers = __require("timers");
+    var EventEmitter2 = __require("events").EventEmitter;
+    var Readable2 = __require("stream").Readable;
     var Queue = require_denque();
     var SqlString = require_sqlstring();
     var { createLRU } = require_lib4();
@@ -41018,13 +41023,13 @@ var require_connection = __commonJS({
         return `${typeof options.nestTables}/${options.nestTables}/${options.rowsAsArray}${options.sql}`;
       }
     };
-    module2.exports = BaseConnection;
+    module.exports = BaseConnection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/make_done_cb.js
 var require_make_done_cb = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/make_done_cb.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/make_done_cb.js"(exports, module) {
     "use strict";
     function makeDoneCb(resolve, reject, localErr) {
       return function(err, rows, fields) {
@@ -41041,13 +41046,13 @@ var require_make_done_cb = __commonJS({
         }
       };
     }
-    module2.exports = makeDoneCb;
+    module.exports = makeDoneCb;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/prepared_statement_info.js
 var require_prepared_statement_info = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/prepared_statement_info.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/prepared_statement_info.js"(exports, module) {
     "use strict";
     var makeDoneCb = require_make_done_cb();
     var PromisePreparedStatementInfo = class {
@@ -41074,13 +41079,13 @@ var require_prepared_statement_info = __commonJS({
         });
       }
     };
-    module2.exports = PromisePreparedStatementInfo;
+    module.exports = PromisePreparedStatementInfo;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/inherit_events.js
 var require_inherit_events = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/inherit_events.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/inherit_events.js"(exports, module) {
     "use strict";
     function inheritEvents(source, target, events) {
       const listeners = {};
@@ -41102,15 +41107,15 @@ var require_inherit_events = __commonJS({
         }
       });
     }
-    module2.exports = inheritEvents;
+    module.exports = inheritEvents;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/connection.js
 var require_connection2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/connection.js"(exports, module) {
     "use strict";
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var PromisePreparedStatementInfo = require_prepared_statement_info();
     var makeDoneCb = require_make_done_cb();
     var inheritEvents = require_inherit_events();
@@ -41305,13 +41310,13 @@ var require_connection2 = __commonJS({
       "resume",
       "unprepare"
     ]);
-    module2.exports = PromiseConnection;
+    module.exports = PromiseConnection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection.js
 var require_connection3 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/connection.js"(exports, module) {
     "use strict";
     var BaseConnection = require_connection();
     var Connection = class extends BaseConnection {
@@ -41320,26 +41325,26 @@ var require_connection3 = __commonJS({
         return new PromiseConnection(this, promiseImpl);
       }
     };
-    module2.exports = Connection;
+    module.exports = Connection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_connection.js
 var require_create_connection = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_connection.js"(exports, module) {
     "use strict";
     var Connection = require_connection3();
     var ConnectionConfig = require_connection_config();
     function createConnection(opts) {
       return new Connection({ config: new ConnectionConfig(opts) });
     }
-    module2.exports = createConnection;
+    module.exports = createConnection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool_connection.js
 var require_pool_connection = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool_connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool_connection.js"(exports, module) {
     "use strict";
     var BaseConnection = require_connection();
     var BasePoolConnection = class extends BaseConnection {
@@ -41388,14 +41393,14 @@ var require_pool_connection = __commonJS({
       }
     };
     BasePoolConnection.statementKey = BaseConnection.statementKey;
-    module2.exports = BasePoolConnection;
+    module.exports = BasePoolConnection;
     BasePoolConnection.prototype._realEnd = BaseConnection.prototype.end;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_connection.js
 var require_pool_connection2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_connection.js"(exports, module) {
     "use strict";
     var PromiseConnection = require_connection2();
     var BasePoolConnection = require_pool_connection();
@@ -41410,13 +41415,13 @@ var require_pool_connection2 = __commonJS({
         );
       }
     };
-    module2.exports = PromisePoolConnection;
+    module.exports = PromisePoolConnection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_connection.js
 var require_pool_connection3 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_connection.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_connection.js"(exports, module) {
     "use strict";
     var BasePoolConnection = require_pool_connection();
     var PoolConnection = class extends BasePoolConnection {
@@ -41425,17 +41430,17 @@ var require_pool_connection3 = __commonJS({
         return new PromisePoolConnection(this, promiseImpl);
       }
     };
-    module2.exports = PoolConnection;
+    module.exports = PoolConnection;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool.js
 var require_pool = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/base/pool.js"(exports, module) {
     "use strict";
-    var process2 = require("process");
+    var process2 = __require("process");
     var SqlString = require_sqlstring();
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var PoolConnection = require_pool_connection3();
     var Queue = require_denque();
     var BaseConnection = require_connection();
@@ -41635,15 +41640,15 @@ var require_pool = __commonJS({
         return SqlString.escapeId(value, false);
       }
     };
-    module2.exports = BasePool;
+    module.exports = BasePool;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool.js
 var require_pool2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool.js"(exports, module) {
     "use strict";
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var makeDoneCb = require_make_done_cb();
     var PromisePoolConnection = require_pool_connection2();
     var inheritEvents = require_inherit_events();
@@ -41740,13 +41745,13 @@ var require_pool2 = __commonJS({
       "escapeId",
       "format"
     ]);
-    module2.exports = PromisePool;
+    module.exports = PromisePool;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool.js
 var require_pool3 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool.js"(exports, module) {
     "use strict";
     var BasePool = require_pool();
     var Pool = class extends BasePool {
@@ -41755,13 +41760,13 @@ var require_pool3 = __commonJS({
         return new PromisePool(this, promiseImpl);
       }
     };
-    module2.exports = Pool;
+    module.exports = Pool;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_config.js
 var require_pool_config = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_config.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_config.js"(exports, module) {
     "use strict";
     var ConnectionConfig = require_connection_config();
     var PoolConfig = class {
@@ -41777,19 +41782,19 @@ var require_pool_config = __commonJS({
         this.queueLimit = isNaN(options.queueLimit) ? 0 : Number(options.queueLimit);
       }
     };
-    module2.exports = PoolConfig;
+    module.exports = PoolConfig;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_cluster.js
 var require_pool_cluster = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_cluster.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/pool_cluster.js"(exports, module) {
     "use strict";
-    var process2 = require("process");
+    var process2 = __require("process");
     var Pool = require_pool3();
     var PoolConfig = require_pool_config();
     var Connection = require_connection3();
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var makeSelector = {
       RR() {
         let index = 0;
@@ -42082,41 +42087,41 @@ var require_pool_cluster = __commonJS({
         this._findCaches = {};
       }
     };
-    module2.exports = PoolCluster;
+    module.exports = PoolCluster;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool.js
 var require_create_pool = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool.js"(exports, module) {
     "use strict";
     var Pool = require_pool3();
     var PoolConfig = require_pool_config();
     function createPool2(config2) {
       return new Pool({ config: new PoolConfig(config2) });
     }
-    module2.exports = createPool2;
+    module.exports = createPool2;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool_cluster.js
 var require_create_pool_cluster = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool_cluster.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/create_pool_cluster.js"(exports, module) {
     "use strict";
     var PoolCluster = require_pool_cluster();
     function createPoolCluster(config2) {
       return new PoolCluster(config2);
     }
-    module2.exports = createPoolCluster;
+    module.exports = createPoolCluster;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/server.js
 var require_server = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/server.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/server.js"(exports, module) {
     "use strict";
-    var net = require("net");
-    var EventEmitter2 = require("events").EventEmitter;
+    var net = __require("net");
+    var EventEmitter2 = __require("events").EventEmitter;
     var Connection = require_connection3();
     var ConnectionConfig = require_connection_config();
     var Server = class extends EventEmitter2 {
@@ -42142,15 +42147,15 @@ var require_server = __commonJS({
         this._server.close(cb);
       }
     };
-    module2.exports = Server;
+    module.exports = Server;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/index.js
 var require_auth_plugins = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/index.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/auth_plugins/index.js"(exports, module) {
     "use strict";
-    module2.exports = {
+    module.exports = {
       caching_sha2_password: require_caching_sha2_password(),
       mysql_clear_password: require_mysql_clear_password(),
       mysql_native_password: require_mysql_native_password(),
@@ -42161,7 +42166,7 @@ var require_auth_plugins = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_cluster.js
 var require_pool_cluster2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_cluster.js"(exports2, module2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/lib/promise/pool_cluster.js"(exports, module) {
     "use strict";
     var PromisePoolConnection = require_pool_connection2();
     var makeDoneCb = require_make_done_cb();
@@ -42209,16 +42214,16 @@ var require_pool_cluster2 = __commonJS({
         });
       }
     };
-    module2.exports = PromisePoolNamespace;
+    module.exports = PromisePoolNamespace;
   }
 });
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/promise.js
 var require_promise = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/promise.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/promise.js"(exports) {
     "use strict";
     var SqlString = require_sqlstring();
-    var EventEmitter2 = require("events").EventEmitter;
+    var EventEmitter2 = __require("events").EventEmitter;
     var parserCache = require_parser_cache();
     var PoolCluster = require_pool_cluster();
     var createConnection = require_create_connection();
@@ -42361,29 +42366,29 @@ var require_promise = __commonJS({
       }
       return new PromisePoolCluster(corePoolCluster, thePromise);
     }
-    exports2.createConnection = createConnectionPromise;
-    exports2.createPool = createPromisePool;
-    exports2.createPoolCluster = createPromisePoolCluster;
-    exports2.escape = SqlString.escape;
-    exports2.escapeId = SqlString.escapeId;
-    exports2.format = SqlString.format;
-    exports2.raw = SqlString.raw;
-    exports2.PromisePool = PromisePool;
-    exports2.PromiseConnection = PromiseConnection;
-    exports2.PromisePoolConnection = PromisePoolConnection;
-    exports2.__defineGetter__("Types", () => require_types2());
-    exports2.__defineGetter__(
+    exports.createConnection = createConnectionPromise;
+    exports.createPool = createPromisePool;
+    exports.createPoolCluster = createPromisePoolCluster;
+    exports.escape = SqlString.escape;
+    exports.escapeId = SqlString.escapeId;
+    exports.format = SqlString.format;
+    exports.raw = SqlString.raw;
+    exports.PromisePool = PromisePool;
+    exports.PromiseConnection = PromiseConnection;
+    exports.PromisePoolConnection = PromisePoolConnection;
+    exports.__defineGetter__("Types", () => require_types2());
+    exports.__defineGetter__(
       "Charsets",
       () => require_charsets()
     );
-    exports2.__defineGetter__(
+    exports.__defineGetter__(
       "CharsetToEncoding",
       () => require_charset_encodings()
     );
-    exports2.setMaxParserCache = function(max) {
+    exports.setMaxParserCache = function(max) {
       parserCache.setMaxCache(max);
     };
-    exports2.clearParserCache = function() {
+    exports.clearParserCache = function() {
       parserCache.clearCache();
     };
   }
@@ -42391,26 +42396,26 @@ var require_promise = __commonJS({
 
 // node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/index.js
 var require_mysql2 = __commonJS({
-  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/index.js"(exports2) {
+  "node_modules/.pnpm/mysql2@3.15.1/node_modules/mysql2/index.js"(exports) {
     "use strict";
     var SqlString = require_sqlstring();
     var ConnectionConfig = require_connection_config();
     var parserCache = require_parser_cache();
     var Connection = require_connection3();
-    exports2.createConnection = require_create_connection();
-    exports2.connect = exports2.createConnection;
-    exports2.Connection = Connection;
-    exports2.ConnectionConfig = ConnectionConfig;
+    exports.createConnection = require_create_connection();
+    exports.connect = exports.createConnection;
+    exports.Connection = Connection;
+    exports.ConnectionConfig = ConnectionConfig;
     var Pool = require_pool3();
     var PoolCluster = require_pool_cluster();
     var createPool2 = require_create_pool();
     var createPoolCluster = require_create_pool_cluster();
-    exports2.createPool = createPool2;
-    exports2.createPoolCluster = createPoolCluster;
-    exports2.createQuery = Connection.createQuery;
-    exports2.Pool = Pool;
-    exports2.PoolCluster = PoolCluster;
-    exports2.createServer = function(handler) {
+    exports.createPool = createPool2;
+    exports.createPoolCluster = createPoolCluster;
+    exports.createQuery = Connection.createQuery;
+    exports.Pool = Pool;
+    exports.PoolCluster = PoolCluster;
+    exports.createServer = function(handler) {
       const Server = require_server();
       const s = new Server();
       if (handler) {
@@ -42418,37 +42423,37 @@ var require_mysql2 = __commonJS({
       }
       return s;
     };
-    exports2.PoolConnection = require_pool_connection3();
-    exports2.authPlugins = require_auth_plugins();
-    exports2.escape = SqlString.escape;
-    exports2.escapeId = SqlString.escapeId;
-    exports2.format = SqlString.format;
-    exports2.raw = SqlString.raw;
-    exports2.__defineGetter__(
+    exports.PoolConnection = require_pool_connection3();
+    exports.authPlugins = require_auth_plugins();
+    exports.escape = SqlString.escape;
+    exports.escapeId = SqlString.escapeId;
+    exports.format = SqlString.format;
+    exports.raw = SqlString.raw;
+    exports.__defineGetter__(
       "createConnectionPromise",
       () => require_promise().createConnection
     );
-    exports2.__defineGetter__(
+    exports.__defineGetter__(
       "createPoolPromise",
       () => require_promise().createPool
     );
-    exports2.__defineGetter__(
+    exports.__defineGetter__(
       "createPoolClusterPromise",
       () => require_promise().createPoolCluster
     );
-    exports2.__defineGetter__("Types", () => require_types2());
-    exports2.__defineGetter__(
+    exports.__defineGetter__("Types", () => require_types2());
+    exports.__defineGetter__(
       "Charsets",
       () => require_charsets()
     );
-    exports2.__defineGetter__(
+    exports.__defineGetter__(
       "CharsetToEncoding",
       () => require_charset_encodings()
     );
-    exports2.setMaxParserCache = function(max) {
+    exports.setMaxParserCache = function(max) {
       parserCache.setMaxCache(max);
     };
-    exports2.clearParserCache = function() {
+    exports.clearParserCache = function() {
       parserCache.clearCache();
     };
   }
@@ -42456,10 +42461,10 @@ var require_mysql2 = __commonJS({
 
 // node_modules/.pnpm/delayed-stream@1.0.0/node_modules/delayed-stream/lib/delayed_stream.js
 var require_delayed_stream = __commonJS({
-  "node_modules/.pnpm/delayed-stream@1.0.0/node_modules/delayed-stream/lib/delayed_stream.js"(exports2, module2) {
-    var Stream = require("stream").Stream;
-    var util3 = require("util");
-    module2.exports = DelayedStream;
+  "node_modules/.pnpm/delayed-stream@1.0.0/node_modules/delayed-stream/lib/delayed_stream.js"(exports, module) {
+    var Stream = __require("stream").Stream;
+    var util3 = __require("util");
+    module.exports = DelayedStream;
     function DelayedStream() {
       this.source = null;
       this.dataSize = 0;
@@ -42547,11 +42552,11 @@ var require_delayed_stream = __commonJS({
 
 // node_modules/.pnpm/combined-stream@1.0.8/node_modules/combined-stream/lib/combined_stream.js
 var require_combined_stream = __commonJS({
-  "node_modules/.pnpm/combined-stream@1.0.8/node_modules/combined-stream/lib/combined_stream.js"(exports2, module2) {
-    var util3 = require("util");
-    var Stream = require("stream").Stream;
+  "node_modules/.pnpm/combined-stream@1.0.8/node_modules/combined-stream/lib/combined_stream.js"(exports, module) {
+    var util3 = __require("util");
+    var Stream = __require("stream").Stream;
     var DelayedStream = require_delayed_stream();
-    module2.exports = CombinedStream;
+    module.exports = CombinedStream;
     function CombinedStream() {
       this.writable = false;
       this.readable = true;
@@ -42716,8 +42721,8 @@ var require_combined_stream = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/defer.js
 var require_defer = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/defer.js"(exports2, module2) {
-    module2.exports = defer;
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/defer.js"(exports, module) {
+    module.exports = defer;
     function defer(fn) {
       var nextTick = typeof setImmediate == "function" ? setImmediate : typeof process == "object" && typeof process.nextTick == "function" ? process.nextTick : null;
       if (nextTick) {
@@ -42731,9 +42736,9 @@ var require_defer = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/async.js
 var require_async = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/async.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/async.js"(exports, module) {
     var defer = require_defer();
-    module2.exports = async;
+    module.exports = async;
     function async(callback) {
       var isAsync = false;
       defer(function() {
@@ -42754,8 +42759,8 @@ var require_async = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/abort.js
 var require_abort = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/abort.js"(exports2, module2) {
-    module2.exports = abort;
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/abort.js"(exports, module) {
+    module.exports = abort;
     function abort(state) {
       Object.keys(state.jobs).forEach(clean.bind(state));
       state.jobs = {};
@@ -42770,10 +42775,10 @@ var require_abort = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/iterate.js
 var require_iterate = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/iterate.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/iterate.js"(exports, module) {
     var async = require_async();
     var abort = require_abort();
-    module2.exports = iterate;
+    module.exports = iterate;
     function iterate(list, iterator2, state, callback) {
       var key = state["keyedList"] ? state["keyedList"][state.index] : state.index;
       state.jobs[key] = runJob(iterator2, key, list[key], function(error46, output) {
@@ -42803,8 +42808,8 @@ var require_iterate = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/state.js
 var require_state = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/state.js"(exports2, module2) {
-    module2.exports = state;
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/state.js"(exports, module) {
+    module.exports = state;
     function state(list, sortMethod) {
       var isNamedList = !Array.isArray(list), initState = {
         index: 0,
@@ -42825,10 +42830,10 @@ var require_state = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/terminator.js
 var require_terminator = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/terminator.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/lib/terminator.js"(exports, module) {
     var abort = require_abort();
     var async = require_async();
-    module2.exports = terminator;
+    module.exports = terminator;
     function terminator(callback) {
       if (!Object.keys(this.jobs).length) {
         return;
@@ -42842,11 +42847,11 @@ var require_terminator = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/parallel.js
 var require_parallel = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/parallel.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/parallel.js"(exports, module) {
     var iterate = require_iterate();
     var initState = require_state();
     var terminator = require_terminator();
-    module2.exports = parallel;
+    module.exports = parallel;
     function parallel(list, iterator2, callback) {
       var state = initState(list);
       while (state.index < (state["keyedList"] || list).length) {
@@ -42869,13 +42874,13 @@ var require_parallel = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serialOrdered.js
 var require_serialOrdered = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serialOrdered.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serialOrdered.js"(exports, module) {
     var iterate = require_iterate();
     var initState = require_state();
     var terminator = require_terminator();
-    module2.exports = serialOrdered;
-    module2.exports.ascending = ascending;
-    module2.exports.descending = descending;
+    module.exports = serialOrdered;
+    module.exports.ascending = ascending;
+    module.exports.descending = descending;
     function serialOrdered(list, iterator2, sortMethod, callback) {
       var state = initState(list, sortMethod);
       iterate(list, iterator2, state, function iteratorHandler(error46, result) {
@@ -42903,9 +42908,9 @@ var require_serialOrdered = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serial.js
 var require_serial = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serial.js"(exports2, module2) {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/serial.js"(exports, module) {
     var serialOrdered = require_serialOrdered();
-    module2.exports = serial2;
+    module.exports = serial2;
     function serial2(list, iterator2, callback) {
       return serialOrdered(list, iterator2, null, callback);
     }
@@ -42914,8 +42919,8 @@ var require_serial = __commonJS({
 
 // node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/index.js
 var require_asynckit = __commonJS({
-  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/index.js"(exports2, module2) {
-    module2.exports = {
+  "node_modules/.pnpm/asynckit@0.4.0/node_modules/asynckit/index.js"(exports, module) {
+    module.exports = {
       parallel: require_parallel(),
       serial: require_serial(),
       serialOrdered: require_serialOrdered()
@@ -42925,10 +42930,10 @@ var require_asynckit = __commonJS({
 
 // node_modules/.pnpm/has-tostringtag@1.0.2/node_modules/has-tostringtag/shams.js
 var require_shams2 = __commonJS({
-  "node_modules/.pnpm/has-tostringtag@1.0.2/node_modules/has-tostringtag/shams.js"(exports2, module2) {
+  "node_modules/.pnpm/has-tostringtag@1.0.2/node_modules/has-tostringtag/shams.js"(exports, module) {
     "use strict";
     var hasSymbols = require_shams();
-    module2.exports = function hasToStringTagShams() {
+    module.exports = function hasToStringTagShams() {
       return hasSymbols() && !!Symbol.toStringTag;
     };
   }
@@ -42936,7 +42941,7 @@ var require_shams2 = __commonJS({
 
 // node_modules/.pnpm/es-set-tostringtag@2.1.0/node_modules/es-set-tostringtag/index.js
 var require_es_set_tostringtag = __commonJS({
-  "node_modules/.pnpm/es-set-tostringtag@2.1.0/node_modules/es-set-tostringtag/index.js"(exports2, module2) {
+  "node_modules/.pnpm/es-set-tostringtag@2.1.0/node_modules/es-set-tostringtag/index.js"(exports, module) {
     "use strict";
     var GetIntrinsic = require_get_intrinsic();
     var $defineProperty = GetIntrinsic("%Object.defineProperty%", true);
@@ -42944,7 +42949,7 @@ var require_es_set_tostringtag = __commonJS({
     var hasOwn = require_hasown();
     var $TypeError = require_type();
     var toStringTag2 = hasToStringTag ? Symbol.toStringTag : null;
-    module2.exports = function setToStringTag(object2, value) {
+    module.exports = function setToStringTag(object2, value) {
       var overrideIfSet = arguments.length > 2 && !!arguments[2] && arguments[2].force;
       var nonConfigurable = arguments.length > 2 && !!arguments[2] && arguments[2].nonConfigurable;
       if (typeof overrideIfSet !== "undefined" && typeof overrideIfSet !== "boolean" || typeof nonConfigurable !== "undefined" && typeof nonConfigurable !== "boolean") {
@@ -42968,9 +42973,9 @@ var require_es_set_tostringtag = __commonJS({
 
 // node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/populate.js
 var require_populate = __commonJS({
-  "node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/populate.js"(exports2, module2) {
+  "node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/populate.js"(exports, module) {
     "use strict";
-    module2.exports = function(dst, src) {
+    module.exports = function(dst, src) {
       Object.keys(src).forEach(function(prop) {
         dst[prop] = dst[prop] || src[prop];
       });
@@ -42981,17 +42986,17 @@ var require_populate = __commonJS({
 
 // node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/form_data.js
 var require_form_data = __commonJS({
-  "node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/form_data.js"(exports2, module2) {
+  "node_modules/.pnpm/form-data@4.0.4/node_modules/form-data/lib/form_data.js"(exports, module) {
     "use strict";
     var CombinedStream = require_combined_stream();
-    var util3 = require("util");
-    var path2 = require("path");
-    var http2 = require("http");
-    var https2 = require("https");
-    var parseUrl = require("url").parse;
-    var fs = require("fs");
-    var Stream = require("stream").Stream;
-    var crypto3 = require("crypto");
+    var util3 = __require("util");
+    var path2 = __require("path");
+    var http2 = __require("http");
+    var https2 = __require("https");
+    var parseUrl = __require("url").parse;
+    var fs = __require("fs");
+    var Stream = __require("stream").Stream;
+    var crypto3 = __require("crypto");
     var mime = require_mime_types();
     var asynckit = require_asynckit();
     var setToStringTag = require_es_set_tostringtag();
@@ -43294,15 +43299,15 @@ var require_form_data = __commonJS({
       return "[object FormData]";
     };
     setToStringTag(FormData3, "FormData");
-    module2.exports = FormData3;
+    module.exports = FormData3;
   }
 });
 
 // node_modules/.pnpm/proxy-from-env@1.1.0/node_modules/proxy-from-env/index.js
 var require_proxy_from_env = __commonJS({
-  "node_modules/.pnpm/proxy-from-env@1.1.0/node_modules/proxy-from-env/index.js"(exports2) {
+  "node_modules/.pnpm/proxy-from-env@1.1.0/node_modules/proxy-from-env/index.js"(exports) {
     "use strict";
-    var parseUrl = require("url").parse;
+    var parseUrl = __require("url").parse;
     var DEFAULT_PORTS = {
       ftp: 21,
       gopher: 70,
@@ -43364,15 +43369,15 @@ var require_proxy_from_env = __commonJS({
     function getEnv(key) {
       return process.env[key.toLowerCase()] || process.env[key.toUpperCase()] || "";
     }
-    exports2.getProxyForUrl = getProxyForUrl;
+    exports.getProxyForUrl = getProxyForUrl;
   }
 });
 
 // node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/debug.js
 var require_debug2 = __commonJS({
-  "node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/debug.js"(exports2, module2) {
+  "node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/debug.js"(exports, module) {
     var debug;
-    module2.exports = function() {
+    module.exports = function() {
       if (!debug) {
         try {
           debug = require_src()("follow-redirects");
@@ -43390,13 +43395,13 @@ var require_debug2 = __commonJS({
 
 // node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/index.js
 var require_follow_redirects = __commonJS({
-  "node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/index.js"(exports2, module2) {
-    var url3 = require("url");
+  "node_modules/.pnpm/follow-redirects@1.15.11/node_modules/follow-redirects/index.js"(exports, module) {
+    var url3 = __require("url");
     var URL2 = url3.URL;
-    var http2 = require("http");
-    var https2 = require("https");
-    var Writable = require("stream").Writable;
-    var assert2 = require("assert");
+    var http2 = __require("http");
+    var https2 = __require("https");
+    var Writable = __require("stream").Writable;
+    var assert2 = __require("assert");
     var debug = require_debug2();
     (function detectUnsupportedEnvironment() {
       var looksLikeNode = typeof process !== "undefined";
@@ -43736,7 +43741,7 @@ var require_follow_redirects = __commonJS({
       this._performRequest();
     };
     function wrap(protocols) {
-      var exports3 = {
+      var exports2 = {
         maxRedirects: 21,
         maxBodyLength: 10 * 1024 * 1024
       };
@@ -43744,7 +43749,7 @@ var require_follow_redirects = __commonJS({
       Object.keys(protocols).forEach(function(scheme) {
         var protocol = scheme + ":";
         var nativeProtocol = nativeProtocols[protocol] = protocols[scheme];
-        var wrappedProtocol = exports3[scheme] = Object.create(nativeProtocol);
+        var wrappedProtocol = exports2[scheme] = Object.create(nativeProtocol);
         function request(input, options, callback) {
           if (isURL(input)) {
             input = spreadUrlObject(input);
@@ -43760,8 +43765,8 @@ var require_follow_redirects = __commonJS({
             options = null;
           }
           options = Object.assign({
-            maxRedirects: exports3.maxRedirects,
-            maxBodyLength: exports3.maxBodyLength
+            maxRedirects: exports2.maxRedirects,
+            maxBodyLength: exports2.maxBodyLength
           }, input, options);
           options.nativeProtocols = nativeProtocols;
           if (!isString2(options.host) && !isString2(options.hostname)) {
@@ -43781,7 +43786,7 @@ var require_follow_redirects = __commonJS({
           get: { value: get, configurable: true, enumerable: true, writable: true }
         });
       });
-      return exports3;
+      return exports2;
     }
     function noop3() {
     }
@@ -43879,18 +43884,18 @@ var require_follow_redirects = __commonJS({
     function isURL(value) {
       return URL2 && value instanceof URL2;
     }
-    module2.exports = wrap({ http: http2, https: https2 });
-    module2.exports.wrap = wrap;
+    module.exports = wrap({ http: http2, https: https2 });
+    module.exports.wrap = wrap;
   }
 });
 
 // node_modules/.pnpm/cookie@1.0.2/node_modules/cookie/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/.pnpm/cookie@1.0.2/node_modules/cookie/dist/index.js"(exports2) {
+  "node_modules/.pnpm/cookie@1.0.2/node_modules/cookie/dist/index.js"(exports) {
     "use strict";
-    Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.parse = parse3;
-    exports2.serialize = serialize;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.parse = parse3;
+    exports.serialize = serialize;
     var cookieNameRegExp = /^[\u0021-\u003A\u003C\u003E-\u007E]+$/;
     var cookieValueRegExp = /^[\u0021-\u003A\u003C-\u007E]*$/;
     var domainValueRegExp = /^([.]?[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)([.][a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*$/i;
@@ -44045,10 +44050,10 @@ var require_dist = __commonJS({
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/double-indexed-kv.js
 var require_double_indexed_kv = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/double-indexed-kv.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/double-indexed-kv.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.DoubleIndexedKV = void 0;
+    exports.__esModule = true;
+    exports.DoubleIndexedKV = void 0;
     var DoubleIndexedKV = (
       /** @class */
       (function() {
@@ -44073,16 +44078,16 @@ var require_double_indexed_kv = __commonJS({
         return DoubleIndexedKV2;
       })()
     );
-    exports2.DoubleIndexedKV = DoubleIndexedKV;
+    exports.DoubleIndexedKV = DoubleIndexedKV;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/registry.js
 var require_registry = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/registry.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/registry.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.Registry = void 0;
+    exports.__esModule = true;
+    exports.Registry = void 0;
     var double_indexed_kv_1 = require_double_indexed_kv();
     var Registry = (
       /** @class */
@@ -44112,15 +44117,15 @@ var require_registry = __commonJS({
         return Registry2;
       })()
     );
-    exports2.Registry = Registry;
+    exports.Registry = Registry;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/class-registry.js
 var require_class_registry = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/class-registry.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/class-registry.js"(exports) {
     "use strict";
-    var __extends = exports2 && exports2.__extends || /* @__PURE__ */ (function() {
+    var __extends = exports && exports.__extends || /* @__PURE__ */ (function() {
       var extendStatics = function(d, b) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
           d2.__proto__ = b2;
@@ -44139,8 +44144,8 @@ var require_class_registry = __commonJS({
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
     })();
-    exports2.__esModule = true;
-    exports2.ClassRegistry = void 0;
+    exports.__esModule = true;
+    exports.ClassRegistry = void 0;
     var registry_1 = require_registry();
     var ClassRegistry = (
       /** @class */
@@ -44169,15 +44174,15 @@ var require_class_registry = __commonJS({
         return ClassRegistry2;
       })(registry_1.Registry)
     );
-    exports2.ClassRegistry = ClassRegistry;
+    exports.ClassRegistry = ClassRegistry;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/util.js
 var require_util = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/util.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/util.js"(exports) {
     "use strict";
-    var __read = exports2 && exports2.__read || function(o, n) {
+    var __read = exports && exports.__read || function(o, n) {
       var m = typeof Symbol === "function" && o[Symbol.iterator];
       if (!m) return o;
       var i = m.call(o), r, ar = [], e;
@@ -44194,8 +44199,8 @@ var require_util = __commonJS({
       }
       return ar;
     };
-    exports2.__esModule = true;
-    exports2.findArr = exports2.includes = exports2.forEach = exports2.find = void 0;
+    exports.__esModule = true;
+    exports.findArr = exports.includes = exports.forEach = exports.find = void 0;
     function valuesOfObj(record2) {
       if ("values" in Object) {
         return Object.values(record2);
@@ -44222,18 +44227,18 @@ var require_util = __commonJS({
       }
       return void 0;
     }
-    exports2.find = find;
+    exports.find = find;
     function forEach2(record2, run2) {
       Object.entries(record2).forEach(function(_a) {
         var _b = __read(_a, 2), key = _b[0], value = _b[1];
         return run2(value, key);
       });
     }
-    exports2.forEach = forEach2;
+    exports.forEach = forEach2;
     function includes(arr, value) {
       return arr.indexOf(value) !== -1;
     }
-    exports2.includes = includes;
+    exports.includes = includes;
     function findArr(record2, predicate) {
       for (var i = 0; i < record2.length; i++) {
         var value = record2[i];
@@ -44243,16 +44248,16 @@ var require_util = __commonJS({
       }
       return void 0;
     }
-    exports2.findArr = findArr;
+    exports.findArr = findArr;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/custom-transformer-registry.js
 var require_custom_transformer_registry = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/custom-transformer-registry.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/custom-transformer-registry.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.CustomTransformerRegistry = void 0;
+    exports.__esModule = true;
+    exports.CustomTransformerRegistry = void 0;
     var util_1 = require_util();
     var CustomTransformerRegistry = (
       /** @class */
@@ -44274,27 +44279,27 @@ var require_custom_transformer_registry = __commonJS({
         return CustomTransformerRegistry2;
       })()
     );
-    exports2.CustomTransformerRegistry = CustomTransformerRegistry;
+    exports.CustomTransformerRegistry = CustomTransformerRegistry;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/is.js
 var require_is = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/is.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/is.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.isURL = exports2.isTypedArray = exports2.isInfinite = exports2.isBigint = exports2.isPrimitive = exports2.isNaNValue = exports2.isError = exports2.isDate = exports2.isSymbol = exports2.isSet = exports2.isMap = exports2.isRegExp = exports2.isBoolean = exports2.isNumber = exports2.isString = exports2.isArray = exports2.isEmptyObject = exports2.isPlainObject = exports2.isNull = exports2.isUndefined = void 0;
+    exports.__esModule = true;
+    exports.isURL = exports.isTypedArray = exports.isInfinite = exports.isBigint = exports.isPrimitive = exports.isNaNValue = exports.isError = exports.isDate = exports.isSymbol = exports.isSet = exports.isMap = exports.isRegExp = exports.isBoolean = exports.isNumber = exports.isString = exports.isArray = exports.isEmptyObject = exports.isPlainObject = exports.isNull = exports.isUndefined = void 0;
     var getType = function(payload) {
       return Object.prototype.toString.call(payload).slice(8, -1);
     };
     var isUndefined2 = function(payload) {
       return typeof payload === "undefined";
     };
-    exports2.isUndefined = isUndefined2;
+    exports.isUndefined = isUndefined2;
     var isNull2 = function(payload) {
       return payload === null;
     };
-    exports2.isNull = isNull2;
+    exports.isNull = isNull2;
     var isPlainObject4 = function(payload) {
       if (typeof payload !== "object" || payload === null)
         return false;
@@ -44304,92 +44309,92 @@ var require_is = __commonJS({
         return true;
       return Object.getPrototypeOf(payload) === Object.prototype;
     };
-    exports2.isPlainObject = isPlainObject4;
+    exports.isPlainObject = isPlainObject4;
     var isEmptyObject2 = function(payload) {
-      return exports2.isPlainObject(payload) && Object.keys(payload).length === 0;
+      return exports.isPlainObject(payload) && Object.keys(payload).length === 0;
     };
-    exports2.isEmptyObject = isEmptyObject2;
+    exports.isEmptyObject = isEmptyObject2;
     var isArray2 = function(payload) {
       return Array.isArray(payload);
     };
-    exports2.isArray = isArray2;
+    exports.isArray = isArray2;
     var isString2 = function(payload) {
       return typeof payload === "string";
     };
-    exports2.isString = isString2;
+    exports.isString = isString2;
     var isNumber2 = function(payload) {
       return typeof payload === "number" && !isNaN(payload);
     };
-    exports2.isNumber = isNumber2;
+    exports.isNumber = isNumber2;
     var isBoolean2 = function(payload) {
       return typeof payload === "boolean";
     };
-    exports2.isBoolean = isBoolean2;
+    exports.isBoolean = isBoolean2;
     var isRegExp2 = function(payload) {
       return payload instanceof RegExp;
     };
-    exports2.isRegExp = isRegExp2;
+    exports.isRegExp = isRegExp2;
     var isMap = function(payload) {
       return payload instanceof Map;
     };
-    exports2.isMap = isMap;
+    exports.isMap = isMap;
     var isSet = function(payload) {
       return payload instanceof Set;
     };
-    exports2.isSet = isSet;
+    exports.isSet = isSet;
     var isSymbol = function(payload) {
       return getType(payload) === "Symbol";
     };
-    exports2.isSymbol = isSymbol;
+    exports.isSymbol = isSymbol;
     var isDate2 = function(payload) {
       return payload instanceof Date && !isNaN(payload.valueOf());
     };
-    exports2.isDate = isDate2;
+    exports.isDate = isDate2;
     var isError = function(payload) {
       return payload instanceof Error;
     };
-    exports2.isError = isError;
+    exports.isError = isError;
     var isNaNValue = function(payload) {
       return typeof payload === "number" && isNaN(payload);
     };
-    exports2.isNaNValue = isNaNValue;
+    exports.isNaNValue = isNaNValue;
     var isPrimitive = function(payload) {
-      return exports2.isBoolean(payload) || exports2.isNull(payload) || exports2.isUndefined(payload) || exports2.isNumber(payload) || exports2.isString(payload) || exports2.isSymbol(payload);
+      return exports.isBoolean(payload) || exports.isNull(payload) || exports.isUndefined(payload) || exports.isNumber(payload) || exports.isString(payload) || exports.isSymbol(payload);
     };
-    exports2.isPrimitive = isPrimitive;
+    exports.isPrimitive = isPrimitive;
     var isBigint = function(payload) {
       return typeof payload === "bigint";
     };
-    exports2.isBigint = isBigint;
+    exports.isBigint = isBigint;
     var isInfinite = function(payload) {
       return payload === Infinity || payload === -Infinity;
     };
-    exports2.isInfinite = isInfinite;
+    exports.isInfinite = isInfinite;
     var isTypedArray2 = function(payload) {
       return ArrayBuffer.isView(payload) && !(payload instanceof DataView);
     };
-    exports2.isTypedArray = isTypedArray2;
+    exports.isTypedArray = isTypedArray2;
     var isURL = function(payload) {
       return payload instanceof URL;
     };
-    exports2.isURL = isURL;
+    exports.isURL = isURL;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/pathstringifier.js
 var require_pathstringifier = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/pathstringifier.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/pathstringifier.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.parsePath = exports2.stringifyPath = exports2.escapeKey = void 0;
+    exports.__esModule = true;
+    exports.parsePath = exports.stringifyPath = exports.escapeKey = void 0;
     var escapeKey = function(key) {
       return key.replace(/\./g, "\\.");
     };
-    exports2.escapeKey = escapeKey;
+    exports.escapeKey = escapeKey;
     var stringifyPath = function(path2) {
-      return path2.map(String).map(exports2.escapeKey).join(".");
+      return path2.map(String).map(exports.escapeKey).join(".");
     };
-    exports2.stringifyPath = stringifyPath;
+    exports.stringifyPath = stringifyPath;
     var parsePath = function(string4) {
       var result = [];
       var segment = "";
@@ -44413,15 +44418,15 @@ var require_pathstringifier = __commonJS({
       result.push(lastSegment);
       return result;
     };
-    exports2.parsePath = parsePath;
+    exports.parsePath = parsePath;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/transformer.js
 var require_transformer = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/transformer.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/transformer.js"(exports) {
     "use strict";
-    var __assign = exports2 && exports2.__assign || function() {
+    var __assign = exports && exports.__assign || function() {
       __assign = Object.assign || function(t2) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
           s = arguments[i];
@@ -44432,7 +44437,7 @@ var require_transformer = __commonJS({
       };
       return __assign.apply(this, arguments);
     };
-    var __read = exports2 && exports2.__read || function(o, n) {
+    var __read = exports && exports.__read || function(o, n) {
       var m = typeof Symbol === "function" && o[Symbol.iterator];
       if (!m) return o;
       var i = m.call(o), r, ar = [], e;
@@ -44449,13 +44454,13 @@ var require_transformer = __commonJS({
       }
       return ar;
     };
-    var __spreadArray = exports2 && exports2.__spreadArray || function(to, from) {
+    var __spreadArray = exports && exports.__spreadArray || function(to, from) {
       for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
       return to;
     };
-    exports2.__esModule = true;
-    exports2.untransformValue = exports2.transformValue = exports2.isInstanceOfRegisteredClass = void 0;
+    exports.__esModule = true;
+    exports.untransformValue = exports.transformValue = exports.isInstanceOfRegisteredClass = void 0;
     var is_1 = require_is();
     var util_1 = require_util();
     function simpleTransformation(isApplicable, annotation, transform2, untransform) {
@@ -44609,7 +44614,7 @@ var require_transformer = __commonJS({
       }
       return false;
     }
-    exports2.isInstanceOfRegisteredClass = isInstanceOfRegisteredClass;
+    exports.isInstanceOfRegisteredClass = isInstanceOfRegisteredClass;
     var classRule = compositeTransformation(isInstanceOfRegisteredClass, function(clazz, superJson) {
       var identifier = superJson.classRegistry.getIdentifier(clazz.constructor);
       return ["class", identifier];
@@ -44667,7 +44672,7 @@ var require_transformer = __commonJS({
       }
       return void 0;
     };
-    exports2.transformValue = transformValue;
+    exports.transformValue = transformValue;
     var simpleRulesByAnnotation = {};
     simpleRules.forEach(function(rule) {
       simpleRulesByAnnotation[rule.annotation] = rule;
@@ -44694,16 +44699,16 @@ var require_transformer = __commonJS({
         return transformation.untransform(json3, superJson);
       }
     };
-    exports2.untransformValue = untransformValue;
+    exports.untransformValue = untransformValue;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/accessDeep.js
 var require_accessDeep = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/accessDeep.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/accessDeep.js"(exports) {
     "use strict";
-    exports2.__esModule = true;
-    exports2.setDeep = exports2.getDeep = void 0;
+    exports.__esModule = true;
+    exports.setDeep = exports.getDeep = void 0;
     var is_1 = require_is();
     var util_1 = require_util();
     var getNthKey = function(value, n) {
@@ -44749,7 +44754,7 @@ var require_accessDeep = __commonJS({
       }
       return object2;
     };
-    exports2.getDeep = getDeep;
+    exports.getDeep = getDeep;
     var setDeep = function(object2, path2, mapper) {
       validatePath(path2);
       if (path2.length === 0) {
@@ -44819,15 +44824,15 @@ var require_accessDeep = __commonJS({
       }
       return object2;
     };
-    exports2.setDeep = setDeep;
+    exports.setDeep = setDeep;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/plainer.js
 var require_plainer = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/plainer.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/plainer.js"(exports) {
     "use strict";
-    var __read = exports2 && exports2.__read || function(o, n) {
+    var __read = exports && exports.__read || function(o, n) {
       var m = typeof Symbol === "function" && o[Symbol.iterator];
       if (!m) return o;
       var i = m.call(o), r, ar = [], e;
@@ -44844,13 +44849,13 @@ var require_plainer = __commonJS({
       }
       return ar;
     };
-    var __spreadArray = exports2 && exports2.__spreadArray || function(to, from) {
+    var __spreadArray = exports && exports.__spreadArray || function(to, from) {
       for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
       return to;
     };
-    exports2.__esModule = true;
-    exports2.walker = exports2.generateReferentialEqualityAnnotations = exports2.applyReferentialEqualityAnnotations = exports2.applyValueAnnotations = void 0;
+    exports.__esModule = true;
+    exports.walker = exports.generateReferentialEqualityAnnotations = exports.applyReferentialEqualityAnnotations = exports.applyValueAnnotations = void 0;
     var is_1 = require_is();
     var pathstringifier_1 = require_pathstringifier();
     var transformer_1 = require_transformer();
@@ -44886,7 +44891,7 @@ var require_plainer = __commonJS({
       });
       return plain;
     }
-    exports2.applyValueAnnotations = applyValueAnnotations;
+    exports.applyValueAnnotations = applyValueAnnotations;
     function applyReferentialEqualityAnnotations(plain, annotations) {
       function apply(identicalPaths, path2) {
         var object2 = accessDeep_1.getDeep(plain, pathstringifier_2.parsePath(path2));
@@ -44911,7 +44916,7 @@ var require_plainer = __commonJS({
       }
       return plain;
     }
-    exports2.applyReferentialEqualityAnnotations = applyReferentialEqualityAnnotations;
+    exports.applyReferentialEqualityAnnotations = applyReferentialEqualityAnnotations;
     var isDeep = function(object2, superJson) {
       return is_1.isPlainObject(object2) || is_1.isArray(object2) || is_1.isMap(object2) || is_1.isSet(object2) || transformer_1.isInstanceOfRegisteredClass(object2, superJson);
     };
@@ -44954,7 +44959,7 @@ var require_plainer = __commonJS({
         return is_1.isEmptyObject(result) ? void 0 : result;
       }
     }
-    exports2.generateReferentialEqualityAnnotations = generateReferentialEqualityAnnotations;
+    exports.generateReferentialEqualityAnnotations = generateReferentialEqualityAnnotations;
     var walker = function(object2, identities, superJson, dedupe, path2, objectsInThisPath, seenObjects) {
       var _a;
       if (path2 === void 0) {
@@ -44999,7 +45004,7 @@ var require_plainer = __commonJS({
       var transformedValue = is_1.isArray(transformed) ? [] : {};
       var innerAnnotations = {};
       util_1.forEach(transformed, function(value, index) {
-        var recursiveResult = exports2.walker(value, identities, superJson, dedupe, __spreadArray(__spreadArray([], __read(path2)), [index]), __spreadArray(__spreadArray([], __read(objectsInThisPath)), [object2]), seenObjects);
+        var recursiveResult = exports.walker(value, identities, superJson, dedupe, __spreadArray(__spreadArray([], __read(path2)), [index]), __spreadArray(__spreadArray([], __read(objectsInThisPath)), [object2]), seenObjects);
         transformedValue[index] = recursiveResult.transformedValue;
         if (is_1.isArray(recursiveResult.annotations)) {
           innerAnnotations[index] = recursiveResult.annotations;
@@ -45021,13 +45026,13 @@ var require_plainer = __commonJS({
       }
       return result;
     };
-    exports2.walker = walker;
+    exports.walker = walker;
   }
 });
 
 // node_modules/.pnpm/is-what@4.1.16/node_modules/is-what/dist/cjs/index.cjs
 var require_cjs = __commonJS({
-  "node_modules/.pnpm/is-what@4.1.16/node_modules/is-what/dist/cjs/index.cjs"(exports2) {
+  "node_modules/.pnpm/is-what@4.1.16/node_modules/is-what/dist/cjs/index.cjs"(exports) {
     "use strict";
     function getType(payload) {
       return Object.prototype.toString.call(payload).slice(8, -1);
@@ -45162,49 +45167,49 @@ var require_cjs = __commonJS({
     function isWeakSet(payload) {
       return getType(payload) === "WeakSet";
     }
-    exports2.getType = getType;
-    exports2.isAnyObject = isAnyObject;
-    exports2.isArray = isArray2;
-    exports2.isBlob = isBlob2;
-    exports2.isBoolean = isBoolean2;
-    exports2.isDate = isDate2;
-    exports2.isEmptyArray = isEmptyArray;
-    exports2.isEmptyObject = isEmptyObject2;
-    exports2.isEmptyString = isEmptyString;
-    exports2.isError = isError;
-    exports2.isFile = isFile2;
-    exports2.isFullArray = isFullArray;
-    exports2.isFullObject = isFullObject;
-    exports2.isFullString = isFullString;
-    exports2.isFunction = isFunction4;
-    exports2.isInstanceOf = isInstanceOf;
-    exports2.isMap = isMap;
-    exports2.isNaNValue = isNaNValue;
-    exports2.isNegativeNumber = isNegativeNumber;
-    exports2.isNull = isNull2;
-    exports2.isNullOrUndefined = isNullOrUndefined;
-    exports2.isNumber = isNumber2;
-    exports2.isObject = isObject4;
-    exports2.isObjectLike = isObjectLike2;
-    exports2.isOneOf = isOneOf;
-    exports2.isPlainObject = isPlainObject4;
-    exports2.isPositiveNumber = isPositiveNumber;
-    exports2.isPrimitive = isPrimitive;
-    exports2.isPromise = isPromise2;
-    exports2.isRegExp = isRegExp2;
-    exports2.isSet = isSet;
-    exports2.isString = isString2;
-    exports2.isSymbol = isSymbol;
-    exports2.isType = isType;
-    exports2.isUndefined = isUndefined2;
-    exports2.isWeakMap = isWeakMap;
-    exports2.isWeakSet = isWeakSet;
+    exports.getType = getType;
+    exports.isAnyObject = isAnyObject;
+    exports.isArray = isArray2;
+    exports.isBlob = isBlob2;
+    exports.isBoolean = isBoolean2;
+    exports.isDate = isDate2;
+    exports.isEmptyArray = isEmptyArray;
+    exports.isEmptyObject = isEmptyObject2;
+    exports.isEmptyString = isEmptyString;
+    exports.isError = isError;
+    exports.isFile = isFile2;
+    exports.isFullArray = isFullArray;
+    exports.isFullObject = isFullObject;
+    exports.isFullString = isFullString;
+    exports.isFunction = isFunction4;
+    exports.isInstanceOf = isInstanceOf;
+    exports.isMap = isMap;
+    exports.isNaNValue = isNaNValue;
+    exports.isNegativeNumber = isNegativeNumber;
+    exports.isNull = isNull2;
+    exports.isNullOrUndefined = isNullOrUndefined;
+    exports.isNumber = isNumber2;
+    exports.isObject = isObject4;
+    exports.isObjectLike = isObjectLike2;
+    exports.isOneOf = isOneOf;
+    exports.isPlainObject = isPlainObject4;
+    exports.isPositiveNumber = isPositiveNumber;
+    exports.isPrimitive = isPrimitive;
+    exports.isPromise = isPromise2;
+    exports.isRegExp = isRegExp2;
+    exports.isSet = isSet;
+    exports.isString = isString2;
+    exports.isSymbol = isSymbol;
+    exports.isType = isType;
+    exports.isUndefined = isUndefined2;
+    exports.isWeakMap = isWeakMap;
+    exports.isWeakSet = isWeakSet;
   }
 });
 
 // node_modules/.pnpm/copy-anything@3.0.5/node_modules/copy-anything/dist/cjs/index.cjs
 var require_cjs2 = __commonJS({
-  "node_modules/.pnpm/copy-anything@3.0.5/node_modules/copy-anything/dist/cjs/index.cjs"(exports2) {
+  "node_modules/.pnpm/copy-anything@3.0.5/node_modules/copy-anything/dist/cjs/index.cjs"(exports) {
     "use strict";
     var isWhat = require_cjs();
     function assignProp2(carry, key, newVal, originalObject, includeNonenumerable) {
@@ -45239,15 +45244,15 @@ var require_cjs2 = __commonJS({
         return carry;
       }, {});
     }
-    exports2.copy = copy;
+    exports.copy = copy;
   }
 });
 
 // node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/index.js
 var require_dist2 = __commonJS({
-  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/index.js"(exports2) {
+  "node_modules/.pnpm/superjson@1.13.3/node_modules/superjson/dist/index.js"(exports) {
     "use strict";
-    var __assign = exports2 && exports2.__assign || function() {
+    var __assign = exports && exports.__assign || function() {
       __assign = Object.assign || function(t2) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
           s = arguments[i];
@@ -45258,7 +45263,7 @@ var require_dist2 = __commonJS({
       };
       return __assign.apply(this, arguments);
     };
-    var __read = exports2 && exports2.__read || function(o, n) {
+    var __read = exports && exports.__read || function(o, n) {
       var m = typeof Symbol === "function" && o[Symbol.iterator];
       if (!m) return o;
       var i = m.call(o), r, ar = [], e;
@@ -45275,13 +45280,13 @@ var require_dist2 = __commonJS({
       }
       return ar;
     };
-    var __spreadArray = exports2 && exports2.__spreadArray || function(to, from) {
+    var __spreadArray = exports && exports.__spreadArray || function(to, from) {
       for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
         to[j] = from[i];
       return to;
     };
-    exports2.__esModule = true;
-    exports2.allowErrorProps = exports2.registerSymbol = exports2.registerCustom = exports2.registerClass = exports2.parse = exports2.stringify = exports2.deserialize = exports2.serialize = exports2.SuperJSON = void 0;
+    exports.__esModule = true;
+    exports.allowErrorProps = exports.registerSymbol = exports.registerCustom = exports.registerClass = exports.parse = exports.stringify = exports.deserialize = exports.serialize = exports.SuperJSON = void 0;
     var class_registry_1 = require_class_registry();
     var registry_1 = require_registry();
     var custom_transformer_registry_1 = require_custom_transformer_registry();
@@ -45362,25 +45367,18 @@ var require_dist2 = __commonJS({
         return SuperJSON2;
       })()
     );
-    exports2.SuperJSON = SuperJSON;
-    exports2["default"] = SuperJSON;
-    exports2.serialize = SuperJSON.serialize;
-    exports2.deserialize = SuperJSON.deserialize;
-    exports2.stringify = SuperJSON.stringify;
-    exports2.parse = SuperJSON.parse;
-    exports2.registerClass = SuperJSON.registerClass;
-    exports2.registerCustom = SuperJSON.registerCustom;
-    exports2.registerSymbol = SuperJSON.registerSymbol;
-    exports2.allowErrorProps = SuperJSON.allowErrorProps;
+    exports.SuperJSON = SuperJSON;
+    exports["default"] = SuperJSON;
+    exports.serialize = SuperJSON.serialize;
+    exports.deserialize = SuperJSON.deserialize;
+    exports.stringify = SuperJSON.stringify;
+    exports.parse = SuperJSON.parse;
+    exports.registerClass = SuperJSON.registerClass;
+    exports.registerCustom = SuperJSON.registerCustom;
+    exports.registerSymbol = SuperJSON.registerSymbol;
+    exports.allowErrorProps = SuperJSON.allowErrorProps;
   }
 });
-
-// api/index.ts
-var index_exports = {};
-__export(index_exports, {
-  default: () => index_default
-});
-module.exports = __toCommonJS(index_exports);
 
 // node_modules/.pnpm/dotenv@17.2.3/node_modules/dotenv/config.js
 (function() {
@@ -45395,7 +45393,7 @@ module.exports = __toCommonJS(index_exports);
 
 // api/index.ts
 var import_express = __toESM(require_express2(), 1);
-var import_path = __toESM(require("path"), 1);
+import path from "path";
 
 // node_modules/.pnpm/@trpc+server@11.6.0_typescript@5.9.3/node_modules/@trpc/server/dist/utils-CLZnJdb_.mjs
 var TRPC_ERROR_CODES_BY_KEY = {
@@ -45576,18 +45574,18 @@ function getHTTPStatusCode(json3) {
 function getHTTPStatusCodeFromError(error46) {
   return getStatusCodeFromKey(error46.code);
 }
-var require_typeof = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/typeof.js"(exports2, module2) {
+var require_typeof = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/typeof.js"(exports, module) {
   function _typeof$2(o) {
     "@babel/helpers - typeof";
-    return module2.exports = _typeof$2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$1) {
+    return module.exports = _typeof$2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$1) {
       return typeof o$1;
     } : function(o$1) {
       return o$1 && "function" == typeof Symbol && o$1.constructor === Symbol && o$1 !== Symbol.prototype ? "symbol" : typeof o$1;
-    }, module2.exports.__esModule = true, module2.exports["default"] = module2.exports, _typeof$2(o);
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports, _typeof$2(o);
   }
-  module2.exports = _typeof$2, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _typeof$2, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_toPrimitive = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/toPrimitive.js"(exports2, module2) {
+var require_toPrimitive = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/toPrimitive.js"(exports, module) {
   var _typeof$1 = require_typeof()["default"];
   function toPrimitive$1(t2, r) {
     if ("object" != _typeof$1(t2) || !t2) return t2;
@@ -45599,18 +45597,18 @@ var require_toPrimitive = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+r
     }
     return ("string" === r ? String : Number)(t2);
   }
-  module2.exports = toPrimitive$1, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = toPrimitive$1, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_toPropertyKey = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/toPropertyKey.js"(exports2, module2) {
+var require_toPropertyKey = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/toPropertyKey.js"(exports, module) {
   var _typeof = require_typeof()["default"];
   var toPrimitive = require_toPrimitive();
   function toPropertyKey$1(t2) {
     var i = toPrimitive(t2, "string");
     return "symbol" == _typeof(i) ? i : i + "";
   }
-  module2.exports = toPropertyKey$1, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = toPropertyKey$1, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_defineProperty = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/defineProperty.js"(exports2, module2) {
+var require_defineProperty = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/defineProperty.js"(exports, module) {
   var toPropertyKey = require_toPropertyKey();
   function _defineProperty(e, r, t2) {
     return (r = toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
@@ -45620,9 +45618,9 @@ var require_defineProperty = __commonJS2({ "../../node_modules/.pnpm/@oxc-projec
       writable: true
     }) : e[r] = t2, e;
   }
-  module2.exports = _defineProperty, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_objectSpread2 = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectSpread2.js"(exports2, module2) {
+var require_objectSpread2 = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectSpread2.js"(exports, module) {
   var defineProperty = require_defineProperty();
   function ownKeys(e, r) {
     var t2 = Object.keys(e);
@@ -45645,7 +45643,7 @@ var require_objectSpread2 = __commonJS2({ "../../node_modules/.pnpm/@oxc-project
     }
     return e;
   }
-  module2.exports = _objectSpread2, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _objectSpread2, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
 var import_objectSpread2 = __toESM2(require_objectSpread2(), 1);
 function getErrorShape(opts) {
@@ -46435,7 +46433,7 @@ function timerResource(ms) {
     if (timer) clearTimeout(timer);
   });
 }
-var require_usingCtx = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/usingCtx.js"(exports2, module2) {
+var require_usingCtx = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/usingCtx.js"(exports, module) {
   function _usingCtx() {
     var r = "function" == typeof SuppressedError ? SuppressedError : function(r$1, e$1) {
       var n$1 = Error();
@@ -46490,22 +46488,22 @@ var require_usingCtx = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runt
       }
     };
   }
-  module2.exports = _usingCtx, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _usingCtx, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_OverloadYield = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/OverloadYield.js"(exports2, module2) {
+var require_OverloadYield = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/OverloadYield.js"(exports, module) {
   function _OverloadYield(e, d) {
     this.v = e, this.k = d;
   }
-  module2.exports = _OverloadYield, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _OverloadYield, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_awaitAsyncGenerator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/awaitAsyncGenerator.js"(exports2, module2) {
+var require_awaitAsyncGenerator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/awaitAsyncGenerator.js"(exports, module) {
   var OverloadYield$2 = require_OverloadYield();
   function _awaitAsyncGenerator$5(e) {
     return new OverloadYield$2(e, 0);
   }
-  module2.exports = _awaitAsyncGenerator$5, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _awaitAsyncGenerator$5, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_wrapAsyncGenerator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/wrapAsyncGenerator.js"(exports2, module2) {
+var require_wrapAsyncGenerator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/wrapAsyncGenerator.js"(exports, module) {
   var OverloadYield$1 = require_OverloadYield();
   function _wrapAsyncGenerator$6(e) {
     return function() {
@@ -46572,7 +46570,7 @@ var require_wrapAsyncGenerator = __commonJS2({ "../../node_modules/.pnpm/@oxc-pr
   }, AsyncGenerator.prototype["return"] = function(e) {
     return this._invoke("return", e);
   };
-  module2.exports = _wrapAsyncGenerator$6, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _wrapAsyncGenerator$6, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
 var import_usingCtx$4 = __toESM2(require_usingCtx(), 1);
 var import_awaitAsyncGenerator$4 = __toESM2(require_awaitAsyncGenerator(), 1);
@@ -46842,7 +46840,7 @@ function _withPing() {
   });
   return _withPing.apply(this, arguments);
 }
-var require_asyncIterator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/asyncIterator.js"(exports2, module2) {
+var require_asyncIterator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/asyncIterator.js"(exports, module) {
   function _asyncIterator$2(r) {
     var n, t2, o, e = 2;
     for ("undefined" != typeof Symbol && (t2 = Symbol.asyncIterator, o = Symbol.iterator); e--; ) {
@@ -46884,7 +46882,7 @@ var require_asyncIterator = __commonJS2({ "../../node_modules/.pnpm/@oxc-project
       }
     }, new AsyncFromSyncIterator(r);
   }
-  module2.exports = _asyncIterator$2, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _asyncIterator$2, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
 var import_awaitAsyncGenerator$1 = __toESM2(require_awaitAsyncGenerator(), 1);
 var import_wrapAsyncGenerator$2 = __toESM2(require_wrapAsyncGenerator(), 1);
@@ -47082,7 +47080,7 @@ function jsonlStreamProducer(opts) {
     else controller.enqueue(JSON.stringify(chunk) + "\n");
   } })).pipeThrough(new TextEncoderStream());
 }
-var require_asyncGeneratorDelegate = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/asyncGeneratorDelegate.js"(exports2, module2) {
+var require_asyncGeneratorDelegate = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/asyncGeneratorDelegate.js"(exports, module) {
   var OverloadYield = require_OverloadYield();
   function _asyncGeneratorDelegate$1(t2) {
     var e = {}, n = false;
@@ -47105,7 +47103,7 @@ var require_asyncGeneratorDelegate = __commonJS2({ "../../node_modules/.pnpm/@ox
       return n ? (n = false, t$1) : pump("return", t$1);
     }), e;
   }
-  module2.exports = _asyncGeneratorDelegate$1, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _asyncGeneratorDelegate$1, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
 var import_asyncIterator = __toESM2(require_asyncIterator(), 1);
 var import_awaitAsyncGenerator = __toESM2(require_awaitAsyncGenerator(), 1);
@@ -47708,7 +47706,7 @@ function getParseFn(procedureParser) {
   };
   throw new Error("Could not find a validator fn");
 }
-var require_objectWithoutPropertiesLoose = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectWithoutPropertiesLoose.js"(exports2, module2) {
+var require_objectWithoutPropertiesLoose = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectWithoutPropertiesLoose.js"(exports, module) {
   function _objectWithoutPropertiesLoose(r, e) {
     if (null == r) return {};
     var t2 = {};
@@ -47718,9 +47716,9 @@ var require_objectWithoutPropertiesLoose = __commonJS2({ "../../node_modules/.pn
     }
     return t2;
   }
-  module2.exports = _objectWithoutPropertiesLoose, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _objectWithoutPropertiesLoose, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
-var require_objectWithoutProperties = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectWithoutProperties.js"(exports2, module2) {
+var require_objectWithoutProperties = __commonJS2({ "../../node_modules/.pnpm/@oxc-project+runtime@0.72.2/node_modules/@oxc-project/runtime/src/helpers/objectWithoutProperties.js"(exports, module) {
   var objectWithoutPropertiesLoose = require_objectWithoutPropertiesLoose();
   function _objectWithoutProperties$1(e, t2) {
     if (null == e) return {};
@@ -47731,7 +47729,7 @@ var require_objectWithoutProperties = __commonJS2({ "../../node_modules/.pnpm/@o
     }
     return i;
   }
-  module2.exports = _objectWithoutProperties$1, module2.exports.__esModule = true, module2.exports["default"] = module2.exports;
+  module.exports = _objectWithoutProperties$1, module.exports.__esModule = true, module.exports["default"] = module.exports;
 } });
 var import_objectWithoutProperties = __toESM2(require_objectWithoutProperties(), 1);
 var import_objectSpread2$13 = __toESM2(require_objectSpread2(), 1);
@@ -53883,7 +53881,7 @@ var MySqlDatabase = class {
 };
 
 // node_modules/.pnpm/drizzle-orm@0.44.6_@types+pg@8.16.0_mysql2@3.15.1_pg@8.19.0/node_modules/drizzle-orm/mysql2/session.js
-var import_node_events = require("node:events");
+import { once as once2 } from "node:events";
 
 // node_modules/.pnpm/drizzle-orm@0.44.6_@types+pg@8.16.0_mysql2@3.15.1_pg@8.19.0/node_modules/drizzle-orm/cache/core/cache.js
 var Cache = class {
@@ -54129,8 +54127,8 @@ var MySql2PreparedQuery = class extends MySqlPreparedQuery {
     }
     stream4.on("data", dataListener);
     try {
-      const onEnd = (0, import_node_events.once)(stream4, "end");
-      const onError = (0, import_node_events.once)(stream4, "error");
+      const onEnd = once2(stream4, "end");
+      const onError = once2(stream4, "error");
       while (true) {
         stream4.resume();
         const row = await Promise.race([onEnd, onError, new Promise((resolve) => stream4.once("data", resolve))]);
@@ -54387,7 +54385,7 @@ var ENV = {
   databaseUrl: process.env.DATABASE_URL ?? "",
   oAuthServerUrl: process.env.OAUTH_SERVER_URL ?? "",
   ownerOpenId: process.env.OWNER_OPEN_ID ?? "",
-  isProduction: true,
+  isProduction: process.env.NODE_ENV === "production",
   forgeApiUrl: process.env.BUILT_IN_FORGE_API_URL ?? "",
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? ""
 };
@@ -55216,11 +55214,11 @@ var transitional_default = {
 };
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/platform/node/index.js
-var import_crypto = __toESM(require("crypto"), 1);
+import crypto2 from "crypto";
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/platform/node/classes/URLSearchParams.js
-var import_url = __toESM(require("url"), 1);
-var URLSearchParams_default = import_url.default.URLSearchParams;
+import url from "url";
+var URLSearchParams_default = url.URLSearchParams;
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/platform/node/index.js
 var ALPHA = "abcdefghijklmnopqrstuvwxyz";
@@ -55234,7 +55232,7 @@ var generateString = (size = 16, alphabet = ALPHABET.ALPHA_DIGIT) => {
   let str = "";
   const { length } = alphabet;
   const randomValues = new Uint32Array(size);
-  import_crypto.default.randomFillSync(randomValues);
+  crypto2.randomFillSync(randomValues);
   for (let i = 0; i < size; i++) {
     str += alphabet[randomValues[i] % length];
   }
@@ -55791,11 +55789,11 @@ function buildFullPath(baseURL, requestedURL, allowAbsoluteUrls) {
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/adapters/http.js
 var import_proxy_from_env = __toESM(require_proxy_from_env(), 1);
-var import_http = __toESM(require("http"), 1);
-var import_https = __toESM(require("https"), 1);
-var import_util2 = __toESM(require("util"), 1);
 var import_follow_redirects = __toESM(require_follow_redirects(), 1);
-var import_zlib = __toESM(require("zlib"), 1);
+import http from "http";
+import https from "https";
+import util2 from "util";
+import zlib from "zlib";
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/env/data.js
 var VERSION = "1.12.2";
@@ -55836,12 +55834,12 @@ function fromDataURI(uri, asBlob, options) {
 }
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/adapters/http.js
-var import_stream4 = __toESM(require("stream"), 1);
+import stream3 from "stream";
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/helpers/AxiosTransformStream.js
-var import_stream = __toESM(require("stream"), 1);
+import stream from "stream";
 var kInternals = Symbol("internals");
-var AxiosTransformStream = class extends import_stream.default.Transform {
+var AxiosTransformStream = class extends stream.Transform {
   constructor(options) {
     options = utils_default.toFlatObject(options, {
       maxRate: 0,
@@ -55954,11 +55952,11 @@ var AxiosTransformStream = class extends import_stream.default.Transform {
 var AxiosTransformStream_default = AxiosTransformStream;
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/adapters/http.js
-var import_events = require("events");
+import { EventEmitter } from "events";
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/helpers/formDataToStream.js
-var import_util = __toESM(require("util"), 1);
-var import_stream2 = require("stream");
+import util from "util";
+import { Readable } from "stream";
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/helpers/readBlob.js
 var { asyncIterator } = Symbol;
@@ -55977,7 +55975,7 @@ var readBlob_default = readBlob;
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/helpers/formDataToStream.js
 var BOUNDARY_ALPHABET = platform_default.ALPHABET.ALPHA_DIGIT + "-_";
-var textEncoder = typeof TextEncoder === "function" ? new TextEncoder() : new import_util.default.TextEncoder();
+var textEncoder = typeof TextEncoder === "function" ? new TextEncoder() : new util.TextEncoder();
 var CRLF = "\r\n";
 var CRLF_BYTES = textEncoder.encode(CRLF);
 var CRLF_BYTES_COUNT = 2;
@@ -56044,7 +56042,7 @@ var formDataToStream = (form, headersHandler, options) => {
     computedHeaders["Content-Length"] = contentLength;
   }
   headersHandler && headersHandler(computedHeaders);
-  return import_stream2.Readable.from((async function* () {
+  return Readable.from((async function* () {
     for (const part of parts) {
       yield boundaryBytes;
       yield* part.encode();
@@ -56055,8 +56053,8 @@ var formDataToStream = (form, headersHandler, options) => {
 var formDataToStream_default = formDataToStream;
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/helpers/ZlibHeaderTransformStream.js
-var import_stream3 = __toESM(require("stream"), 1);
-var ZlibHeaderTransformStream = class extends import_stream3.default.Transform {
+import stream2 from "stream";
+var ZlibHeaderTransformStream = class extends stream2.Transform {
   __transform(chunk, encoding, callback) {
     this.push(chunk);
     callback();
@@ -56250,14 +56248,14 @@ function estimateDataURLDecodedBytes(url3) {
 
 // node_modules/.pnpm/axios@1.12.2/node_modules/axios/lib/adapters/http.js
 var zlibOptions = {
-  flush: import_zlib.default.constants.Z_SYNC_FLUSH,
-  finishFlush: import_zlib.default.constants.Z_SYNC_FLUSH
+  flush: zlib.constants.Z_SYNC_FLUSH,
+  finishFlush: zlib.constants.Z_SYNC_FLUSH
 };
 var brotliOptions = {
-  flush: import_zlib.default.constants.BROTLI_OPERATION_FLUSH,
-  finishFlush: import_zlib.default.constants.BROTLI_OPERATION_FLUSH
+  flush: zlib.constants.BROTLI_OPERATION_FLUSH,
+  finishFlush: zlib.constants.BROTLI_OPERATION_FLUSH
 };
-var isBrotliSupported = utils_default.isFunction(import_zlib.default.createBrotliDecompress);
+var isBrotliSupported = utils_default.isFunction(zlib.createBrotliDecompress);
 var { http: httpFollow, https: httpsFollow } = import_follow_redirects.default;
 var isHttps = /https:?/;
 var supportedProtocols = platform_default.protocols.map((protocol) => {
@@ -56359,7 +56357,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
         });
       };
     }
-    const emitter = new import_events.EventEmitter();
+    const emitter = new EventEmitter();
     const onFinished = () => {
       if (config2.cancelToken) {
         config2.cancelToken.unsubscribe(abort);
@@ -56423,7 +56421,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
           convertedData = utils_default.stripBOM(convertedData);
         }
       } else if (responseType === "stream") {
-        convertedData = import_stream4.default.Readable.from(convertedData);
+        convertedData = stream3.Readable.from(convertedData);
       }
       return settle(resolve, reject, {
         data: convertedData,
@@ -56458,7 +56456,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
       headers.set(data.getHeaders());
       if (!headers.hasContentLength()) {
         try {
-          const knownLength = await import_util2.default.promisify(data.getLength).call(data);
+          const knownLength = await util2.promisify(data.getLength).call(data);
           Number.isFinite(knownLength) && knownLength >= 0 && headers.setContentLength(knownLength);
         } catch (e) {
         }
@@ -56466,7 +56464,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
     } else if (utils_default.isBlob(data) || utils_default.isFile(data)) {
       data.size && headers.setContentType(data.type || "application/octet-stream");
       headers.setContentLength(data.size || 0);
-      data = import_stream4.default.Readable.from(readBlob_default(data));
+      data = stream3.Readable.from(readBlob_default(data));
     } else if (data && !utils_default.isStream(data)) {
       if (Buffer.isBuffer(data)) {
       } else if (utils_default.isArrayBuffer(data)) {
@@ -56498,9 +56496,9 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
     }
     if (data && (onUploadProgress || maxUploadRate)) {
       if (!utils_default.isStream(data)) {
-        data = import_stream4.default.Readable.from(data, { objectMode: false });
+        data = stream3.Readable.from(data, { objectMode: false });
       }
-      data = import_stream4.default.pipeline([data, new AxiosTransformStream_default({
+      data = stream3.pipeline([data, new AxiosTransformStream_default({
         maxRate: utils_default.toFiniteNumber(maxUploadRate)
       })], utils_default.noop);
       onUploadProgress && data.on("progress", flushOnFinish(
@@ -56567,7 +56565,7 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
     if (config2.transport) {
       transport = config2.transport;
     } else if (config2.maxRedirects === 0) {
-      transport = isHttpsRequest ? import_https.default : import_http.default;
+      transport = isHttpsRequest ? https : http;
     } else {
       if (config2.maxRedirects) {
         options.maxRedirects = config2.maxRedirects;
@@ -56614,23 +56612,23 @@ var http_default = isHttpAdapterSupported && function httpAdapter(config2) {
           case "x-gzip":
           case "compress":
           case "x-compress":
-            streams.push(import_zlib.default.createUnzip(zlibOptions));
+            streams.push(zlib.createUnzip(zlibOptions));
             delete res.headers["content-encoding"];
             break;
           case "deflate":
             streams.push(new ZlibHeaderTransformStream_default());
-            streams.push(import_zlib.default.createUnzip(zlibOptions));
+            streams.push(zlib.createUnzip(zlibOptions));
             delete res.headers["content-encoding"];
             break;
           case "br":
             if (isBrotliSupported) {
-              streams.push(import_zlib.default.createBrotliDecompress(brotliOptions));
+              streams.push(zlib.createBrotliDecompress(brotliOptions));
               delete res.headers["content-encoding"];
             }
         }
       }
-      responseStream = streams.length > 1 ? import_stream4.default.pipeline(streams, utils_default.noop) : streams[0];
-      const offListeners = import_stream4.default.finished(responseStream, () => {
+      responseStream = streams.length > 1 ? stream3.pipeline(streams, utils_default.noop) : streams[0];
+      const offListeners = stream3.finished(responseStream, () => {
         offListeners();
         onFinished();
       });
@@ -72664,12 +72662,15 @@ app.use(
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", timestamp: (/* @__PURE__ */ new Date()).toISOString() });
 });
-var distPath = import_path.default.join(process.cwd(), "dist", "public");
+var distPath = path.join(process.cwd(), "dist", "public");
 app.use(import_express.default.static(distPath));
 app.get("*", (_req, res) => {
-  res.sendFile(import_path.default.join(distPath, "index.html"));
+  res.sendFile(path.join(distPath, "index.html"));
 });
 var index_default = app;
+export {
+  index_default as default
+};
 /*! Bundled license information:
 
 depd/index.js:
