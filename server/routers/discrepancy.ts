@@ -179,13 +179,13 @@ export const discrepancyRouter = router({
   uploadCSV: publicProcedure
     .input(z.object({
       stats: z.array(customerStatSchema),
-      orders: z.array(orderRowSchema),
+      orders: z.array(orderRowSchema).optional(),
       filename: z.string().optional(),
       totalRows: z.number(),
     }))
     .mutation(async ({ input }) => {
       cachedStats = input.stats;
-      cachedOrders = input.orders as FlatOrder[];
+      cachedOrders = (input.orders ?? []) as FlatOrder[];
       totalOrderCount = input.totalRows;
       lastFetched = new Date();
       csvFilename = input.filename ?? "uploaded.csv";

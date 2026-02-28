@@ -171,8 +171,8 @@ export default function Dashboard() {
     setUploadError(null);
     try {
       const text = await file.text();
-      const { stats, orders, totalRows } = parseCSVClientSide(text);
-      uploadMut.mutate({ stats, orders, totalRows, filename: file.name });
+      const { stats, totalRows } = parseCSVClientSide(text);
+      uploadMut.mutate({ stats, totalRows, filename: file.name });
     } catch (e: any) {
       setUploadError("Failed to parse CSV: " + (e?.message ?? "Unknown error"));
     }
