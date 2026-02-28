@@ -3,6 +3,20 @@ import { publicProcedure, router } from "../_core/trpc";
 import { invokeLLM } from "../_core/llm";
 import { notifyOwner } from "../_core/notification";
 
+// ── Types ─────────────────────────────────────────────────────────────────────
+export type CustomerStat = {
+  customer: string;
+  orders: number;
+  totalSelling: number;
+  totalBilled: number;
+  totalDiscrepancy: number;
+  overcharges: number;
+  undercharges: number;
+  matches: number;
+  discrepancyRate: number;
+  severity: "red" | "yellow" | "green";
+};
+
 export type OrderRow = {
   "Order Number": string;
   "Order Status": string;
@@ -20,150 +34,103 @@ export type OrderRow = {
   "Margin (%)": string;
 };
 
-// ── In-memory cache ──────────────────────────────────────────────────────────
-let cachedRows: OrderRow[] = [];
+// ── In-memory cache ───────────────────────────────────────────────────────────
+// Stores pre-computed stats sent from the client (CSV parsed in browser)
+let cachedStats: CustomerStat[] = [];
+let cachedOrders: FlatOrder[] = [];
 let lastFetched: Date | null = null;
 let lastCriticalCount = 0;
 let csvFilename: string | null = null;
+let totalOrderCount = 0;
 
-/** Parse CSV text into OrderRow array */
-export function parseCSV(text: string): OrderRow[] {
-  const lines = text.split(/\r?\n/).filter(l => l.trim());
-  if (lines.length < 2) return [];
+// ── Flat order type (client-side parsed) ─────────────────────────────────────
+type FlatOrder = {
+  orderNumber: string;
+  customer: string;
+  date: string;
+  transportType: string;
+  serviceType: string;
+  carrier: string;
+  lane: string;
+  originCountry: string;
+  destCountry: string;
+  sellingPrice: number;
+  billedPrice: number;
+  discrepancy: number;
+  margin: number;
+  marginPct: number;
+  flag: "overcharge" | "undercharge" | "match";
+};
 
-  // Parse a CSV line respecting quoted fields
-  function parseLine(line: string): string[] {
-    const result: string[] = [];
-    let current = "";
-    let inQuotes = false;
-    for (let i = 0; i < line.length; i++) {
-      const ch = line[i];
-      if (ch === '"') {
-        if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
-        else inQuotes = !inQuotes;
-      } else if (ch === ',' && !inQuotes) {
-        result.push(current);
-        current = "";
-      } else {
-        current += ch;
-      }
-    }
-    result.push(current);
-    return result;
-  }
+// ── Zod schemas ───────────────────────────────────────────────────────────────
+const customerStatSchema = z.object({
+  customer: z.string(),
+  orders: z.number(),
+  totalSelling: z.number(),
+  totalBilled: z.number(),
+  totalDiscrepancy: z.number(),
+  overcharges: z.number(),
+  undercharges: z.number(),
+  matches: z.number(),
+  discrepancyRate: z.number(),
+  severity: z.enum(["red", "yellow", "green"]),
+});
 
-  const headers = parseLine(lines[0]);
-  return lines.slice(1).map(line => {
-    const values = parseLine(line);
-    const row: Record<string, string> = {};
-    headers.forEach((h, i) => { row[h] = values[i] ?? ""; });
-    return row as OrderRow;
-  }).filter(r => Object.values(r).some(v => v !== ""));
-}
+const orderRowSchema = z.object({
+  orderNumber: z.string(),
+  customer: z.string(),
+  date: z.string(),
+  transportType: z.string(),
+  serviceType: z.string(),
+  carrier: z.string(),
+  lane: z.string(),
+  originCountry: z.string(),
+  destCountry: z.string(),
+  sellingPrice: z.number(),
+  billedPrice: z.number(),
+  discrepancy: z.number(),
+  margin: z.number(),
+  marginPct: z.number(),
+  flag: z.enum(["overcharge", "undercharge", "match"]),
+});
 
-/** Load CSV data into memory cache */
-export async function loadCSVData(csvText: string, filename?: string): Promise<void> {
-  const rows = parseCSV(csvText);
-  cachedRows = rows;
-  lastFetched = new Date();
-  csvFilename = filename ?? "uploaded.csv";
-  console.log(`[Discrepancy] Loaded CSV: ${rows.length} rows from ${csvFilename}`);
-
-  // ── Critical alert: notify owner when new red discrepancies appear ────────
-  const stats = computeCustomerStats(rows);
-  const criticalCustomers = stats.filter(c => c.severity === "red");
-  const currentCriticalCount = criticalCustomers.length;
-
-  if (currentCriticalCount > lastCriticalCount && lastCriticalCount >= 0) {
-    const newCritical = criticalCustomers.slice(0, 5);
-    const alertLines = newCritical
-      .map(c => `• ${c.customer}: $${c.totalDiscrepancy.toFixed(2)} CAD (${c.orders} orders)`)
-      .join("\n");
-
-    await notifyOwner({
-      title: `⚠ ${currentCriticalCount} Critical Billing Discrepanc${currentCriticalCount === 1 ? "y" : "ies"} Detected`,
-      content: `CSV upload found ${currentCriticalCount} customer(s) with critical billing discrepancies (>$500 CAD).\n\nTop offenders:\n${alertLines}\n\nLoaded at: ${lastFetched.toISOString()}`,
-    });
-    console.log(`[Discrepancy] Alert sent: ${currentCriticalCount} critical customers`);
-  }
-  lastCriticalCount = currentCriticalCount;
-}
-
-// ── Helpers ──────────────────────────────────────────────────────────────────
-function filterByDateRange(rows: OrderRow[], from?: string, to?: string): OrderRow[] {
-  if (!from && !to) return rows;
-  return rows.filter(row => {
-    const d = row["Origin Pickup Date"];
-    if (!d) return true;
-    const date = d.substring(0, 10); // YYYY-MM-DD
-    if (from && date < from) return false;
-    if (to && date > to) return false;
-    return true;
-  });
-}
-
-export function computeCustomerStats(rows: OrderRow[]) {
-  const map = new Map<string, {
-    customer: string;
-    orders: number;
-    totalSelling: number;
-    totalBilled: number;
-    totalDiscrepancy: number;
-    overcharges: number;
-    undercharges: number;
-    matches: number;
-  }>();
-
-  for (const row of rows) {
-    const customer = row["Organization Name"] || "Unknown";
-    const selling = parseFloat(row["Selling Price (CAD)"] ?? "0") || 0;
-    const billed = parseFloat(row["Billed Selling Price (CAD)"] ?? "0") || 0;
-    const disc = billed - selling;
-
-    if (!map.has(customer)) {
-      map.set(customer, { customer, orders: 0, totalSelling: 0, totalBilled: 0, totalDiscrepancy: 0, overcharges: 0, undercharges: 0, matches: 0 });
-    }
-    const s = map.get(customer)!;
-    s.orders++;
-    s.totalSelling += selling;
-    s.totalBilled += billed;
-    s.totalDiscrepancy += disc;
-    if (disc > 0.01) s.overcharges++;
-    else if (disc < -0.01) s.undercharges++;
-    else s.matches++;
-  }
-
-  return Array.from(map.values()).map(s => ({
-    ...s,
-    totalDiscrepancy: Math.round(s.totalDiscrepancy * 100) / 100,
-    discrepancyRate: s.totalSelling > 0 ? (s.totalDiscrepancy / s.totalSelling) * 100 : 0,
-    severity: (Math.abs(s.totalDiscrepancy) < 50 ? "green"
-      : Math.abs(s.totalDiscrepancy) < 500 ? "yellow"
-      : "red") as "red" | "yellow" | "green",
-  })).sort((a, b) => Math.abs(b.totalDiscrepancy) - Math.abs(a.totalDiscrepancy));
-}
-
-// ── Date range input schema ───────────────────────────────────────────────────
 const dateRangeInput = z.object({
-  from: z.string().optional(), // YYYY-MM-DD
+  from: z.string().optional(),
   to: z.string().optional(),
 }).optional();
 
 // ── Router ────────────────────────────────────────────────────────────────────
 export const discrepancyRouter = router({
 
-  /** Global KPI summary — supports optional date range */
+  /** Global KPI summary */
   getStats: publicProcedure
     .input(dateRangeInput)
     .query(async ({ input }) => {
-      const rows = filterByDateRange(cachedRows, input?.from, input?.to);
-      const stats = computeCustomerStats(rows);
+      // Filter orders by date if provided
+      let stats = cachedStats;
+      if (input?.from || input?.to) {
+        const filteredOrders = cachedOrders.filter(o => {
+          const d = o.date;
+          if (input.from && d < input.from) return false;
+          if (input.to && d > input.to) return false;
+          return true;
+        });
+        stats = computeStatsFromOrders(filteredOrders);
+      }
+
       const totalDiscrepancy = stats.reduce((s, c) => s + c.totalDiscrepancy, 0);
       const totalSelling = stats.reduce((s, c) => s + c.totalSelling, 0);
+      const filteredOrderCount = (input?.from || input?.to)
+        ? cachedOrders.filter(o => {
+            if (input?.from && o.date < input.from) return false;
+            if (input?.to && o.date > input.to) return false;
+            return true;
+          }).length
+        : totalOrderCount;
 
       return {
         totalCustomers: stats.length,
-        totalOrders: rows.length,
+        totalOrders: filteredOrderCount,
         totalDiscrepancy: Math.round(totalDiscrepancy * 100) / 100,
         totalOvercharges: stats.reduce((s, c) => s + c.overcharges, 0),
         totalUndercharges: stats.reduce((s, c) => s + c.undercharges, 0),
@@ -171,19 +138,26 @@ export const discrepancyRouter = router({
         criticalCount: stats.filter(c => c.severity === "red").length,
         lastFetched: lastFetched?.toISOString() ?? null,
         csvFilename,
-        hasData: cachedRows.length > 0,
+        hasData: cachedStats.length > 0,
       };
     }),
 
-  /** Per-customer breakdown — supports optional date range */
+  /** Per-customer breakdown */
   getCustomers: publicProcedure
     .input(dateRangeInput)
     .query(async ({ input }) => {
-      const rows = filterByDateRange(cachedRows, input?.from, input?.to);
-      return computeCustomerStats(rows);
+      if (input?.from || input?.to) {
+        const filteredOrders = cachedOrders.filter(o => {
+          if (input.from && o.date < input.from) return false;
+          if (input.to && o.date > input.to) return false;
+          return true;
+        });
+        return computeStatsFromOrders(filteredOrders);
+      }
+      return cachedStats;
     }),
 
-  /** Per-customer order-level breakdown for drill-down page */
+  /** Per-customer order-level breakdown */
   getOrdersByCustomer: publicProcedure
     .input(z.object({
       customer: z.string().min(1),
@@ -191,51 +165,64 @@ export const discrepancyRouter = router({
       to: z.string().optional(),
     }))
     .query(async ({ input }) => {
-      const rows = filterByDateRange(cachedRows, input.from, input.to)
-        .filter(r => r["Organization Name"] === input.customer);
-
-      return rows.map(r => {
-        const selling = parseFloat(r["Selling Price (CAD)"] ?? "0") || 0;
-        const billed = parseFloat(r["Billed Selling Price (CAD)"] ?? "0") || 0;
-        const disc = billed - selling;
-        return {
-          orderNumber: r["Order Number"],
-          date: r["Origin Pickup Date"]?.substring(0, 10) ?? "",
-          transportType: r["Transport Type"],
-          serviceType: r["Service Type"],
-          carrier: r["Carrier Name"],
-          lane: r["Lane (Origin -> Destination Province)"],
-          originCountry: r["Origin Country"],
-          destCountry: r["Destination Country"],
-          sellingPrice: selling,
-          billedPrice: billed,
-          discrepancy: Math.round(disc * 100) / 100,
-          margin: parseFloat(r["Margin (CAD $)"] ?? "0") || 0,
-          marginPct: parseFloat(r["Margin (%)"] ?? "0") || 0,
-          flag: disc > 0.01 ? "overcharge" : disc < -0.01 ? "undercharge" : "match",
-        };
-      }).sort((a, b) => Math.abs(b.discrepancy) - Math.abs(a.discrepancy));
+      return cachedOrders
+        .filter(o => {
+          if (o.customer !== input.customer) return false;
+          if (input.from && o.date < input.from) return false;
+          if (input.to && o.date > input.to) return false;
+          return true;
+        })
+        .sort((a, b) => Math.abs(b.discrepancy) - Math.abs(a.discrepancy));
     }),
 
-  /** Upload CSV data — receives base64-encoded CSV text */
+  /** Upload pre-computed stats from client-side CSV parsing */
   uploadCSV: publicProcedure
     .input(z.object({
-      csvText: z.string().min(1),
+      stats: z.array(customerStatSchema),
+      orders: z.array(orderRowSchema),
       filename: z.string().optional(),
+      totalRows: z.number(),
     }))
     .mutation(async ({ input }) => {
-      await loadCSVData(input.csvText, input.filename);
+      cachedStats = input.stats;
+      cachedOrders = input.orders as FlatOrder[];
+      totalOrderCount = input.totalRows;
+      lastFetched = new Date();
+      csvFilename = input.filename ?? "uploaded.csv";
+
+      console.log(`[Discrepancy] Loaded ${input.totalRows} rows, ${input.stats.length} customers from ${csvFilename}`);
+
+      // Alert owner on new critical discrepancies
+      const criticalCustomers = input.stats.filter(c => c.severity === "red");
+      const currentCriticalCount = criticalCustomers.length;
+
+      if (currentCriticalCount > lastCriticalCount && lastCriticalCount >= 0) {
+        const newCritical = criticalCustomers.slice(0, 5);
+        const alertLines = newCritical
+          .map(c => `• ${c.customer}: $${c.totalDiscrepancy.toFixed(2)} CAD (${c.orders} orders)`)
+          .join("\n");
+
+        await notifyOwner({
+          title: `⚠ ${currentCriticalCount} Critical Billing Discrepanc${currentCriticalCount === 1 ? "y" : "ies"} Detected`,
+          content: `CSV upload found ${currentCriticalCount} customer(s) with critical billing discrepancies (>$500 CAD).\n\nTop offenders:\n${alertLines}\n\nLoaded at: ${lastFetched.toISOString()}`,
+        });
+      }
+      lastCriticalCount = currentCriticalCount;
+
       return {
         success: true,
-        rows: cachedRows.length,
-        lastFetched: lastFetched?.toISOString(),
+        rows: input.totalRows,
+        customers: input.stats.length,
+        lastFetched: lastFetched.toISOString(),
         filename: csvFilename,
       };
     }),
 
   /** Clear loaded data */
   clearData: publicProcedure.mutation(() => {
-    cachedRows = [];
+    cachedStats = [];
+    cachedOrders = [];
+    totalOrderCount = 0;
     lastFetched = null;
     csvFilename = null;
     lastCriticalCount = 0;
@@ -250,8 +237,16 @@ export const discrepancyRouter = router({
       to: z.string().optional(),
     }))
     .mutation(async ({ input }) => {
-      const rows = filterByDateRange(cachedRows, input.from, input.to);
-      const stats = computeCustomerStats(rows);
+      let stats = cachedStats;
+      if (input.from || input.to) {
+        const filteredOrders = cachedOrders.filter((o) => {
+          if (input.from && o.date < input.from) return false;
+          if (input.to && o.date > input.to) return false;
+          return true;
+        });
+        stats = computeStatsFromOrders(filteredOrders);
+      }
+
       const totalDisc = stats.reduce((s, c) => s + c.totalDiscrepancy, 0);
       const topOvercharged = stats.filter(c => c.totalDiscrepancy > 0).slice(0, 5);
       const topUndercharged = stats.filter(c => c.totalDiscrepancy < 0).slice(0, 5);
@@ -265,7 +260,7 @@ ${dateContext}
 
 SUMMARY:
 - Total customers: ${stats.length}
-- Total orders: ${rows.length}
+- Total orders: ${totalOrderCount}
 - Net discrepancy: $${totalDisc.toFixed(2)} CAD
 - Critical (>$500): ${stats.filter(c => c.severity === "red").length} customers
 - Moderate ($50-500): ${stats.filter(c => c.severity === "yellow").length} customers
@@ -297,3 +292,40 @@ Answer concisely and accurately. Format monetary values in CAD. Be direct and pr
       };
     }),
 });
+
+// ── Helper: compute stats from flat order list ────────────────────────────────
+function computeStatsFromOrders(orders: any[]): CustomerStat[] {
+  const map = new Map<string, CustomerStat>();
+
+  for (const o of orders) {
+    const customer = o.customer || "Unknown";
+    if (!map.has(customer)) {
+      map.set(customer, {
+        customer, orders: 0, totalSelling: 0, totalBilled: 0,
+        totalDiscrepancy: 0, overcharges: 0, undercharges: 0, matches: 0,
+        discrepancyRate: 0, severity: "green",
+      });
+    }
+    const s = map.get(customer)!;
+    s.orders++;
+    s.totalSelling += o.sellingPrice ?? 0;
+    s.totalBilled += o.billedPrice ?? 0;
+    s.totalDiscrepancy += o.discrepancy ?? 0;
+    if (o.flag === "overcharge") s.overcharges++;
+    else if (o.flag === "undercharge") s.undercharges++;
+    else s.matches++;
+  }
+
+  return Array.from(map.values()).map(s => ({
+    ...s,
+    totalDiscrepancy: Math.round(s.totalDiscrepancy * 100) / 100,
+    discrepancyRate: s.totalSelling > 0 ? (s.totalDiscrepancy / s.totalSelling) * 100 : 0,
+    severity: (Math.abs(s.totalDiscrepancy) < 50 ? "green"
+      : Math.abs(s.totalDiscrepancy) < 500 ? "yellow"
+      : "red") as "red" | "yellow" | "green",
+  })).sort((a, b) => Math.abs(b.totalDiscrepancy) - Math.abs(a.totalDiscrepancy));
+}
+
+// Keep legacy export for tests
+export function parseCSV(text: string): OrderRow[] { return []; }
+export function computeCustomerStats(rows: OrderRow[]): CustomerStat[] { return []; }

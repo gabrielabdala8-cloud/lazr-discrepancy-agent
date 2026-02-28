@@ -26,6 +26,103 @@ const PRESETS = [
 function toISO(d: Date) { return d.toISOString().substring(0, 10); }
 function daysAgo(n: number) { const d = new Date(); d.setDate(d.getDate() - n); return toISO(d); }
 
+// ── Client-side CSV parser ────────────────────────────────────────────────────
+function parseCSVClientSide(text: string) {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (lines.length < 2) throw new Error("CSV has no data rows");
+
+  function parseLine(line: string): string[] {
+    const result: string[] = [];
+    let current = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') {
+        if (inQuotes && line[i + 1] === '"') { current += '"'; i++; }
+        else inQuotes = !inQuotes;
+      } else if (ch === ',' && !inQuotes) {
+        result.push(current); current = "";
+      } else { current += ch; }
+    }
+    result.push(current);
+    return result;
+  }
+
+  const headers = parseLine(lines[0]);
+  const SKIP_STATUSES = new Set(["GHOST", "DRAFT"]);
+
+  const orders: {
+    orderNumber: string; customer: string; date: string;
+    transportType: string; serviceType: string; carrier: string;
+    lane: string; originCountry: string; destCountry: string;
+    sellingPrice: number; billedPrice: number; discrepancy: number;
+    margin: number; marginPct: number; flag: "overcharge" | "undercharge" | "match";
+  }[] = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const vals = parseLine(lines[i]);
+    const row: Record<string, string> = {};
+    headers.forEach((h, idx) => { row[h] = vals[idx] ?? ""; });
+
+    const status = row["Order Status"] ?? "";
+    if (SKIP_STATUSES.has(status)) continue;
+    const customer = row["Organization Name"]?.trim();
+    if (!customer) continue;
+
+    const selling = parseFloat(row["Selling Price (CAD)"] ?? "0") || 0;
+    const billed = parseFloat(row["Billed Selling Price (CAD)"] ?? "0") || 0;
+    const disc = Math.round((billed - selling) * 100) / 100;
+
+    orders.push({
+      orderNumber: row["Order Number"] ?? "",
+      customer,
+      date: (row["Origin Pickup Date"] ?? "").substring(0, 10),
+      transportType: row["Transport Type"] ?? "",
+      serviceType: row["Service Type"] ?? "",
+      carrier: row["Carrier Name"] ?? "",
+      lane: row["Lane (Origin -> Destination Province)"] ?? "",
+      originCountry: row["Origin Country"] ?? "",
+      destCountry: row["Destination Country"] ?? "",
+      sellingPrice: selling,
+      billedPrice: billed,
+      discrepancy: disc,
+      margin: parseFloat(row["Margin (CAD $)"] ?? "0") || 0,
+      marginPct: parseFloat(row["Margin (%)"] ?? "0") || 0,
+      flag: disc > 0.01 ? "overcharge" : disc < -0.01 ? "undercharge" : "match",
+    });
+  }
+
+  // Aggregate per customer
+  const map = new Map<string, {
+    customer: string; orders: number; totalSelling: number; totalBilled: number;
+    totalDiscrepancy: number; overcharges: number; undercharges: number; matches: number;
+  }>();
+
+  for (const o of orders) {
+    if (!map.has(o.customer)) {
+      map.set(o.customer, { customer: o.customer, orders: 0, totalSelling: 0, totalBilled: 0, totalDiscrepancy: 0, overcharges: 0, undercharges: 0, matches: 0 });
+    }
+    const s = map.get(o.customer)!;
+    s.orders++;
+    s.totalSelling += o.sellingPrice;
+    s.totalBilled += o.billedPrice;
+    s.totalDiscrepancy += o.discrepancy;
+    if (o.flag === "overcharge") s.overcharges++;
+    else if (o.flag === "undercharge") s.undercharges++;
+    else s.matches++;
+  }
+
+  const stats = Array.from(map.values()).map(s => ({
+    ...s,
+    totalDiscrepancy: Math.round(s.totalDiscrepancy * 100) / 100,
+    discrepancyRate: s.totalSelling > 0 ? (s.totalDiscrepancy / s.totalSelling) * 100 : 0,
+    severity: (Math.abs(s.totalDiscrepancy) < 50 ? "green"
+      : Math.abs(s.totalDiscrepancy) < 500 ? "yellow" : "red") as "red" | "yellow" | "green",
+  })).sort((a, b) => Math.abs(b.totalDiscrepancy) - Math.abs(a.totalDiscrepancy));
+
+  return { stats, orders, totalRows: orders.length };
+}
+
 export default function Dashboard() {
   const [, navigate] = useLocation();
   const [sortKey, setSortKey] = useState<SortKey>("totalDiscrepancy");
@@ -72,8 +169,13 @@ export default function Dashboard() {
       return;
     }
     setUploadError(null);
-    const text = await file.text();
-    uploadMut.mutate({ csvText: text, filename: file.name });
+    try {
+      const text = await file.text();
+      const { stats, orders, totalRows } = parseCSVClientSide(text);
+      uploadMut.mutate({ stats, orders, totalRows, filename: file.name });
+    } catch (e: any) {
+      setUploadError("Failed to parse CSV: " + (e?.message ?? "Unknown error"));
+    }
   }
 
   function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
